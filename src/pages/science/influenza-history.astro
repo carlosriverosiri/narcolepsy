@@ -1,0 +1,141 @@
+---
+// src/pages/science/influenza-history.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import InfluenzaTimeline from "../../components/science/InfluenzaTimeline";
+---
+
+<BaseLayout 
+  title="Influenza Strain History (1976–2026)"
+  description="50 years of influenza strains and vaccine compositions. Interactive timeline showing H1N1, H3N2 dominance and pandemic years."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/science/" class="hover:text-white transition-colors">Science</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">Influenza History</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Influenza Strain History</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        50 years of circulating influenza strains and vaccine compositions (1976–2026).
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Events -->
+  <section class="py-8 bg-amber-50 border-b border-amber-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-lg font-bold text-amber-800 mb-4">Key Events Relevant to The Axonal Highway Hypothesis</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white rounded-lg p-4 border border-amber-200">
+          <div class="text-amber-600 font-mono font-bold">1977–1978</div>
+          <div class="font-bold text-slate-800">Russian Flu (H1N1)</div>
+          <p class="text-sm text-slate-600">Re-emergence of H1N1 after 20-year absence. Lab escape theory.</p>
+        </div>
+        <div class="bg-red-50 rounded-lg p-4 border-2 border-red-400">
+          <div class="text-red-600 font-mono font-bold">2009–2010</div>
+          <div class="font-bold text-red-800">Swine Flu Pandemic (H1N1pdm09)</div>
+          <p class="text-sm text-red-700">🔴 <strong>Pandemrix vaccination → Narcolepsy epidemic</strong></p>
+        </div>
+        <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+          <div class="text-blue-600 font-mono font-bold">2016–2017</div>
+          <div class="font-bold text-slate-800">H3N2 Dominant Season</div>
+          <p class="text-sm text-slate-600">🟡 Coincides with Havana Syndrome onset (speculative)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Timeline -->
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <InfluenzaTimeline client:load />
+    </div>
+  </section>
+
+  <!-- Context -->
+  <section class="py-12 bg-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Relevance to the Hypothesis</h2>
+      
+      <div class="prose-science">
+        <h3>H1N1 and Sleep Disorders</h3>
+        <p>
+          The hypothesis proposes that H1N1 influenza has specific affinity for <strong>GT1b ganglioside</strong>, 
+          which may be enriched in orexin-producing neurons. Historical evidence supports a connection 
+          between H1N1 and sleep disorders:
+        </p>
+        <ul>
+          <li><strong>1918:</strong> Spanish Flu (H1N1) → Encephalitis lethargica epidemic</li>
+          <li><strong>2009:</strong> Swine Flu (H1N1pdm09) → Pandemrix → Narcolepsy</li>
+        </ul>
+
+        <h3>H3N2 and Auditory Symptoms</h3>
+        <p>
+          The speculative <a href="/speculation/havana-syndrome/">Havana Syndrome hypothesis</a> proposes that 
+          H3N2 influenza may have affinity for <strong>GM3 ganglioside</strong>, which is essential for 
+          cochlear function. The 2016–2017 season saw dominant H3N2 circulation coinciding with the 
+          onset of Havana Syndrome cases.
+        </p>
+
+        <h3>Ganglioside-Specific Neurotropism</h3>
+        <p>
+          Different influenza subtypes may target different neuronal populations based on their 
+          ganglioside binding preferences:
+        </p>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b bg-slate-200">
+              <th class="text-left py-2 px-3">Subtype</th>
+              <th class="text-left py-2 px-3">Ganglioside</th>
+              <th class="text-left py-2 px-3">Target Cells</th>
+              <th class="text-left py-2 px-3">Potential Syndrome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 px-3 font-mono">H1N1</td>
+              <td class="py-2 px-3">GT1b</td>
+              <td class="py-2 px-3">Orexin neurons</td>
+              <td class="py-2 px-3">Narcolepsy</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-3 font-mono">H3N2</td>
+              <td class="py-2 px-3">GM3</td>
+              <td class="py-2 px-3">Spiral ganglion</td>
+              <td class="py-2 px-3">Auditory symptoms</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section class="py-8 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-slate-900 mb-4">References</h2>
+      <ol class="text-sm text-slate-600 space-y-2 list-decimal list-inside">
+        <li>
+          WHO Global Influenza Programme (2024). Recommended composition of influenza virus vaccines. 
+          <a href="https://www.who.int/publications/i/item/recommended-composition-of-influenza-virus-vaccines-for-use-in-the-2024-2025-northern-hemisphere-influenza-season" class="text-blue-600 hover:underline" target="_blank">WHO</a>
+        </li>
+        <li>
+          WHO Global Influenza Programme (2025). Recommended composition for 2025-2026. 
+          <a href="https://www.who.int/publications/i/item/recommended-composition-of-influenza-virus-vaccines-for-use-in-the-2025-2026-northern-hemisphere-influenza-season" class="text-blue-600 hover:underline" target="_blank">WHO</a>
+        </li>
+        <li>
+          CDC (2024). Influenza (Flu) - Past Seasons Summary. 
+          <a href="https://www.cdc.gov/flu/about/season/past-seasons.html" class="text-blue-600 hover:underline" target="_blank">CDC</a>
+        </li>
+        <li>
+          Harper SA, et al. (2005). Prevention and control of influenza: recommendations of ACIP. 
+          <a href="https://doi.org/10.15585/mmwr.rr5408a1" class="text-blue-600 hover:underline" target="_blank">MMWR</a>
+        </li>
+      </ol>
+    </div>
+  </section>
+</BaseLayout>
