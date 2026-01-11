@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Ipotesi Narcolessia",
+    "description": "Un'ipotesi scientifica che esplora il collegamento tra l'iniezione intraneuronale di vaccino, il trasporto dei gangliosidi e la narcolessia post-vaccinazione dopo la pandemia H1N1 del 2009."
+  },
+  "nav": {
+    "home": "Home",
+    "hypothesis": "L'Ipotesi",
+    "background": "Contesto",
+    "narcolepsy": "Narcolessia",
+    "encephalitis": "Encefalite Letargica",
+    "science": "Scienza",
+    "gangliosides": "Gangliosidi",
+    "neuronal_transport": "Trasporto Neuronale",
+    "genetics": "Genetica",
+    "evidence": "Evidenze",
+    "pandemrix": "Pandemrix",
+    "cross_reactivity": "Reattività Crociata",
+    "references": "Riferimenti",
+    "about": "Chi siamo"
+  },
+  "hero": {
+    "title": "L'Ipotesi dell'Autostrada Ascellare",
+    "subtitle": "Come l'iniezione intraneuronale di vaccino può scatenare la narcolessia attraverso il trasporto mediato dai gangliosidi all'ipotalamo",
+    "cta": "Esplora la scienza",
+    "cta_secondary": "Leggi l'ipotesi"
+  },
+  "sections": {
+    "hypothesis": {
+      "title": "L'Ipotesi",
+      "intro": "Una nuova spiegazione per la narcolessia post-vaccinazione basata sui meccanismi di trasporto neuronale"
+    },
+    "gangliosides": {
+      "title": "Metabolismo dei Gangliosidi",
+      "subtitle": "Visualizzazione interattiva della biosintesi e degradazione lisosomiale",
+      "biosynthesis": "Biosintesi",
+      "degradation": "Degradazione",
+      "clinical_relevance": "Rilevanza Clinica"
+    },
+    "genetics": {
+      "title": "Fattori Genetici",
+      "subtitle": "Geni HLA, locus della neuraminidasi e regolazione di GT1B"
+    },
+    "transport": {
+      "title": "Trasporto Neuronale",
+      "subtitle": "Come le sostanze con affinità per i gangliosidi raggiungono il midollo spinale"
+    }
+  },
+  "common": {
+    "read_more": "Leggi di più",
+    "learn_more": "Scopri di più",
+    "references": "Riferimenti",
+    "published": "Pubblicato",
+    "updated": "Aggiornato",
+    "author": "Autore",
+    "share": "Condividi",
+    "cite": "Cita questa pagina",
+    "download_pdf": "Scarica PDF"
+  },
+  "footer": {
+    "copyright": "© 2026 Ipotesi Narcolessia. Contenuto scientifico a scopo educativo.",
+    "disclaimer": "Questo sito presenta un'ipotesi scientifica. Non è un consiglio medico.",
+    "contact": "Contatti",
+    "back_to_top": "Torna su"
+  },
+  "language": {
+    "select": "Seleziona lingua",
+    "current": "Italiano"
+  }
+}

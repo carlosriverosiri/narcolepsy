@@ -1,0 +1,143 @@
+---
+// src/pages/about.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { useTranslations } from "../i18n";
+
+const t = useTranslations('en');
+---
+
+<BaseLayout 
+  title={t.nav.about}
+  description="About the author - a neuroanatomist with 20 years of experience in ganglioside research and neural tracing studies."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">About</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">About the Author</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        The scientific background and expertise behind this hypothesis.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        
+        <h2>Research Background</h2>
+        <p>
+          I am a neuroanatomist with over 20 years of experience in neuroscience research, 
+          specializing in:
+        </p>
+        <ul>
+          <li><strong>Ganglioside biochemistry</strong> — studying the affinity of various lectins and toxins for gangliosides</li>
+          <li><strong>Neural tracing techniques</strong> — extensive experience with retrograde tracers including cholera toxin and tetanus toxin fragments</li>
+          <li><strong>Spinal cord neuroanatomy</strong> — mapping peripheral nerve projections to specific spinal cord laminae</li>
+          <li><strong>Axonal transport mechanisms</strong> — understanding how substances move within neurons</li>
+        </ul>
+
+        <h2>Relevant Research Experience</h2>
+        
+        <h3>Neurotracing Studies</h3>
+        <p>
+          My research involved injecting various tracers into peripheral nerves and tracking their 
+          transport to the spinal cord. Key findings from this work include:
+        </p>
+        <ul>
+          <li>
+            <strong>Intraneuronal vs. perineuronal injection:</strong> Direct injection into the nerve 
+            fascicle produces far more efficient transport than application near the nerve.
+          </li>
+          <li>
+            <strong>Differential release patterns:</strong> Cholera toxin remains in nerve terminals, 
+            while tetanus toxin is released into the spinal cord parenchyma.
+          </li>
+          <li>
+            <strong>Antibody co-transport:</strong> Antibodies conjugated to tracers can be transported 
+            retrograde, demonstrating that immune complexes can reach the CNS via peripheral nerves.
+          </li>
+        </ul>
+
+        <h3>Ganglioside Affinity Studies</h3>
+        <p>
+          I have studied the binding properties of various molecules to gangliosides, with particular 
+          focus on GT1b — the receptor for tetanus toxin. This research provided the foundation for 
+          understanding how H1N1 vaccine components might be transported through the nervous system.
+        </p>
+
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Unpublished Observations</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            Some of the key observations underlying this hypothesis come from experiments that were 
+            never formally published. While this limits their citability, the findings were consistent 
+            and reproducible across multiple experiments.
+          </p>
+        </div>
+
+        <h2>Why This Hypothesis?</h2>
+        <p>
+          The Pandemrix-narcolepsy association has puzzled researchers for over a decade. Existing 
+          explanations based on molecular mimicry are plausible but incomplete — they don't explain 
+          the route by which immune responses specifically target hypothalamic neurons.
+        </p>
+        <p>
+          My background in neural transport mechanisms offers a unique perspective: understanding 
+          how substances can travel from peripheral injection sites to specific CNS regions. The 
+          "Axonal Highway Hypothesis" emerged from combining this knowledge with the epidemiological 
+          evidence.
+        </p>
+
+        <h2>The Role of AI</h2>
+        <p>
+          This hypothesis involves multiple complex, interconnected fields: virology, immunology, 
+          glycobiology, neuroanatomy, and genetics. Presenting such a multidisciplinary theory in 
+          a comprehensible way has been challenging until now.
+        </p>
+        <p>
+          AI tools have enabled me to:
+        </p>
+        <ul>
+          <li>Organize complex information into accessible formats</li>
+          <li>Create interactive visualizations of biochemical pathways</li>
+          <li>Cross-reference literature across multiple fields</li>
+          <li>Communicate the hypothesis clearly to diverse audiences</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>
+          This website is intended to present a scientific hypothesis for peer review and discussion. 
+          If you have questions, critiques, or supporting evidence, I welcome scientific discourse.
+        </p>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="py-12 bg-amber-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0">
+          <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-amber-800 mb-2">Important Disclaimer</h3>
+          <p class="text-amber-700">
+            This website presents a scientific hypothesis. It is not medical advice and should not 
+            influence vaccination decisions. Vaccines remain one of the most important public health 
+            interventions. The goal is to understand rare adverse events to improve future vaccine 
+            safety, not to discourage vaccination.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

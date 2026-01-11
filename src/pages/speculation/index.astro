@@ -1,0 +1,107 @@
+---
+// src/pages/speculation/index.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout 
+  title="Speculative Hypotheses"
+  description="Alternative hypotheses exploring the role of gangliosides in unexplained medical phenomena."
+>
+  <!-- Warning Banner -->
+  <section class="bg-amber-500 text-amber-950 py-4">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="font-bold text-lg">⚠️ SPECULATIVE CONTENT</p>
+      <p class="text-sm">These pages present alternative hypotheses for discussion and further investigation. They are not peer-reviewed or established science.</p>
+    </div>
+  </section>
+
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">Speculation</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Thinking Outside the Box</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        The ganglioside system is largely unknown in clinical medicine. These pages explore 
+        alternative hypotheses for unexplained medical phenomena through the lens of 
+        glycosphingolipid biology.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-slate-100 rounded-lg p-6 mb-8">
+        <h2 class="text-xl font-bold text-slate-800 mb-3">Why Speculate?</h2>
+        <p class="text-slate-700">
+          Many medical mysteries remain unsolved because researchers look in familiar places. 
+          Gangliosides represent a <strong>"hidden system"</strong> that determines which cells 
+          are targeted by pathogens, toxins, and autoimmune responses. By considering ganglioside 
+          biology, we can generate new hypotheses that might explain previously puzzling phenomena.
+        </p>
+      </div>
+
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Speculative Hypotheses</h2>
+
+      <div class="space-y-6">
+        <!-- Havana Syndrome -->
+        <a href="/speculation/havana-syndrome/" class="block bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="text-4xl">👂</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">Havana Syndrome: A Ganglioside Hypothesis?</h3>
+              <p class="text-slate-600 mb-3">
+                Could the mysterious auditory symptoms reported by U.S. diplomats in Cuba (2016-2017) 
+                be explained by H3N2 influenza's affinity for GM3 gangliosides in cochlear hair cells?
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded">H3N2</span>
+                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">GM3</span>
+                <span class="px-2 py-1 bg-pink-100 text-pink-800 text-xs rounded">Cochlea</span>
+                <span class="px-2 py-1 bg-slate-100 text-slate-800 text-xs rounded">2016-2017</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Future: More speculative pages could be added here -->
+        <div class="bg-slate-50 border border-dashed border-slate-300 rounded-lg p-6 text-center text-slate-500">
+          <p class="text-lg mb-2">More hypotheses coming...</p>
+          <p class="text-sm">
+            Other unexplained phenomena that might involve ganglioside biology: 
+            post-viral syndromes, chronic fatigue, long COVID vestibular symptoms, etc.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-amber-50 border-l-4 border-amber-400 p-6">
+        <h3 class="font-bold text-amber-800 mb-2">The Scientific Method</h3>
+        <p class="text-amber-700 text-sm">
+          Speculation is the first step in the scientific process. These hypotheses are 
+          presented not as established facts, but as <strong>testable ideas</strong> that 
+          could be investigated with proper research. If you are a researcher interested 
+          in exploring these connections, we welcome collaboration.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="py-12 bg-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4">Established Hypotheses</h2>
+      <p class="text-slate-600 mb-6">
+        For the main hypothesis on Pandemrix and narcolepsy (with stronger evidence):
+      </p>
+      <a href="/hypothesis/" class="inline-flex items-center px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors">
+        The Axonal Highway Hypothesis →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

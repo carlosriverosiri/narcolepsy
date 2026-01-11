@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Narcolepsie Hypothese",
+    "description": "Een wetenschappelijke hypothese die het verband onderzoekt tussen intraneuronale vaccininjectie, ganglioside transport en narcolepsie na vaccinatie na de H1N1-pandemie van 2009."
+  },
+  "nav": {
+    "home": "Home",
+    "hypothesis": "De Hypothese",
+    "background": "Achtergrond",
+    "narcolepsy": "Narcolepsie",
+    "encephalitis": "Encephalitis Lethargica",
+    "science": "Wetenschap",
+    "gangliosides": "Gangliosiden",
+    "neuronal_transport": "Neuronaal Transport",
+    "genetics": "Genetica",
+    "evidence": "Bewijs",
+    "pandemrix": "Pandemrix",
+    "cross_reactivity": "Kruisreactiviteit",
+    "references": "Referenties",
+    "about": "Over"
+  },
+  "hero": {
+    "title": "De Axillaire Snelweg Hypothese",
+    "subtitle": "Hoe intraneuronale vaccininjectie narcolepsie kan veroorzaken door ganglioside-gemedieerd transport naar de hypothalamus",
+    "cta": "Ontdek de wetenschap",
+    "cta_secondary": "Lees de hypothese"
+  },
+  "sections": {
+    "hypothesis": {
+      "title": "De Hypothese",
+      "intro": "Een nieuwe verklaring voor narcolepsie na vaccinatie gebaseerd op neuronale transportmechanismen"
+    },
+    "gangliosides": {
+      "title": "Ganglioside Metabolisme",
+      "subtitle": "Interactieve visualisatie van biosynthese en lysosomale afbraak",
+      "biosynthesis": "Biosynthese",
+      "degradation": "Afbraak",
+      "clinical_relevance": "Klinische Relevantie"
+    },
+    "genetics": {
+      "title": "Genetische Factoren",
+      "subtitle": "HLA-genen, neuraminidase locus en GT1B-regulatie"
+    },
+    "transport": {
+      "title": "Neuronaal Transport",
+      "subtitle": "Hoe stoffen met ganglioside affiniteit het ruggenmerg bereiken"
+    }
+  },
+  "common": {
+    "read_more": "Lees meer",
+    "learn_more": "Meer informatie",
+    "references": "Referenties",
+    "published": "Gepubliceerd",
+    "updated": "Bijgewerkt",
+    "author": "Auteur",
+    "share": "Delen",
+    "cite": "Citeer deze pagina",
+    "download_pdf": "Download PDF"
+  },
+  "footer": {
+    "copyright": "© 2026 Narcolepsie Hypothese. Wetenschappelijke inhoud voor educatieve doeleinden.",
+    "disclaimer": "Deze website presenteert een wetenschappelijke hypothese. Dit is geen medisch advies.",
+    "contact": "Contact",
+    "back_to_top": "Terug naar boven"
+  },
+  "language": {
+    "select": "Taal kiezen",
+    "current": "Nederlands"
+  }
+}

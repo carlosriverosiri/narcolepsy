@@ -1,0 +1,298 @@
+---
+// src/pages/science/genetics.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { useTranslations } from "../../i18n";
+
+const t = useTranslations('en');
+---
+
+<BaseLayout 
+  title={t.sections.genetics.title}
+  description="Genetic factors in post-vaccination narcolepsy: HLA associations, B3GALT4 variants, and GT1B regulation."
+>
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/science/" class="hover:text-white transition-colors">Science</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">Genetics</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{t.sections.genetics.title}</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        {t.sections.genetics.subtitle}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        
+        <h2>HLA-DQB1*06:02 Association</h2>
+        <p>
+          Virtually all cases of Pandemrix-associated narcolepsy occur in individuals carrying 
+          the HLA-DQB1*06:02 allele. This strong genetic association has been interpreted as 
+          evidence for autoimmune etiology — HLA molecules present antigens to T cells, and 
+          DQB1*06:02 may efficiently present H1N1-derived peptides that cross-react with 
+          orexin receptor epitopes.
+        </p>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Block Inheritance — The Critical Point</div>
+          <p class="mb-0">
+            HLA genes are inherited in blocks (haplotypes). The DQB1*06:02 allele is in strong 
+            linkage disequilibrium with many nearby genes. <strong>Critically, the ganglioside 
+            synthesis gene B3GALT4 is located at 6p21.32 — directly within the HLA region.</strong> 
+            The true susceptibility gene may not be DQB1*06:02 itself, but B3GALT4 or another linked variant.
+          </p>
+        </div>
+
+        <h2>The B3GALT4 Connection — Key Discovery</h2>
+        <p>
+          <span class="gene-name">B3GALT4</span> (Beta-1,3-galactosyltransferase 4) is located on 
+          <strong>Chromosome 6p21.32</strong> — the same chromosomal band as the HLA complex. 
+          This gene encodes the enzyme that catalyzes a critical step in GT1b biosynthesis:
+        </p>
+        
+        <div class="bg-slate-100 rounded-lg p-4 my-6 font-mono text-sm">
+          GD2 → <span class="text-red-600 font-bold">GD1b</span> → GT1b
+          <br/>
+          <span class="text-slate-500">↑ B3GALT4 adds galactose here</span>
+        </div>
+
+        <p>
+          This is potentially the most important genetic finding for this hypothesis:
+        </p>
+        <ul>
+          <li>B3GALT4 is <strong>essential</strong> for GT1b production</li>
+          <li>It lies in the <strong>same chromosomal region</strong> as HLA-DQB1</li>
+          <li>Variants affecting B3GALT4 expression could directly alter GT1b levels in neurons</li>
+          <li>The apparent "HLA association" may actually be a <strong>B3GALT4 association</strong></li>
+        </ul>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">Reinterpreting the HLA Association</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            If narcolepsy susceptibility is driven by B3GALT4 variants (affecting GT1b synthesis) 
+            rather than HLA-DQB1*06:02 (affecting antigen presentation), this fundamentally changes 
+            our understanding of the mechanism. The disease would be primarily a disorder of 
+            <em>ganglioside-mediated transport</em> rather than <em>HLA-mediated autoimmunity</em> — 
+            though autoimmunity remains the downstream effector.
+          </p>
+        </div>
+
+        <h2>Chromosome 6p21.3 — The Narcolepsy Region</h2>
+        <p>
+          The 6p21.3 region contains both the HLA complex and B3GALT4. Key genes in this region:
+        </p>
+        
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Gene</th>
+              <th class="text-left py-2 px-2">Location</th>
+              <th class="text-left py-2 px-2">Function</th>
+              <th class="text-left py-2 px-2">Role in Hypothesis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b bg-amber-50">
+              <td class="py-2 px-2"><span class="gene-name">B3GALT4</span></td>
+              <td class="py-2 px-2 font-bold text-red-700">6p21.32</td>
+              <td class="py-2 px-2">GM1/GD1b synthase</td>
+              <td class="py-2 px-2"><strong>KEY</strong> — Creates GD1b, precursor to GT1b</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2"><span class="gene-name">HLA-DQB1</span></td>
+              <td class="py-2 px-2">6p21.32</td>
+              <td class="py-2 px-2">MHC class II</td>
+              <td class="py-2 px-2">Antigen presentation — may be linked marker</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2"><span class="gene-name">HLA-DRB1</span></td>
+              <td class="py-2 px-2">6p21.32</td>
+              <td class="py-2 px-2">MHC class II</td>
+              <td class="py-2 px-2">Also associated with narcolepsy</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Complete GT1b Biosynthesis Pathway — Genetic Map</h2>
+        <p>
+          The enzymes required to synthesize GT1b are distributed across multiple chromosomes:
+        </p>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2">Gene</th>
+              <th class="text-left py-2">Chromosome</th>
+              <th class="text-left py-2">Reaction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">ST3GAL5</span></td>
+              <td class="py-2">2p11.2</td>
+              <td class="py-2">LacCer → GM3 (initiates pathway)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">ST8SIA1</span></td>
+              <td class="py-2">12p12.1</td>
+              <td class="py-2">GM3 → GD3 (creates b-series)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">B4GALNT1</span></td>
+              <td class="py-2">12q13.3</td>
+              <td class="py-2">GD3 → GD2</td>
+            </tr>
+            <tr class="border-b bg-amber-50">
+              <td class="py-2"><span class="gene-name">B3GALT4</span></td>
+              <td class="py-2 font-bold text-red-700">6p21.32 ⚠️</td>
+              <td class="py-2"><strong>GD2 → GD1b</strong> (in HLA region!)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">ST3GAL2</span></td>
+              <td class="py-2">16q22.1</td>
+              <td class="py-2">GD1b → GT1b (final step)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Proposed Mechanism — Revised</h2>
+        <p>
+          The B3GALT4 discovery suggests a refined mechanism:
+        </p>
+        <ol>
+          <li>
+            <strong>Genetic susceptibility:</strong> Individuals with HLA-DQB1*06:02 carry a 
+            linked B3GALT4 variant that increases GD1b/GT1b production
+          </li>
+          <li>
+            <strong>Elevated GT1b:</strong> Higher GT1b levels on nerve terminal membranes 
+            enhance binding and uptake of GT1b-binding molecules
+          </li>
+          <li>
+            <strong>Enhanced transport:</strong> Vaccine antigens with GT1b affinity are 
+            transported more efficiently to the spinal cord
+          </li>
+          <li>
+            <strong>Autoimmune trigger:</strong> Antigens released in lamina I trigger 
+            autoimmune response against orexin neurons
+          </li>
+          <li>
+            <strong>HLA contribution:</strong> DQB1*06:02 may still contribute by efficiently 
+            presenting the cross-reactive epitopes — but it's secondary to the transport mechanism
+          </li>
+        </ol>
+
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Critical Research Questions</h4>
+          <ul class="text-blue-700 text-sm mb-0 space-y-1">
+            <li>• Are B3GALT4 expression levels elevated in DQB1*06:02 carriers?</li>
+            <li>• Do narcolepsy patients have higher GT1b levels in peripheral nerves?</li>
+            <li>• Are there specific B3GALT4 SNPs in linkage disequilibrium with DQB1*06:02?</li>
+            <li>• Can B3GALT4 variants alone (without DQB1*06:02) confer susceptibility?</li>
+          </ul>
+        </div>
+
+        <h2>The Missing Disease — Why GT1b Variants Go Undetected</h2>
+        <p>
+          A striking observation: while there are well-characterized storage diseases for most gangliosides, 
+          <strong>there is no known disease caused by primary accumulation of GD1b or GT1b</strong>.
+        </p>
+        
+        <table class="w-full text-sm my-6">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Ganglioside</th>
+              <th class="text-left py-2 px-2">Accumulation Disease</th>
+              <th class="text-left py-2 px-2">Enzyme Defect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 px-2">GM1</td>
+              <td class="py-2 px-2">GM1 gangliosidosis</td>
+              <td class="py-2 px-2">β-Galactosidase (GLB1)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2">GM2</td>
+              <td class="py-2 px-2">Tay-Sachs, Sandhoff disease</td>
+              <td class="py-2 px-2">Hexosaminidase A/B</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2">GM3</td>
+              <td class="py-2 px-2">GM3 synthase deficiency</td>
+              <td class="py-2 px-2">ST3GAL5</td>
+            </tr>
+            <tr class="border-b bg-amber-50">
+              <td class="py-2 px-2 font-bold">GD1b</td>
+              <td class="py-2 px-2 text-slate-400 italic">None known</td>
+              <td class="py-2 px-2">—</td>
+            </tr>
+            <tr class="border-b bg-amber-50">
+              <td class="py-2 px-2 font-bold">GT1b</td>
+              <td class="py-2 px-2 text-slate-400 italic">None known</td>
+              <td class="py-2 px-2">—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Why No GT1b Storage Disease?</div>
+          <p>
+            The answer lies in the <strong>shedding mechanism</strong>. B-series gangliosides (GD1b, GT1b, GQ1b) 
+            are exported from neurons via <strong>extracellular vesicles (EVs/exosomes)</strong>. This 
+            ceramide-dependent budding process acts as a "bypass" of normal lysosomal degradation:
+          </p>
+          <ul class="mt-2 mb-0 text-sm">
+            <li>A-series (GM1, GM2): Low shedding → lysosomal accumulation → storage diseases</li>
+            <li>B-series (GT1b, GQ1b): High shedding → extracellular export → <strong>no storage disease</strong></li>
+          </ul>
+          <p class="mt-2 mb-0 text-sm">
+            However, this shedding <em>increases immune exposure</em> — glycan epitopes on shed EVs are 
+            accessible to antibodies, explaining autoimmune syndromes like Miller Fisher (anti-GQ1b).
+          </p>
+        </div>
+
+        <h3>Implications for the Hypothesis</h3>
+        <p>
+          This "invisible phenotype" has profound implications:
+        </p>
+        <ol>
+          <li>
+            <strong>No clinical flag:</strong> Individuals with B3GALT4 variants that increase GT1b 
+            production would have no apparent disease — the excess GT1b is simply released extracellularly.
+          </li>
+          <li>
+            <strong>Hidden susceptibility:</strong> The only "symptom" would be increased vulnerability 
+            to GT1b-mediated pathogen transport — which would only manifest if exposed to the right trigger.
+          </li>
+          <li>
+            <strong>The HLA paradox explained:</strong> This explains why HLA-DQB1*06:02 carriers have 
+            no other phenotype besides narcolepsy susceptibility — the linked B3GALT4 variant affects 
+            only extracellular GT1b release, not intracellular storage.
+          </li>
+          <li>
+            <strong>Population frequency:</strong> Because there's no selective pressure against GT1b 
+            accumulation variants, they may be relatively common in the population.
+          </li>
+        </ol>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">The Tetanus Toxin Parallel</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            Unpublished research showed that tetanus toxin (GT1b-binding) is released extraneuronally 
+            in the spinal cord, while cholera toxin (GM1-binding) remains confined to nerve terminals. 
+            This differential behavior suggests GT1b has a unique "export" function that other 
+            gangliosides lack — explaining both why GT1b doesn't cause storage disease AND why 
+            GT1b-binding antigens can trigger autoimmune responses in the CNS.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

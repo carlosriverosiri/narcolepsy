@@ -1,0 +1,117 @@
+---
+// src/pages/references.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { useTranslations } from "../i18n";
+
+const t = useTranslations('en');
+---
+
+<BaseLayout 
+  title={t.nav.references}
+  description="Complete reference list for the Axonal Highway Hypothesis."
+>
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">References</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">References</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        Scientific literature supporting the hypothesis.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        
+        <h2>Epidemiology</h2>
+        <ol class="reference-list">
+          <li data-ref="[1]">
+            Nohynek H, et al. (2012). AS03 adjuvanted AH1N1 vaccine associated with an abrupt 
+            increase in the incidence of childhood narcolepsy in Finland. <em>PLoS One</em>. 
+            7(3):e33536.
+          </li>
+          <li data-ref="[2]">
+            Partinen M, et al. (2012). Increased incidence and clinical picture of childhood 
+            narcolepsy following the 2009 H1N1 pandemic vaccination campaign in Finland. 
+            <em>PLoS One</em>. 7(3):e33723.
+          </li>
+          <li data-ref="[3]">
+            Dauvilliers Y, et al. (2013). Increased risk of narcolepsy in children and adults 
+            after pandemic H1N1 vaccination in France. <em>Brain</em>. 136(Pt 8):2486-96.
+          </li>
+        </ol>
+
+        <h2>Ganglioside Biology</h2>
+        <ol class="reference-list" start="4">
+          <li data-ref="[4]">
+            Svennerholm L. (1963). Chromatographic separation of human brain gangliosides. 
+            <em>J Neurochem</em>. 10:613-623.
+          </li>
+          <li data-ref="[5]">
+            Schnaar RL. (2016). Gangliosides of the Vertebrate Nervous System. 
+            <em>J Mol Biol</em>. 428(16):3325-3336.
+          </li>
+          <li data-ref="[6]">
+            Fotinou C, et al. (2001). The crystal structure of tetanus toxin Hc fragment 
+            complexed with a synthetic GT1b analogue. <em>J Biol Chem</em>. 276(34):32274-32281.
+          </li>
+        </ol>
+
+        <h2>Neuronal Transport</h2>
+        <ol class="reference-list" start="7">
+          <li data-ref="[7]">
+            Schwab ME, Thoenen H. (1976). Electron microscopic evidence for a transsynaptic 
+            migration of tetanus toxin in spinal cord motoneurons: an autoradiographic and 
+            morphometric study. <em>Brain Res</em>. 105(2):213-27.
+          </li>
+          <li data-ref="[8]">
+            Stoeckel K, Schwab M, Thoenen H. (1977). Role of gangliosides in the uptake and 
+            retrograde axonal transport of cholera and tetanus toxin as compared to nerve 
+            growth factor and wheat germ agglutinin. <em>Brain Res</em>. 132(2):273-85.
+          </li>
+        </ol>
+
+        <h2>Orexin/Hypocretin Neuroanatomy</h2>
+        <ol class="reference-list" start="9">
+          <li data-ref="[9]" class="bg-amber-50 border-l-4 border-amber-400 pl-3 py-2">
+            <strong>van den Pol AN. (1999).</strong> Hypothalamic Hypocretin (Orexin): Robust Innervation 
+            of the Spinal Cord. <em>J Neurosci</em>. 19(8):3171–82. 
+            <a href="https://doi.org/10.1523/JNEUROSCI.19-08-03171.1999" class="text-blue-600 hover:underline" target="_blank">
+              DOI: 10.1523/JNEUROSCI.19-08-03171.1999
+            </a>
+            <p class="text-slate-600 text-sm mt-1">
+              <strong>Key finding:</strong> Dense orexin/hypocretin innervation specifically in lamina I 
+              of the spinal cord dorsal horn — the exact location where peripheral sensory afferents terminate.
+            </p>
+          </li>
+        </ol>
+
+        <h2>Molecular Mimicry</h2>
+        <ol class="reference-list" start="10">
+          <li data-ref="[10]">
+            Ahmed SS, et al. (2015). Antibodies to influenza nucleoprotein cross-react with 
+            human hypocretin receptor 2. <em>Sci Transl Med</em>. 7(294):294ra105.
+          </li>
+        </ol>
+
+        <h2>HLA Genetics</h2>
+        <ol class="reference-list" start="11">
+          <li data-ref="[11]">
+            Mignot E, et al. (2001). Complex HLA-DR and -DQ interactions confer risk of 
+            narcolepsy-cataplexy in three ethnic groups. <em>Am J Hum Genet</em>. 68(3):686-99.
+          </li>
+        </ol>
+
+        <p class="text-slate-500 italic mt-8">
+          This reference list is under development. Additional references will be added with full 
+          citation details and links to original publications.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

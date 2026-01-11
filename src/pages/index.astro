@@ -1,0 +1,275 @@
+---
+// src/pages/index.astro - English Homepage (Default)
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { useTranslations, getLocalizedPath } from "../i18n";
+import GangliosideMap from "../components/science/GangliosideMap";
+
+const t = useTranslations('en');
+---
+
+<BaseLayout title={t.hero.title}>
+  <!-- Hero Section -->
+  <section class="hero-gradient hero-pattern relative overflow-hidden" style="background-color: #0f172a;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div class="text-center">
+        <span class="inline-block bg-emerald-500/20 text-emerald-300 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+          Scientific Hypothesis
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          {t.hero.title}
+        </h1>
+        <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+          {t.hero.subtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/science/gangliosides/" 
+            class="inline-flex items-center justify-center px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-emerald-500/30"
+          >
+            {t.hero.cta}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a 
+            href="/hypothesis/" 
+            class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors border border-white/20"
+          >
+            {t.hero.cta_secondary}
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Decorative element -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"></div>
+  </section>
+
+  <!-- Key Points Section -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">The Core Hypothesis</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          A mechanistic explanation for post-Pandemrix narcolepsy based on neuroanatomical transport pathways
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1: Intraneuronal Injection -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">Intraneuronal Injection</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600">
+              When a vaccine needle directly penetrates the axillary nerve, vaccine components can be 
+              transported retrograde to the spinal cord via ganglioside-mediated mechanisms.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: GT1b Affinity -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">GT1b Ganglioside Affinity</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600">
+              H1N1 influenza virus shows affinity for GT1b ganglioside — the same receptor used by 
+              tetanus toxin for neuronal transport. This enables vaccine antigens to travel along nerve fibers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Orexin Destruction -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">Orexin Cell Destruction</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600">
+              Vaccine antigens reaching lamina I of the spinal cord trigger an autoimmune response 
+              against orexin-containing neurons in the hypothalamus, leading to narcolepsy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Diagram Section -->
+  <section class="py-16 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">{t.sections.gangliosides.title}</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          Explore the biosynthesis and degradation pathways of gangliosides. 
+          GT1b (highlighted) is the key ganglioside in this hypothesis.
+        </p>
+      </div>
+      
+      <GangliosideMap 
+        client:load
+        labels={{
+          title: t.sections.gangliosides.title,
+          subtitle: t.sections.gangliosides.subtitle,
+          biosynthesis: t.sections.gangliosides.biosynthesis,
+          degradation: t.sections.gangliosides.degradation,
+          clinicalRelevance: t.sections.gangliosides.clinical_relevance,
+        }}
+      />
+    </div>
+  </section>
+
+  <!-- Evidence Overview -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Supporting Evidence</span>
+          <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-6">Multiple Lines of Evidence</h2>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                <span class="text-emerald-600 font-bold">1</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">Epidemiological Data</h3>
+                <p class="text-slate-600 mt-1">Strong association between Pandemrix vaccination and narcolepsy onset in Nordic countries.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                <span class="text-emerald-600 font-bold">2</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">HLA Association</h3>
+                <p class="text-slate-600 mt-1">Affected individuals carry specific HLA-DQB1*06:02 allele — but the causal gene may be a linked neuraminidase variant.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                <span class="text-emerald-600 font-bold">3</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">Cross-Reactivity</h3>
+                <p class="text-slate-600 mt-1">Molecular mimicry between H1N1 nucleoprotein and orexin receptor epitopes.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                <span class="text-emerald-600 font-bold">4</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">Neurotracing Research</h3>
+                <p class="text-slate-600 mt-1">Demonstrated efficient retrograde transport of ganglioside-binding tracers from peripheral nerves to spinal cord.</p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="/evidence/" class="inline-flex items-center text-emerald-600 font-semibold mt-8 hover:text-emerald-700 transition-colors">
+            Explore the evidence
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+        
+        <div class="bg-slate-900 rounded-2xl p-8 text-white">
+          <h3 class="text-xl font-bold mb-4">Key Insight</h3>
+          <blockquote class="text-lg leading-relaxed text-slate-300 italic">
+            "The critical difference between tetanus toxin and cholera toxin in my research was that 
+            tetanus toxin was released from nerve terminals into the spinal cord, while cholera toxin 
+            remained within the nerve fibers. If H1N1 shares transport properties with tetanus toxin 
+            via GT1b affinity, vaccine antigens could be deposited directly into spinal tissue."
+          </blockquote>
+          <p class="text-sm text-slate-400 mt-4">— Based on unpublished neurotracing experiments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Havana Syndrome Teaser -->
+  <section class="py-16 bg-gradient-to-r from-cyan-900 via-slate-900 to-purple-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/speculation/havana-syndrome/" class="block group">
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 md:p-12 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyan-400/30">
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0">
+              <div class="w-24 h-24 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl flex items-center justify-center text-5xl shadow-lg shadow-cyan-500/20">
+                👂
+              </div>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+              <span class="inline-block bg-amber-500/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+                Speculative Hypothesis
+              </span>
+              <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                Could Influenza Explain "Havana Syndrome"?
+              </h2>
+              <p class="text-slate-300 text-lg mb-4">
+                The same ganglioside mechanism that may cause narcolepsy could explain the mysterious 
+                auditory symptoms reported by US diplomats in Cuba — via H3N2 and GM3 in the spiral ganglion.
+              </p>
+              <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-sm rounded-full">H3N2 Influenza</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">GM3 Ganglioside</span>
+                <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">Auditory Nerve</span>
+              </div>
+            </div>
+            <div class="flex-shrink-0 hidden md:block">
+              <svg class="w-10 h-10 text-white/50 group-hover:text-cyan-400 group-hover:translate-x-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Explore The Axonal Highway Hypothesis</h2>
+      <p class="text-slate-400 text-lg mb-8">
+        Dive deeper into the science behind this hypothesis with interactive diagrams, 
+        genetic analysis, and comprehensive references.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/hypothesis/" 
+          class="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition-colors"
+        >
+          Read the Full Hypothesis
+        </a>
+        <a 
+          href="/about/" 
+          class="inline-flex items-center justify-center px-8 py-4 bg-slate-800 text-white font-semibold rounded-lg hover:bg-slate-700 transition-colors border border-slate-700"
+        >
+          About the Author
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

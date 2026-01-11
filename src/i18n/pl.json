@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Hipoteza Narkolepsji",
+    "description": "Hipoteza naukowa badająca związek między iniekcją śródneuronową szczepionki, transportem gangliozydów a narkolepsją po szczepieniu po pandemii H1N1 w 2009 roku."
+  },
+  "nav": {
+    "home": "Strona główna",
+    "hypothesis": "Hipoteza",
+    "background": "Tło",
+    "narcolepsy": "Narkolepsja",
+    "encephalitis": "Zapalenie Mózgu Letargiczne",
+    "science": "Nauka",
+    "gangliosides": "Gangliozydy",
+    "neuronal_transport": "Transport Neuronalny",
+    "genetics": "Genetyka",
+    "evidence": "Dowody",
+    "pandemrix": "Pandemrix",
+    "cross_reactivity": "Reaktywność Krzyżowa",
+    "references": "Referencje",
+    "about": "O nas"
+  },
+  "hero": {
+    "title": "Hipoteza Autostrady Pachowej",
+    "subtitle": "Jak iniekcja śródneuronowa szczepionki może wywołać narkolepsję poprzez transport gangliozydowy do podwzgórza",
+    "cta": "Odkryj naukę",
+    "cta_secondary": "Przeczytaj hipotezę"
+  },
+  "sections": {
+    "hypothesis": {
+      "title": "Hipoteza",
+      "intro": "Nowe wyjaśnienie narkolepsji poszczepiennej oparte na mechanizmach transportu neuronalnego"
+    },
+    "gangliosides": {
+      "title": "Metabolizm Gangliozydów",
+      "subtitle": "Interaktywna wizualizacja biosyntezy i degradacji lizosomalnej",
+      "biosynthesis": "Biosynteza",
+      "degradation": "Degradacja",
+      "clinical_relevance": "Znaczenie Kliniczne"
+    },
+    "genetics": {
+      "title": "Czynniki Genetyczne",
+      "subtitle": "Geny HLA, locus neuraminidazy i regulacja GT1B"
+    },
+    "transport": {
+      "title": "Transport Neuronalny",
+      "subtitle": "Jak substancje z powinowactwem do gangliozydów docierają do rdzenia kręgowego"
+    }
+  },
+  "common": {
+    "read_more": "Czytaj więcej",
+    "learn_more": "Dowiedz się więcej",
+    "references": "Referencje",
+    "published": "Opublikowano",
+    "updated": "Zaktualizowano",
+    "author": "Autor",
+    "share": "Udostępnij",
+    "cite": "Cytuj tę stronę",
+    "download_pdf": "Pobierz PDF"
+  },
+  "footer": {
+    "copyright": "© 2026 Hipoteza Narkolepsji. Treści naukowe w celach edukacyjnych.",
+    "disclaimer": "Ta strona przedstawia hipotezę naukową. To nie jest porada medyczna.",
+    "contact": "Kontakt",
+    "back_to_top": "Powrót na górę"
+  },
+  "language": {
+    "select": "Wybierz język",
+    "current": "Polski"
+  }
+}

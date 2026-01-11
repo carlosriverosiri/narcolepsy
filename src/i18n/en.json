@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Narcolepsy Hypothesis",
+    "description": "A scientific hypothesis exploring the connection between intraneuronal vaccine injection, ganglioside transport, and post-vaccination narcolepsy following the 2009 H1N1 pandemic."
+  },
+  "nav": {
+    "home": "Home",
+    "hypothesis": "The Hypothesis",
+    "background": "Background",
+    "narcolepsy": "Narcolepsy",
+    "encephalitis": "Encephalitis Lethargica",
+    "science": "Science",
+    "gangliosides": "Gangliosides",
+    "neuronal_transport": "Neuronal Transport",
+    "genetics": "Genetics",
+    "evidence": "Evidence",
+    "pandemrix": "Pandemrix",
+    "cross_reactivity": "Cross-Reactivity",
+    "references": "References",
+    "about": "About"
+  },
+  "hero": {
+    "title": "The Axonal Highway Hypothesis",
+    "subtitle": "Exploring how intraneuronal vaccine injection may trigger narcolepsy through ganglioside-mediated transport to the hypothalamus",
+    "cta": "Explore the Science",
+    "cta_secondary": "Read the Hypothesis"
+  },
+  "sections": {
+    "hypothesis": {
+      "title": "The Hypothesis",
+      "intro": "A novel explanation for post-vaccination narcolepsy based on neuronal transport mechanisms"
+    },
+    "gangliosides": {
+      "title": "Ganglioside Metabolism",
+      "subtitle": "Interactive pathway for biosynthesis and lysosomal degradation",
+      "biosynthesis": "Biosynthesis",
+      "degradation": "Degradation",
+      "clinical_relevance": "Clinical Relevance"
+    },
+    "genetics": {
+      "title": "Genetic Factors",
+      "subtitle": "HLA genes, neuraminidase locus, and GT1B regulation"
+    },
+    "transport": {
+      "title": "Neuronal Transport",
+      "subtitle": "How substances with ganglioside affinity reach the spinal cord"
+    }
+  },
+  "common": {
+    "read_more": "Read more",
+    "learn_more": "Learn more",
+    "references": "References",
+    "published": "Published",
+    "updated": "Updated",
+    "author": "Author",
+    "share": "Share",
+    "cite": "Cite this page",
+    "download_pdf": "Download PDF"
+  },
+  "footer": {
+    "copyright": "© 2026 Narcolepsy Hypothesis. Scientific content for educational purposes.",
+    "disclaimer": "This website presents a scientific hypothesis. It is not medical advice.",
+    "contact": "Contact",
+    "back_to_top": "Back to top"
+  },
+  "language": {
+    "select": "Select language",
+    "current": "English"
+  }
+}

@@ -1,0 +1,207 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Custom CSS Variables for Scientific Theme */
+:root {
+  --color-primary: #1e3a5f;
+  --color-secondary: #10b981;
+  --color-accent: #f59e0b;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Font Families */
+.font-sans {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Noto Sans Arabic', 'Inter', system-ui, sans-serif;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Scientific content styling */
+.prose-science {
+  @apply prose prose-slate max-w-none;
+  @apply prose-headings:text-slate-900 prose-headings:font-bold;
+  @apply prose-p:text-slate-700 prose-p:leading-relaxed;
+  @apply prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline;
+  @apply prose-strong:text-slate-900;
+  @apply prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm;
+  @apply prose-pre:bg-slate-900 prose-pre:text-slate-100;
+  @apply prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-2 prose-blockquote:px-4;
+  @apply prose-li:marker:text-slate-400;
+}
+
+/* Reference/Citation styling */
+.citation {
+  @apply text-xs text-slate-500 align-super cursor-help;
+}
+
+.citation:hover {
+  @apply text-blue-600;
+}
+
+.reference-list {
+  @apply text-sm space-y-3;
+}
+
+.reference-list li {
+  @apply pl-8 relative;
+}
+
+.reference-list li::before {
+  @apply absolute left-0 text-slate-400 font-mono text-xs;
+  content: attr(data-ref);
+}
+
+/* Interactive diagram container */
+.diagram-container {
+  @apply bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden;
+}
+
+/* Back to top button */
+.back-to-top {
+  @apply fixed bottom-6 right-6 w-12 h-12 bg-slate-900 text-white rounded-full shadow-lg;
+  @apply flex items-center justify-center opacity-0 invisible transition-all duration-300;
+  @apply hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2;
+  z-index: 50;
+}
+
+.back-to-top.visible {
+  @apply opacity-100 visible;
+}
+
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* Hero Section */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+}
+
+.hero-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-gradient h1 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Cards */
+.science-card {
+  @apply bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden transition-all duration-300;
+  @apply hover:shadow-xl hover:-translate-y-1;
+}
+
+.science-card-header {
+  @apply p-6 bg-gradient-to-r from-slate-50 to-white border-b border-slate-100;
+}
+
+.science-card-body {
+  @apply p-6;
+}
+
+/* Highlight box for key concepts */
+.key-concept {
+  @apply bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6;
+}
+
+.key-concept-title {
+  @apply font-bold text-amber-800 mb-2;
+}
+
+/* Info boxes */
+.info-box {
+  @apply bg-blue-50 border border-blue-200 rounded-lg p-4 my-4;
+}
+
+.warning-box {
+  @apply bg-amber-50 border border-amber-200 rounded-lg p-4 my-4;
+}
+
+/* Gene/protein naming convention */
+.gene-name {
+  @apply font-mono text-sm bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded italic;
+}
+
+.protein-name {
+  @apply font-mono text-sm bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* GT1b and B3GALT4 highlighting animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px 3px rgba(251, 191, 36, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px 8px rgba(251, 191, 36, 0.9);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes enzyme-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px rgba(251, 191, 36, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(251, 191, 36, 1);
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.animate-enzyme-pulse {
+  animation: enzyme-pulse 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .prose-science {
+    @apply prose-sm;
+  }
+}

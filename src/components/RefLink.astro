@@ -1,0 +1,31 @@
+---
+// src/components/RefLink.astro
+const { id, text, url } = Astro.props;
+---
+
+<button 
+  class="ref-trigger" 
+  data-id={id} 
+  data-text={text} 
+  data-url={url}
+  aria-label={`Show reference ${id}`}
+>
+  [{id}]
+</button>
+
+<style>
+  .ref-trigger {
+    background: none;
+    border: none;
+    color: var(--color-accent, #3b82f6);
+    font-size: 0.75em;
+    font-weight: bold;
+    vertical-align: super;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .ref-trigger:hover {
+    color: var(--color-accent-hover, #2563eb);
+    text-decoration: underline;
+  }
+</style>

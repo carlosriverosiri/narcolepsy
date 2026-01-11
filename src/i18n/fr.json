@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Hypothèse Narcolepsie",
+    "description": "Une hypothèse scientifique explorant le lien entre l'injection intraneuronale de vaccin, le transport des gangliosides et la narcolepsie post-vaccination suite à la pandémie H1N1 de 2009."
+  },
+  "nav": {
+    "home": "Accueil",
+    "hypothesis": "L'Hypothèse",
+    "background": "Contexte",
+    "narcolepsy": "Narcolepsie",
+    "encephalitis": "Encéphalite Léthargique",
+    "science": "Science",
+    "gangliosides": "Gangliosides",
+    "neuronal_transport": "Transport Neuronal",
+    "genetics": "Génétique",
+    "evidence": "Preuves",
+    "pandemrix": "Pandemrix",
+    "cross_reactivity": "Réactivité Croisée",
+    "references": "Références",
+    "about": "À propos"
+  },
+  "hero": {
+    "title": "L'Hypothèse de l'Autoroute Axillaire",
+    "subtitle": "Comment l'injection intraneuronale de vaccin peut déclencher la narcolepsie par transport médié par les gangliosides vers l'hypothalamus",
+    "cta": "Explorer la science",
+    "cta_secondary": "Lire l'hypothèse"
+  },
+  "sections": {
+    "hypothesis": {
+      "title": "L'Hypothèse",
+      "intro": "Une nouvelle explication de la narcolepsie post-vaccination basée sur les mécanismes de transport neuronal"
+    },
+    "gangliosides": {
+      "title": "Métabolisme des Gangliosides",
+      "subtitle": "Visualisation interactive de la biosynthèse et de la dégradation lysosomale",
+      "biosynthesis": "Biosynthèse",
+      "degradation": "Dégradation",
+      "clinical_relevance": "Pertinence Clinique"
+    },
+    "genetics": {
+      "title": "Facteurs Génétiques",
+      "subtitle": "Gènes HLA, locus de la neuraminidase et régulation de GT1B"
+    },
+    "transport": {
+      "title": "Transport Neuronal",
+      "subtitle": "Comment les substances avec affinité pour les gangliosides atteignent la moelle épinière"
+    }
+  },
+  "common": {
+    "read_more": "Lire la suite",
+    "learn_more": "En savoir plus",
+    "references": "Références",
+    "published": "Publié",
+    "updated": "Mis à jour",
+    "author": "Auteur",
+    "share": "Partager",
+    "cite": "Citer cette page",
+    "download_pdf": "Télécharger PDF"
+  },
+  "footer": {
+    "copyright": "© 2026 Hypothèse Narcolepsie. Contenu scientifique à but éducatif.",
+    "disclaimer": "Ce site présente une hypothèse scientifique. Ce n'est pas un avis médical.",
+    "contact": "Contact",
+    "back_to_top": "Retour en haut"
+  },
+  "language": {
+    "select": "Choisir la langue",
+    "current": "Français"
+  }
+}

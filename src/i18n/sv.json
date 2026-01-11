@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Narkolepsihypotesen",
+    "description": "En vetenskaplig hypotes som utforskar kopplingen mellan intraneuronal vaccininjektion, gangliosidtransport och postvaccinationsnarkolepsi efter H1N1-pandemin 2009."
+  },
+  "nav": {
+    "home": "Hem",
+    "hypothesis": "Hypotesen",
+    "background": "Bakgrund",
+    "narcolepsy": "Narkolepsi",
+    "encephalitis": "Encefalit Letargica",
+    "science": "Vetenskap",
+    "gangliosides": "Gangliosider",
+    "neuronal_transport": "Neuronal transport",
+    "genetics": "Genetik",
+    "evidence": "Evidens",
+    "pandemrix": "Pandemrix",
+    "cross_reactivity": "Korsreaktivitet",
+    "references": "Referenser",
+    "about": "Om"
+  },
+  "hero": {
+    "title": "Axillarismotorvägs-hypotesen",
+    "subtitle": "Hur intraneuronal vaccininjektion kan utlösa narkolepsi genom gangliosidmedierad transport till hypotalamus",
+    "cta": "Utforska vetenskapen",
+    "cta_secondary": "Läs hypotesen"
+  },
+  "sections": {
+    "hypothesis": {
+      "title": "Hypotesen",
+      "intro": "En ny förklaring till postvaccinationsnarkolepsi baserad på neuronala transportmekanismer"
+    },
+    "gangliosides": {
+      "title": "Gangliosidmetabolism",
+      "subtitle": "Interaktiv visualisering av biosyntes och lysosomal nedbrytning",
+      "biosynthesis": "Biosyntes",
+      "degradation": "Nedbrytning",
+      "clinical_relevance": "Klinisk relevans"
+    },
+    "genetics": {
+      "title": "Genetiska faktorer",
+      "subtitle": "HLA-gener, neuraminidas-locus och GT1B-reglering"
+    },
+    "transport": {
+      "title": "Neuronal transport",
+      "subtitle": "Hur substanser med gangliosidaffinitet når ryggmärgen"
+    }
+  },
+  "common": {
+    "read_more": "Läs mer",
+    "learn_more": "Lär dig mer",
+    "references": "Referenser",
+    "published": "Publicerad",
+    "updated": "Uppdaterad",
+    "author": "Författare",
+    "share": "Dela",
+    "cite": "Citera denna sida",
+    "download_pdf": "Ladda ner PDF"
+  },
+  "footer": {
+    "copyright": "© 2026 Narkolepsihypotesen. Vetenskapligt innehåll för utbildningsändamål.",
+    "disclaimer": "Denna webbplats presenterar en vetenskaplig hypotes. Det är inte medicinsk rådgivning.",
+    "contact": "Kontakt",
+    "back_to_top": "Tillbaka till toppen"
+  },
+  "language": {
+    "select": "Välj språk",
+    "current": "Svenska"
+  }
+}

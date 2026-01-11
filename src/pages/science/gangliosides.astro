@@ -1,0 +1,369 @@
+---
+// src/pages/science/gangliosides.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { useTranslations } from "../../i18n";
+import GangliosideMap from "../../components/science/GangliosideMap";
+
+const t = useTranslations('en');
+---
+
+<BaseLayout 
+  title={t.sections.gangliosides.title}
+  description="Interactive visualization of ganglioside biosynthesis and degradation pathways, with focus on GT1b and its role in neuronal transport."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/science/" class="hover:text-white transition-colors">Science</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">Gangliosides</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{t.sections.gangliosides.title}</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        Understanding the biosynthesis and degradation of gangliosides is crucial for 
+        comprehending how vaccine components might be transported through the nervous system.
+      </p>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        <h2>What are Gangliosides?</h2>
+        <p>
+          Gangliosides are complex sphingolipids containing one or more sialic acid residues. 
+          They are abundant in the nervous system, comprising 10-12% of total lipid content in 
+          neuronal membranes. Their unique carbohydrate chains serve as receptors for various 
+          biological molecules, including bacterial toxins and viruses.
+        </p>
+        
+        <div class="key-concept">
+          <div class="key-concept-title">Key Concept: GT1b Ganglioside</div>
+          <p class="mb-0">
+            GT1b is a trisialoganglioside that serves as the primary receptor for tetanus toxin. 
+            Research suggests that H1N1 influenza virus may also bind to GT1b, enabling 
+            retrograde axonal transport similar to tetanus toxin.
+          </p>
+        </div>
+        
+        <h2>The Svennerholm Classification</h2>
+        <p>
+          Gangliosides are classified using the Svennerholm nomenclature system, where:
+        </p>
+        <ul>
+          <li><strong>G</strong> = Ganglioside</li>
+          <li><strong>M, D, T, Q</strong> = Number of sialic acid residues (Mono, Di, Tri, Quadra)</li>
+          <li><strong>1, 2, 3</strong> = Order of migration on chromatography</li>
+          <li><strong>a, b, c</strong> = Position of sialic acids on the sugar chain</li>
+        </ul>
+
+        <h2>A-Series vs B-Series: Critical Differences</h2>
+        <p>
+          The distinction between a-series (monosialo) and b-series (disialo) gangliosides is 
+          <strong>central to understanding the hypothesis</strong>. These series differ fundamentally 
+          in their behavior, localization, and clinical significance.
+        </p>
+
+        <table class="w-full text-sm my-6">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Property</th>
+              <th class="text-left py-2 px-2">A-Series (Monosialo)</th>
+              <th class="text-left py-2 px-2">B-Series (Disialo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 px-2 font-medium">Examples</td>
+              <td class="py-2 px-2">GM3 → GM2 → GM1 → GD1a</td>
+              <td class="py-2 px-2">GD3 → GD2 → GD1b → GT1b → GQ1b</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2 font-medium">Key enzyme</td>
+              <td class="py-2 px-2">ST3GAL5 (GM3 synthase)</td>
+              <td class="py-2 px-2">ST8SIA1 (GD3 synthase)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2 font-medium">Membrane behavior</td>
+              <td class="py-2 px-2">Stable in lipid rafts</td>
+              <td class="py-2 px-2">Dynamic, prone to export</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2 font-medium">Primary location</td>
+              <td class="py-2 px-2">Nodes of Ranvier, myelin</td>
+              <td class="py-2 px-2">Synaptic terminals, oculomotor nerves</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2 font-medium">Shedding rate</td>
+              <td class="py-2 px-2 text-green-600">Low</td>
+              <td class="py-2 px-2 text-amber-600 font-bold">High</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2 font-medium">Storage diseases</td>
+              <td class="py-2 px-2">GM1/GM2 gangliosidosis</td>
+              <td class="py-2 px-2 text-amber-600 font-bold">None known!</td>
+            </tr>
+            <tr class="border-b bg-red-50">
+              <td class="py-2 px-2 font-medium">Immune exposure</td>
+              <td class="py-2 px-2">Lower</td>
+              <td class="py-2 px-2 text-red-600 font-bold">Higher (Miller Fisher, GBS)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="key-concept">
+          <div class="key-concept-title">The Shedding Mechanism</div>
+          <p>
+            B-series gangliosides (GD3, GT1b, GQ1b) have a <strong>higher negative charge</strong> 
+            due to their two sialic acid residues. This promotes export via extracellular vesicles 
+            (EVs/exosomes) through ceramide-dependent budding. This "bypass" of lysosomal 
+            degradation has two critical consequences:
+          </p>
+          <ol class="mt-2 mb-0">
+            <li><strong>No lysosomal accumulation</strong> → No storage disease phenotype</li>
+            <li><strong>Increased extracellular exposure</strong> → Higher vulnerability to autoimmune attack</li>
+          </ol>
+        </div>
+
+        <h3>Clinical Evidence: Miller Fisher Syndrome</h3>
+        <p>
+          Miller Fisher syndrome (MFS) perfectly illustrates the b-series vulnerability. This 
+          variant of Guillain-Barré syndrome is characterized by:
+        </p>
+        <ul>
+          <li><strong>Clinical triad:</strong> Ophthalmoplegia, ataxia, areflexia</li>
+          <li><strong>Anti-GQ1b antibodies:</strong> Present in 85-90% of cases</li>
+          <li><strong>Post-infectious trigger:</strong> Often <em>Campylobacter jejuni</em></li>
+          <li><strong>Molecular mimicry:</strong> Bacterial lipo-oligosaccharides resemble GQ1b epitopes</li>
+        </ul>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">Why Oculomotor Nerves?</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            The oculomotor nerves and dorsal root ganglia are <strong>enriched in b-series gangliosides</strong> 
+            (GT1b, GQ1b). Their high shedding rate increases local immune exposure, explaining the 
+            selective vulnerability in MFS. The same mechanism may apply to orexin neurons in 
+            post-Pandemrix narcolepsy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Diagram -->
+  <section class="py-12 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <GangliosideMap 
+        client:load
+        labels={{
+          title: t.sections.gangliosides.title,
+          subtitle: t.sections.gangliosides.subtitle,
+          biosynthesis: t.sections.gangliosides.biosynthesis,
+          degradation: t.sections.gangliosides.degradation,
+          clinicalRelevance: t.sections.gangliosides.clinical_relevance,
+        }}
+      />
+    </div>
+  </section>
+
+  <!-- Detailed Explanation -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        <h2>Biosynthesis Pathway</h2>
+        <p>
+          Ganglioside biosynthesis occurs primarily in the Golgi apparatus through sequential 
+          addition of sugar residues to ceramide. The pathway branches at LacCer (lactosylceramide), 
+          giving rise to different ganglioside series:
+        </p>
+        
+        <h3>Key Enzymes</h3>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2">Gene</th>
+              <th class="text-left py-2">Enzyme</th>
+              <th class="text-left py-2">Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">ST3GAL5</span></td>
+              <td class="py-2">GM3 Synthase</td>
+              <td class="py-2">Initiates ganglioside biosynthesis from LacCer</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">ST8SIA1</span></td>
+              <td class="py-2">GD3 Synthase</td>
+              <td class="py-2">Creates b-series gangliosides</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">B4GALNT1</span></td>
+              <td class="py-2">GM2/GD2 Synthase</td>
+              <td class="py-2">Adds GalNAc to extend the sugar chain</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2"><span class="gene-name">ST3GAL2</span></td>
+              <td class="py-2">GD1a/GT1b Synthase</td>
+              <td class="py-2">Terminal sialylation creating GT1b</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Degradation Pathway</h2>
+        <p>
+          Ganglioside degradation occurs in lysosomes through sequential removal of sugar residues. 
+          Defects in degradation enzymes lead to lysosomal storage diseases:
+        </p>
+        
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Neuraminidase (Sialidase)</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            <span class="gene-name">NEU1-4</span> genes encode neuraminidases that remove sialic acid 
+            from gangliosides. Variants in these genes, particularly those near the HLA locus, may 
+            affect GT1b levels and susceptibility to autoimmune reactions.
+          </p>
+        </div>
+
+        <h2>The GT1b Paradox — No Storage Disease</h2>
+        <p>
+          A remarkable observation: while most gangliosides have well-characterized storage diseases 
+          (GM1 gangliosidosis, Tay-Sachs for GM2), <strong>there is no known primary disease caused 
+          by accumulation of GD1b or GT1b</strong>.
+        </p>
+        
+        <div class="key-concept">
+          <div class="key-concept-title">Why Does GT1b Not Cause Storage Disease?</div>
+          <p>
+            GT1b behaves differently from intracellular gangliosides. The mechanism is now understood:
+          </p>
+          <ol class="mt-2 mb-0">
+            <li>
+              <strong>EV-mediated shedding:</strong> B-series gangliosides are exported via 
+              extracellular vesicles (exosomes, microvesicles) through ESCRT-dependent and 
+              ceramide-dependent pathways [5].
+            </li>
+            <li>
+              <strong>Lysosomal bypass:</strong> This shedding provides a "bypass" of normal 
+              lysosomal degradation, preventing intracellular accumulation.
+            </li>
+            <li>
+              <strong>Higher sialic acid charge:</strong> The two sialic acids on b-series 
+              gangliosides promote vesicular curvature and membrane budding.
+            </li>
+          </ol>
+        </div>
+
+        <p>
+          This explains the paradox: when GT1b levels increase, the excess is <em>exported</em> 
+          rather than accumulating in lysosomes. Tetanus toxin (which binds GT1b) is therefore 
+          released <strong>outside</strong> nerve terminals, while cholera toxin (which binds GM1) 
+          remains <strong>inside</strong>.
+        </p>
+
+        <h2>The Double-Edged Sword</h2>
+        <p>
+          The shedding mechanism is a double-edged sword:
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 my-6">
+          <div class="info-box">
+            <h4 class="font-bold text-blue-800 mb-2">✓ Protective Effect</h4>
+            <ul class="text-blue-700 text-sm mb-0 space-y-1">
+              <li>No lysosomal storage disease</li>
+              <li>Clearance of toxic aggregates (α-synuclein)</li>
+              <li>Maintains neuronal health</li>
+              <li>No selective pressure against variants</li>
+            </ul>
+          </div>
+          <div class="warning-box">
+            <h4 class="font-bold text-amber-800 mb-2">✗ Vulnerability</h4>
+            <ul class="text-amber-700 text-sm mb-0 space-y-1">
+              <li>Increased extracellular exposure</li>
+              <li>Glycan epitopes accessible to antibodies</li>
+              <li>Molecular mimicry with pathogens</li>
+              <li>Triggers autoimmune responses</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>Relevance to the Hypothesis</h2>
+        <p>
+          The key insights connecting ganglioside biology to post-vaccination narcolepsy:
+        </p>
+        <ol>
+          <li>
+            <strong>GT1b as a transport receptor:</strong> Like tetanus toxin, H1N1 virus 
+            components bind GT1b and undergo retrograde axonal transport to the CNS.
+          </li>
+          <li>
+            <strong>Extraneuronal release via shedding:</strong> Unlike GM1-binding molecules, 
+            GT1b-binding molecules are released into the spinal cord parenchyma via EV shedding — 
+            directly into the environment where orexin afferents terminate.
+          </li>
+          <li>
+            <strong>Immune exposure:</strong> Shed GT1b-containing EVs present glycan epitopes 
+            to the immune system, potentially triggering molecular mimicry-based autoimmunity 
+            (similar to MFS/GBS).
+          </li>
+          <li>
+            <strong>Hidden genetic variation:</strong> B3GALT4 variants that increase GT1b production 
+            cause no disease phenotype — the only "symptom" is vulnerability to GT1b-mediated 
+            transport and immune exposure.
+          </li>
+          <li>
+            <strong>The HLA link:</strong> B3GALT4 is located at 6p21.32, in linkage disequilibrium 
+            with HLA-DQB1*06:02 — the "HLA association" may actually reflect B3GALT4 variants 
+            that increase GT1b production and shedding.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section class="py-12 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">References</h2>
+      <ol class="reference-list text-slate-700">
+        <li data-ref="[1]">
+          Sasaki N, Toyoda M. (2019). Vascular Diseases and Gangliosides. 
+          <em>Int J Mol Sci</em>. 20(24):6362. 
+          <a href="https://doi.org/10.3390/ijms20246362" class="text-blue-600 hover:underline" target="_blank">doi:10.3390/ijms20246362</a>
+        </li>
+        <li data-ref="[2]">
+          Noioso CM, et al. (2023). Miller Fisher syndrome: an updated narrative review. 
+          <em>Front Neurol</em>. 14:1250774. 
+          <a href="https://doi.org/10.3389/fneur.2023.1250774" class="text-blue-600 hover:underline" target="_blank">doi:10.3389/fneur.2023.1250774</a>
+        </li>
+        <li data-ref="[3]">
+          Willison HJ, O'Hanlon GM. (1999). The immunopathogenesis of Miller Fisher syndrome. 
+          <em>J Neuroimmunol</em>. 100(1-2):3-12. 
+          <a href="https://doi.org/10.1016/S0165-5728(99)00213-1" class="text-blue-600 hover:underline" target="_blank">doi:10.1016/S0165-5728(99)00213-1</a>
+        </li>
+        <li data-ref="[4]">
+          Wakerley BR, et al. (2014). Guillain-Barré and Miller Fisher syndromes—new diagnostic classification. 
+          <em>Nat Rev Neurol</em>. 10(9):537-544. 
+          <a href="https://doi.org/10.1038/nrneurol.2014.138" class="text-blue-600 hover:underline" target="_blank">doi:10.1038/nrneurol.2014.138</a>
+        </li>
+        <li data-ref="[5]">
+          Trajkovic K, et al. (2008). Ceramide triggers budding of exosome vesicles into multivesicular endosomes. 
+          <em>Science</em>. 319(5867):1244-1247. 
+          <a href="https://doi.org/10.1126/science.1153124" class="text-blue-600 hover:underline" target="_blank">doi:10.1126/science.1153124</a>
+        </li>
+        <li data-ref="[6]">
+          Svennerholm L. (1963). Chromatographic separation of human brain gangliosides. 
+          <em>J Neurochem</em>. 10:613-623.
+        </li>
+        <li data-ref="[7]">
+          Fotinou C, et al. (2001). The crystal structure of tetanus toxin Hc fragment 
+          complexed with a synthetic GT1b analogue. <em>J Biol Chem</em>. 276(34):32274-32281.
+        </li>
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

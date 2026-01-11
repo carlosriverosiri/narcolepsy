@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Narkolepsie-Hypothese",
+    "description": "Eine wissenschaftliche Hypothese über den Zusammenhang zwischen intraneuronaler Impfstoffinjektion, Gangliosid-Transport und Narkolepsie nach der H1N1-Pandemie 2009."
+  },
+  "nav": {
+    "home": "Startseite",
+    "hypothesis": "Die Hypothese",
+    "background": "Hintergrund",
+    "narcolepsy": "Narkolepsie",
+    "encephalitis": "Encephalitis Lethargica",
+    "science": "Wissenschaft",
+    "gangliosides": "Ganglioside",
+    "neuronal_transport": "Neuronaler Transport",
+    "genetics": "Genetik",
+    "evidence": "Evidenz",
+    "pandemrix": "Pandemrix",
+    "cross_reactivity": "Kreuzreaktivität",
+    "references": "Referenzen",
+    "about": "Über"
+  },
+  "hero": {
+    "title": "Die Axillaris-Autobahn-Hypothese",
+    "subtitle": "Wie intraneuronale Impfstoffinjektion Narkolepsie durch Gangliosid-vermittelten Transport zum Hypothalamus auslösen kann",
+    "cta": "Wissenschaft erkunden",
+    "cta_secondary": "Hypothese lesen"
+  },
+  "sections": {
+    "hypothesis": {
+      "title": "Die Hypothese",
+      "intro": "Eine neue Erklärung für Post-Impfungs-Narkolepsie basierend auf neuronalen Transportmechanismen"
+    },
+    "gangliosides": {
+      "title": "Gangliosid-Stoffwechsel",
+      "subtitle": "Interaktive Darstellung von Biosynthese und lysosomaler Degradation",
+      "biosynthesis": "Biosynthese",
+      "degradation": "Abbau",
+      "clinical_relevance": "Klinische Relevanz"
+    },
+    "genetics": {
+      "title": "Genetische Faktoren",
+      "subtitle": "HLA-Gene, Neuraminidase-Locus und GT1B-Regulation"
+    },
+    "transport": {
+      "title": "Neuronaler Transport",
+      "subtitle": "Wie Substanzen mit Gangliosid-Affinität das Rückenmark erreichen"
+    }
+  },
+  "common": {
+    "read_more": "Weiterlesen",
+    "learn_more": "Mehr erfahren",
+    "references": "Referenzen",
+    "published": "Veröffentlicht",
+    "updated": "Aktualisiert",
+    "author": "Autor",
+    "share": "Teilen",
+    "cite": "Diese Seite zitieren",
+    "download_pdf": "PDF herunterladen"
+  },
+  "footer": {
+    "copyright": "© 2026 Narkolepsie-Hypothese. Wissenschaftliche Inhalte für Bildungszwecke.",
+    "disclaimer": "Diese Website präsentiert eine wissenschaftliche Hypothese. Dies ist keine medizinische Beratung.",
+    "contact": "Kontakt",
+    "back_to_top": "Nach oben"
+  },
+  "language": {
+    "select": "Sprache wählen",
+    "current": "Deutsch"
+  }
+}

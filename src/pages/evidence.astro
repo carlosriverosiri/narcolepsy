@@ -1,0 +1,86 @@
+---
+// src/pages/evidence.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { useTranslations } from "../i18n";
+
+const t = useTranslations('en');
+---
+
+<BaseLayout 
+  title={t.nav.evidence}
+  description="Evidence supporting the Axonal Highway Hypothesis: epidemiological data, genetic associations, and laboratory findings."
+>
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">Evidence</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Supporting Evidence</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        Multiple lines of evidence converge to support the Axonal Highway Hypothesis.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        
+        <h2>Epidemiological Evidence</h2>
+        <p>
+          The association between Pandemrix and narcolepsy was first identified in Nordic countries 
+          and has since been confirmed worldwide. Key findings include:
+        </p>
+        <ul>
+          <li>6-13 fold increased risk of narcolepsy following Pandemrix vaccination</li>
+          <li>Onset typically 2-8 months post-vaccination</li>
+          <li>Primarily affected children and adolescents</li>
+          <li>Association not seen with other H1N1 vaccines (Focetria, Celvapan)</li>
+        </ul>
+
+        <h2>Genetic Evidence</h2>
+        <p>
+          Nearly all affected individuals carry the HLA-DQB1*06:02 allele. While this supports 
+          autoimmune etiology, the mechanism may involve linked genes in the HLA region.
+        </p>
+        
+        <div class="key-concept">
+          <div class="key-concept-title">The Neuraminidase Hypothesis</div>
+          <p class="mb-0">
+            Neuraminidase genes (NEU1-4) are located near the HLA locus. Variants affecting 
+            ganglioside metabolism could explain susceptibility while being in linkage 
+            disequilibrium with DQB1*06:02.
+          </p>
+        </div>
+
+        <h2>Laboratory Evidence</h2>
+        <p>
+          Several laboratory findings support the hypothesis:
+        </p>
+        <ul>
+          <li>H1N1 hemagglutinin shows affinity for sialylated glycans including gangliosides</li>
+          <li>Molecular mimicry between H1N1 nucleoprotein and orexin receptor 2 (HCRTR2)</li>
+          <li>T-cell reactivity to H1N1 epitopes in narcolepsy patients</li>
+          <li>Established precedent: tetanus toxin transport via GT1b</li>
+        </ul>
+
+        <h2>Neurotracing Evidence</h2>
+        <p>
+          Extensive research on retrograde axonal transport demonstrates:
+        </p>
+        <ol>
+          <li>GT1b-binding molecules are efficiently transported from peripheral nerves to spinal cord</li>
+          <li>Intraneuronal injection produces more efficient transport than perineuronal application</li>
+          <li>Antibody-antigen complexes can be co-transported</li>
+          <li>Some tracers (like tetanus toxin) are released into CNS parenchyma</li>
+        </ol>
+
+        <p class="text-slate-500 italic mt-8">
+          This page is under development. More detailed evidence with references will be added.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,164 @@
+---
+// src/pages/sv/index.astro - Svenska startsidan
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { useTranslations, getLocalizedPath } from "../../i18n";
+import GangliosideMap from "../../components/science/GangliosideMap";
+
+const t = useTranslations('sv');
+---
+
+<BaseLayout title={t.hero.title}>
+  <!-- Hero Section -->
+  <section class="hero-gradient hero-pattern relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div class="text-center">
+        <span class="inline-block bg-emerald-500/20 text-emerald-300 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+          Vetenskaplig hypotes
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          {t.hero.title}
+        </h1>
+        <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+          {t.hero.subtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href={getLocalizedPath('/science/gangliosides/', 'sv')}
+            class="inline-flex items-center justify-center px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-emerald-500/30"
+          >
+            {t.hero.cta}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a 
+            href={getLocalizedPath('/hypothesis/', 'sv')}
+            class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors border border-white/20"
+          >
+            {t.hero.cta_secondary}
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Decorative element -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"></div>
+  </section>
+
+  <!-- Key Points Section -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">Kärnhypotesen</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          En mekanistisk förklaring till narkolepsi efter Pandemrix-vaccination baserad på neuroanatomiska transportvägar
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1: Intraneuronal Injection -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">Intraneuronal injektion</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600">
+              När en vaccinationsnål penetrerar axillarisnerven kan vaccinkomponenter 
+              transporteras retrograd till ryggmärgen via gangliosidmedierade mekanismer.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: GT1b Affinity -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">GT1b-gangliosidaffinitet</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600">
+              H1N1-influensavirus visar affinitet för GT1b-gangliosid — samma receptor som 
+              används av tetanustoxin för neuronal transport.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Orexin Destruction -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">Orexincellsdestruktion</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600">
+              Vaccinantigen som når lamina I i ryggmärgen utlöser en autoimmun reaktion 
+              mot orexinproducerande neuroner i hypotalamus, vilket leder till narkolepsi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Diagram Section -->
+  <section class="py-16 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">{t.sections.gangliosides.title}</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          Utforska biosyntes- och nedbrytningsvägarna för gangliosider. 
+          GT1b (markerad) är den centrala gangliosiden i denna hypotes.
+        </p>
+      </div>
+      
+      <GangliosideMap 
+        client:load
+        labels={{
+          title: t.sections.gangliosides.title,
+          subtitle: t.sections.gangliosides.subtitle,
+          biosynthesis: t.sections.gangliosides.biosynthesis,
+          degradation: t.sections.gangliosides.degradation,
+          clinicalRelevance: t.sections.gangliosides.clinical_relevance,
+        }}
+      />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Utforska den fullständiga hypotesen</h2>
+      <p class="text-slate-400 text-lg mb-8">
+        Fördjupa dig i vetenskapen bakom denna hypotes med interaktiva diagram, 
+        genetisk analys och omfattande referenser.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href={getLocalizedPath('/hypothesis/', 'sv')}
+          class="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition-colors"
+        >
+          Läs hela hypotesen
+        </a>
+        <a 
+          href={getLocalizedPath('/about/', 'sv')}
+          class="inline-flex items-center justify-center px-8 py-4 bg-slate-800 text-white font-semibold rounded-lg hover:bg-slate-700 transition-colors border border-slate-700"
+        >
+          Om författaren
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

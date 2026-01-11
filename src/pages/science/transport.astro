@@ -1,0 +1,146 @@
+---
+// src/pages/science/transport.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { useTranslations } from "../../i18n";
+
+const t = useTranslations('en');
+---
+
+<BaseLayout 
+  title={t.sections.transport.title}
+  description="Neuronal transport mechanisms: how substances travel from peripheral nerves to the spinal cord via retrograde axonal transport."
+>
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/science/" class="hover:text-white transition-colors">Science</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">Neuronal Transport</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{t.sections.transport.title}</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        {t.sections.transport.subtitle}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        
+        <h2>Retrograde Axonal Transport</h2>
+        <p>
+          Neurons maintain bidirectional transport systems along their axons. Retrograde transport 
+          moves cargo from the axon terminal toward the cell body, powered by dynein motor proteins. 
+          This system is essential for:
+        </p>
+        <ul>
+          <li>Returning neurotransmitter receptors for recycling</li>
+          <li>Transporting neurotrophic factors (e.g., NGF) to the soma</li>
+          <li>Signaling endosome trafficking</li>
+        </ul>
+        <p>
+          Unfortunately, the same transport machinery can be hijacked by pathogens and toxins.
+        </p>
+
+        <h2>Tetanus Toxin as a Model</h2>
+        <p>
+          Tetanus toxin provides the paradigm for understanding how GT1b-binding molecules reach 
+          the CNS:
+        </p>
+        <ol>
+          <li><strong>Binding:</strong> The heavy chain C-terminus (Hc) binds GT1b ganglioside on nerve terminals</li>
+          <li><strong>Internalization:</strong> Receptor-mediated endocytosis brings the toxin inside</li>
+          <li><strong>Transport:</strong> Signaling endosomes carry the toxin retrograde toward the soma</li>
+          <li><strong>Release:</strong> Unlike cholera toxin, tetanus toxin is released into the spinal cord parenchyma</li>
+        </ol>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Critical Observation</div>
+          <p class="mb-0">
+            My unpublished research showed that tetanus toxin fragments were released extraneuronally 
+            in the spinal cord, while cholera toxin B-subunit remained confined within nerve terminals. 
+            This difference may be crucial for understanding how vaccine antigens could trigger 
+            autoimmune responses in the CNS.
+          </p>
+        </div>
+
+        <h2>Intraneuronal vs. Perineuronal Injection</h2>
+        <p>
+          The efficiency of retrograde transport depends critically on delivery method:
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-6 my-8">
+          <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+            <h4 class="font-bold text-emerald-800 mb-2">Intraneuronal Injection</h4>
+            <ul class="text-sm text-emerald-700 space-y-1">
+              <li>• Direct deposition within nerve fascicle</li>
+              <li>• Highly efficient uptake</li>
+              <li>• Minimal loss to surrounding tissue</li>
+              <li>• Reliable transport to spinal cord</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-4">
+            <h4 class="font-bold text-slate-800 mb-2">Perineuronal Application</h4>
+            <ul class="text-sm text-slate-700 space-y-1">
+              <li>• Application near but not inside nerve</li>
+              <li>• Poor uptake efficiency</li>
+              <li>• Dilution in surrounding tissue</li>
+              <li>• Unreliable transport</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          This distinction is crucial: standard intramuscular vaccination rarely results in nerve 
+          penetration, but when it does occur (particularly in the deltoid region near the 
+          axillary nerve), the transport efficiency is dramatically higher.
+        </p>
+
+        <h2>The Axillary Nerve</h2>
+        <p>
+          The axillary nerve courses through the deltoid region where vaccinations are administered. 
+          Its anatomy creates vulnerability:
+        </p>
+        <ul>
+          <li>Passes through the quadrilateral space below the shoulder joint</li>
+          <li>Lies relatively superficial in parts of its course</li>
+          <li>Individual anatomical variation affects depth</li>
+          <li>Thin patients may have nerves closer to the injection zone</li>
+        </ul>
+
+        <h2>Lamina I: The Destination</h2>
+        <p>
+          Primary afferent neurons from peripheral nerves terminate in specific layers (laminae) 
+          of the spinal cord dorsal horn. Lamina I (the marginal zone) receives:
+        </p>
+        <ul>
+          <li>Nociceptive afferents (pain fibers)</li>
+          <li>Thermoreceptive afferents (temperature)</li>
+          <li>C-fiber inputs from various peripheral tissues</li>
+        </ul>
+        <p>
+          Critically, orexin-containing afferents from the hypothalamus also project to lamina I. 
+          If vaccine antigens are released in this region, they would be in direct proximity to 
+          orexin-containing terminals.
+        </p>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">The Coincidence of Location</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            The convergence of peripheral nerve afferents and orexin-containing afferents in 
+            lamina I creates an anatomical substrate for autoimmune cross-reactivity. Vaccine 
+            antigens deposited in this zone would be optimally positioned to trigger immune 
+            responses against orexin neurons.
+          </p>
+        </div>
+
+        <p class="text-slate-500 italic mt-8">
+          This page is under development. Diagrams illustrating transport pathways will be added.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,752 @@
+---
+// src/pages/hypothesis.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RefLink from "../components/RefLink.astro";
+import RefDrawer from "../components/RefDrawer.astro";
+import { useTranslations } from "../i18n";
+
+const t = useTranslations('en');
+
+// REFERENCE DATA
+const references = [
+  {
+    id: "1",
+    text: "Nohynek H, et al. (2012). AS03 adjuvanted AH1N1 vaccine associated with an abrupt increase in the incidence of childhood narcolepsy in Finland. PLoS One. 7(3):e33536.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/22470453/"
+  },
+  {
+    id: "2",
+    text: "Partinen M, et al. (2012). Increased incidence and clinical picture of childhood narcolepsy following the 2009 H1N1 pandemic vaccination campaign in Finland. PLoS One. 7(3):e33723.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/22470463/"
+  },
+  {
+    id: "3",
+    text: "van den Pol AN. (1999). Hypothalamic Hypocretin (Orexin): Robust Innervation of the Spinal Cord. J Neurosci. 19(8):3171–82.",
+    url: "https://doi.org/10.1523/JNEUROSCI.19-08-03171.1999"
+  },
+  {
+    id: "4",
+    text: "Thawait GK, et al. (2019). Ultrasonographic measurement of the cross-sectional area of the axillary nerve. Muscle Nerve. 60(4):454-458.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/30927449/"
+  },
+  {
+    id: "5",
+    text: "Apaydin N, et al. (2023). The surgical anatomy of the axillary approach for nerve transfer procedures targeting the axillary nerve. Surg Radiol Anat. 45(8):1001-1009.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/37266683/"
+  },
+  {
+    id: "6",
+    text: "Fotinou C, et al. (2001). The crystal structure of tetanus toxin Hc fragment complexed with a synthetic GT1b analogue. J Biol Chem. 276(34):32274-32281.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/11418601/"
+  },
+  {
+    id: "7",
+    text: "Mignot E, et al. (2001). Complex HLA-DR and -DQ interactions confer risk of narcolepsy-cataplexy in three ethnic groups. Am J Hum Genet. 68(3):686-99.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/11179016/"
+  },
+  {
+    id: "8",
+    text: "Ahmed SS, et al. (2015). Antibodies to influenza nucleoprotein cross-react with human hypocretin receptor 2. Sci Transl Med. 7(294):294ra105.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/26136476/"
+  },
+  {
+    id: "9",
+    text: "Melén K, et al. (2013). No Serological Evidence of Influenza A H1N1pdm09 Virus Infection as a Contributing Factor in Childhood Narcolepsy after Pandemrix Vaccination Campaign in Finland. PLoS One. 8(8):e68402.",
+    url: "https://doi.org/10.1371/journal.pone.0068402"
+  },
+];
+---
+
+<BaseLayout 
+  title="The Axonal Highway Hypothesis"
+  description="The Axonal Highway Hypothesis: A mechanistic explanation for post-Pandemrix narcolepsy based on intraneuronal vaccine injection and ganglioside-mediated transport."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-slate-400 mb-4">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">The Hypothesis</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">The Axonal Highway Hypothesis</h1>
+      <p class="text-xl text-slate-300 max-w-3xl">
+        A novel mechanistic explanation for how ganglioside-mediated axonal transport 
+        can deliver vaccine antigens AND antibodies — or viruses — directly to the CNS.
+      </p>
+    </div>
+  </section>
+
+  <!-- Executive Summary -->
+  <section class="py-12 bg-amber-50 border-b border-amber-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="key-concept">
+        <div class="key-concept-title">Hypothesis in One Paragraph</div>
+        <p class="mb-0">
+          In a small percentage of deltoid vaccinations, the needle penetrates the <strong>axillary nerve</strong>. 
+          Vaccine antigens with affinity for <strong>GT1b ganglioside</strong> are transported retrogradely 
+          to <strong>lamina I</strong> of the spinal cord, where they are released <em>extraneuronally</em> 
+          (unlike cholera toxin, which remains intraneuronal). In this location, orexin-containing afferents 
+          from the hypothalamus are exposed to the antigen. <strong>Molecular mimicry</strong> between H1N1 
+          nucleoprotein and orexin receptor 2 triggers a selective autoimmune destruction of orexin neurons, 
+          causing narcolepsy. The strong HLA-DQB1*06:02 association may reflect linkage with <strong>B3GALT4</strong> 
+          variants that increase GT1b levels, enhancing transport efficiency.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+        
+        <h2>Background: The 2009 Pandemrix Mystery</h2>
+        <p>
+          Following the 2009 H1N1 pandemic, millions of Europeans received the Pandemrix vaccine. 
+          An alarming increase in narcolepsy cases followed, particularly in Nordic countries. 
+          The epidemiological association is robust, but the mechanism has remained elusive.
+        </p>
+        
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Key Epidemiological Facts</h4>
+          <ul class="text-blue-700 text-sm mb-0 space-y-1">
+            <li>• Incidence increased ~10-fold in vaccinated children</li>
+            <li>• Nearly 100% of cases carry HLA-DQB1*06:02</li>
+            <li>• Only Pandemrix (AS03-adjuvanted) showed this effect</li>
+            <li>• Risk persisted even without prior H1N1 infection</li>
+          </ul>
+        </div>
+
+        <h2>Why Current Explanations Fall Short</h2>
+        <p>
+          The prevailing hypothesis focuses on <strong>molecular mimicry</strong> — that H1N1 antigens 
+          cross-react with orexin receptors. While Luo et al. (2013) demonstrated structural homology 
+          between H1N1 nucleoprotein and HcrtR2, this doesn't explain:
+        </p>
+        <ul>
+          <li><strong>Why only Pandemrix?</strong> Other H1N1 vaccines contained the same antigens.</li>
+          <li><strong>Why only ~1:15,000?</strong> If it's purely autoimmune, more HLA-DQB1*06:02 carriers should be affected.</li>
+          <li><strong>How do antigens reach the hypothalamus?</strong> The blood-brain barrier should prevent this.</li>
+        </ul>
+
+        <h2>The Proposed Mechanism: Five Steps</h2>
+
+        <div class="bg-slate-100 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Step 1: Intraneuronal Injection (The Trigger)</h3>
+          <p class="text-slate-700 mb-4">
+            Standard deltoid IM injection carries a small but significant risk of penetrating the 
+            <strong>axillary nerve</strong>, which runs beneath the deltoid muscle. When this occurs, 
+            vaccine components are deposited directly within the nerve fascicle.
+          </p>
+          
+          <div class="bg-white rounded p-4 border border-slate-200">
+            <h4 class="font-bold text-slate-800 mb-2">📐 Geometric Probability Estimate</h4>
+            <table class="w-full text-sm">
+              <tbody>
+                <tr class="border-b">
+                  <td class="py-1">Axillary nerve CSA (adult, US in vivo)</td>
+                  <td class="py-1 text-right font-mono">2.9 ± 1.1 mm²</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="py-1">Equivalent diameter (elliptical nerve)</td>
+                  <td class="py-1 text-right font-mono">~1.9–2.2 mm</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="py-1">Cadaver diameter (at origin)</td>
+                  <td class="py-1 text-right font-mono">4.1 ± 0.9 mm</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="py-1">Nerve path length under deltoid</td>
+                  <td class="py-1 text-right font-mono">~20–30 mm</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="py-1">2D projection ("danger zone")</td>
+                  <td class="py-1 text-right font-mono">~40–65 mm²</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="py-1">Injection zone (mid-deltoid)</td>
+                  <td class="py-1 text-right font-mono">~900 mm²</td>
+                </tr>
+                <tr class="bg-amber-50">
+                  <td class="py-1 font-bold">Raw geometric probability</td>
+                  <td class="py-1 text-right font-bold font-mono">~4–7%</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-xs text-slate-500 mt-2">
+              <strong>Sources:</strong> CSA from high-resolution ultrasound at quadrangular space<RefLink id="4" text={references[3].text} url={references[3].url} />. 
+              Cadaver data from Apaydin et al. 2023<RefLink id="5" text={references[4].text} url={references[4].url} />.
+              Note: In vivo US values preferred; cadaver measurements may overestimate due to origin position.
+            </p>
+            <p class="text-xs text-amber-700 mt-2 bg-amber-50 p-2 rounded">
+              <strong>⚠️ Key insight:</strong> Raw probability (~5%) is ~750× higher than narcolepsy incidence 
+              (1:15,000). This gap requires additional factors: <strong>HLA-DQB1*06:02</strong> genotype (~25% of 
+              population), <strong>B3GALT4/NEU1</strong> variants, and effective antigen-antibody transport.
+            </p>
+          </div>
+
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-4">
+            <h4 class="font-bold text-blue-800 mb-2">👶 Why Children Were More Affected</h4>
+            <p class="text-blue-700 text-sm mb-2">
+              Post-Pandemrix narcolepsy predominantly affected <strong>children and adolescents</strong>. 
+              This age distribution can be explained by anatomical factors:
+            </p>
+            <ul class="text-blue-700 text-sm space-y-1 ml-4 list-disc">
+              <li><strong>Less subcutaneous fat:</strong> The needle penetrates closer to underlying structures</li>
+              <li><strong>Smaller deltoid muscle:</strong> Shorter distance from skin to the axillary nerve</li>
+              <li><strong>Same needle length:</strong> Standard vaccination needles were used regardless of age</li>
+              <li><strong>Relative needle depth:</strong> A 25mm needle in a child reaches proportionally deeper</li>
+            </ul>
+            <p class="text-blue-700 text-sm mt-2">
+              <strong>In adults:</strong> Larger muscle mass and more subcutaneous fat create a greater 
+              "safety buffer" between the injection site and the axillary nerve, potentially explaining 
+              the lower incidence of vaccine-associated narcolepsy in adult populations.
+            </p>
+          </div>
+
+          <div class="bg-rose-50 border border-rose-200 rounded-lg p-4 mt-4">
+            <h4 class="font-bold text-rose-800 mb-2">💉 Clinical Evidence: Vaccine-Related Axillary Neuropathy</h4>
+            <p class="text-rose-700 text-sm mb-3">
+              Vaccine-related axillary nerve injury is a <strong>well-documented clinical entity</strong>, 
+              recognized as part of <strong>SIRVA</strong> (Shoulder Injury Related to Vaccine Administration). 
+              This demonstrates that needle penetration of the axillary nerve during vaccination is not hypothetical 
+              — it occurs and causes measurable neurological deficits.
+            </p>
+            
+            <div class="bg-white rounded p-3 border border-rose-200 mb-3">
+              <h5 class="font-bold text-rose-800 text-sm mb-2">Key Clinical Findings:</h5>
+              <ul class="text-rose-700 text-sm space-y-1 ml-4 list-disc">
+                <li><strong>Unilateral deltoid weakness</strong> (MRC grade 2-3/5) on the injection side</li>
+                <li><strong>Onset:</strong> Hours to days post-vaccination (median 2-7 days)</li>
+                <li><strong>EMG findings:</strong> Prolonged latency, reduced CMAP amplitude (&lt;50% of contralateral)</li>
+                <li><strong>Recovery:</strong> 60-80% spontaneous within 3-6 months; 20% persistent deficits</li>
+                <li><strong>Incidence:</strong> ~1:100,000-500,000 doses (higher with drive-through administration)</li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded p-3 border border-rose-200 mb-3">
+              <h5 class="font-bold text-rose-800 text-sm mb-2">Documented Case Reports:</h5>
+              <div class="text-rose-700 text-xs space-y-2">
+                <p>
+                  <strong>COVID-19 vaccine (2023):</strong> 62-year-old male with left deltoid paresis (MRC 3/5), 
+                  atrophy at 3 months. EMG: acute denervation. MRI: nerve edema. Partial recovery at 6 months.
+                </p>
+                <p>
+                  <strong>Influenza vaccine (2013):</strong> Drive-through vaccination → unilateral pain and 
+                  deltoid weakness within 24h. EMG: axonal damage. Full recovery at 4 months with steroids.
+                </p>
+                <p>
+                  <strong>Rabies vaccine (2025):</strong> 10-year-old with abscess and secondary axillary 
+                  neuropathy (MRC 2/5). Recovery after surgical drainage.
+                </p>
+              </div>
+            </div>
+
+            <p class="text-rose-700 text-xs italic">
+              <strong>Implication for narcolepsy hypothesis:</strong> If vaccine injections can cause 
+              <em>clinically apparent</em> axillary nerve damage, they can certainly deliver vaccine 
+              antigens into the nerve fascicle without causing obvious motor symptoms — especially 
+              if only sensory fibers or a small subset of axons are affected.
+            </p>
+            
+            <p class="text-slate-500 text-xs mt-2">
+              <strong>References:</strong> 
+              <a href="https://www.nationalacademies.org/read/27746/chapter/12" class="text-blue-600 hover:underline" target="_blank">National Academies 2025</a>;
+              <a href="https://doi.org/10.3389/fphar.2019.00744" class="text-blue-600 hover:underline" target="_blank">Trollmoen-Malmerud 2019</a>;
+              <a href="https://doi.org/10.3390/vaccines11071164" class="text-blue-600 hover:underline" target="_blank">Salmon 2023</a>;
+              <a href="https://www.consultant360.com/articles/injection-induced-axillary-nerve-injury-after-drive-through-flu-shot" class="text-blue-600 hover:underline" target="_blank">Consultant360 2013</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-slate-100 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Step 2: GT1b-Mediated Retrograde Transport</h3>
+          <p class="text-slate-700 mb-4">
+            H1N1 influenza virus has affinity for <strong>GT1b ganglioside</strong> — the same receptor 
+            used by tetanus toxin<RefLink id="6" text={references[5].text} url={references[5].url} />. This enables retrograde axonal transport from the injection site 
+            to the spinal cord.
+          </p>
+          <p class="text-slate-700">
+            <strong>Critical distinction:</strong> GT1b is the <em>transport mechanism</em>, not the 
+            <em>target</em>. The hypothesis does not propose anti-GT1b antibodies (which would cause 
+            Bickerstaff-like generalized symptoms), but rather GT1b-facilitated delivery of antigens 
+            that then trigger a <em>different</em> autoimmune response.
+          </p>
+        </div>
+
+        <div class="bg-slate-100 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Step 3: Extraneuronal Release in Lamina I</h3>
+          <p class="text-slate-700 mb-4">
+            Unpublished neurotracing research demonstrated a critical difference between GT1b-binding 
+            and GM1-binding molecules:
+          </p>
+          <table class="w-full text-sm mb-4">
+            <thead>
+              <tr class="border-b bg-slate-200">
+                <th class="text-left py-2 px-2">Toxin</th>
+                <th class="text-left py-2 px-2">Receptor</th>
+                <th class="text-left py-2 px-2">Fate in Spinal Cord</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 px-2">Cholera toxin</td>
+                <td class="py-2 px-2">GM1</td>
+                <td class="py-2 px-2">Remains <strong>intraneuronal</strong></td>
+              </tr>
+              <tr class="border-b bg-amber-50">
+                <td class="py-2 px-2 font-bold">Tetanus toxin</td>
+                <td class="py-2 px-2 font-bold">GT1b</td>
+                <td class="py-2 px-2 font-bold">Released <strong>extraneuronally</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-slate-700">
+            If H1N1 vaccine components share GT1b transport properties, they would be deposited 
+            directly into the spinal cord parenchyma — in <strong>lamina I</strong>, where orexin 
+            afferents from the hypothalamus terminate.
+          </p>
+          
+          <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mt-4">
+            <h4 class="font-bold text-emerald-800 mb-2">🧬 Anatomical Evidence: Orexin Innervation of Lamina I</h4>
+            <p class="text-emerald-700 text-sm mb-3">
+              Van den Pol (1999)<RefLink id="3" text={references[2].text} url={references[2].url} /> demonstrated remarkably <strong>dense hypocretin/orexin innervation</strong> 
+              specifically in <strong>lamina I</strong> of the spinal cord dorsal horn — the exact location 
+              where peripheral sensory afferents terminate.
+            </p>
+            
+            <!-- Images from van den Pol 1999 -->
+            <div class="grid md:grid-cols-2 gap-4 my-4">
+              <figure class="bg-white rounded-lg p-3 border border-emerald-200">
+                <img 
+                  src="/images/orexin-lamina-1.jpg" 
+                  alt="Orexin/hypocretin innervation of spinal cord lamina I showing dense horizontal fiber network"
+                  class="w-full rounded border border-slate-200"
+                />
+                <figcaption class="text-xs text-slate-600 mt-2">
+                  <strong>A. Lamina I (horizontal view):</strong> Extremely dense orexin fiber network 
+                  with extensive branching. This is where peripheral nerve afferents terminate.
+                </figcaption>
+              </figure>
+              <figure class="bg-white rounded-lg p-3 border border-slate-200">
+                <img 
+                  src="/images/orexin-afferents-spinal-cord-lamina-I.jpg" 
+                  alt="Orexin afferents in spinal cord showing lamina distribution"
+                  class="w-full rounded border border-slate-200"
+                />
+                <figcaption class="text-xs text-slate-600 mt-2">
+                  <strong>B. Lamina II/III:</strong> Much sparser innervation with primarily 
+                  longitudinal fibers. Note the striking contrast with lamina I.
+                </figcaption>
+              </figure>
+            </div>
+            <p class="text-xs text-slate-500 italic mt-2 bg-white rounded p-2 border border-slate-200">
+              <strong>Figure source:</strong> van den Pol AN. "Hypothalamic Hypocretin (Orexin): Robust Innervation 
+              of the Spinal Cord". <em>J Neurosci</em> 19(8):3171–82, 1999. 
+              <a href="https://doi.org/10.1523/JNEUROSCI.19-08-03171.1999" class="text-blue-600 hover:underline" target="_blank">
+                DOI: 10.1523/JNEUROSCI.19-08-03171.1999
+              </a>. Reproduced for educational purposes.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-slate-100 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Step 4: Antibody + Antigen Co-Transport</h3>
+          <p class="text-slate-700 mb-4">
+            Published research (<a href="https://journals.lww.com/neuroreport/abstract/1993/06000/Simultaneous_demonstration_of_central_projections.36.aspx" 
+            class="text-blue-600 hover:underline" target="_blank">NeuroReport 1993</a>) demonstrated that 
+            <strong>antigen and antibody can be transported together</strong> from peripheral nerve to 
+            spinal cord. This has important implications:
+          </p>
+          <div class="bg-white rounded p-4 border border-slate-200">
+            <p class="text-sm text-slate-700 mb-2">
+              <strong>Original finding:</strong> Cholera toxin + Anti-CT IgG → co-transport to spinal cord
+            </p>
+            <p class="text-sm text-slate-700">
+              <strong>Implication for narcolepsy:</strong> H1N1 antigen + Anti-H1N1 IgG (from vaccination) 
+              could reach lamina I together, forming immune complexes near orexin afferents.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-slate-100 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Step 5: Molecular Mimicry → Orexin Cell Destruction</h3>
+          <p class="text-slate-700 mb-4">
+            Ahmed et al. (2015)<RefLink id="8" text={references[7].text} url={references[7].url} /> identified structural homology between H1N1 nucleoprotein and orexin 
+            receptor 2 (HcrtR2):
+          </p>
+          <div class="bg-slate-800 text-white rounded p-4 font-mono text-sm mb-4">
+            <p class="text-slate-400 mb-2">Sequence alignment (N-terminal):</p>
+            <p>H1N1 NP: &nbsp;&nbsp;Y-<span class="text-green-400">E</span>-<span class="text-green-400">D</span>-<span class="text-green-400">E</span>-F-L-<span class="text-green-400">R</span></p>
+            <p>HcrtR2: &nbsp;&nbsp;&nbsp;Y-<span class="text-green-400">D</span>-<span class="text-green-400">D</span>-<span class="text-green-400">E</span>-<span class="text-green-400">E</span>-<span class="text-green-400">F</span>-<span class="text-green-400">R</span></p>
+            <p class="text-slate-400 text-xs mt-2">Green = structural homology (key fits lock)</p>
+          </div>
+          <p class="text-slate-700">
+            Antibodies targeting this H1N1 epitope may cross-react with HcrtR2, leading to 
+            selective destruction of orexin-producing neurons.
+          </p>
+        </div>
+
+        <h2>The Genetic Factor: B3GALT4 — A New Interpretation</h2>
+        <p>
+          Nearly 100% of Pandemrix-associated narcolepsy patients carry HLA-DQB1*06:02<RefLink id="7" text={references[6].text} url={references[6].url} />. The traditional 
+          interpretation is that this HLA molecule efficiently presents H1N1 peptides. However:
+        </p>
+        
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">The B3GALT4 Connection</h4>
+          <p class="text-amber-700 text-sm mb-2">
+            <strong>B3GALT4</strong> (Beta-1,3-galactosyltransferase 4) is located at <strong>6p21.32</strong> — 
+            directly within the HLA region, in linkage disequilibrium with DQB1*06:02.
+          </p>
+          <p class="text-amber-700 text-sm mb-0">
+            B3GALT4 catalyzes GD2 → GD1b, a critical step in GT1b biosynthesis. Variants affecting 
+            B3GALT4 expression could increase GT1b levels, enhancing transport efficiency. The 
+            "HLA association" may actually reflect a <strong>B3GALT4 association</strong>.
+          </p>
+        </div>
+
+        <h2>Why Prior Infection Was NOT Required</h2>
+        <p>
+          A Finnish study<RefLink id="9" text={references[8].text} url={references[8].url} /> tested narcolepsy patients for NS1 antibodies 
+          (indicating prior H1N1 infection, not present in vaccine):
+        </p>
+        
+        <table class="w-full text-sm my-6">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Group</th>
+              <th class="text-left py-2 px-2">NS1 Antibodies</th>
+              <th class="text-left py-2 px-2">Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 px-2">Narcolepsy patients</td>
+              <td class="py-2 px-2 font-bold text-green-700">4.4% (2/45)</td>
+              <td class="py-2 px-2">Minimal prior infection</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2">Infected controls</td>
+              <td class="py-2 px-2">96%</td>
+              <td class="py-2 px-2">Confirmed infection</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Revised "Two-Hit" Model</div>
+          <p class="mb-0">
+            <strong>Hit 1:</strong> Genetic susceptibility (HLA-DQB1*06:02 linked with B3GALT4 variant → elevated GT1b)<br>
+            <strong>Hit 2:</strong> Intraneuronal injection (random event during vaccination)<br>
+            <strong>NOT required:</strong> Prior H1N1 infection (only 4.4% had evidence of it)
+          </p>
+        </div>
+
+        <h2>Clinical Parallels: Bickerstaff Encephalitis</h2>
+        <p>
+          <strong>Bickerstaff brainstem encephalitis</strong> provides a striking clinical parallel. 
+          This condition involves anti-GT1b/GQ1b antibodies and causes:
+        </p>
+        <ul>
+          <li>Ophthalmoplegia (eye movement paralysis)</li>
+          <li><strong>Disturbances of consciousness: drowsiness, stupor, coma</strong></li>
+        </ul>
+        <p>
+          This demonstrates that anti-ganglioside autoimmunity CAN affect brainstem arousal centers, 
+          producing sleep-like symptoms. The key difference:
+        </p>
+        
+        <table class="w-full text-sm my-6">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Condition</th>
+              <th class="text-left py-2 px-2">Mechanism</th>
+              <th class="text-left py-2 px-2">Target</th>
+              <th class="text-left py-2 px-2">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 px-2">Bickerstaff</td>
+              <td class="py-2 px-2">Anti-GT1b antibodies</td>
+              <td class="py-2 px-2">Broad (brainstem)</td>
+              <td class="py-2 px-2">Acute drowsiness/coma</td>
+            </tr>
+            <tr class="border-b bg-amber-50">
+              <td class="py-2 px-2 font-bold">Narcolepsy</td>
+              <td class="py-2 px-2">GT1b transport → mimicry</td>
+              <td class="py-2 px-2 font-bold">Selective (orexin)</td>
+              <td class="py-2 px-2">Chronic sleep attacks</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>The Botox Challenge</h2>
+        <p>
+          A potential objection: <strong>Botulinum toxin</strong> (Botox) also binds GT1b and enters 
+          neurons from nearby tissue — without intraneuronal injection. Why would vaccine antigens 
+          require direct nerve penetration?
+        </p>
+        
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Key Differences</h4>
+          <ul class="text-blue-700 text-sm mb-0 space-y-1">
+            <li>• <strong>Effect location:</strong> Botox acts locally at neuromuscular junction; it doesn't need to reach the CNS</li>
+            <li>• <strong>Concentration:</strong> Botox is a purified, highly concentrated toxin</li>
+            <li>• <strong>Efficiency:</strong> Intraneuronal injection may not be <em>required</em>, but dramatically increases transport efficiency for dilute vaccine antigens</li>
+          </ul>
+        </div>
+
+        <h2>Testable Predictions</h2>
+        <ol>
+          <li>
+            <strong>B3GALT4 fine-mapping:</strong> SNPs in B3GALT4 should show independent association 
+            with narcolepsy when controlling for HLA-DQB1*06:02.
+          </li>
+          <li>
+            <strong>GT1b levels:</strong> Narcolepsy patients may have elevated peripheral nerve GT1b.
+          </li>
+          <li>
+            <strong>Injection technique:</strong> Risk should correlate with injection depth, location, 
+            and needle length (SIRVA-related factors).
+          </li>
+          <li>
+            <strong>Transport studies:</strong> Pandemrix components should show GT1b-dependent 
+            retrograde transport in nerve culture models.
+          </li>
+          <li>
+            <strong>Extraneuronal release:</strong> H1N1 antigens should show tetanus-like release 
+            patterns (not cholera-like retention) in neurotracing experiments.
+          </li>
+        </ol>
+
+        <h2>Historical Context: Encephalitis Lethargica</h2>
+        <p>
+          The connection between influenza and sleep disorders predates Pandemrix. Following the 
+          1918 influenza pandemic, an epidemic of <strong>encephalitis lethargica</strong> (von 
+          Economo's disease) caused severe sleep disturbances — "sleeping sickness." While the 
+          exact etiology remains debated, it demonstrates that influenza-associated neurological 
+          processes can specifically target arousal systems.
+        </p>
+        
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-4">
+          <h4 class="font-bold text-amber-800 mb-2">🦠 Temporal Coincidence: H1N1 and Sleep Disorders</h4>
+          <p class="text-amber-700 text-sm mb-2">
+            The 1918 pandemic was caused by <strong>H1N1 influenza</strong> — the <em>same viral subtype</em> 
+            as the 2009 pandemic. Both were followed by epidemics of sleep disorders.
+          </p>
+          <table class="w-full text-sm mt-3">
+            <thead>
+              <tr class="border-b border-amber-300">
+                <th class="text-left py-1 text-amber-800">Pandemic</th>
+                <th class="text-left py-1 text-amber-800">Virus</th>
+                <th class="text-left py-1 text-amber-800">Sleep Disorder</th>
+              </tr>
+            </thead>
+            <tbody class="text-amber-700">
+              <tr class="border-b border-amber-200">
+                <td class="py-1">1918 "Spanish Flu"</td>
+                <td class="py-1 font-mono font-bold">H1N1</td>
+                <td class="py-1">Encephalitis lethargica</td>
+              </tr>
+              <tr class="border-b border-amber-200">
+                <td class="py-1">2009 "Swine Flu"</td>
+                <td class="py-1 font-mono font-bold">H1N1pdm09</td>
+                <td class="py-1">Narcolepsy (post-Pandemrix)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-slate-100 border border-slate-300 rounded-lg p-4 my-4">
+          <h4 class="font-bold text-slate-800 mb-2">⚠️ Important Caveat: Etiology of Encephalitis Lethargica Remains Debated</h4>
+          <p class="text-slate-700 text-sm mb-2">
+            While the temporal coincidence is striking, <strong>modern studies have not confirmed</strong> 
+            influenza as the cause of encephalitis lethargica:
+          </p>
+          <ul class="text-slate-600 text-sm space-y-1 ml-4 list-disc mb-3">
+            <li>
+              <strong>Brain tissue studies:</strong> Analysis of preserved brain tissue from EL patients 
+              found <em>no influenza virus RNA</em>
+            </li>
+            <li>
+              <strong>Alternative hypothesis:</strong> Some researchers propose <strong>Group A Streptococcus</strong> 
+              infection as a trigger, with autoimmune mechanisms similar to Sydenham's chorea
+            </li>
+            <li>
+              <strong>Enterovirus findings:</strong> Virus-like particles resembling enteroviruses have been 
+              identified in some EL brain tissues
+            </li>
+          </ul>
+          <p class="text-slate-600 text-sm italic">
+            <strong>Counter-argument:</strong> The absence of influenza virus in archived tissue does not 
+            exclude influenza as a trigger — the virus could have cleared before death, leaving only 
+            the autoimmune sequelae. The temporal clustering around the 1918 pandemic remains 
+            suggestive, even if not proven.
+          </p>
+        </div>
+
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 my-4">
+          <h4 class="font-bold text-emerald-800 mb-2">🧬 A Unifying Concept: Ganglioside-Specific Neurotropism</h4>
+          <p class="text-emerald-700 text-sm mb-3">
+            Different influenza strains may target <strong>different cell populations</strong> based on their 
+            ganglioside binding preferences. Cells enriched in specific gangliosides become selectively vulnerable.
+          </p>
+          
+          <table class="w-full text-sm mb-3">
+            <thead>
+              <tr class="border-b border-emerald-300 bg-emerald-100">
+                <th class="text-left py-2 px-2 text-emerald-800">Virus</th>
+                <th class="text-left py-2 px-2 text-emerald-800">Ganglioside Affinity</th>
+                <th class="text-left py-2 px-2 text-emerald-800">Target Cells</th>
+                <th class="text-left py-2 px-2 text-emerald-800">Clinical Syndrome</th>
+              </tr>
+            </thead>
+            <tbody class="text-emerald-700">
+              <tr class="border-b border-emerald-200">
+                <td class="py-2 px-2 font-mono">H1N1</td>
+                <td class="py-2 px-2 font-bold">GT1b</td>
+                <td class="py-2 px-2">Orexin neurons (hypothalamus)</td>
+                <td class="py-2 px-2">Narcolepsy / EL?</td>
+              </tr>
+              <tr class="border-b border-emerald-200">
+                <td class="py-2 px-2 font-mono">H3N2</td>
+                <td class="py-2 px-2 font-bold">GM3</td>
+                <td class="py-2 px-2">Spiral ganglion neurons (cochlea)</td>
+                <td class="py-2 px-2">Auditory symptoms (Havana?)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="text-emerald-700 text-sm mb-2">
+            <strong>Hypothesis:</strong> Orexin-containing cells may be enriched in <strong>GT1b ganglioside</strong>, 
+            making them especially susceptible to H1N1-related autoimmune attack. This would explain why 
+            sleep/arousal centers are specifically targeted.
+          </p>
+          
+          <p class="text-emerald-700 text-sm">
+            <strong>Analogy:</strong> GM3 is essential for cochlear function and hearing. The speculative 
+            <a href="/speculation/havana-syndrome/" class="text-emerald-600 underline">Havana Syndrome hypothesis</a> 
+            proposes that H3N2 influenza (2016-2017) — with its GM3 affinity — may have targeted auditory 
+            neurons via similar ganglioside-mediated mechanisms.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary Diagram -->
+  <section class="py-12 bg-slate-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold mb-8 text-center">The Complete Mechanism</h2>
+      <div class="bg-slate-800 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+        <pre class="text-slate-300">
+VACCINATION (deltoid muscle)
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  ~1-2% chance: AXILLARY NERVE HIT       │ ← Random event
+└─────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  H1N1 antigen binds GT1b ganglioside    │
+│  (Same receptor as tetanus toxin)       │
+└─────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  RETROGRADE AXONAL TRANSPORT            │
+│  Arm → Spinal cord (lamina I)           │
+│                                         │
+│  ⚡ Enhanced by B3GALT4 variant         │ ← Genetic factor
+│     (linked to HLA-DQB1*06:02)          │
+└─────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  EXTRANEURONAL RELEASE                  │
+│  (Unlike cholera toxin, which stays     │
+│   intraneuronal)                        │
+└─────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  Antigen exposed near OREXIN AFFERENTS  │
+│  (Hypothalamus → Lamina I projections)  │
+└─────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  MOLECULAR MIMICRY                      │
+│  H1N1 nucleoprotein ↔ Orexin receptor 2 │
+│  (Luo et al. 2013)                      │
+└─────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│  SELECTIVE OREXIN CELL DESTRUCTION      │
+│           → NARCOLEPSY                  │
+└─────────────────────────────────────────┘
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section class="py-12 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Key References</h2>
+      <ol class="reference-list text-slate-700">
+        <li>
+          Melén K, et al. (2013). No Serological Evidence of Influenza A H1N1pdm09 Virus Infection 
+          as a Contributing Factor in Childhood Narcolepsy after Pandemrix Vaccination Campaign in Finland.
+          <em>PLoS ONE</em>. <a href="https://doi.org/10.1371/journal.pone.0068402" class="text-blue-600">doi:10.1371/journal.pone.0068402</a>
+        </li>
+        <li>
+          Luo G, et al. (2013). Autoimmunity to hypocretin and molecular mimicry to flu in type 1 narcolepsy.
+          <em>Sci Transl Med</em>. 5(216):216ra176.
+        </li>
+        <li>
+          Buonocore SM, van der Most RG. (2022). Narcolepsy and H1N1 influenza immunology a decade later.
+          <em>Front Immunol</em>. <a href="https://doi.org/10.3389/fimmu.2022.902840" class="text-blue-600">doi:10.3389/fimmu.2022.902840</a>
+        </li>
+        <li>
+          Fotinou C, et al. (2001). Crystal structure of tetanus toxin Hc fragment complexed with GT1b analogue.
+          <em>J Biol Chem</em>. 276(34):32274-32281.
+        </li>
+        <li>
+          Trajkovic K, et al. (2008). Ceramide triggers budding of exosome vesicles into multivesicular endosomes.
+          <em>Science</em>. 319(5867):1244-1247.
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Next Steps -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4">Explore the Evidence</h2>
+      <p class="text-slate-600 mb-8">
+        Dive deeper into the scientific foundations of this hypothesis.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/science/gangliosides/" class="inline-flex items-center px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors">
+          Ganglioside Biology
+        </a>
+        <a href="/science/genetics/" class="inline-flex items-center px-6 py-3 bg-white text-slate-900 rounded-lg border border-slate-300 hover:bg-slate-50 transition-colors">
+          B3GALT4 & Genetics
+        </a>
+        <a href="/about/" class="inline-flex items-center px-6 py-3 bg-white text-slate-900 rounded-lg border border-slate-300 hover:bg-slate-50 transition-colors">
+          About the Author
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reference Drawer -->
+  <RefDrawer lang="en" />
+</BaseLayout>
