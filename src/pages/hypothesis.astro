@@ -59,6 +59,11 @@ const references = [
     text: "Rivero-Siri C, et al. (2001). Delayed administration of NGF reverses nerve injury-induced changes in C-fiber GM1 expression. NeuroReport. 12(9):2021-5.",
     url: "https://journals.lww.com/neuroreport/abstract/2001/07030/delayed_administration_of_ngf_reverses_nerve.26.aspx"
   },
+  {
+    id: "11",
+    text: "Luo G, Ambati A, Lin L, et al. (2018). Autoimmunity to hypocretin and molecular mimicry to flu in type 1 narcolepsy. Proc Natl Acad Sci U S A. 115(52):E12323-E12332.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/30541895/"
+  },
 ];
 ---
 
@@ -479,6 +484,92 @@ const references = [
             Antibodies targeting this H1N1 epitope may cross-react with HcrtR2, leading to 
             selective destruction of orexin-producing neurons.
           </p>
+        </div>
+
+        <!-- Alternative Hypothesis Section -->
+        <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-bold text-slate-800 mb-4">
+            <span class="text-slate-500">🔍</span> Alternative Mechanism Considered: "Reversed Binding"
+          </h3>
+          
+          <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-4">
+            <p class="text-amber-800 text-sm font-medium mb-0">
+              <strong>Status:</strong> Considered but unlikely — included here for completeness and to document the reasoning process.
+            </p>
+          </div>
+
+          <p class="text-slate-700 mb-4">
+            An alternative hypothesis was considered: Could the vaccine antigen (which resembles the orexin receptor) 
+            bind directly to <strong>orexin molecules</strong> on cell surfaces — a "reversed binding" where the 
+            receptor comes to the ligand instead of vice versa?
+          </p>
+
+          <h4 class="font-bold text-slate-700 mb-2">Why This Mechanism Is Unlikely</h4>
+          
+          <div class="space-y-3 mb-4">
+            <div class="bg-white rounded p-3 border border-slate-200">
+              <p class="text-slate-700 text-sm mb-1">
+                <strong class="text-red-600">Problem 1: Orexin is a secreted signal, not a surface receptor</strong>
+              </p>
+              <p class="text-slate-600 text-sm mb-0">
+                Orexin (hypocretin) is a <strong>neuropeptide</strong> that is released from neurons and diffuses 
+                to bind receptors on target cells. It is not a statically anchored surface molecule that "waits" 
+                for something to bind it.
+              </p>
+            </div>
+            
+            <div class="bg-white rounded p-3 border border-slate-200">
+              <p class="text-slate-700 text-sm mb-1">
+                <strong class="text-red-600">Problem 2: Transport would continue indefinitely</strong>
+              </p>
+              <p class="text-slate-600 text-sm mb-0">
+                If the antigen simply bound to cells and was transported from cell to cell via some "reversed" 
+                mechanism, the process would continue endlessly without causing damage. The antigen must eventually 
+                be <strong>presented to the immune system</strong> to trigger an autoimmune response.
+              </p>
+            </div>
+            
+            <div class="bg-white rounded p-3 border border-slate-200">
+              <p class="text-slate-700 text-sm mb-1">
+                <strong class="text-red-600">Problem 3: The mimicry is with the receptor, not the ligand</strong>
+              </p>
+              <p class="text-slate-600 text-sm mb-0">
+                Ahmed et al. (2015) showed that H1N1 nucleoprotein resembles <strong>orexin receptor 2 (HCRTR2)</strong>, 
+                not the orexin molecule itself. The autoimmune attack is directed at cells expressing the receptor.
+              </p>
+            </div>
+          </div>
+
+          <h4 class="font-bold text-slate-700 mb-2">The Actual Mechanism: Autoimmune "Friendly Fire"</h4>
+          <p class="text-slate-700 text-sm mb-3">
+            The current scientific understanding involves <strong>indirect immune destruction</strong>, not direct binding:
+          </p>
+          
+          <ol class="text-slate-600 text-sm space-y-2 ml-4 list-decimal mb-4">
+            <li>
+              <strong>Vaccination:</strong> The immune system encounters H1N1 nucleoprotein and produces antibodies against it.
+            </li>
+            <li>
+              <strong>Cross-reactivity:</strong> Because the nucleoprotein resembles HCRTR2, these antibodies 
+              also recognize the body's own orexin receptor.
+            </li>
+            <li>
+              <strong>Autoimmune attack:</strong> The immune system attacks cells expressing HCRTR2 — specifically, 
+              the orexin-producing neurons in the hypothalamus.
+            </li>
+            <li>
+              <strong>Result:</strong> Destruction of orexin neurons → loss of orexin → narcolepsy.
+            </li>
+          </ol>
+
+          <div class="bg-emerald-50 border border-emerald-200 rounded p-3">
+            <p class="text-emerald-800 text-sm mb-0">
+              <strong>🔗 How gangliosides fit in:</strong> Our hypothesis proposes that GT1b-mediated transport 
+              delivers the antigen to lamina I where it is <strong>presented to local immune cells</strong> near 
+              orexin afferents. The ganglioside pathway explains <em>how</em> the antigen reaches the CNS — the 
+              molecular mimicry explains <em>why</em> orexin neurons are selectively destroyed.
+            </p>
+          </div>
         </div>
 
         <h2>The Genetic Factor: B3GALT4 — A New Interpretation</h2>

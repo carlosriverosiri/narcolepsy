@@ -1,239 +1,152 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Inter, system-ui, sans-serif">
-  <!-- Background -->
   <rect width="800" height="500" fill="#f8fafc"/>
   
-  <!-- Title -->
-  <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">
-    Electrostatic Transport: Why B-Series Vesicles "Glide"
-  </text>
+  <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">Electrostatic Transport: Why B-Series Vesicles Glide</text>
+  <text x="400" y="55" text-anchor="middle" font-size="12" fill="#64748b">Negative charges prevent random adhesion - specific receptors enable targeted delivery</text>
+
+  <!-- LEFT NEURON -->
+  <ellipse cx="100" cy="250" rx="70" ry="90" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <ellipse cx="100" cy="250" rx="25" ry="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1"/>
   
-  <!-- Subtitle -->
-  <text x="400" y="55" text-anchor="middle" font-size="12" fill="#64748b">
-    Negative charges prevent random adhesion  specific receptors enable targeted delivery
-  </text>
-
-  <!-- LEFT NEURON (Source) -->
-  <g id="source-neuron">
-    <!-- Cell body -->
-    <ellipse cx="100" cy="250" rx="70" ry="90" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-    
-    <!-- Nucleus -->
-    <ellipse cx="100" cy="250" rx="25" ry="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1"/>
-    
-    <!-- Glykokalyx (negative charges on surface) -->
-    <g fill="#ef4444" font-size="10" font-weight="bold">
-      <text x="35" y="180"></text>
-      <text x="25" y="210"></text>
-      <text x="22" y="245"></text>
-      <text x="25" y="280"></text>
-      <text x="35" y="315"></text>
-      <text x="55" y="340"></text>
-      <text x="90" y="350"></text>
-      <text x="125" y="345"></text>
-      <text x="155" y="320"></text>
-      <text x="165" y="285"></text>
-      <text x="168" y="250"></text>
-      <text x="165" y="215"></text>
-      <text x="155" y="180"></text>
-      <text x="125" y="160"></text>
-      <text x="90" y="155"></text>
-      <text x="55" y="160"></text>
-    </g>
-    
-    <!-- Label -->
-    <text x="100" y="380" text-anchor="middle" font-size="11" fill="#0284c7" font-weight="600">Source Neuron</text>
-    <text x="100" y="395" text-anchor="middle" font-size="9" fill="#64748b">(Negative surface)</text>
-  </g>
-
-  <!-- RIGHT NEURON (Target) -->
-  <g id="target-neuron">
-    <!-- Cell body -->
-    <ellipse cx="700" cy="250" rx="70" ry="90" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
-    
-    <!-- Nucleus -->
-    <ellipse cx="700" cy="250" rx="25" ry="30" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
-    
-    <!-- Glykokalyx (negative charges on surface) -->
-    <g fill="#ef4444" font-size="10" font-weight="bold">
-      <text x="635" y="180"></text>
-      <text x="625" y="210"></text>
-      <text x="622" y="245"></text>
-      <text x="625" y="280"></text>
-      <text x="635" y="315"></text>
-      <text x="655" y="340"></text>
-      <text x="690" y="350"></text>
-      <text x="725" y="345"></text>
-      <text x="755" y="320"></text>
-      <text x="765" y="285"></text>
-      <text x="768" y="250"></text>
-      <text x="765" y="215"></text>
-      <text x="755" y="180"></text>
-      <text x="725" y="160"></text>
-      <text x="690" y="155"></text>
-      <text x="655" y="160"></text>
-    </g>
-    
-    <!-- Lipid raft with receptor (specific binding site) -->
-    <g id="receptor">
-      <rect x="618" y="235" width="25" height="30" rx="3" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"/>
-      <text x="630" y="255" text-anchor="middle" font-size="7" fill="#78350f" font-weight="bold">TrkB</text>
-      <!-- Receptor "antenna" -->
-      <line x1="630" y1="235" x2="630" y2="220" stroke="#d97706" stroke-width="2"/>
-      <circle cx="630" cy="215" r="5" fill="#fbbf24" stroke="#d97706"/>
-    </g>
-    
-    <!-- Label -->
-    <text x="700" y="380" text-anchor="middle" font-size="11" fill="#059669" font-weight="600">Target Neuron</text>
-    <text x="700" y="395" text-anchor="middle" font-size="9" fill="#64748b">(Negative surface + receptor)</text>
-  </g>
-
-  <!-- EXTRACELLULAR MATRIX (negative) -->
-  <g id="ecm" fill="#cbd5e1" font-size="8">
-    <text x="300" y="120"></text>
-    <text x="350" y="100"></text>
-    <text x="400" y="115"></text>
-    <text x="450" y="95"></text>
-    <text x="500" y="110"></text>
-    <text x="280" y="420"></text>
-    <text x="340" y="440"></text>
-    <text x="400" y="425"></text>
-    <text x="460" y="445"></text>
-    <text x="520" y="430"></text>
-  </g>
-  <text x="400" y="475" text-anchor="middle" font-size="9" fill="#94a3b8">
-    Extracellular matrix (also negatively charged)
-  </text>
-
-  <!-- VESICLES IN TRANSIT -->
-  
-  <!-- Vesicle 1: Just released -->
-  <g id="vesicle1">
-    <circle cx="200" cy="220" r="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-    <!-- GT1b sialic acids (negative charges) -->
-    <g fill="#dc2626" font-size="9" font-weight="bold">
-      <text x="180" y="210"></text>
-      <text x="178" y="230"></text>
-      <text x="190" y="245"></text>
-      <text x="210" y="245"></text>
-      <text x="220" y="230"></text>
-      <text x="218" y="210"></text>
-    </g>
-    <!-- Cargo inside -->
-    <text x="200" y="224" text-anchor="middle" font-size="7" fill="#92400e" font-weight="bold">BDNF</text>
+  <!-- Negative charges around source neuron -->
+  <g fill="#ef4444" font-size="14" font-weight="bold">
+    <circle cx="35" cy="175" r="8" fill="#fecaca"/><text x="35" y="180" text-anchor="middle">-</text>
+    <circle cx="25" cy="210" r="8" fill="#fecaca"/><text x="25" y="215" text-anchor="middle">-</text>
+    <circle cx="22" cy="250" r="8" fill="#fecaca"/><text x="22" y="255" text-anchor="middle">-</text>
+    <circle cx="25" cy="290" r="8" fill="#fecaca"/><text x="25" y="295" text-anchor="middle">-</text>
+    <circle cx="35" cy="325" r="8" fill="#fecaca"/><text x="35" y="330" text-anchor="middle">-</text>
+    <circle cx="165" cy="175" r="8" fill="#fecaca"/><text x="165" y="180" text-anchor="middle">-</text>
+    <circle cx="175" cy="210" r="8" fill="#fecaca"/><text x="175" y="215" text-anchor="middle">-</text>
+    <circle cx="178" cy="250" r="8" fill="#fecaca"/><text x="178" y="255" text-anchor="middle">-</text>
+    <circle cx="175" cy="290" r="8" fill="#fecaca"/><text x="175" y="295" text-anchor="middle">-</text>
+    <circle cx="165" cy="325" r="8" fill="#fecaca"/><text x="165" y="330" text-anchor="middle">-</text>
   </g>
   
-  <!-- Vesicle 2: In transit (middle) -->
-  <g id="vesicle2">
-    <circle cx="350" cy="250" r="20" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-    <!-- GT1b sialic acids (negative charges) - more prominent -->
-    <g fill="#dc2626" font-size="10" font-weight="bold">
-      <text x="327" y="238"></text>
-      <text x="325" y="260"></text>
-      <text x="338" y="278"></text>
-      <text x="362" y="278"></text>
-      <text x="375" y="260"></text>
-      <text x="373" y="238"></text>
-    </g>
-    <!-- Cargo inside -->
-    <text x="350" y="254" text-anchor="middle" font-size="8" fill="#92400e" font-weight="bold">BDNF</text>
-    <!-- GT1b label -->
-    <text x="350" y="300" text-anchor="middle" font-size="8" fill="#b45309">GT1b coat</text>
+  <text x="100" y="370" text-anchor="middle" font-size="11" fill="#0284c7" font-weight="600">Source Neuron</text>
+  <text x="100" y="385" text-anchor="middle" font-size="9" fill="#64748b">(Negative glykokalyx)</text>
+
+  <!-- RIGHT NEURON -->
+  <ellipse cx="700" cy="250" rx="70" ry="90" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <ellipse cx="700" cy="250" rx="25" ry="30" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  
+  <!-- Negative charges around target neuron -->
+  <g fill="#ef4444" font-size="14" font-weight="bold">
+    <circle cx="635" cy="175" r="8" fill="#fecaca"/><text x="635" y="180" text-anchor="middle">-</text>
+    <circle cx="625" cy="210" r="8" fill="#fecaca"/><text x="625" y="215" text-anchor="middle">-</text>
+    <circle cx="622" cy="250" r="8" fill="#fecaca"/><text x="622" y="255" text-anchor="middle">-</text>
+    <circle cx="625" cy="290" r="8" fill="#fecaca"/><text x="625" y="295" text-anchor="middle">-</text>
+    <circle cx="635" cy="325" r="8" fill="#fecaca"/><text x="635" y="330" text-anchor="middle">-</text>
+    <circle cx="765" cy="175" r="8" fill="#fecaca"/><text x="765" y="180" text-anchor="middle">-</text>
+    <circle cx="775" cy="210" r="8" fill="#fecaca"/><text x="775" y="215" text-anchor="middle">-</text>
+    <circle cx="778" cy="250" r="8" fill="#fecaca"/><text x="778" y="255" text-anchor="middle">-</text>
+    <circle cx="775" cy="290" r="8" fill="#fecaca"/><text x="775" y="295" text-anchor="middle">-</text>
+    <circle cx="765" cy="325" r="8" fill="#fecaca"/><text x="765" y="330" text-anchor="middle">-</text>
   </g>
   
-  <!-- Vesicle 3: Approaching target -->
-  <g id="vesicle3">
-    <circle cx="520" cy="240" r="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-    <!-- GT1b sialic acids (negative charges) -->
-    <g fill="#dc2626" font-size="9" font-weight="bold">
-      <text x="500" y="228"></text>
-      <text x="498" y="250"></text>
-      <text x="510" y="265"></text>
-      <text x="530" y="265"></text>
-      <text x="540" y="250"></text>
-      <text x="538" y="228"></text>
-    </g>
-    <!-- Cargo inside -->
-    <text x="520" y="244" text-anchor="middle" font-size="7" fill="#92400e" font-weight="bold">BDNF</text>
+  <!-- TrkB Receptor -->
+  <rect x="608" y="235" width="28" height="35" rx="4" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+  <text x="622" y="258" text-anchor="middle" font-size="8" fill="#78350f" font-weight="bold">TrkB</text>
+  <line x1="622" y1="235" x2="622" y2="215" stroke="#d97706" stroke-width="3"/>
+  <circle cx="622" cy="210" r="7" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+  
+  <text x="700" y="370" text-anchor="middle" font-size="11" fill="#059669" font-weight="600">Target Neuron</text>
+  <text x="700" y="385" text-anchor="middle" font-size="9" fill="#64748b">(Receptor for specific binding)</text>
+
+  <!-- ECM negative charges -->
+  <g fill="#94a3b8" font-size="10">
+    <circle cx="300" cy="115" r="6" fill="#e2e8f0"/><text x="300" y="119" text-anchor="middle">-</text>
+    <circle cx="400" cy="100" r="6" fill="#e2e8f0"/><text x="400" y="104" text-anchor="middle">-</text>
+    <circle cx="500" cy="110" r="6" fill="#e2e8f0"/><text x="500" y="114" text-anchor="middle">-</text>
+    <circle cx="300" cy="410" r="6" fill="#e2e8f0"/><text x="300" y="414" text-anchor="middle">-</text>
+    <circle cx="400" cy="420" r="6" fill="#e2e8f0"/><text x="400" y="424" text-anchor="middle">-</text>
+    <circle cx="500" cy="415" r="6" fill="#e2e8f0"/><text x="500" y="419" text-anchor="middle">-</text>
+  </g>
+  <text x="400" y="455" text-anchor="middle" font-size="10" fill="#64748b">Extracellular matrix (also negative)</text>
+
+  <!-- VESICLE 1: Just released -->
+  <circle cx="220" cy="220" r="22" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <g fill="#dc2626" font-size="11" font-weight="bold">
+    <circle cx="198" cy="210" r="6" fill="#fee2e2"/><text x="198" y="214" text-anchor="middle">-</text>
+    <circle cx="198" cy="230" r="6" fill="#fee2e2"/><text x="198" y="234" text-anchor="middle">-</text>
+    <circle cx="220" cy="245" r="6" fill="#fee2e2"/><text x="220" y="249" text-anchor="middle">-</text>
+    <circle cx="242" cy="230" r="6" fill="#fee2e2"/><text x="242" y="234" text-anchor="middle">-</text>
+    <circle cx="242" cy="210" r="6" fill="#fee2e2"/><text x="242" y="214" text-anchor="middle">-</text>
+    <circle cx="220" cy="195" r="6" fill="#fee2e2"/><text x="220" y="199" text-anchor="middle">-</text>
+  </g>
+  <text x="220" y="224" text-anchor="middle" font-size="8" fill="#92400e" font-weight="bold">BDNF</text>
+
+  <!-- VESICLE 2: In transit -->
+  <circle cx="400" cy="250" r="26" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <g fill="#dc2626" font-size="12" font-weight="bold">
+    <circle cx="373" cy="238" r="7" fill="#fee2e2"/><text x="373" y="243" text-anchor="middle">-</text>
+    <circle cx="373" cy="262" r="7" fill="#fee2e2"/><text x="373" y="267" text-anchor="middle">-</text>
+    <circle cx="400" cy="280" r="7" fill="#fee2e2"/><text x="400" y="285" text-anchor="middle">-</text>
+    <circle cx="427" cy="262" r="7" fill="#fee2e2"/><text x="427" y="267" text-anchor="middle">-</text>
+    <circle cx="427" cy="238" r="7" fill="#fee2e2"/><text x="427" y="243" text-anchor="middle">-</text>
+    <circle cx="400" cy="220" r="7" fill="#fee2e2"/><text x="400" y="225" text-anchor="middle">-</text>
+  </g>
+  <text x="400" y="254" text-anchor="middle" font-size="9" fill="#92400e" font-weight="bold">BDNF</text>
+  <text x="400" y="310" text-anchor="middle" font-size="9" fill="#b45309" font-weight="600">GT1b-rich vesicle</text>
+
+  <!-- VESICLE 3: Approaching -->
+  <circle cx="530" cy="235" r="20" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <g fill="#dc2626" font-size="10" font-weight="bold">
+    <circle cx="510" cy="225" r="5" fill="#fee2e2"/><text x="510" y="229" text-anchor="middle">-</text>
+    <circle cx="510" cy="245" r="5" fill="#fee2e2"/><text x="510" y="249" text-anchor="middle">-</text>
+    <circle cx="530" cy="258" r="5" fill="#fee2e2"/><text x="530" y="262" text-anchor="middle">-</text>
+    <circle cx="550" cy="245" r="5" fill="#fee2e2"/><text x="550" y="249" text-anchor="middle">-</text>
+    <circle cx="550" cy="225" r="5" fill="#fee2e2"/><text x="550" y="229" text-anchor="middle">-</text>
+    <circle cx="530" cy="212" r="5" fill="#fee2e2"/><text x="530" y="216" text-anchor="middle">-</text>
+  </g>
+  <text x="530" y="239" text-anchor="middle" font-size="7" fill="#92400e" font-weight="bold">BDNF</text>
+
+  <!-- BOUND VESICLE at receptor -->
+  <circle cx="585" cy="230" r="16" fill="#bbf7d0" stroke="#16a34a" stroke-width="3"/>
+  <text x="585" y="234" text-anchor="middle" font-size="7" fill="#166534" font-weight="bold">BDNF</text>
+  <line x1="601" y1="230" x2="608" y2="240" stroke="#16a34a" stroke-width="3"/>
+  <text x="585" y="195" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="bold">BOUND!</text>
+
+  <!-- MOVEMENT ARROWS -->
+  <g fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4">
+    <path d="M 245 225 Q 310 240 370 250"/>
+    <path d="M 430 250 Q 480 242 505 238"/>
+    <path d="M 555 232 Q 565 230 575 228"/>
   </g>
 
-  <!-- REPULSION ARROWS (vesicles repelling from surfaces) -->
-  <g stroke="#ef4444" stroke-width="1.5" fill="none" opacity="0.6">
-    <!-- From source neuron -->
-    <path d="M 175 230 Q 185 225 190 220" marker-end="url(#arrowRed)"/>
-    
-    <!-- From ECM top -->
-    <path d="M 350 130 Q 350 150 350 170" marker-end="url(#arrowRed)"/>
-    
-    <!-- Between vesicle and target (initial repulsion) -->
-    <path d="M 555 235 Q 570 235 580 235" marker-end="url(#arrowRed)"/>
+  <!-- REPULSION INDICATORS -->
+  <g>
+    <text x="290" y="165" font-size="20" fill="#ef4444">&#x21C4;</text>
+    <text x="290" y="180" font-size="8" fill="#991b1b">repel</text>
   </g>
 
-  <!-- MOVEMENT ARROWS (vesicle trajectory) -->
-  <g fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,3">
-    <path d="M 220 225 Q 280 240 330 250"/>
-    <path d="M 370 250 Q 430 245 500 240"/>
-    <path d="M 540 240 Q 570 235 600 230"/>
+  <!-- BOX 1: Repulsion -->
+  <g transform="translate(180, 80)">
+    <rect x="0" y="0" width="180" height="45" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+    <text x="90" y="18" text-anchor="middle" font-size="10" fill="#991b1b" font-weight="700">Electrostatic Repulsion</text>
+    <text x="90" y="34" text-anchor="middle" font-size="9" fill="#b91c1c">Like charges repel = vesicle GLIDES</text>
   </g>
 
-  <!-- BINDING EVENT (at receptor) -->
-  <g id="binding">
-    <!-- Docked vesicle -->
-    <circle cx="600" cy="230" r="15" fill="#fef3c7" stroke="#16a34a" stroke-width="3"/>
-    <text x="600" y="234" text-anchor="middle" font-size="6" fill="#92400e" font-weight="bold">BDNF</text>
-    
-    <!-- Connection line to receptor -->
-    <line x1="615" y1="230" x2="625" y2="230" stroke="#16a34a" stroke-width="2"/>
-    
-    <!-- Binding indicator -->
-    <text x="610" y="200" text-anchor="middle" font-size="8" fill="#16a34a" font-weight="bold"> BOUND</text>
+  <!-- BOX 2: Specific binding -->
+  <g transform="translate(500, 80)">
+    <rect x="0" y="0" width="170" height="55" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+    <text x="85" y="18" text-anchor="middle" font-size="10" fill="#166534" font-weight="700">Specific Recognition</text>
+    <text x="85" y="34" text-anchor="middle" font-size="9" fill="#15803d">Receptor binding force</text>
+    <text x="85" y="48" text-anchor="middle" font-size="9" fill="#15803d" font-weight="bold">&gt; electrostatic repulsion</text>
   </g>
 
   <!-- LEGEND -->
-  <g id="legend" transform="translate(250, 420)">
-    <rect x="0" y="0" width="300" height="55" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <g transform="translate(220, 430)">
+    <rect x="0" y="0" width="360" height="50" rx="6" fill="white" stroke="#d1d5db" stroke-width="1"/>
+    <circle cx="25" cy="18" r="7" fill="#fee2e2"/><text x="25" y="22" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">-</text>
+    <text x="45" y="22" font-size="9" fill="#475569">Sialic acid (neg. charge)</text>
     
-    <!-- Negative charge -->
-    <text x="15" y="18" font-size="12" fill="#dc2626" font-weight="bold"></text>
-    <text x="30" y="18" font-size="9" fill="#475569">Sialic acid (negative charge)</text>
+    <circle cx="175" cy="18" r="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="195" y="22" font-size="9" fill="#475569">GT1b vesicle</text>
     
-    <!-- Vesicle -->
-    <circle cx="160" cy="14" r="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
-    <text x="172" y="18" font-size="9" fill="#475569">GT1b-rich vesicle</text>
+    <rect x="260" y="10" width="16" height="18" rx="3" fill="#fbbf24" stroke="#d97706" stroke-width="1"/>
+    <text x="285" y="22" font-size="9" fill="#475569">TrkB receptor</text>
     
-    <!-- Receptor -->
-    <rect x="10" y="28" width="12" height="15" rx="2" fill="#fbbf24" stroke="#d97706" stroke-width="1"/>
-    <text x="30" y="40" font-size="9" fill="#475569">Specific receptor (TrkB)</text>
-    
-    <!-- Arrow -->
-    <line x1="155" y1="36" x2="175" y2="36" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,2"/>
-    <text x="182" y="40" font-size="9" fill="#475569">Transport path</text>
+    <line x1="25" y1="38" x2="55" y2="38" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="65" y="42" font-size="9" fill="#475569">Transport path</text>
   </g>
-
-  <!-- ANNOTATION BOXES -->
-  
-  <!-- Box 1: Repulsion prevents adhesion -->
-  <g transform="translate(220, 130)">
-    <rect x="0" y="0" width="160" height="40" rx="5" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
-    <text x="80" y="16" text-anchor="middle" font-size="9" fill="#991b1b" font-weight="600">Electrostatic Repulsion</text>
-    <text x="80" y="30" text-anchor="middle" font-size="8" fill="#b91c1c">Like charges repel ’ vesicle "glides"</text>
-  </g>
-
-  <!-- Box 2: Specific binding overcomes repulsion -->
-  <g transform="translate(530, 140)">
-    <rect x="0" y="0" width="150" height="50" rx="5" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
-    <text x="75" y="16" text-anchor="middle" font-size="9" fill="#166534" font-weight="600">Specific Recognition</text>
-    <text x="75" y="30" text-anchor="middle" font-size="8" fill="#15803d">Receptor binding force</text>
-    <text x="75" y="42" text-anchor="middle" font-size="8" fill="#15803d">&gt; electrostatic repulsion</text>
-  </g>
-
-  <!-- Arrow markers -->
-  <defs>
-    <marker id="arrowRed" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#ef4444"/>
-    </marker>
-    <marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#3b82f6"/>
-    </marker>
-  </defs>
 </svg>
