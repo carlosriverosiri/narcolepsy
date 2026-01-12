@@ -198,99 +198,30 @@ const t = useTranslations('en');
     </div>
   </section>
 
-  <!-- Detailed Explanation -->
+  <!-- Detailed Explanation: RESTRUCTURED FOR BETTER FLOW -->
   <section class="py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="prose-science">
-        <h2>Biosynthesis Pathway</h2>
+        
+        <!-- PART 1: THE GT1B TRANSPORT SYSTEM -->
+        <h2>Why B-Series Gangliosides Are Special</h2>
         <p>
-          Ganglioside biosynthesis occurs primarily in the Golgi apparatus through sequential 
-          addition of sugar residues to ceramide. The pathway branches at LacCer (lactosylceramide), 
-          giving rise to different ganglioside series:
+          The distinction between A-series and B-series gangliosides isn't just biochemistry — 
+          it's the key to understanding how substances travel through the nervous system. 
+          Let's build this understanding step by step.
+        </p>
+
+        <h3>Step 1: The GT1b Paradox — No Storage Disease</h3>
+        <p>
+          Here's a puzzle: most gangliosides cause devastating storage diseases when they accumulate 
+          (GM1 gangliosidosis, Tay-Sachs for GM2). Yet <strong>there is no known disease caused by 
+          GT1b or GD1b accumulation</strong>. Why?
         </p>
         
-        <h3>Key Enzymes</h3>
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b">
-              <th class="text-left py-2">Gene</th>
-              <th class="text-left py-2">Enzyme</th>
-              <th class="text-left py-2">Function</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b">
-              <td class="py-2"><span class="gene-name">ST3GAL5</span></td>
-              <td class="py-2">GM3 Synthase</td>
-              <td class="py-2">Initiates ganglioside biosynthesis from LacCer</td>
-            </tr>
-            <tr class="border-b">
-              <td class="py-2"><span class="gene-name">ST8SIA1</span></td>
-              <td class="py-2">GD3 Synthase</td>
-              <td class="py-2">Creates b-series gangliosides</td>
-            </tr>
-            <tr class="border-b">
-              <td class="py-2"><span class="gene-name">B4GALNT1</span></td>
-              <td class="py-2">GM2/GD2 Synthase</td>
-              <td class="py-2">Adds GalNAc to extend the sugar chain</td>
-            </tr>
-            <tr class="border-b">
-              <td class="py-2"><span class="gene-name">ST3GAL2</span></td>
-              <td class="py-2">GD1a/GT1b Synthase</td>
-              <td class="py-2">Terminal sialylation creating GT1b</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h2>Degradation Pathway</h2>
         <p>
-          Ganglioside degradation occurs in lysosomes through sequential removal of sugar residues. 
-          Defects in degradation enzymes lead to lysosomal storage diseases:
-        </p>
-        
-        <div class="info-box">
-          <h4 class="font-bold text-blue-800 mb-2">Neuraminidase (Sialidase)</h4>
-          <p class="text-blue-700 text-sm mb-0">
-            <span class="gene-name">NEU1-4</span> genes encode neuraminidases that remove sialic acid 
-            from gangliosides. Variants in these genes, particularly those near the HLA locus, may 
-            affect GT1b levels and susceptibility to autoimmune reactions.
-          </p>
-        </div>
-
-        <h2>The GT1b Paradox — No Storage Disease</h2>
-        <p>
-          A remarkable observation: while most gangliosides have well-characterized storage diseases 
-          (GM1 gangliosidosis, Tay-Sachs for GM2), <strong>there is no known primary disease caused 
-          by accumulation of GD1b or GT1b</strong>.
-        </p>
-        
-        <div class="key-concept">
-          <div class="key-concept-title">Why Does GT1b Not Cause Storage Disease?</div>
-          <p>
-            GT1b behaves differently from intracellular gangliosides. The mechanism is now understood:
-          </p>
-          <ol class="mt-2 mb-0">
-            <li>
-              <strong>EV-mediated shedding:</strong> B-series gangliosides are exported via 
-              extracellular vesicles (exosomes, microvesicles) through ESCRT-dependent and 
-              ceramide-dependent pathways [5].
-            </li>
-            <li>
-              <strong>Lysosomal bypass:</strong> This shedding provides a "bypass" of normal 
-              lysosomal degradation, preventing intracellular accumulation.
-            </li>
-            <li>
-              <strong>Higher sialic acid charge:</strong> The two sialic acids on b-series 
-              gangliosides promote vesicular curvature and membrane budding.
-            </li>
-          </ol>
-        </div>
-
-        <p>
-          This explains the paradox: when GT1b levels increase, the excess is <em>exported</em> 
-          rather than accumulating in lysosomes. Tetanus toxin (which binds GT1b) is therefore 
-          released <strong>outside</strong> nerve terminals, while cholera toxin (which binds GM1) 
-          remains <strong>inside</strong>.
+          The answer reveals something fundamental: <strong>B-series gangliosides are exported, 
+          not stored</strong>. When GT1b levels rise, the excess is released via extracellular 
+          vesicles (exosomes) — a "bypass" of normal lysosomal degradation.
         </p>
 
         <!-- Key Illustration: Cholera vs Tetanus Transport -->
@@ -301,501 +232,303 @@ const t = useTranslations('en');
             class="w-full rounded-lg border border-slate-200 shadow-lg"
           />
           <figcaption class="text-sm text-slate-600 mt-3 text-center">
-            <strong>Two Toxins, Two Fates:</strong> Cholera toxin (binding GM1) remains intracellular 
-            and targets the Golgi network. Tetanus toxin (binding GT1b) is released via signaling 
-            endosomes and makes a <em>trans-synaptic jump</em> to neighboring neurons. This is the 
-            key difference that enables GT1b-bound substances to spread through neural circuits.
+            <strong>Two Toxins, Two Fates:</strong> Cholera toxin (binding GM1) remains intracellular. 
+            Tetanus toxin (binding GT1b) is released and makes a <em>trans-synaptic jump</em>. 
+            This is why GT1b-bound substances spread through neural circuits.
           </figcaption>
         </figure>
 
-        <h2>The B-Series as a Communication Highway — A Hypothesis</h2>
+        <h3>Step 2: The Electrostatic Explanation</h3>
         <p>
-          If B-series gangliosides are "designed" for shedding and extracellular communication, 
-          what do they normally carry? <strong>We propose</strong> that the answer has profound 
-          implications for understanding how vaccine antigens might reach unexpected destinations.
+          Why does B-series get exported while A-series gets stored? The answer lies in 
+          <strong>electrical charge</strong>.
+        </p>
+
+        <!-- Electrostatic Transport Illustration -->
+        <figure class="my-8">
+          <img 
+            src="/images/electrostatic-vesicle-transport.svg" 
+            alt="Electrostatic vesicle transport showing how negative charges on GT1b-rich vesicles enable 'gliding' through the nervous system while specific receptors enable targeted delivery"
+            class="w-full rounded-lg border border-slate-200 shadow-lg bg-white"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            <strong>The "Slippery Soap" Mechanism:</strong> Both vesicles and cell surfaces are negatively charged. 
+            This repulsion prevents random adhesion — the vesicle "glides" through the extracellular space. 
+            Delivery occurs only when specific receptor binding overcomes the electrostatic barrier.
+          </figcaption>
+        </figure>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-blue-800 mb-4">⚡ The Physics of Ganglioside Transport</h4>
+          
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded p-4 border border-blue-200">
+              <h5 class="font-bold text-blue-700 mb-2">Sialic Acid = Negative Charge</h5>
+              <p class="text-slate-700 text-sm mb-2">
+                Each sialic acid residue carries a <strong>negative charge</strong> at physiological pH.
+              </p>
+              <ul class="text-slate-600 text-sm space-y-1 ml-4 list-disc">
+                <li>GM1 (A-series): 1 sialic acid → <span class="text-slate-500">low charge</span></li>
+                <li>GT1b (B-series): 3 sialic acids → <span class="text-blue-600 font-bold">high charge</span></li>
+                <li>GQ1b (B-series): 4 sialic acids → <span class="text-blue-700 font-bold">very high charge</span></li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded p-4 border border-blue-200">
+              <h5 class="font-bold text-blue-700 mb-2">Zeta-Potential & Vesicle Stability</h5>
+              <p class="text-slate-700 text-sm mb-2">
+                High negative charge creates "Zeta-potential" — a surface charge that:
+              </p>
+              <ul class="text-slate-600 text-sm space-y-1 ml-4 list-disc">
+                <li>Prevents vesicle aggregation</li>
+                <li>Promotes membrane curvature and budding</li>
+                <li>Enables smooth diffusion through the extracellular matrix</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-blue-100 rounded p-4">
+            <p class="text-blue-800 text-sm mb-0">
+              <strong>Key insight:</strong> The polysialylation of B-series gangliosides isn't just 
+              chemistry — it's an <em>electrostatic motor</em> that drives vesicle export. 
+              A-series (low charge) stays put; B-series (high charge) gets shipped out.
+            </p>
+          </div>
+        </div>
+
+        <h3>Step 3: What Does GT1b Transport?</h3>
+        <p>
+          If B-series gangliosides are "designed" for export and intercellular communication, 
+          what do they normally carry? This is where it gets interesting.
         </p>
 
         <div class="bg-amber-50 border-l-4 border-amber-400 p-3 my-4 text-sm">
           <strong class="text-amber-800">⚠️ Note:</strong> 
           <span class="text-amber-700">The following "Neurotrophin Highway" concept is a <em>hypothesis</em> 
-          proposed here, not established scientific consensus. It builds on known facts about 
-          GT1b-neurotrophin interactions but extends them speculatively.</span>
+          that builds on established GT1b biology but extends it speculatively.</span>
         </div>
 
         <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-6 my-6">
-          <h3 class="text-lg font-bold text-emerald-800 mb-4">🚂 The Neurotrophin Cargo — What Might Travel on the B-Series Express?</h3>
+          <h4 class="font-bold text-emerald-800 mb-4">🚂 The Neurotrophin Cargo</h4>
           <p class="text-emerald-700 text-sm mb-4">
-            <strong>Known facts:</strong> Key neurotrophic factors depend on GT1b/GD1b for their signaling:
+            <strong>Established facts:</strong> Key growth factors depend on GT1b for their signaling:
           </p>
           
-          <div class="grid md:grid-cols-3 gap-4 mb-4">
+          <div class="grid md:grid-cols-3 gap-3 mb-4">
             <div class="bg-white rounded p-3 border border-emerald-200">
-              <h4 class="font-bold text-emerald-700 mb-1">GDNF</h4>
+              <h5 class="font-bold text-emerald-700 text-sm mb-1">BDNF</h5>
               <p class="text-slate-600 text-xs">
-                <strong>Glial cell line-derived neurotrophic factor.</strong> Critical for dopaminergic 
-                neuron survival (Parkinson's research). Requires GD1b/GT1b-rich lipid rafts for 
-                GFRα1/RET receptor signaling.
-              </p>
-              <p class="text-emerald-600 text-[10px] mt-1">
-                <a href="https://pubmed.ncbi.nlm.nih.gov/12671643/" target="_blank" class="hover:underline">Sariola & Saarma 2003</a>
+                Brain-derived neurotrophic factor. GT1b required for TrkB receptor dimerization. 
+                Can be shed in exosomes <em>together with gangliosides</em>.
               </p>
             </div>
             <div class="bg-white rounded p-3 border border-emerald-200">
-              <h4 class="font-bold text-emerald-700 mb-1">BDNF</h4>
+              <h5 class="font-bold text-emerald-700 text-sm mb-1">GDNF</h5>
               <p class="text-slate-600 text-xs">
-                <strong>Brain-derived neurotrophic factor.</strong> Essential for plasticity and memory. 
-                GT1b is required for TrkB receptor dimerization. Can be shed in <strong>exosomes 
-                together with gangliosides</strong>!
-              </p>
-              <p class="text-emerald-600 text-[10px] mt-1">
-                <a href="https://pubmed.ncbi.nlm.nih.gov/21325515/" target="_blank" class="hover:underline">Lim et al. 2011</a>
+                Glial cell line-derived neurotrophic factor. Critical for dopaminergic neuron survival. 
+                Requires GT1b-rich lipid rafts.
               </p>
             </div>
             <div class="bg-white rounded p-3 border border-emerald-200">
-              <h4 class="font-bold text-emerald-700 mb-1">MAG</h4>
+              <h5 class="font-bold text-emerald-700 text-sm mb-1">MAG</h5>
               <p class="text-slate-600 text-xs">
-                <strong>Myelin-associated glycoprotein.</strong> Binds GT1b/GD1a on axon surfaces. 
-                <strong>Key proof that GT1b is exposed extracellularly</strong> — not locked 
-                inside cells!
-              </p>
-              <p class="text-emerald-600 text-[10px] mt-1">
-                <a href="https://pubmed.ncbi.nlm.nih.gov/18623174/" target="_blank" class="hover:underline">Schnaar & Lopez 2009</a>
+                Myelin-associated glycoprotein. Binds GT1b on axon surfaces — <strong>proof that 
+                GT1b is exposed extracellularly</strong>.
               </p>
             </div>
           </div>
 
-          <div class="bg-emerald-100 rounded p-4 text-sm">
-            <h4 class="font-bold text-emerald-800 mb-2">🔑 Signaling Endosomes — The Key Concept</h4>
-            <p class="text-emerald-700">
-              When neurons receive neurotrophins (NGF, BDNF), the receptor complex is internalized into 
-              <strong>"signaling endosomes"</strong> that travel retrogradely to the nucleus with the 
-              message "Survive!". <strong>GT1b is a critical membrane component</strong> of these endosomes, 
-              protecting the receptor from degradation during transport.
+          <div class="bg-emerald-100 rounded p-4">
+            <h5 class="font-bold text-emerald-800 mb-2">🔑 Signaling Endosomes</h5>
+            <p class="text-emerald-700 text-sm mb-2">
+              When neurons receive growth factors, the receptor complex is internalized into 
+              <strong>"signaling endosomes"</strong> that travel retrogradely to the nucleus 
+              with the message "Survive!".
             </p>
-            <p class="text-emerald-800 font-semibold mt-2">
-              Implication: Anything that binds GT1b gains access to this vital "survival signal highway."
+            <p class="text-emerald-800 text-sm font-semibold mb-0">
+              GT1b is a critical membrane component of these endosomes. 
+              <strong>Anything that binds GT1b gains access to this survival signal highway.</strong>
             </p>
           </div>
-
-          <!-- Illustration: Retrograde Feedback Signal -->
-          <figure class="mt-6">
-            <img 
-              src="/images/Retrogra-feedback-signal.png" 
-              alt="Retrograde feedback signal via GT1b at sensory nerve ending (Golgi tendon organ)"
-              class="w-full rounded-lg border border-emerald-200 shadow-lg"
-            />
-            <figcaption class="text-sm text-emerald-700 mt-3 text-center">
-              <strong>The Neurotrophin Highway:</strong> At a sensory nerve ending (here: Golgi tendon organ), 
-              GT1b mediates the "handshake" with target tissue. Signaling endosomes capture trophic signals 
-              and transport them retrogradely to the cell body. This same pathway can be hijacked by 
-              pathogens or vaccine antigens with GT1b affinity.
-            </figcaption>
-          </figure>
         </div>
 
-        <!-- NEW SECTION: Electrostatic Transport Mechanism -->
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 my-6">
-          <h3 class="text-lg font-bold text-blue-800 mb-4">⚡ The Electrostatic Transport Mechanism — Why Vesicles Beat Free Proteins</h3>
-          
-          <p class="text-blue-700 text-sm mb-4">
-            <strong>Established science:</strong> B-series gangliosides don't just passively sit in membranes — 
-            they transform vesicles into sophisticated, electrostatically stabilized transport units.
-          </p>
+        <h3>Step 4: The Complete Delivery System</h3>
+        <p>
+          Here's what makes GT1b-rich vesicles remarkable: they don't just <em>carry</em> cargo — 
+          they deliver a <strong>complete signaling package</strong>.
+        </p>
 
+        <div class="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-lg p-6 my-6 border border-emerald-200">
+          <h4 class="font-bold text-emerald-800 mb-4">🎁 The "Complete Signal Kit"</h4>
+          
           <div class="grid md:grid-cols-2 gap-4 mb-4">
-            <div class="bg-white rounded p-4 border border-blue-200">
-              <h4 class="font-bold text-blue-800 mb-2">🔋 Zeta-Potential: The Electrostatic Motor</h4>
-              <p class="text-slate-700 text-sm mb-2">
-                B-series gangliosides are <strong>polysialylated</strong>: GT1b has 3 sialic acids, GQ1b has 4. 
-                Each sialic acid carries a <strong>negative charge</strong> at physiological pH.
-              </p>
-              <p class="text-slate-700 text-sm mb-2">
-                Result: Vesicles coated with GT1b have an extremely high <strong>negative surface charge</strong> 
-                (measured as "Zeta-potential").
-              </p>
-              <p class="text-blue-700 text-xs font-medium">
-                According to DLVO theory, this prevents aggregation and enables smooth diffusion through 
-                the negatively charged extracellular matrix.
-              </p>
+            <div>
+              <h5 class="font-bold text-slate-700 mb-2">What a free protein does:</h5>
+              <ul class="text-slate-600 text-sm space-y-1 ml-4 list-disc">
+                <li>Diffuses randomly</li>
+                <li>Gets captured by extracellular matrix</li>
+                <li>Degraded by proteases</li>
+                <li>Hopes to find an active receptor</li>
+              </ul>
             </div>
-            
-            <div class="bg-white rounded p-4 border border-blue-200">
-              <h4 class="font-bold text-blue-800 mb-2">🛡️ The "Faraday Cage" Effect</h4>
-              <p class="text-slate-700 text-sm mb-2">
-                Free neurotrophins (often positively charged) would be quickly <strong>captured by the 
-                negatively charged ECM</strong> (heparan sulfate proteoglycans) and lose range.
-              </p>
-              <p class="text-slate-700 text-sm mb-2">
-                Inside a GT1b-rich vesicle, neurotrophins are <strong>shielded</strong> from:
-              </p>
-              <ul class="text-slate-600 text-xs space-y-1 ml-4 list-disc">
-                <li>Extracellular proteases</li>
-                <li>Non-specific ECM binding</li>
-                <li>Premature receptor activation</li>
+            <div>
+              <h5 class="font-bold text-emerald-700 mb-2">What a GT1b-rich vesicle does:</h5>
+              <ul class="text-emerald-600 text-sm space-y-1 ml-4 list-disc">
+                <li>Travels electrostatically stabilized</li>
+                <li>Shields cargo from proteases</li>
+                <li>Delivers both ligand AND receptor cofactor</li>
+                <li>Provides a pre-assembled signaling platform</li>
               </ul>
             </div>
           </div>
 
-          <div class="bg-blue-100 rounded p-4 mb-4">
-            <h4 class="font-bold text-blue-800 mb-2">📦 Selective Sorting: EVs Are Not Random</h4>
-            <p class="text-blue-700 text-sm mb-2">
-              Exosomes form from <strong>lipid raft</strong> regions of endosomal membranes. Gangliosides, 
-              with their ceramide anchors, partition strongly into these rafts. Studies show neuronal 
-              exosomes are <strong>enriched in GT1b and GM1</strong> compared to the parent cell membrane.
-            </p>
-            <p class="text-blue-600 text-xs">
-              <a href="https://pubmed.ncbi.nlm.nih.gov/22267733/" target="_blank" class="hover:underline">
-                Yuyama et al. 2012 — J Biol Chem
-              </a>
-            </p>
-          </div>
-
-          <div class="bg-gradient-to-r from-emerald-100 to-blue-100 rounded p-4 border border-emerald-300">
-            <h4 class="font-bold text-emerald-800 mb-2">🎁 The "Complete Signal Kit" — Ligand + Cofactor Delivery</h4>
-            <p class="text-slate-700 text-sm mb-2">
-              The most elegant aspect: When a GT1b-rich vesicle carrying BDNF arrives at a target cell, 
-              it doesn't just deliver the neurotrophin. It simultaneously provides the <strong>lipid 
-              cofactor (GT1b)</strong> required for optimal TrkB receptor activation.
-            </p>
-            <p class="text-slate-700 text-sm mb-2">
-              <strong>Known:</strong> TrkB receptors must translocate to lipid rafts for efficient signaling. 
-              GT1b stabilizes Trk receptor dimerization in these rafts.
-            </p>
-            <p class="text-emerald-700 text-sm font-medium">
-              The vesicle delivers a <strong>pre-assembled signaling platform</strong> — far more efficient 
-              than a free protein diffusing randomly and hoping to find an active receptor.
-            </p>
-            <p class="text-slate-500 text-xs mt-2">
-              <a href="https://pubmed.ncbi.nlm.nih.gov/15536059/" target="_blank" class="hover:underline">
-                Poon et al. 2004 — Neurochem Res
-              </a> · 
-              <a href="https://pubmed.ncbi.nlm.nih.gov/37541456/" target="_blank" class="hover:underline">
-                Iguchi et al. 2023 — Neurochem Int
-              </a>
-            </p>
-          </div>
-
-          <div class="mt-4 p-3 bg-amber-50 border-l-4 border-amber-400 text-sm">
-            <strong class="text-amber-800">🔗 Connection to the Hypothesis:</strong>
-            <span class="text-amber-700">
-              If vaccine antigens bind GT1b, they don't just "hitch a ride" — they become part of 
-              this sophisticated delivery system. They gain access to the same electrostatically 
-              optimized transport network that neurons use for survival signals. This explains how 
-              antigens can travel long distances and be <em>released</em> (not stored) at target sites.
-            </span>
-          </div>
-        </div>
-
-        <div class="bg-slate-100 border border-slate-300 rounded-lg p-6 my-6">
-          <h3 class="text-lg font-bold text-slate-800 mb-2">🧠 Speculative Extension: The "Handshake" Hypothesis</h3>
-          <p class="text-slate-600 text-sm italic mb-3">
-            The following is a <strong>speculative hypothesis</strong>, not established science.
-          </p>
-          <p class="text-slate-700 mb-3">
-            <strong>Question:</strong> Do neurons <strong>share neurotrophins trans-synaptically</strong> 
-            via GT1b-containing vesicles — a kind of "molecular handshake"?
-          </p>
-          <p class="text-slate-700 mb-3">
-            <strong>If true:</strong> The B-series network becomes more than just a cellular mechanism — 
-            it becomes an <strong>inter-neuronal communication system</strong>. Cells would exchange 
-            gangliosides and their bound cargo with neighboring cells.
-          </p>
-          <p class="text-slate-700 mb-0">
-            <strong>Implication for the hypothesis:</strong> This would explain why GT1b-bound substances 
-            (like tetanus toxin) can spread beyond the directly innervated neuron. Vaccine antigens could 
-            potentially reach <em>any cell connected to this signaling network</em> — including orexin neurons 
-            whose afferents terminate in lamina I.
-          </p>
-          <p class="text-amber-700 text-xs mt-3 italic">
-            ⚠️ This "handshake" mechanism is proposed here as a hypothesis. It has not been experimentally 
-            verified but could explain observed trans-synaptic transport phenomena.
+          <p class="text-slate-700 text-sm mb-0 bg-white rounded p-3">
+            <strong>The key:</strong> TrkB receptors need lipid rafts with GT1b to signal efficiently. 
+            A GT1b-rich vesicle carrying BDNF delivers <em>both</em> — the growth factor and the 
+            membrane environment needed to respond to it.
           </p>
         </div>
 
-        <h2>The Injury Proof: When Communication Stops, Storage Begins</h2>
+        <!-- Illustration -->
+        <figure class="my-8">
+          <img 
+            src="/images/Retrogra-feedback-signal.png" 
+            alt="Retrograde feedback signal via GT1b at sensory nerve ending"
+            class="w-full rounded-lg border border-slate-200 shadow-lg"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            At a sensory nerve ending, GT1b mediates the "handshake" with target tissue. 
+            Signaling endosomes capture trophic signals and transport them retrogradely. 
+            <strong>This pathway can be hijacked by pathogens or vaccine antigens with GT1b affinity.</strong>
+          </figcaption>
+        </figure>
+
+        <!-- PART 2: THE EVIDENCE -->
+        <h2>The Evidence: Experiments That Prove the Model</h2>
         <p>
-          Unpublished neurotracing experiments provide direct evidence for the A-series vs B-series 
-          functional division:
+          The A-series vs B-series model isn't just theory. Unpublished neurotracing experiments 
+          provide direct proof.
         </p>
 
-        <div class="bg-slate-100 rounded-lg p-6 my-6">
-          <h3 class="text-lg font-bold text-slate-900 mb-4">🔬 Experimental Observation: C-Fiber GM1 Switch</h3>
-          <p class="text-slate-700 mb-4">
-            <strong>C-fibers</strong> (unmyelinated pain fibers) normally <em>lack</em> GM1 ganglioside. 
-            However, after peripheral nerve injury, a striking phenomenon was observed:
-          </p>
-          
-          <div class="bg-white rounded p-4 border border-slate-200 mb-4">
-            <table class="w-full text-sm">
-              <thead>
-                <tr class="border-b bg-slate-50">
-                  <th class="text-left py-2 px-2">Condition</th>
-                  <th class="text-left py-2 px-2">C-Fiber GM1 Expression</th>
-                  <th class="text-left py-2 px-2">Interpretation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b">
-                  <td class="py-2 px-2">Healthy nerve</td>
-                  <td class="py-2 px-2 text-green-600 font-bold">Absent / Very low</td>
-                  <td class="py-2 px-2">B-series phenotype (communication mode)</td>
-                </tr>
-                <tr class="border-b">
-                  <td class="py-2 px-2">1 week post-injury</td>
-                  <td class="py-2 px-2 text-red-600 font-bold">Massively upregulated</td>
-                  <td class="py-2 px-2">Switched to A-series (storage/survival mode)</td>
-                </tr>
-                <tr class="border-b bg-amber-50">
-                  <td class="py-2 px-2">+ NGF treatment (delayed)</td>
-                  <td class="py-2 px-2 text-green-600 font-bold">Normalized (downregulated)</td>
-                  <td class="py-2 px-2">Returned to B-series phenotype</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <h3>Evidence 1: The C-Fiber GM1 Switch</h3>
+        <p>
+          <strong>C-fibers</strong> (unmyelinated pain fibers) normally lack GM1. But after nerve injury:
+        </p>
 
-          <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 mb-4">
-            <h4 class="font-bold text-emerald-800 mb-2">🧬 The Mechanism: Sialidase Activation</h4>
-            <p class="text-emerald-700 text-sm mb-2">
-              When the nerve loses contact with its target organ, the cell enters "survival mode":
-            </p>
-            <div class="bg-white rounded p-3 font-mono text-sm text-center mb-2">
-              GT1b → <span class="text-slate-500">(sialidase)</span> → GD1a → <span class="text-slate-500">(sialidase)</span> → <strong class="text-blue-600">GM1</strong>
-            </div>
-            <p class="text-emerald-700 text-sm">
-              The complex "communication machinery" (B-series) is stripped down to a stable core structure (GM1). 
-              Without synaptic connections to maintain, the shedding pathway stops — and A-series accumulates.
-            </p>
-          </div>
-
-          <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
-            <h4 class="font-bold text-amber-800 mb-2">🏍️ The "Spain Protocol" — A Serendipitous Discovery</h4>
-            <p class="text-amber-700 text-sm mb-3">
-              Early NGF treatment experiments showed no effect on GM1 levels. The breakthrough came 
-              serendipitously: a delayed experimental schedule (caused by a motorcycle trip to Spain) 
-              extended the treatment duration by several months.
-            </p>
-            <p class="text-amber-700 text-sm mb-3">
-              <strong>The result:</strong> The rats processed after the extended delay showed clear 
-              GM1 downregulation — the NGF had worked, but required <em>months</em> of sustained 
-              signaling to reverse the injury phenotype.
-            </p>
-            <p class="text-amber-800 text-sm font-semibold">
-              This was later published: 
-              <a href="https://journals.lww.com/neuroreport/abstract/2001/07030/delayed_administration_of_ngf_reverses_nerve.26.aspx" 
-                 class="text-blue-600 hover:underline" target="_blank">
-                "Delayed administration of NGF reverses nerve injury-induced changes in C-fiber GM1 expression" 
-                (NeuroReport 2001)
-              </a>
-            </p>
-          </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4 my-4">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b bg-slate-50">
+                <th class="text-left py-2 px-2">Condition</th>
+                <th class="text-left py-2 px-2">GM1 Expression</th>
+                <th class="text-left py-2 px-2">Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 px-2">Healthy nerve</td>
+                <td class="py-2 px-2 text-green-600 font-bold">Absent</td>
+                <td class="py-2 px-2">B-series phenotype (communication mode)</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 px-2">1 week post-injury</td>
+                <td class="py-2 px-2 text-red-600 font-bold">Massively upregulated</td>
+                <td class="py-2 px-2">Switched to A-series (storage mode)</td>
+              </tr>
+              <tr class="bg-amber-50">
+                <td class="py-2 px-2">+ NGF (delayed)</td>
+                <td class="py-2 px-2 text-green-600 font-bold">Normalized</td>
+                <td class="py-2 px-2">Returned to B-series</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="key-concept">
-          <div class="key-concept-title">🔑 The Key Insight: Plasticity, Not Degeneration</div>
-          <p>
-            The GM1 accumulation after injury is <strong>not permanent damage</strong> — it's a 
-            <em>reversible survival state</em>. The neuron "chooses" between:
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 my-4">
+          <h4 class="font-bold text-amber-800 mb-2">🏍️ The "Spain Protocol"</h4>
+          <p class="text-amber-700 text-sm mb-2">
+            Early NGF experiments showed no effect. A serendipitous delay (a motorcycle trip to Spain) 
+            extended treatment duration by months — and revealed that NGF <em>does</em> work, but 
+            requires sustained signaling to reverse the injury phenotype.
           </p>
-          <ul class="mt-2 mb-3">
-            <li><strong>A-series (Storage):</strong> Default mode when communication is lost. Stable, waiting.</li>
-            <li><strong>B-series (Communication):</strong> Active mode requiring constant trophic support (NGF, BDNF, GDNF).</li>
+          <p class="text-amber-800 text-sm font-semibold mb-0">
+            Published: <a href="https://journals.lww.com/neuroreport/abstract/2001/07030/delayed_administration_of_ngf_reverses_nerve.26.aspx" 
+               class="text-blue-600 hover:underline" target="_blank">NeuroReport 2001</a>
+          </p>
+        </div>
+
+        <h3>Evidence 2: Neuraminidase Unmasking</h3>
+        <p>
+          Chemical proof that C-fibers have complex gangliosides that "mask" GM1:
+        </p>
+
+        <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 my-4">
+          <p class="text-purple-700 text-sm mb-3">
+            Cholera toxin B (CTB) binds GM1. When injected into nerves:
+          </p>
+          <ul class="text-purple-700 text-sm space-y-2 mb-3">
+            <li><strong>CTB alone:</strong> No C-fiber labeling → C-fibers lack surface GM1</li>
+            <li><strong>CTB + neuraminidase:</strong> <span class="text-green-600 font-bold">Intense labeling!</span> → Complex gangliosides converted to GM1</li>
           </ul>
-          <p class="mb-0">
-            <strong>Implication for the hypothesis:</strong> This proves that ganglioside expression is 
-            <em>dynamically regulated by neurotrophic signals</em>. The "switch" from B-series to A-series 
-            (and back) is controlled by the same growth factors that travel via the GT1b pathway. 
-            The system is plastic — and that plasticity can be exploited by pathogens or vaccines 
-            that hijack the neurotrophin transport machinery.
+          <div class="bg-purple-100 rounded p-3 font-mono text-sm text-center mb-3">
+            GT1b/GD1b → <span class="text-purple-500">(neuraminidase)</span> → <strong class="text-blue-600">GM1</strong>
+          </div>
+          <p class="text-emerald-700 text-sm font-semibold mb-0 bg-emerald-50 rounded p-2">
+            🎯 <strong>Critical finding:</strong> The labeling was most intense in <strong>lamina I</strong> — 
+            exactly where orexin neurons project their afferents.
           </p>
-        </div>
-
-        <h2>The Chemical Proof: Neuraminidase Unmasking</h2>
-        <p>
-          Unpublished experiments provide direct <strong>chemical evidence</strong> that C-fibers possess 
-          complex gangliosides that "mask" the underlying GM1 core:
-        </p>
-
-        <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 my-6">
-          <h3 class="text-lg font-bold text-purple-900 mb-4">🧪 The Neuraminidase Experiment (Unpublished Manuscript)</h3>
-          
-          <div class="bg-white rounded p-4 border border-purple-200 mb-4">
-            <h4 class="font-bold text-purple-800 mb-2">Experimental Design</h4>
-            <p class="text-purple-700 text-sm mb-3">
-              Cholera toxin B-subunit (CTB), which binds specifically to GM1, was injected into peripheral 
-              nerves with or without <strong>neuraminidase</strong> — an enzyme that strips sialic acids 
-              from complex gangliosides, converting them to GM1.
-            </p>
-            <table class="w-full text-sm">
-              <thead>
-                <tr class="border-b bg-purple-100">
-                  <th class="text-left py-2 px-2 text-purple-800">Condition</th>
-                  <th class="text-left py-2 px-2 text-purple-800">C-Fiber Labeling (Lamina I-II)</th>
-                  <th class="text-left py-2 px-2 text-purple-800">Interpretation</th>
-                </tr>
-              </thead>
-              <tbody class="text-purple-700">
-                <tr class="border-b">
-                  <td class="py-2 px-2">CTB alone (control)</td>
-                  <td class="py-2 px-2 text-red-600">Very little / absent</td>
-                  <td class="py-2 px-2">C-fibers lack surface GM1</td>
-                </tr>
-                <tr class="border-b bg-green-50">
-                  <td class="py-2 px-2 font-bold">CTB + Neuraminidase</td>
-                  <td class="py-2 px-2 text-green-600 font-bold">Intense labeling!</td>
-                  <td class="py-2 px-2">Complex gangliosides converted to GM1</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 mb-4">
-            <h4 class="font-bold text-emerald-800 mb-2">🎯 Critical Observation: Intense Labeling in Lamina I</h4>
-            <p class="text-emerald-700 text-sm mb-2">
-              <strong>A key finding from the unpublished manuscript:</strong> After neuraminidase treatment, 
-              there was a <strong>dramatic increase in labeling specifically in lamina I</strong> of the spinal cord.
-            </p>
-            <p class="text-emerald-700 text-sm">
-              <strong>Why this matters for the narcolepsy hypothesis:</strong> Lamina I is <em>exactly</em> where 
-              orexin/hypocretin neurons from the hypothalamus project their afferents. This observation directly 
-              supports the hypothesis that transport along C-fibers (which terminate in lamina I) could deliver 
-              vaccine antigens to the same location where orexin neurons are present — creating the anatomical 
-              substrate for autoimmune cross-reactivity.
-            </p>
-          </div>
-
-          <div class="bg-purple-100 rounded p-4 mb-4">
-            <h4 class="font-bold text-purple-800 mb-2">🔬 The Biochemical "Shave"</h4>
-            <p class="text-purple-700 text-sm mb-2">
-              Neuraminidase acts as a biochemical "razor" — it strips away the sialic acid residues 
-              from complex gangliosides:
-            </p>
-            <div class="bg-white rounded p-3 font-mono text-sm text-center mb-2">
-              GT1b/GD1b/GQ1b → <span class="text-purple-500">(neuraminidase)</span> → <strong class="text-blue-600">GM1</strong>
-            </div>
-            <p class="text-purple-700 text-sm">
-              Once the complex "coat" is removed, the underlying GM1 core is exposed — and CTB can bind.
-            </p>
-          </div>
-
-          <div class="bg-amber-50 border-l-4 border-amber-500 p-4">
-            <h4 class="font-bold text-amber-800 mb-2">🔗 Connection to Nerve Injury</h4>
-            <p class="text-amber-700 text-sm mb-2">
-              This explains the biological phenomenon observed after nerve injury:
-            </p>
-            <ul class="text-amber-700 text-sm space-y-1 ml-4 list-disc">
-              <li><strong>Nerve injury</strong> → Endogenous sialidases activate → B-series stripped → GM1 appears</li>
-              <li><strong>Neuraminidase treatment</strong> → Same conversion, chemically induced</li>
-            </ul>
-            <p class="text-amber-800 text-sm font-semibold mt-2">
-              Both prove the same thing: C-fibers normally have <em>complex gangliosides</em> that mask the GM1 core.
-            </p>
-          </div>
         </div>
 
         <div class="key-concept">
           <div class="key-concept-title">🧬 The Complete Evidence Chain</div>
-          <p>
-            Together, these experiments form a powerful evidence chain:
-          </p>
-          <ol class="mt-2 mb-0">
-            <li>
-              <strong>Normal state:</strong> C-fibers have complex B-series gangliosides (GT1b, GD1b) — 
-              CTB cannot bind because GM1 is "hidden"
-            </li>
-            <li>
-              <strong>Chemical proof:</strong> Neuraminidase strips the complex coat → GM1 exposed → CTB binds
-            </li>
-            <li>
-              <strong>Biological proof:</strong> Nerve injury activates endogenous sialidases → same conversion
-            </li>
-            <li>
-              <strong>Reversal proof:</strong> NGF treatment (after delay) restores B-series → GM1 disappears
-            </li>
+          <ol class="mt-2 mb-0 space-y-1">
+            <li><strong>Normal state:</strong> C-fibers have B-series (GT1b, GD1b) — GM1 is hidden</li>
+            <li><strong>Chemical proof:</strong> Neuraminidase strips the complex coat → GM1 exposed</li>
+            <li><strong>Biological proof:</strong> Nerve injury activates endogenous sialidases → same conversion</li>
+            <li><strong>Reversal proof:</strong> NGF restores B-series → GM1 disappears</li>
           </ol>
-          <p class="mt-3 mb-0 text-sm italic">
-            <strong>Reference:</strong> Rivero-Melián C. "Nerve Injections of Choleragenoid Horseradish Peroxidase 
-            mixed with Neuraminidase results in increased transganglionic labeling in the spinal cord." 
-            Unpublished manuscript, Karolinska Institutet.
-          </p>
         </div>
 
-        <h2>The Double-Edged Sword</h2>
+        <!-- PART 3: IMPLICATIONS -->
+        <h2>Implications for the Narcolepsy Hypothesis</h2>
+        
         <p>
-          The shedding mechanism is a double-edged sword:
+          Now we can connect all the pieces:
         </p>
 
         <div class="grid md:grid-cols-2 gap-4 my-6">
-          <div class="info-box">
-            <h4 class="font-bold text-blue-800 mb-2">✓ Protective Effect</h4>
-            <ul class="text-blue-700 text-sm mb-0 space-y-1">
-              <li>No lysosomal storage disease</li>
-              <li>Clearance of toxic aggregates (α-synuclein)</li>
-              <li>Maintains neuronal health</li>
-              <li>No selective pressure against variants</li>
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-2">✓ What We Know</h4>
+            <ul class="text-blue-700 text-sm space-y-1">
+              <li>H1N1 virus binds GT1b (like tetanus toxin)</li>
+              <li>GT1b-bound substances are released extraneuronally</li>
+              <li>This release happens in lamina I</li>
+              <li>Orexin neurons project to lamina I</li>
+              <li>B3GALT4 (GT1b synthesis) is linked to HLA-DQB1*06:02</li>
             </ul>
           </div>
-          <div class="warning-box">
-            <h4 class="font-bold text-amber-800 mb-2">✗ Vulnerability</h4>
-            <ul class="text-amber-700 text-sm mb-0 space-y-1">
-              <li>Increased extracellular exposure</li>
-              <li>Glycan epitopes accessible to antibodies</li>
-              <li>Molecular mimicry with pathogens</li>
-              <li>Triggers autoimmune responses</li>
-              <li><strong>Hijacked by pathogens/vaccines for transport</strong></li>
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <h4 class="font-bold text-amber-800 mb-2">💡 What We Propose</h4>
+            <ul class="text-amber-700 text-sm space-y-1">
+              <li>GT1b serves as a "neurotrophin highway"</li>
+              <li>Vaccine antigens hijack this transport system</li>
+              <li>The "HLA association" may be a B3GALT4 association</li>
+              <li>Higher GT1b = more efficient vaccine transport to CNS</li>
             </ul>
           </div>
         </div>
 
-        <h2>Relevance to the Hypothesis</h2>
-        <p>
-          The key insights connecting ganglioside biology to post-vaccination narcolepsy:
-        </p>
-        <ol>
-          <li>
-            <strong>GT1b as a transport receptor:</strong> Like tetanus toxin, H1N1 virus 
-            components bind GT1b and undergo retrograde axonal transport to the CNS.
-          </li>
-          <li>
-            <strong>Extraneuronal release via shedding:</strong> Unlike GM1-binding molecules, 
-            GT1b-binding molecules are released into the spinal cord parenchyma via EV shedding — 
-            directly into the environment where orexin afferents terminate.
-          </li>
-          <li>
-            <strong>Immune exposure:</strong> Shed GT1b-containing EVs present glycan epitopes 
-            to the immune system, potentially triggering molecular mimicry-based autoimmunity 
-            (similar to MFS/GBS).
-          </li>
-          <li>
-            <strong>Hidden genetic variation:</strong> B3GALT4 variants that increase GT1b production 
-            cause no disease phenotype — the only "symptom" is vulnerability to GT1b-mediated 
-            transport and immune exposure.
-          </li>
-          <li>
-            <strong>The HLA link:</strong> B3GALT4 is located at 6p21.32, in linkage disequilibrium 
-            with HLA-DQB1*06:02 — the "HLA association" may actually reflect B3GALT4 variants 
-            that increase GT1b production and shedding.
-          </li>
-          <li class="mt-4">
-            <strong class="text-amber-600">HYPOTHESIS: The Neurotrophin Highway:</strong> GT1b is a critical 
-            component of "signaling endosomes" that transport growth factors (BDNF, GDNF) along nerves. 
-            <em>We propose</em> that the vaccine antigen may enter this same transport machinery. 
-            If neurons also "share" gangliosides trans-synaptically (a speculative "handshake" mechanism), 
-            this could explain how antigens reach cells beyond the directly innervated pathway.
-            <span class="text-amber-500 text-xs block mt-1">⚠️ This is a hypothesis, not established science.</span>
-          </li>
-        </ol>
-        
-        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-6">
-          <h4 class="font-bold text-amber-800 mb-2">🔑 Summary: Why B-Series Matters for This Hypothesis</h4>
-          <p class="text-amber-700 text-sm mb-0">
-            The A-series vs B-series distinction is not just academic — it explains <em>everything</em>:
-            <strong>(1)</strong> Why GT1b-bound antigens are released extraneuronally (like tetanus, unlike cholera);
-            <strong>(2)</strong> Why there are no GT1b "storage diseases" (the shedding bypass);
-            <strong>(3)</strong> Why the vaccine may reach cells beyond the directly innervated pathway (the neurotrophin network).
-            The H1N1 vaccine's affinity for GT1b is not a liability — it's a <em>feature</em> that grants 
-            access to the brain's internal communication system.
+        <div class="bg-gradient-to-r from-amber-100 to-orange-100 border border-amber-300 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-amber-900 mb-3">🔑 Summary: The B-Series Advantage (and Vulnerability)</h4>
+          <p class="text-amber-800 text-sm mb-3">
+            The A-series vs B-series distinction explains everything:
           </p>
+          <ol class="text-amber-800 text-sm space-y-2 mb-0">
+            <li><strong>Why GT1b-bound antigens are released</strong> (like tetanus, unlike cholera)</li>
+            <li><strong>Why there are no GT1b storage diseases</strong> (the shedding bypass)</li>
+            <li><strong>Why vaccine antigens reach lamina I</strong> (the neurotrophin network)</li>
+            <li><strong>Why some people are vulnerable</strong> (B3GALT4 variants → more GT1b)</li>
+          </ol>
         </div>
       </div>
     </div>
