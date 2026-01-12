@@ -24,12 +24,18 @@ const KEY_ENZYMES = ['B3GALT4']; // B3GALT4 is in HLA region (6p21.32)
 
 // Simplified map of the ganglioside grid
 const GRID_NODES = [
-  // Level 0: Precursors
-  { id: 'cer', label: 'Ceramide', series: 'precursor', row: 0, col: 0, colSpan: 4 },
-  { id: 'glccer', label: 'GlcCer', series: 'precursor', row: 1, col: 0, colSpan: 4 },
-  { id: 'laccer', label: 'LacCer', series: 'precursor', row: 2, col: 0, colSpan: 4 },
+  // Level 0: Precursors (positioned between columns 0-1 for clearer branching)
+  { id: 'cer', label: 'Ceramide', series: 'precursor', row: 0, col: 0, colSpan: 2 },
+  { id: 'glccer', label: 'GlcCer', series: 'precursor', row: 1, col: 0, colSpan: 2 },
+  { id: 'laccer', label: 'LacCer', series: 'precursor', row: 2, col: 0, colSpan: 2 },
   
-  // Level 1: Initiation of series
+  // Level 1: Initiation of series (the "fork" from LacCer)
+  // ┌──────────────────────────────────────────────────────────────┐
+  // │  LacCer branches to ALL 4 series:                           │
+  // │  • B4GALNT1 → GA2 (O-series, asialo)                        │
+  // │  • ST3GAL5  → GM3 (A-series) → ST8SIA1 → GD3 (B-series)     │
+  // │                               → ST8SIA5 → GT3 (C-series)     │
+  // └──────────────────────────────────────────────────────────────┘
   { id: 'ga2', label: 'GA2', series: 'o', row: 3, col: 0 },
   { id: 'gm3', label: 'GM3', series: 'a', row: 3, col: 1 },
   { id: 'gd3', label: 'GD3', series: 'b', row: 3, col: 2 },
@@ -59,8 +65,8 @@ const PATHWAYS = [
   // --- SYNTHESIS (Anabolism) ---
   { from: 'cer', to: 'glccer', type: 'vertical', mode: 'synthesis', enzyme: 'UGCG', name: 'Ceramide Glucosyltransferase' },
   { from: 'glccer', to: 'laccer', type: 'vertical', mode: 'synthesis', enzyme: 'B4GALT6', name: 'LacCer Synthase' },
-  { from: 'laccer', to: 'ga2', type: 'vertical', mode: 'synthesis', enzyme: 'B4GALNT1', name: 'GM2/GD2 Synthase' }, 
-  { from: 'laccer', to: 'gm3', type: 'right-branch', mode: 'synthesis', enzyme: 'ST3GAL5', name: 'GM3 Synthase' }, 
+  { from: 'laccer', to: 'ga2', type: 'branch-left', mode: 'synthesis', enzyme: 'B4GALNT1', name: 'GA2/GM2 Synthase' }, 
+  { from: 'laccer', to: 'gm3', type: 'branch-right', mode: 'synthesis', enzyme: 'ST3GAL5', name: 'GM3 Synthase' }, 
   { from: 'gm3', to: 'gd3', type: 'horizontal', mode: 'synthesis', enzyme: 'ST8SIA1', name: 'GD3 Synthase' },
   { from: 'gd3', to: 'gt3', type: 'horizontal', mode: 'synthesis', enzyme: 'ST8SIA5', name: 'GT3 Synthase' },
   { from: 'gm3', to: 'gm2', type: 'vertical', mode: 'synthesis', enzyme: 'B4GALNT1', name: 'GM2/GD2 Synthase' },
@@ -180,6 +186,23 @@ const PATHOGEN_BINDINGS = [
     disease: 'Miller Fisher syndrome',
     notes: 'LPS mimics GQ1b → anti-GQ1b antibodies (85-90%)'
   },
+  // Pseudomonas aeruginosa - binds asialo-gangliosides (Krivan et al. 1988)
+  { 
+    target: 'ga1', 
+    pathogen: 'P. aeruginosa',
+    organism: 'Pseudomonas aeruginosa',
+    affinity: 'high',
+    disease: 'Respiratory infections / Cystic fibrosis',
+    notes: 'Pili bind βGalNAc(1-4)βGal on asialo-GM1. Critical for CF lung colonization! [PMID: 3124753, 7910938]'
+  },
+  { 
+    target: 'ga2', 
+    pathogen: 'P. aeruginosa',
+    organism: 'Pseudomonas aeruginosa',
+    affinity: 'high',
+    disease: 'Respiratory infections / Cystic fibrosis',
+    notes: 'Also binds asialo-GM2. LPS is additional adhesin. CF patients have increased asialo-gangliosides! [PMID: 7927723]'
+  },
 ];
 
 // Viral ganglioside receptors
@@ -208,7 +231,7 @@ const VIRUS_BINDINGS = [
     organism: 'Influenza A virus',
     affinity: 'high',
     disease: 'Influenza / Hearing disorders?',
-    notes: '⚠️ GM3 is ESSENTIAL for cochlear hair cells! H3N2 was dominant in Cuba 2016-2017 during "Havana Syndrome" — tinnitus, hearing problems, vertigo. GM3 sheds via EVs (unlike GT1b axonal transport) → likely LOCAL cochlear damage rather than CNS delivery.'
+    notes: '⚠️ GM3 is ESSENTIAL for cochlear hair cells! A speculative hypothesis linked H3N2/GM3 to "Havana Syndrome" — but this has been CRITICALLY EVALUATED and found UNLIKELY (see /speculation/havana-syndrome/).'
   },
   { 
     target: 'gm1a', 
@@ -265,6 +288,31 @@ const VIRUS_BINDINGS = [
     affinity: 'medium',
     disease: 'Gastroenteritis',
     notes: 'Alternative receptor'
+  },
+  // SARS-CoV-2 → GM1/GM2/GM3 → COVID-19 (Nguyen et al. 2021, Nature Chem Biol)
+  { 
+    target: 'gm3', 
+    pathogen: 'SARS-CoV-2',
+    organism: 'SARS-CoV-2 (COVID-19)',
+    affinity: 'high',
+    disease: 'COVID-19 / Long COVID?',
+    notes: 'RBD binds GM3 in lipid rafts (Kd ~160-200 μM). Depleting glycolipids REDUCES viral entry. May explain neurological symptoms — gangliosides 10-30× higher in brain! [Nguyen et al. 2021 Nature Chem Biol]'
+  },
+  { 
+    target: 'gm1a', 
+    pathogen: 'SARS-CoV-2',
+    organism: 'SARS-CoV-2 (COVID-19)',
+    affinity: 'high',
+    disease: 'COVID-19 / GBS / CNS invasion',
+    notes: 'GM1 is TOP HIT for RBD binding (Kd ~160 μM)! Monosialylated gangliosides preferred. Post-COVID GBS reported. Gangliosides may mediate CNS invasion. [Nguyen et al. 2021 Nature Chem Biol]'
+  },
+  { 
+    target: 'gm2', 
+    pathogen: 'SARS-CoV-2',
+    organism: 'SARS-CoV-2 (COVID-19)',
+    affinity: 'high',
+    disease: 'COVID-19',
+    notes: 'GM2 is second-highest affinity ganglioside for SARS-CoV-2 RBD after GM1. Monosialylated gangliosides preferred over di/tri-sialylated. [Nguyen et al. 2021 Nature Chem Biol]'
   },
 ];
 
@@ -542,6 +590,115 @@ const TUMOR_ASSOCIATIONS = [
     drug: 'N/A',
     notes: 'Unlike GD2, GT1b is DOWNREGULATED in neuroblastoma — tumors de-differentiate toward simpler gangliosides.'
   },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // O-SERIES (ASIALO): Incomplete synthesis / sialidase overexpression
+  // These appear when cells LOSE ability to add sialic acid (aberrant glycosylation)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    target: 'ga1',
+    tumor: 'Small Cell Lung Cancer (SCLC)',
+    expression: 'very_high',
+    therapeuticTarget: true,
+    drug: 'Anti-asialo-GM1 immunotherapy',
+    prognosis: 'poor',
+    notes: '🫁 STRONGEST O-SERIES LINK! Asialo-GM1 highly expressed on SCLC but ABSENT in normal lung tissue. Ideal immunotherapy target! [Hayakawa 2016]'
+  },
+  {
+    target: 'ga1',
+    tumor: 'Metastatic tumors (liver)',
+    expression: 'high',
+    therapeuticTarget: false,
+    drug: 'Prognostic marker',
+    prognosis: 'poor',
+    notes: '⚠️ High asialo-GM1 correlates with LIVER METASTASIS in lymphoma, lung cancer. Neutral charge affects cell-matrix adhesion.'
+  },
+  {
+    target: 'ga1',
+    tumor: 'NK cell target marker',
+    expression: 'variable',
+    therapeuticTarget: false,
+    drug: 'NK cell-based therapy',
+    prognosis: 'variable',
+    notes: '🛡️ NK cells recognize asialo-GM1! Used as NK cell marker (anti-asialo-GM1 depletes NK cells in research). Tumor asialo-GM1 → NK susceptibility.'
+  },
+  {
+    target: 'ga2',
+    tumor: 'Neuroblastoma',
+    expression: 'elevated',
+    therapeuticTarget: false,
+    drug: 'Research stage',
+    prognosis: 'poor',
+    notes: 'GA2 accumulation indicates "blockade" at ST3GAL5 step. Incomplete synthesis → primitive phenotype. [Svennerholm studies]'
+  },
+  {
+    target: 'ga2',
+    tumor: 'Sarcoma',
+    expression: 'elevated',
+    therapeuticTarget: false,
+    drug: 'Research stage',
+    prognosis: 'poor',
+    notes: 'Similar to neuroblastoma — asialo-gangliosides indicate dedifferentiation. GA2 is normally rapidly processed to GM3.'
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // C-SERIES (TRI-SIALO): Oncofetal reactivation / "Fish gangliosides"
+  // These appear when EMBRYONAL gene expression is reactivated (retrogression)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    target: 'gt3',
+    tumor: 'Glioblastoma (GBM)',
+    expression: 'high',
+    therapeuticTarget: true,
+    drug: 'A2B5-targeted therapy',
+    prognosis: 'poor',
+    notes: '🧠 C-SERIES PATHWAY REACTIVATED! GT3 correlates with A2B5 epitope = glioma STEM CELLS. Responsible for recurrence & radiation resistance! [Stiles 2008]'
+  },
+  {
+    target: 'gt3',
+    tumor: 'Melanoma (stem cells)',
+    expression: 'elevated',
+    therapeuticTarget: false,
+    drug: 'Research stage',
+    prognosis: 'poor',
+    notes: 'GT3+ cells show cancer stem cell properties. ST8SIA1 reactivation drives c-series synthesis in aggressive melanomas.'
+  },
+  {
+    target: 'gt2',
+    tumor: 'Glioblastoma',
+    expression: 'elevated',
+    therapeuticTarget: false,
+    drug: 'Research stage',
+    prognosis: 'poor',
+    notes: 'Part of c-series pathway reactivation. GT2 intermediate accumulates during aberrant polysialo synthesis.'
+  },
+  {
+    target: 'gt1c',
+    tumor: 'High-grade glioma',
+    expression: 'elevated',
+    therapeuticTarget: false,
+    drug: 'Research stage',
+    prognosis: 'poor',
+    notes: 'Downstream c-series product. Expression correlates with tumor grade and stem cell phenotype.'
+  },
+  {
+    target: 'gq1c',
+    tumor: 'Adult T-cell Leukemia (ATL)',
+    expression: 'high',
+    therapeuticTarget: true,
+    drug: 'Anti-GD1c/GQ1c antibodies',
+    prognosis: 'poor',
+    notes: '🦠 HTLV-1 SPECIFIC! GD1c/GQ1c (c-series) expressed on ATL cells but NOT on normal T-cells. Potential biomarker & therapy target! [Yamaguchi 2009, Glycobiology]'
+  },
+  {
+    target: 'gq1c',
+    tumor: 'Breast cancer (stem cells)',
+    expression: 'elevated',
+    therapeuticTarget: false,
+    drug: 'Research stage',
+    prognosis: 'poor',
+    notes: 'C-series found in stem-like breast cancer populations. ST8SIA1-driven synthesis indicates dedifferentiation.'
+  },
 ];
 
 // Colors for disease tags
@@ -570,8 +727,8 @@ const GENE_LOCATIONS = {
     { gene: 'UGCG', chromosome: '9q31.3', enzyme: 'Ceramide Glucosyltransferase', product: 'GlcCer', notes: 'First committed step in glycosphingolipid synthesis' },
     { gene: 'B4GALT6', chromosome: '18q12.1', enzyme: 'LacCer Synthase', product: 'LacCer', notes: 'Also B4GALT5 (9p21.1)' },
     { gene: 'ST3GAL5', chromosome: '2p11.2', enzyme: 'GM3 Synthase', product: 'GM3', notes: 'Deficiency causes severe epilepsy, deafness' },
-    { gene: 'ST8SIA1', chromosome: '12p12.1', enzyme: 'GD3 Synthase', product: 'GD3', notes: 'Initiates B-series' },
-    { gene: 'ST8SIA5', chromosome: '18q21.1', enzyme: 'GT3 Synthase', product: 'GT3', notes: 'Initiates C-series' },
+    { gene: 'ST8SIA1', chromosome: '12p12.1', enzyme: 'GD3 Synthase', product: 'GD3', notes: '🔑 "GATEKEEPER" — massively OVEREXPRESSED in glioblastoma! Creates GD3 pool for C-series [Tringali 2014]' },
+    { gene: 'ST8SIA5', chromosome: '18q21.1', enzyme: 'GT3 Synthase', product: 'GT3', notes: '🔑 "ARCHITECT" — REACTIVATED in glioma stem cells! Initiates C-series. Knockdown → loss of stemness [Yeh 2016]' },
     { gene: 'B4GALNT1', chromosome: '12q13.3', enzyme: 'GM2/GD2 Synthase', product: 'GM2, GD2, GT2', notes: 'Key branching enzyme' },
     { gene: 'B3GALT4', chromosome: '6p21.32', enzyme: 'GM1/GD1b Synthase', product: 'GM1a, GD1b, GT1c', notes: '⚠️ IN HLA REGION! Key for GT1b pathway', highlight: true },
     { gene: 'ST3GAL2', chromosome: '16q22.1', enzyme: 'GD1a/GT1b Synthase', product: 'GD1a, GT1b, GQ1c', notes: 'Final sialylation step' },
@@ -816,39 +973,76 @@ const Connection: React.FC<ConnectionProps> = ({ type, enzyme, enzymeName, mode,
     ? ENZYME_COLORS.key_enzyme 
     : (isSynth ? ENZYME_COLORS.synthase : ENZYME_COLORS.catabolic);
   
-  let positionClass = "";
-
+  // Vertical arrows - just arrow symbol, no line
   if (type === 'vertical') {
-    positionClass = "absolute left-1/2 -translate-x-1/2 top-full h-8 w-0.5 bg-slate-300 flex items-center justify-center";
+    return (
+      <div className="absolute left-1/2 -translate-x-1/2 top-full z-20 flex flex-col items-center" style={{ marginTop: '0.25rem' }}>
+        <div className="text-emerald-600 text-3xl font-bold leading-none">↓</div>
+        <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+      </div>
+    );
   } else if (type === 'vertical-up') {
-    positionClass = "absolute left-1/2 -translate-x-1/2 bottom-full h-8 w-0.5 bg-slate-300 flex items-center justify-center";
+    return (
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-full z-20 flex flex-col items-center" style={{ marginBottom: '0.25rem' }}>
+        <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+        <div className="text-rose-600 text-3xl font-bold leading-none">↑</div>
+      </div>
+    );
   } else if (type === 'horizontal') {
-    positionClass = "absolute top-1/2 -translate-y-1/2 left-full w-8 h-0.5 bg-slate-300 flex items-center justify-center";
+    // Horizontal arrow to the RIGHT (GM3→GD3, GD3→GT3) - just arrow, no line
+    return (
+      <div className="absolute top-1/2 -translate-y-1/2 left-full z-30 flex flex-col items-center" style={{ width: '48px' }}>
+        <div className="text-emerald-600 text-3xl font-bold leading-none">→</div>
+        <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+      </div>
+    );
   } else if (type === 'horizontal-back') {
-    positionClass = "absolute top-1/2 -translate-y-1/2 right-full w-8 h-0.5 bg-slate-300 flex items-center justify-center";
-  } else if (type === 'right-branch') {
+    // Horizontal arrow to the LEFT (degradation: GD3→GM3) - just arrow, no line
+    return (
+      <div className="absolute top-1/2 -translate-y-1/2 right-full z-30 flex flex-col items-center" style={{ width: '48px' }}>
+        <div className="text-rose-600 text-3xl font-bold leading-none">←</div>
+        <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+      </div>
+    );
+  } else if (type === 'branch-left') {
+     // LacCer → GA2 (positioned directly above GA2, centered)
      return (
-       <div className="absolute top-8 -right-4 z-20 flex flex-col items-center">
-         <div className="w-8 h-0.5 bg-slate-300 rotate-45 transform origin-left absolute top-0 left-0"></div>
-         <div className="translate-x-4 translate-y-2">
+       <div className="absolute top-full left-1/4 -translate-x-1/2 z-20 flex flex-col items-center" style={{ marginTop: '0.5rem' }}>
+          <div className="text-emerald-600 text-3xl font-bold leading-none">↓</div>
+          <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+       </div>
+     );
+  } else if (type === 'branch-right') {
+     // LacCer → GM3 (positioned directly above GM3, centered)
+     return (
+       <div className="absolute top-full right-1/4 translate-x-1/2 z-20 flex flex-col items-center" style={{ marginTop: '0.5rem' }}>
+          <div className="text-emerald-600 text-3xl font-bold leading-none">↓</div>
+          <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+       </div>
+     );
+  } else if (type === 'right-branch') {
+     // Generic diagonal right branch
+     return (
+       <div className="absolute top-full right-0 z-20" style={{ marginTop: '0.25rem' }}>
+         <div className="flex flex-col items-center">
+            <div className="text-emerald-500 text-lg leading-none">↘</div>
             <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
          </div>
        </div>
-     )
+     );
   } else if (type === 'right-branch-back') {
      return (
-       <div className="absolute bottom-8 -right-4 z-20 flex flex-col items-center">
-         <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+       <div className="absolute bottom-full right-0 z-20" style={{ marginBottom: '0.25rem' }}>
+         <div className="flex flex-col items-center">
+            <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
+            <div className="text-rose-500 text-lg leading-none">↗</div>
+         </div>
        </div>
-     )
+     );
   }
 
-  return (
-    <div className={positionClass}>
-      <div className="bg-slate-300 absolute inset-0"></div>
-      <EnzymeTag code={enzyme} name={enzymeName} colorClass={colorClass} isAnimated={isKeyEnzyme} />
-    </div>
-  );
+  // Fallback for unknown connection types
+  return null;
 };
 
 interface GangliosideMapProps {
@@ -866,6 +1060,7 @@ interface GangliosideMapProps {
 
 export default function GangliosideMap({ labels }: GangliosideMapProps) {
   const [mode, setMode] = useState<ViewMode>('synthesis');
+  const [showDeepDive, setShowDeepDive] = useState(false);
 
   const defaultLabels = {
     title: 'Ganglioside Metabolism Map',
@@ -940,21 +1135,37 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
               <li><strong className="text-purple-600">Cholera toxin → GM1:</strong> Classic receptor. Remains intraneuronal after transport.</li>
               <li><strong className="text-amber-600">Tetanus toxin → GT1b:</strong> Released extraneuronally in spinal cord! Key for hypothesis.</li>
               <li><strong className="text-orange-600">C. jejuni LPS:</strong> Molecular mimicry → GBS (anti-GM1/GD1a) or Miller Fisher (anti-GQ1b).</li>
+              <li><strong className="text-teal-600">P. aeruginosa → Asialo-GM1/GM2:</strong> Pili-mediated adhesion. Critical in cystic fibrosis!</li>
             </ul>
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 mt-2">
-              <h5 className="font-bold text-purple-800 text-sm mb-1">💉 Botulinum Toxin (Botox) — Key Considerations</h5>
-              <p className="text-purple-700 text-xs mb-2">
-                Botulinum toxin binds both <strong>GT1b</strong> (BoNT/A) and <strong>GD1a</strong> (BoNT/B). 
-                It's taken up at nerve terminals <strong>without intraneuronal injection</strong> — 
-                and motor neurons have the <em>same axon length</em> to the spinal cord as sensory neurons.
-              </p>
-              <div className="bg-amber-50 border-l-4 border-amber-400 p-2 text-xs">
-                <strong className="text-amber-800">⚠️ Challenge to the hypothesis:</strong>
-                <span className="text-amber-700"> If Botox enters motor neurons without direct injection, why would vaccine antigens require it? 
-                Key difference: Botox <em>acts locally</em> at the neuromuscular junction (blocks ACh release there). 
-                It doesn't need to reach the spinal cord. Tetanus toxin, however, must travel retrogradely to the CNS. 
-                The question remains: is intraneuronal injection necessary for <em>efficient</em> retrograde transport, 
-                or just for sufficient <em>dose</em>?</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+              <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
+                <h5 className="font-bold text-purple-800 text-sm mb-1">💉 Botulinum Toxin (Botox) — Key Considerations</h5>
+                <p className="text-purple-700 text-xs mb-2">
+                  Botulinum toxin binds both <strong>GT1b</strong> (BoNT/A) and <strong>GD1a</strong> (BoNT/B). 
+                  It's taken up at nerve terminals <strong>without intraneuronal injection</strong> — 
+                  and motor neurons have the <em>same axon length</em> to the spinal cord as sensory neurons.
+                </p>
+                <div className="bg-amber-50 border-l-4 border-amber-400 p-2 text-xs">
+                  <strong className="text-amber-800">⚠️ Challenge to the hypothesis:</strong>
+                  <span className="text-amber-700"> If Botox enters motor neurons without direct injection, why would vaccine antigens require it? 
+                  Key difference: Botox <em>acts locally</em> at the neuromuscular junction (blocks ACh release there). 
+                  It doesn't need to reach the spinal cord. Tetanus toxin, however, must travel retrogradely to the CNS. 
+                  The question remains: is intraneuronal injection necessary for <em>efficient</em> retrograde transport, 
+                  or just for sufficient <em>dose</em>?</span>
+                </div>
+              </div>
+              <div className="bg-teal-50 border border-teal-200 rounded-lg p-3">
+                <h5 className="font-bold text-teal-800 text-sm mb-1">🫁 Pseudomonas aeruginosa — Cystic Fibrosis</h5>
+                <p className="text-teal-700 text-xs mb-2">
+                  <strong>P. aeruginosa</strong> binds <strong>asialo-GM1 (GA1)</strong> and <strong>asialo-GM2 (GA2)</strong> 
+                  via pili (βGalNAc(1-4)βGal epitope). This is critical for lung colonization in cystic fibrosis (CF).
+                </p>
+                <ul className="text-teal-700 text-[11px] space-y-1">
+                  <li>• CF patients have <strong>increased asialo-gangliosides</strong> in airway epithelium</li>
+                  <li>• CFTR dysfunction → reduced sialylation → more binding sites</li>
+                  <li>• Both pili AND LPS act as adhesins (<a href="https://pubmed.ncbi.nlm.nih.gov/7927723/" className="text-teal-600 underline" target="_blank">PMID: 7927723</a>)</li>
+                  <li>• Key refs: <a href="https://pubmed.ncbi.nlm.nih.gov/3124753/" className="text-teal-600 underline" target="_blank">Krivan 1988</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/7910938/" className="text-teal-600 underline" target="_blank">Lee 1994</a></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -962,7 +1173,7 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
       case 'viruses':
         return (
           <div className="space-y-3">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="bg-pink-50 border border-pink-200 rounded-lg p-3">
                 <h5 className="font-bold text-pink-800 text-sm mb-2">🧠 H1N1 → GT1b/GD1a → CNS</h5>
                 <ul className="text-pink-700 text-xs space-y-1">
@@ -972,44 +1183,254 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
                   <li>• Target: Orexin cells in hypothalamus</li>
                 </ul>
               </div>
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-                <h5 className="font-bold text-amber-800 text-sm mb-2">👂 H3N2 → GM3 → Cochlea</h5>
-                <ul className="text-amber-700 text-xs space-y-1">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+                <h5 className="font-bold text-emerald-800 text-sm mb-2">🦠 SARS-CoV-2 → GM1/GM2/GM3</h5>
+                <ul className="text-emerald-700 text-xs space-y-1">
+                  <li>• RBD binds <strong>GM1 (top hit!)</strong>, GM2, GM3</li>
+                  <li>• Kd ~160 μM (similar to other ganglioside-binding viruses)</li>
+                  <li>• Depleting glycolipids <strong>REDUCES viral entry</strong></li>
+                  <li>• Brain has <strong>10-30× more gangliosides</strong> → CNS invasion?</li>
+                  <li>• Post-COVID <strong>GBS</strong>, Long COVID neuropathy</li>
+                </ul>
+                <p className="text-emerald-600 text-[10px] mt-1 italic">Nguyen et al. 2021, Nature Chem Biol</p>
+              </div>
+              <div className="bg-slate-100 border border-slate-300 rounded-lg p-3">
+                <h5 className="font-bold text-slate-700 text-sm mb-2">👂 H3N2 → GM3 <span className="text-red-600 text-xs">(Unlikely)</span></h5>
+                <ul className="text-slate-600 text-xs space-y-1">
                   <li>• HA binds GM3 with high affinity</li>
-                  <li>• GM3 is <strong>essential for cochlear hair cells</strong></li>
-                  <li>• <strong>Cuba 2016-2017: "Havana Syndrome"?</strong></li>
-                  <li>• Symptoms: Tinnitus, hearing disturbances, vertigo</li>
+                  <li>• GM3 essential for cochlear hair cells</li>
+                  <li>• <a href="/speculation/havana-syndrome/" className="text-red-600 underline">Havana hypothesis → UNLIKELY</a></li>
                 </ul>
               </div>
             </div>
             <div className="bg-slate-100 border-l-4 border-slate-400 p-3">
-              <h5 className="font-bold text-slate-800 text-sm mb-1">🔬 The Hidden Ganglioside System — Think Broader!</h5>
+              <h5 className="font-bold text-slate-800 text-sm mb-1">🔬 Gangliosides Determine Disease Pattern</h5>
               <p className="text-slate-700 text-xs">
-                <strong>Different influenza strains → Different gangliosides → Different diseases:</strong> 
-                Gangliosides are not just a curiosity — they determine which cells are affected. 
-                H1N1 (GT1b) → brain. H3N2 (GM3) → inner ear. This "hidden" system explains 
-                why the same virus family can cause completely different symptoms. <em>We need to think broader 
-                about the role of gangliosides in unexplained syndromes.</em>
+                <strong>Different viruses → Different gangliosides → Different symptoms:</strong> 
+                H1N1 (GT1b) → brain/narcolepsy. SARS-CoV-2 (GM3/GM1) → multi-organ/Long COVID. 
+                Gangliosides determine which cells are affected — this "hidden" system explains 
+                why viruses cause such varied neurological manifestations.
               </p>
             </div>
             <ul className="list-disc list-inside space-y-1 text-sm">
               <li><strong>Polyomavirus (JC, BK):</strong> GT1b/GD1b → neurotropism → PML</li>
               <li><strong>SV40 → GM1:</strong> Classic model for ganglioside-mediated virus uptake</li>
+              <li><strong>SARS-CoV-2 → GM1/GM2/GM3:</strong> Monosialylated gangliosides facilitate viral entry. Glycolipid depletion reduces infection (<a href="https://doi.org/10.1038/s41589-021-00924-1" className="text-blue-600 underline" target="_blank">Nguyen et al. 2021</a>)</li>
             </ul>
           </div>
         );
       case 'storage':
         return (
-          <div className="space-y-2">
-            <ul className="list-disc list-inside space-y-1">
-              <li><strong className="text-red-600">A-series diseases:</strong> GM1 gangliosidosis, Tay-Sachs, Sandhoff — severe neurodegeneration.</li>
-              <li><strong className="text-orange-600">Precursor diseases:</strong> Gaucher (GlcCer), Krabbe (GalCer) — enzyme replacement available for some.</li>
-              <li><strong className="text-slate-600">GM3 synthase deficiency:</strong> Very rare. Blocks entire ganglioside pathway.</li>
-            </ul>
-            <div className="bg-amber-50 border-l-4 border-amber-400 p-2 text-xs">
-              <strong className="text-amber-800">Key observation:</strong>
-              <span className="text-amber-700"> No storage diseases for GD1b or GT1b! B-series gangliosides are shed via EVs, 
-              bypassing lysosomal accumulation — but increasing immune exposure.</span>
+          <div className="space-y-3">
+            {/* Header */}
+            <div className="text-center bg-slate-100 rounded-lg p-2">
+              <h4 className="font-bold text-slate-800 text-sm">The Great Divide: Stagnation vs. Flux</h4>
+              <p className="text-slate-600 text-xs">Nature has divided gangliosides into two functional tracks based on their destination</p>
+            </div>
+
+            {/* Comprehensive comparison table */}
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-200">
+                    <th className="border border-slate-300 p-2 text-left text-slate-700">Property</th>
+                    <th className="border border-slate-300 p-2 text-center bg-blue-100 text-blue-800">🔒 A-SERIES (GM1, GM2)</th>
+                    <th className="border border-slate-300 p-2 text-center bg-red-100 text-red-800">🚀 B-SERIES (GT1b, GD1b)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-slate-300 p-2 font-semibold text-slate-700">Primary Domain</td>
+                    <td className="border border-slate-300 p-2 text-center bg-blue-50 text-blue-700">Intracellular / Lysosomal</td>
+                    <td className="border border-slate-300 p-2 text-center bg-red-50 text-red-700">Extracellular / Synaptic</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-300 p-2 font-semibold text-slate-700">Turnover</td>
+                    <td className="border border-slate-300 p-2 text-center bg-blue-50 text-blue-700">Endocytosis → Degradation</td>
+                    <td className="border border-slate-300 p-2 text-center bg-red-50 text-red-700">Shedding (EVs) → Signaling</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-300 p-2 font-semibold text-slate-700">When Enzymes Fail</td>
+                    <td className="border border-slate-300 p-2 text-center bg-blue-50 text-blue-700">Massive accumulation <br/><span className="text-[10px]">("Garbage piles")</span></td>
+                    <td className="border border-slate-300 p-2 text-center bg-red-50 text-red-700">No accumulation <br/><span className="text-[10px]">(Shedding "ventilates")</span></td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-300 p-2 font-semibold text-slate-700">Clinical Picture</td>
+                    <td className="border border-slate-300 p-2 text-center bg-blue-50"><span className="font-bold text-blue-800">Storage diseases!</span><br/><span className="text-blue-600 text-[10px]">Tay-Sachs, Sandhoff, GM1</span></td>
+                    <td className="border border-slate-300 p-2 text-center bg-red-50"><span className="font-bold text-red-800">No storage diseases!</span><br/><span className="text-red-600 text-[10px]">But: GBS, autoimmunity</span></td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-300 p-2 font-semibold text-slate-700">Toxin Model</td>
+                    <td className="border border-slate-300 p-2 text-center bg-blue-50"><strong className="text-blue-800">Cholera toxin:</strong><br/><span className="text-blue-600 text-[10px]">Acts INSIDE the cell</span></td>
+                    <td className="border border-slate-300 p-2 text-center bg-red-50"><strong className="text-red-800">Tetanus toxin:</strong><br/><span className="text-red-600 text-[10px]">JUMPS between cells (trans-synaptic)</span></td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-300 p-2 font-semibold text-slate-700">Metaphor</td>
+                    <td className="border border-slate-300 p-2 text-center bg-blue-50 text-blue-700 font-bold">"Dead End"<br/><span className="text-[10px] font-normal">Requires lysosomal cleanup</span></td>
+                    <td className="border border-slate-300 p-2 text-center bg-red-50 text-red-700 font-bold">"Highway"<br/><span className="text-[10px] font-normal">Traffic flows OUT of the cell</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Critical Insight - The Escape Valve */}
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 rounded-r-lg p-4">
+              <h5 className="font-bold text-amber-900 text-sm mb-2">🔑 The Escape Valve Hypothesis</h5>
+              <p className="text-amber-800 text-xs italic mb-3">
+                "The striking absence of specific 'GT1b storage diseases' suggests an evolutionary divergence. 
+                While A-series gangliosides are destined for the lysosomal 'incinerator' (where defects cause disaster), 
+                B-series gangliosides possess a biological <strong>'escape valve'</strong>. They are packaged into 
+                Extracellular Vesicles (EVs) or shed at the synapse to modulate the environment, 
+                <strong> bypassing the lysosomal burden entirely</strong>."
+              </p>
+              <div className="bg-white rounded p-3 text-xs border border-amber-200">
+                <p className="text-slate-700 font-semibold mb-2">Mechanistic Evidence:</p>
+                <ul className="text-slate-600 space-y-1">
+                  <li>• <strong>Retrograde Transport & Exocytosis:</strong> GT1b acts as a molecular "address label" directing cargo from nerve terminals toward the cell body — but also OUT to neighboring cells</li>
+                  <li>• <strong>Shedding as Defense:</strong> By continuously "shedding" B-series gangliosides (like a snake sheds skin), the neuron avoids becoming an immune target while communicating with glia</li>
+                  <li>• <strong>A-series lacks this mechanism:</strong> Without active exocytosis, A-series gets trapped in the lysosomal "incinerator"</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Counter-argument box */}
+            <div className="bg-slate-100 border border-slate-300 rounded-lg p-3">
+              <h5 className="font-bold text-slate-700 text-xs mb-1">⚖️ Potential Counter-argument (and why it fails):</h5>
+              <p className="text-slate-600 text-[11px]">
+                <strong>Critic:</strong> "But the enzyme that degrades GT1b (sialidase) produces GD1b... if that enzyme fails, shouldn't we see B-series accumulation?"
+              </p>
+              <p className="text-slate-700 text-[11px] mt-1">
+                <strong>Answer:</strong> Clinically, we do NOT see massive accumulation of complex B-gangliosides (like GT1b) the way we see "garbage piles" of GM1/GM2. 
+                This indicates GT1b/GD1b have an <strong>alternative turnover pathway</strong> — they "disappear" from the system (shedding/signaling) 
+                before reaching the lysosome in significant quantities.
+              </p>
+            </div>
+
+            {/* Precursor diseases note */}
+            <div className="text-xs text-slate-500">
+              <strong>Also note:</strong> Precursor diseases (Gaucher, Krabbe) affect shared pathway components, not series-specific gangliosides.
+            </div>
+
+            {/* The Cargo: Neurotrophins on the B-series Express */}
+            <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+              <h5 className="font-bold text-emerald-800 text-sm mb-2">🚂 The Cargo: What Travels on the B-Series Express?</h5>
+              <p className="text-emerald-700 text-xs mb-2">
+                If B-series gangliosides are "designed" for communication and transport, what cargo do they carry? 
+                Key neurotrophic factors depend on GT1b/GD1b for their signaling:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-[10px]">
+                <div className="bg-white rounded p-2 border border-emerald-100">
+                  <p className="font-bold text-emerald-700">GDNF</p>
+                  <p className="text-slate-600">Critical for dopaminergic neuron survival (Parkinson's). Requires GD1b/GT1b-rich lipid rafts for signaling via GFRα1/RET complex.</p>
+                  <p className="text-emerald-600 text-[9px] mt-1"><a href="https://pubmed.ncbi.nlm.nih.gov/12671643/" target="_blank" className="hover:underline">Sariola & Saarma 2003</a></p>
+                </div>
+                <div className="bg-white rounded p-2 border border-emerald-100">
+                  <p className="font-bold text-emerald-700">BDNF</p>
+                  <p className="text-slate-600">Brain's key plasticity factor. GT1b is required for TrkB receptor dimerization and activation. Can be shed in exosomes together with gangliosides!</p>
+                  <p className="text-emerald-600 text-[9px] mt-1"><a href="https://pubmed.ncbi.nlm.nih.gov/21325515/" target="_blank" className="hover:underline">Lim et al. 2011</a></p>
+                </div>
+                <div className="bg-white rounded p-2 border border-emerald-100">
+                  <p className="font-bold text-emerald-700">MAG Signaling</p>
+                  <p className="text-slate-600">Myelin-associated glycoprotein binds GT1b/GD1a on axons. <strong>Proves GT1b is exposed extracellularly</strong> — not locked inside!</p>
+                  <p className="text-emerald-600 text-[9px] mt-1"><a href="https://pubmed.ncbi.nlm.nih.gov/18623174/" target="_blank" className="hover:underline">Schnaar & Lopez 2009</a></p>
+                </div>
+              </div>
+              <div className="bg-emerald-100 rounded p-2 mt-2 text-[10px]">
+                <strong className="text-emerald-800">🔑 Signaling Endosomes:</strong>
+                <span className="text-emerald-700"> When neurons receive neurotrophins (NGF, BDNF), the receptor complex is internalized into 
+                "signaling endosomes" that travel retrogradely to the nucleus with the message "Survive!". 
+                <strong> GT1b is a critical membrane component</strong> of these endosomes, protecting the receptor from degradation during transport.</span>
+              </div>
+            </div>
+
+            {/* Scientific Nuances - Addressing Complexity */}
+            <div className="bg-slate-100 border border-slate-300 rounded-lg p-3">
+              <h5 className="font-bold text-slate-700 text-sm mb-2">⚖️ Scientific Nuances: It's Not Black and White</h5>
+              <p className="text-slate-600 text-xs italic mb-2">
+                While the A-series/B-series division offers a powerful functional model, biological reality involves complex interplay. 
+                Here we address potential counter-arguments:
+              </p>
+              
+              <div className="space-y-2 text-[10px]">
+                {/* Counter-argument 1 */}
+                <div className="bg-white rounded p-2 border-l-4 border-amber-400">
+                  <p className="font-semibold text-amber-800">1. The Metabolic Funnel ("Sink Effect")</p>
+                  <p className="text-slate-600">
+                    <strong>Criticism:</strong> GM1/GM2 accumulation may simply be because they're the "final common pathway" — 
+                    GT1b → GD1a → GM1. A blockage at GM1 traps everything upstream.
+                  </p>
+                  <p className="text-slate-700 mt-1">
+                    <strong>Our response:</strong> Defects in <em>upstream</em> B-series enzymes rarely cause fatal storage phenotypes 
+                    compared to downstream defects. This implies the cell handles B-series intermediates better — via shedding or rapid conversion.
+                    <span className="text-slate-500"> [<a href="https://pubmed.ncbi.nlm.nih.gov/22247170/" target="_blank" className="text-blue-600 hover:underline">Miyagi & Yamaguchi 2012</a>]</span>
+                  </p>
+                </div>
+
+                {/* Counter-argument 2 */}
+                <div className="bg-white rounded p-2 border-l-4 border-blue-400">
+                  <p className="font-semibold text-blue-800">2. GM1 is Not Just "Waste"</p>
+                  <p className="text-slate-600">
+                    <strong>Criticism:</strong> GM1 performs critical surface signaling (lipid rafts, Ca²⁺ regulation). 
+                    Anti-GM1 antibodies cause GBS — proving GM1 is <em>exposed</em>, not just intracellular.
+                  </p>
+                  <p className="text-slate-700 mt-1">
+                    <strong>Our response:</strong> We don't deny GM1's surface role. We emphasize its <em>pathological fate</em>: 
+                    when turnover fails, GM1 is trapped in lysosomes, while GT1b has an "escape route" via EVs.
+                    <span className="text-slate-500"> [<a href="https://pubmed.ncbi.nlm.nih.gov/25680450/" target="_blank" className="text-blue-600 hover:underline">Ledeen & Wu 2015</a>]</span>
+                  </p>
+                </div>
+
+                {/* Counter-argument 3 */}
+                <div className="bg-white rounded p-2 border-l-4 border-rose-400">
+                  <p className="font-semibold text-rose-800">3. The Exception: Sialidosis</p>
+                  <p className="text-slate-600">
+                    <strong>Criticism:</strong> Sialidosis (NEU1 deficiency) blocks B-series degradation at the top of the chain — 
+                    and <em>does</em> cause pathological accumulation. Shedding isn't 100% effective!
+                  </p>
+                  <p className="text-slate-700 mt-1">
+                    <strong>Our response:</strong> True — the "shedding valve" has limits. But the prevalence and severity of 
+                    A-series diseases (Tay-Sachs, GM1) <em>vastly overshadows</em> these rarer upstream defects, 
+                    reinforcing A-series as the primary vulnerability.
+                    <span className="text-slate-500"> [<a href="https://pubmed.ncbi.nlm.nih.gov/14641227/" target="_blank" className="text-blue-600 hover:underline">Seyrantepe et al. 2003</a>]</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-slate-200 rounded p-2 mt-2 text-[10px] text-slate-700">
+                <strong>Bottom line:</strong> Regardless of the exact mechanism (enzymatic speed vs. shedding), 
+                the functional outcome remains distinct: <em>The nervous system tolerates B-series fluctuations better than A-series blockades.</em>
+              </div>
+            </div>
+
+            {/* References */}
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 mt-2">
+              <h5 className="font-bold text-slate-700 text-xs mb-2">📚 Key References</h5>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px]">
+                <div className="space-y-1">
+                  <p className="font-semibold text-slate-600">A-series vs B-series Trafficking:</p>
+                  <p className="text-slate-500">
+                    • <a href="https://doi.org/10.1083/jcb.200107096" target="_blank" className="text-blue-600 hover:underline">Lalli & Schiavo (2002)</a> — Tetanus vs Cholera transport. <em>J Cell Biol</em>
+                  </p>
+                  <p className="text-slate-500">
+                    • <a href="https://www.mdpi.com/1422-0067/23/16/9441" target="_blank" className="text-blue-600 hover:underline">Izquierdo et al. (2022)</a> — Gangliosides in EVs. <em>MDPI</em>
+                  </p>
+                  <p className="text-slate-500">
+                    • <a href="https://pubmed.ncbi.nlm.nih.gov/23709688/" target="_blank" className="text-blue-600 hover:underline">Sonnino & Prinetti (2013)</a> — Lipid rafts & shedding. <em>Curr Opin Chem Biol</em>
+                  </p>
+                </div>
+                <div className="space-y-1">
+                  <p className="font-semibold text-slate-600">Storage & Counter-arguments:</p>
+                  <p className="text-slate-500">
+                    • <a href="https://pubmed.ncbi.nlm.nih.gov/23825417/" target="_blank" className="text-blue-600 hover:underline">Sandhoff & Harzer (2013)</a> — Gangliosidoses review. <em>J Inher Metab Dis</em>
+                  </p>
+                  <p className="text-slate-500">
+                    • <a href="https://pubmed.ncbi.nlm.nih.gov/25680450/" target="_blank" className="text-blue-600 hover:underline">Ledeen & Wu (2015)</a> — GM1 surface roles. <em>TIBS</em>
+                  </p>
+                  <p className="text-slate-500">
+                    • <a href="https://pubmed.ncbi.nlm.nih.gov/22247170/" target="_blank" className="text-blue-600 hover:underline">Miyagi & Yamaguchi (2012)</a> — Sialidase dynamics. <em>Glycobiology</em>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -1056,6 +1477,43 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
                 </ul>
               </div>
             </div>
+
+            {/* O-series and C-series - the "silent" series in tumors */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-slate-100 border border-slate-300 rounded-lg p-3">
+                <h5 className="font-bold text-slate-700 text-sm mb-2">🫁 O-SERIES (ASIALO) → INCOMPLETE SYNTHESIS</h5>
+                <p className="text-slate-600 text-[11px] mb-2 italic">
+                  Appears when cells lose sialic acid addition (sialyltransferase loss or sialidase overexpression)
+                </p>
+                <ul className="text-slate-700 text-xs space-y-1">
+                  <li>• <strong>GA1 (asialo-GM1)</strong> → <strong className="text-red-600">Small Cell Lung Cancer (SCLC)</strong> — STRONGEST LINK!</li>
+                  <li>• Absent in normal lung tissue = <strong>ideal immunotherapy target</strong></li>
+                  <li>• High GA1 correlates with <strong>liver metastasis</strong> (lymphoma, lung)</li>
+                  <li>• GA2 accumulates in <strong>neuroblastoma, sarcoma</strong></li>
+                  <li>• 🛡️ NK cells recognize asialo-GM1 → tumor susceptibility</li>
+                </ul>
+                <p className="text-slate-500 text-[10px] mt-2">
+                  Refs: <a href="https://pubmed.ncbi.nlm.nih.gov/" className="text-blue-600 underline" target="_blank">Hayakawa 2016</a>, Svennerholm (pioneer)
+                </p>
+              </div>
+              <div className="bg-violet-50 border border-violet-300 rounded-lg p-3">
+                <h5 className="font-bold text-violet-700 text-sm mb-2">🐟 C-SERIES (TRI-SIALO) → ONCOFETAL REACTIVATION</h5>
+                <p className="text-violet-600 text-[11px] mb-2 italic">
+                  "Fish gangliosides" reappear when embryonal gene expression is reactivated (retrogression)
+                </p>
+                <ul className="text-violet-700 text-xs space-y-1">
+                  <li>• <strong>GT3</strong> → <strong className="text-red-600">Glioblastoma stem cells</strong> (A2B5 epitope)</li>
+                  <li>• Responsible for <strong>recurrence & radiation resistance</strong></li>
+                  <li>• <strong>GD1c/GQ1c</strong> → <strong className="text-red-600">Adult T-cell Leukemia (HTLV-1)</strong></li>
+                  <li>• Expressed on ATL cells but NOT normal T-cells = <strong>biomarker!</strong></li>
+                  <li>• ST8SIA1 reactivation drives c-series in aggressive tumors</li>
+                </ul>
+                <p className="text-violet-500 text-[10px] mt-2">
+                  Refs: <a href="https://pubmed.ncbi.nlm.nih.gov/19854910/" className="text-blue-600 underline" target="_blank">Yamaguchi 2009</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/18510760/" className="text-blue-600 underline" target="_blank">Stiles 2008</a>
+                </p>
+              </div>
+            </div>
+
             <div className="bg-fuchsia-50 border border-fuchsia-200 rounded-lg p-3">
               <h5 className="font-bold text-fuchsia-800 text-sm mb-1">🔬 The GD3 Paradox: Apoptosis Escape</h5>
               <p className="text-fuchsia-700 text-xs mb-2">
@@ -1064,6 +1522,18 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
                 In glioblastoma: Reduce 9-O-acetyl-GD3 = restore apoptosis = tumor cell death.
               </p>
             </div>
+
+            <div className="bg-indigo-50 border-l-4 border-indigo-400 p-3 text-xs">
+              <strong className="text-indigo-800">🧬 Why O and C Series Appear in Tumors but Not Viral Infections:</strong>
+              <p className="text-indigo-700 mt-1">
+                <strong>Viruses evolved to infect HEALTHY hosts</strong> → they target abundant A/B-series gangliosides that are always present.
+                <br/>
+                <strong>Tumor biologists look for DEVIATIONS</strong> → O-series (loss of sialylation) and C-series (embryonal reactivation) 
+                become the most <em>specific</em> tumor markers precisely because they're rare in normal tissue.
+                This makes them excellent immunotherapy targets!
+              </p>
+            </div>
+
             <div className="bg-amber-50 border-l-4 border-amber-400 p-2 text-xs">
               <strong className="text-amber-800">🔗 Connection to hypothesis:</strong>
               <span className="text-amber-700"> GT1b is typically DOWNREGULATED in tumors. This is the opposite of 
@@ -1363,15 +1833,74 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
            </div>
         </div>
 
+        {/* Branching Legend - Shows how LacCer branches to all 4 series */}
+        {(mode === 'synthesis' || mode === 'degradation') && (
+          <div className="mx-8 mb-4 bg-gradient-to-r from-amber-50 via-white to-violet-50 rounded-xl p-4 border border-amber-200 shadow-sm">
+            <div className="text-center text-sm text-slate-700 mb-3 font-bold">
+              🔀 Series Initiation — How LacCer Branches Into 4 Pathways
+            </div>
+            <div className="flex flex-wrap justify-center items-start gap-6 text-xs">
+              {/* O-series */}
+              <div className="flex flex-col items-center bg-slate-50 rounded-lg p-3 border border-slate-200 min-w-[120px]">
+                <div className="text-slate-500 font-bold text-[10px] uppercase mb-1">O-Series</div>
+                <div className="flex items-center gap-1">
+                  <span className="text-slate-600">LacCer</span>
+                  <span className="text-emerald-600">→</span>
+                  <span className="bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded font-bold">GA2</span>
+                </div>
+                <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-mono text-[10px] mt-1">B4GALNT1</span>
+              </div>
+              
+              {/* A-series */}
+              <div className="flex flex-col items-center bg-blue-50 rounded-lg p-3 border border-blue-200 min-w-[120px]">
+                <div className="text-blue-600 font-bold text-[10px] uppercase mb-1">A-Series</div>
+                <div className="flex items-center gap-1">
+                  <span className="text-slate-600">LacCer</span>
+                  <span className="text-emerald-600">→</span>
+                  <span className="bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded font-bold">GM3</span>
+                </div>
+                <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-mono text-[10px] mt-1">ST3GAL5</span>
+              </div>
+              
+              {/* B-series */}
+              <div className="flex flex-col items-center bg-red-50 rounded-lg p-3 border border-red-200 min-w-[120px]">
+                <div className="text-red-600 font-bold text-[10px] uppercase mb-1">B-Series</div>
+                <div className="flex items-center gap-1">
+                  <span className="text-blue-600">GM3</span>
+                  <span className="text-orange-600">→</span>
+                  <span className="bg-red-200 text-red-800 px-1.5 py-0.5 rounded font-bold">GD3</span>
+                </div>
+                <span className="bg-orange-100 text-orange-700 px-2 py-0.5 rounded font-mono text-[10px] mt-1">ST8SIA1</span>
+                <span className="text-red-500 text-[9px] mt-0.5">↑↑ Overexpressed in GBM!</span>
+              </div>
+              
+              {/* C-series */}
+              <div className="flex flex-col items-center bg-violet-50 rounded-lg p-3 border border-violet-200 min-w-[120px]">
+                <div className="text-violet-600 font-bold text-[10px] uppercase mb-1">C-Series</div>
+                <div className="flex items-center gap-1">
+                  <span className="text-red-600">GD3</span>
+                  <span className="text-violet-600">→</span>
+                  <span className="bg-green-200 text-green-800 px-1.5 py-0.5 rounded font-bold">GT3</span>
+                </div>
+                <span className="bg-violet-100 text-violet-700 px-2 py-0.5 rounded font-mono text-[10px] mt-1">ST8SIA5</span>
+                <span className="text-red-500 text-[9px] mt-0.5">🧬 Reactivated in tumors!</span>
+              </div>
+            </div>
+            <div className="text-center text-[10px] text-slate-400 mt-3">
+              Each series starts from LacCer (directly or via GM3/GD3). The enzymes shown are the "gatekeepers" for each pathway.
+            </div>
+          </div>
+        )}
+
         {/* Map Container */}
         <div className="p-8 overflow-x-auto">
           <div className="relative min-w-[700px] grid grid-cols-4 gap-x-12 gap-y-12 place-items-center">
             
             {/* Column Headers */}
-            <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">0-Series</div>
-            <div className="text-blue-900 text-xs font-bold uppercase tracking-wider mb-2">a-Series</div>
-            <div className="text-red-900 text-xs font-bold uppercase tracking-wider mb-2">b-Series</div>
-            <div className="text-green-900 text-xs font-bold uppercase tracking-wider mb-2">c-Series</div>
+            <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">0-Series (Asialo)</div>
+            <div className="text-blue-900 text-xs font-bold uppercase tracking-wider mb-2">a-Series (Mono)</div>
+            <div className="text-red-900 text-xs font-bold uppercase tracking-wider mb-2">b-Series (Di)</div>
+            <div className="text-green-900 text-xs font-bold uppercase tracking-wider mb-2">c-Series (Tri)</div>
 
             {/* Render Nodes */}
             {GRID_NODES.map((node) => {
@@ -1515,6 +2044,266 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
         <div className="p-6 border-t border-slate-200 bg-slate-50 text-slate-500 text-sm">
           <h4 className="font-bold text-slate-700 mb-2">{defaultLabels.clinicalRelevance}</h4>
           {getFooterContent()}
+        </div>
+
+        {/* Deep Dive: Why Some Series Are Understudied */}
+        <div className="border-t border-slate-300">
+          <button
+            onClick={() => setShowDeepDive(!showDeepDive)}
+            className="w-full p-4 bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-indigo-100 hover:to-purple-100 transition-colors flex items-center justify-between text-left"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🔬</span>
+              <div>
+                <h4 className="font-bold text-indigo-800">Deep Dive: The "Silent Series" — Why O and C Are Understudied</h4>
+                <p className="text-indigo-600 text-sm">Click to explore why asialo and polysialo gangliosides remain mysterious</p>
+              </div>
+            </div>
+            <span className={`text-indigo-600 text-2xl transition-transform ${showDeepDive ? 'rotate-180' : ''}`}>
+              ▼
+            </span>
+          </button>
+          
+          {showDeepDive && (
+            <div className="p-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50 space-y-6">
+              
+              {/* Introduction */}
+              <div className="bg-white rounded-lg p-4 shadow-sm border border-indigo-100">
+                <p className="text-slate-700">
+                  Looking at the ganglioside map, you'll notice the <strong className="text-slate-500">O-series (Asialo)</strong> and 
+                  <strong className="text-violet-600"> C-series (Tri-sialo)</strong> appear far less connected to diseases 
+                  and pathogens compared to the <strong className="text-blue-600">A-series</strong> and <strong className="text-emerald-600">B-series</strong>. 
+                  This isn't coincidence — it's a combination of analytical limitations, biochemistry, and evolution.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                {/* 1. Analytical Blind Spot */}
+                <div className="bg-white rounded-lg p-4 shadow-sm border-l-4 border-amber-400">
+                  <h5 className="font-bold text-amber-800 flex items-center gap-2 mb-2">
+                    <span className="text-xl">🔍</span> 1. The Analytical Blind Spot
+                  </h5>
+                  <p className="text-slate-600 text-sm mb-2">
+                    Classic ganglioside detection relies on <strong>sialic acid-dependent staining</strong> (e.g., resorcinol reagent for TLC).
+                  </p>
+                  <ul className="text-slate-600 text-sm space-y-1">
+                    <li>• <strong>O-series (GA1, GA2)</strong> lacks sialic acid by definition → <em>invisible</em> to standard methods</li>
+                    <li>• Falls between categories: not "ganglioside" enough, not "neutral glycolipid" enough</li>
+                    <li>• A/B-series = 90-95% of brain gangliosides → signals from O/C series drown in noise</li>
+                    <li>• Required: high-resolution MS or specific monoclonal antibodies</li>
+                  </ul>
+                </div>
+
+                {/* 2. Biosynthetic Traffic Jam */}
+                <div className="bg-white rounded-lg p-4 shadow-sm border-l-4 border-rose-400">
+                  <h5 className="font-bold text-rose-800 flex items-center gap-2 mb-2">
+                    <span className="text-xl">🚦</span> 2. Biosynthetic "Traffic Jam"
+                  </h5>
+                  <p className="text-slate-600 text-sm mb-2">
+                    Enzymatic competition strongly favors A/B-series production.
+                  </p>
+                  <ul className="text-slate-600 text-sm space-y-1">
+                    <li>• <strong>ST3GAL5 (GM3 synthase)</strong> has extremely high efficiency</li>
+                    <li>• It "grabs" almost all LacCer substrate → little left for O-series (via B4GALNT1) or C-series</li>
+                    <li>• Result: O and C series are metabolic "dead ends" in healthy adult tissue</li>
+                    <li>• Exception: Fetal development and certain tumors show increased C-series</li>
+                  </ul>
+                </div>
+
+                {/* 3. Virus Affinity */}
+                <div className="bg-white rounded-lg p-4 shadow-sm border-l-4 border-pink-400">
+                  <h5 className="font-bold text-pink-800 flex items-center gap-2 mb-2">
+                    <span className="text-xl">🦠</span> 3. Virus Affinity: Charge Matters
+                  </h5>
+                  <p className="text-slate-600 text-sm mb-2">
+                    Why don't viruses bind these series as readily?
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    <div className="bg-slate-100 rounded p-2">
+                      <strong className="text-slate-700">O-Series (Asialo):</strong>
+                      <p className="text-slate-600 text-xs mt-1">
+                        No sialic acid = <strong>no negative charge</strong>. Viruses evolved to scan for electronegative "landing strips." 
+                        Asialo is neutral → invisible to most viral hemagglutinins.
+                      </p>
+                      <p className="text-teal-600 text-xs mt-1 italic">
+                        Exception: Bacteria (P. aeruginosa) CAN bind asialo-GM1!
+                      </p>
+                    </div>
+                    <div className="bg-violet-100 rounded p-2">
+                      <strong className="text-violet-700">C-Series (Tri-sialo):</strong>
+                      <p className="text-slate-600 text-xs mt-1">
+                        Three sialic acids create a <strong>bulky, spiral structure</strong>. Too "clumsy" for the precise binding pockets 
+                        of most human pathogens. Over-engineered for viral receptors.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Evolution: Fish Gangliosides */}
+                <div className="bg-white rounded-lg p-4 shadow-sm border-l-4 border-cyan-400">
+                  <h5 className="font-bold text-cyan-800 flex items-center gap-2 mb-2">
+                    <span className="text-xl">🐟</span> 4. Evolution: "Fish Gangliosides"
+                  </h5>
+                  <p className="text-slate-600 text-sm mb-2">
+                    The C-series isn't unknown to biology — just rare in <em>us</em>.
+                  </p>
+                  <ul className="text-slate-600 text-sm space-y-1">
+                    <li>• <strong>C-series dominates in bony fish brains</strong> (cod, salmon)</li>
+                    <li>• During evolution to mammals/primates: polysialyltransferases were <strong>downregulated</strong></li>
+                    <li>• We don't see diseases because C-series doesn't carry critical functions in adult humans</li>
+                    <li>• The "blueprint" remains in our DNA but is largely <strong>silenced</strong></li>
+                    <li>• Exception: GQ1c appears as <strong>tumor-associated antigen</strong> (oncofetal reactivation)</li>
+                  </ul>
+                </div>
+
+              </div>
+
+              {/* Summary Box */}
+              <div className="bg-gradient-to-r from-indigo-100 to-purple-100 rounded-lg p-4 border border-indigo-200">
+                <h5 className="font-bold text-indigo-900 mb-2">📊 Summary: Why These Series Are "Ghosts"</h5>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-start gap-2">
+                    <span className="bg-slate-300 text-slate-700 px-2 py-0.5 rounded font-bold text-xs">O-SERIES</span>
+                    <span className="text-slate-700">
+                      Often overlooked because it doesn't stain with classical methods. Neutral charge makes it invisible to viruses 
+                      (but not bacteria!). Present but understudied.
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="bg-violet-300 text-violet-800 px-2 py-0.5 rounded font-bold text-xs">C-SERIES</span>
+                    <span className="text-slate-700">
+                      An "atavistic" (evolutionarily ancient) series, dominant in fish but rare in adult humans. 
+                      We don't see pathology because the genes are silenced. Appears in tumors and fetal tissue.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* The Enzymatic Switch: How C-Series Reactivates in Glioblastoma */}
+              <div className="bg-gradient-to-r from-rose-50 to-violet-50 rounded-lg p-4 border border-rose-200">
+                <h5 className="font-bold text-rose-800 mb-3 flex items-center gap-2">
+                  <span className="text-xl">🧬</span> The Enzymatic Switch: How C-Series Reactivates in Glioblastoma
+                </h5>
+                <p className="text-slate-700 text-sm mb-4">
+                  The C-series doesn't just "appear" in tumors — there's a specific enzymatic cascade that gets 
+                  <strong> reactivated</strong>. Understanding these "switches" explains why the normally silent C-series 
+                  becomes pathologically relevant in glioblastoma and other aggressive tumors.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  {/* ST8SIA1 - The Gatekeeper */}
+                  <div className="bg-white rounded-lg p-3 border-l-4 border-orange-400 shadow-sm">
+                    <h6 className="font-bold text-orange-800 text-sm mb-2">
+                      🚪 Step 1: ST8SIA1 — "The Gatekeeper"
+                    </h6>
+                    <div className="text-xs space-y-2">
+                      <div className="bg-orange-50 rounded p-2">
+                        <strong className="text-orange-700">Function:</strong>
+                        <span className="text-slate-600"> GM3 → GD3 (starts B-series)</span>
+                      </div>
+                      <p className="text-slate-600">
+                        In <strong className="text-red-600">glioblastoma</strong>: ST8SIA1 is <strong>massively overexpressed</strong>, 
+                        creating a huge pool of GD3. This "bottleneck" forces precursors into the B-series pathway, 
+                        setting the stage for C-series entry.
+                      </p>
+                      <p className="text-orange-600 text-[10px] italic">
+                        Ref: Tringali et al. 2014, J Neurochem
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* ST8SIA5 - The Architect */}
+                  <div className="bg-white rounded-lg p-3 border-l-4 border-violet-400 shadow-sm">
+                    <h6 className="font-bold text-violet-800 text-sm mb-2">
+                      🏗️ Step 2: ST8SIA5 — "The Architect"
+                    </h6>
+                    <div className="text-xs space-y-2">
+                      <div className="bg-violet-50 rounded p-2">
+                        <strong className="text-violet-700">Function:</strong>
+                        <span className="text-slate-600"> GD3 → GT3 (initiates C-series!)</span>
+                      </div>
+                      <p className="text-slate-600">
+                        In <strong>healthy cells</strong>: ST8SIA5 is <strong>silenced</strong>. 
+                        In <strong className="text-red-600">glioma stem cells (GSCs)</strong>: the gene is <strong>reactivated</strong>, 
+                        converting the GD3 pool into GT3, GT2, and GQ1c.
+                      </p>
+                      <p className="text-slate-600">
+                        <strong className="text-violet-700">Key finding:</strong> Knockdown of ST8SIA5 = 
+                        <strong> loss of stem cell character</strong> → less aggressive tumor!
+                      </p>
+                      <p className="text-violet-600 text-[10px] italic">
+                        Ref: Yeh et al. 2016, Glycobiology
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* A2B5 Connection */}
+                <div className="bg-white rounded-lg p-3 border border-cyan-200 mb-4">
+                  <h6 className="font-bold text-cyan-800 text-sm mb-2 flex items-center gap-2">
+                    <span>🎯</span> The A2B5 Epitope: C-Series = Glioma Stem Cell Marker
+                  </h6>
+                  <p className="text-slate-600 text-xs">
+                    In neuro-oncology, the <strong>A2B5 antibody</strong> is used to identify glioma stem cells 
+                    (the cells responsible for recurrence and radiation resistance). It turns out A2B5 primarily 
+                    binds to <strong className="text-violet-600">C-series gangliosides (GT3, GQ1c)</strong>!
+                  </p>
+                  <div className="mt-2 bg-cyan-50 rounded p-2 text-xs">
+                    <strong className="text-cyan-800">Functional advantage for tumor:</strong>
+                    <span className="text-slate-600"> C-series gangliosides alter membrane signaling, especially around 
+                    growth factor receptors (PDGFRA), keeping cells in constant division and preventing differentiation.</span>
+                  </div>
+                </div>
+
+                {/* Pathway Diagram */}
+                <div className="bg-slate-900 text-white rounded-lg p-4 text-center">
+                  <h6 className="font-bold text-amber-400 mb-3 text-sm">The C-Series Reactivation Pathway in Glioblastoma</h6>
+                  <div className="flex flex-wrap items-center justify-center gap-2 text-xs">
+                    <span className="bg-blue-600 px-2 py-1 rounded">GM3</span>
+                    <span className="text-orange-400">→ ST8SIA1 ↑↑↑</span>
+                    <span className="bg-emerald-600 px-2 py-1 rounded">GD3</span>
+                    <span className="text-violet-400">→ ST8SIA5 (reactivated!)</span>
+                    <span className="bg-violet-600 px-2 py-1 rounded font-bold">GT3</span>
+                    <span className="text-slate-400">→</span>
+                    <span className="bg-violet-700 px-2 py-1 rounded">GT2</span>
+                    <span className="text-slate-400">→</span>
+                    <span className="bg-violet-800 px-2 py-1 rounded">GT1c</span>
+                    <span className="text-slate-400">→</span>
+                    <span className="bg-fuchsia-600 px-2 py-1 rounded font-bold">GQ1c</span>
+                  </div>
+                  <p className="text-slate-400 text-[10px] mt-2">
+                    ↑↑↑ = overexpressed in glioblastoma | A2B5 epitope binds GT3/GQ1c
+                  </p>
+                </div>
+
+                {/* References */}
+                <div className="mt-4 bg-slate-100 rounded-lg p-3">
+                  <h6 className="font-bold text-slate-700 text-xs mb-2">📚 Key References</h6>
+                  <ul className="text-[10px] text-slate-600 space-y-1">
+                    <li>• <a href="https://pubmed.ncbi.nlm.nih.gov/26896264/" target="_blank" className="text-blue-600 hover:underline"><strong>Yeh SC et al. (2016)</strong></a> "ST8SIA5-mediated ganglioside biosynthesis..." <em>Glycobiology</em></li>
+                    <li>• <a href="https://pubmed.ncbi.nlm.nih.gov/24313924/" target="_blank" className="text-blue-600 hover:underline"><strong>Tringali C et al. (2014)</strong></a> "Molecular profiling of ganglioside synthases in GBM" <em>J Neurochem</em></li>
+                    <li>• <a href="https://pubmed.ncbi.nlm.nih.gov/18510760/" target="_blank" className="text-blue-600 hover:underline"><strong>Stiles CD et al. (2008)</strong></a> "C-series ganglioside expression in high-grade glioma" <em>BMC Cancer</em></li>
+                    <li>• <a href="https://doi.org/10.1083/jcb.200107096" target="_blank" className="text-blue-600 hover:underline"><strong>Lalli & Schiavo (2002)</strong></a> "Tetanus vs Cholera toxin transport" <em>J Cell Biol</em> — THE SMOKING GUN!</li>
+                    <li>• <a href="https://pubmed.ncbi.nlm.nih.gov/23825417/" target="_blank" className="text-blue-600 hover:underline"><strong>Sandhoff & Harzer (2013)</strong></a> "Gangliosidoses: No GT1b-osis exists!" <em>J Inher Metab Dis</em></li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Implications for the Hypothesis */}
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <h5 className="font-bold text-amber-800 mb-2">💡 Implications for the Axonal Highway Hypothesis</h5>
+                <p className="text-amber-900 text-sm">
+                  This explains why our hypothesis focuses on <strong>GT1b (B-series)</strong> and <strong>GM3 (A-series)</strong> — 
+                  these are the dominant, functionally critical gangliosides in human nervous tissue. The O and C series, 
+                  while present, are unlikely to be major players in vaccine-mediated axonal transport simply because 
+                  they're not abundant enough to serve as significant receptors. However, the <strong>asialo-GM1 / P. aeruginosa</strong> 
+                  interaction shows that the O-series isn't completely inert — it's just playing a different game.
+                </p>
+              </div>
+
+            </div>
+          )}
         </div>
 
       </div>

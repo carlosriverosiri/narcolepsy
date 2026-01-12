@@ -7,11 +7,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   title="Havana Syndrome: The Axonal Highway Hypothesis"
   description="Could the mysterious Havana Syndrome be explained by H3N2 influenza's affinity for GM3 gangliosides in spiral ganglion neurons — a parallel mechanism to post-Pandemrix narcolepsy?"
 >
-  <!-- Warning Banner -->
-  <section class="bg-amber-500 text-amber-950 py-4">
+  <!-- Warning Banner - Subtle hint that this will be evaluated -->
+  <section class="bg-amber-500 text-amber-950 py-3">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="font-bold text-lg">⚠️ SPECULATIVE HYPOTHESIS</p>
-      <p class="text-sm">This page presents an alternative hypothesis for discussion. It is not peer-reviewed or established science.</p>
+      <p class="font-bold">⚠️ SPECULATIVE HYPOTHESIS</p>
+      <p class="text-sm">This page explores a hypothesis step-by-step, then critically evaluates it against the evidence. <em>Scroll to the end for the verdict.</em></p>
     </div>
   </section>
 
@@ -171,58 +171,58 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           </p>
         </div>
 
-        <div class="bg-slate-800 rounded-lg p-6 my-6 font-mono text-sm border border-slate-600">
-          <p class="text-gray-400 mb-4">// Parallel mechanisms: Narcolepsy vs Havana</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <p class="text-yellow-400 font-bold mb-2">NARCOLEPSY (H1N1/GT1b):</p>
-              <p class="text-white">Vaccination (deltoid)</p>
-              <p class="text-yellow-400">↓</p>
-              <p class="text-white">GT1b on peripheral nerve</p>
-              <p class="text-yellow-400">↓</p>
-              <p class="text-white">Retrograde transport</p>
-              <p class="text-yellow-400">↓</p>
-              <p class="text-white">Lamina I → Hypothalamus</p>
-              <p class="text-yellow-400">↓</p>
-              <p class="text-yellow-400 font-bold">SHEDDING → Immune reaction</p>
-              <p class="text-yellow-400">↓</p>
-              <p class="text-red-400 font-bold">Orexin cell destruction</p>
+        <div class="not-prose bg-slate-900 rounded-lg p-6 my-6 font-mono text-sm border-2 border-slate-500">
+          <div class="text-slate-400 mb-4 text-center">// Parallel mechanisms: Narcolepsy vs Havana</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-amber-900/30 rounded-lg p-4 border border-amber-500/50">
+              <div class="text-amber-300 font-bold mb-3 text-base">NARCOLEPSY (H1N1/GT1b):</div>
+              <div class="text-white">Vaccination (deltoid)</div>
+              <div class="text-amber-400 text-lg">↓</div>
+              <div class="text-white">GT1b on peripheral nerve</div>
+              <div class="text-amber-400 text-lg">↓</div>
+              <div class="text-white">Retrograde transport</div>
+              <div class="text-amber-400 text-lg">↓</div>
+              <div class="text-white">Lamina I → Hypothalamus</div>
+              <div class="text-amber-400 text-lg">↓</div>
+              <div class="text-amber-300 font-bold">SHEDDING → Immune reaction</div>
+              <div class="text-amber-400 text-lg">↓</div>
+              <div class="text-red-400 font-bold text-base">🎯 Orexin cell destruction</div>
             </div>
-            <div>
-              <p class="text-cyan-400 font-bold mb-2">HAVANA (H3N2/GM3):</p>
-              <p class="text-white font-bold">Infection OR Vaccination</p>
-              <p class="text-cyan-400">↓</p>
-              <p class="text-white">H3N2 binds GM3 on <span class="text-cyan-300 font-bold">spiral ganglion</span></p>
-              <p class="text-cyan-400">↓</p>
-              <p class="text-white">Viral uptake / antigen transport via CN VIII</p>
-              <p class="text-cyan-400">↓</p>
-              <p class="text-white">Cochlear nuclei (brainstem)</p>
-              <p class="text-cyan-400">↓</p>
-              <p class="text-cyan-400 font-bold">SHEDDING → Immune reaction</p>
-              <p class="text-cyan-400">↓</p>
-              <p class="text-red-400 font-bold">Auditory pathway damage</p>
+            <div class="bg-cyan-900/30 rounded-lg p-4 border border-cyan-500/50">
+              <div class="text-cyan-300 font-bold mb-3 text-base">HAVANA (H3N2/GM3):</div>
+              <div class="text-white font-bold">Infection OR Vaccination</div>
+              <div class="text-cyan-400 text-lg">↓</div>
+              <div class="text-white">H3N2 binds GM3 on <span class="text-cyan-300 font-bold">spiral ganglion</span></div>
+              <div class="text-cyan-400 text-lg">↓</div>
+              <div class="text-white">Viral uptake / antigen transport via CN VIII</div>
+              <div class="text-cyan-400 text-lg">↓</div>
+              <div class="text-white">Cochlear nuclei (brainstem)</div>
+              <div class="text-cyan-400 text-lg">↓</div>
+              <div class="text-cyan-300 font-bold">SHEDDING → Immune reaction</div>
+              <div class="text-cyan-400 text-lg">↓</div>
+              <div class="text-red-400 font-bold text-base">🎯 Auditory pathway damage</div>
             </div>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-          <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-4">
-            <h4 class="font-bold text-cyan-800 mb-2">🦠 Natural Infection Alone</h4>
-            <ul class="text-cyan-700 text-sm space-y-1 mb-0">
-              <li>• <strong>Active viral replication</strong> in the inner ear</li>
-              <li>• H3N2 at <strong>epidemic levels</strong> in Cuba</li>
+          <div class="bg-white border-2 border-cyan-400 rounded-lg p-4 shadow-sm">
+            <h4 class="font-bold text-cyan-900 mb-2">🦠 Natural Infection Alone</h4>
+            <ul class="text-slate-800 text-sm space-y-1 mb-0">
+              <li>• <strong class="text-cyan-700">Active viral replication</strong> in the inner ear</li>
+              <li>• H3N2 at <strong class="text-cyan-700">epidemic levels</strong> in Cuba</li>
               <li>• Direct damage + autoimmunity</li>
               <li>• Subclinical/localized infections</li>
               <li>• Geographic clustering = local strain?</li>
             </ul>
           </div>
-          <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
-            <h4 class="font-bold text-purple-800 mb-2">💉 Vaccination Amplification</h4>
-            <ul class="text-purple-700 text-sm space-y-1 mb-0">
-              <li>• <strong>Concentrated antigen dose</strong> delivered systemically</li>
-              <li>• Adjuvant (if present) <strong>amplifies immune response</strong></li>
+          <div class="bg-white border-2 border-purple-400 rounded-lg p-4 shadow-sm">
+            <h4 class="font-bold text-purple-900 mb-2">💉 Vaccination Amplification</h4>
+            <ul class="text-slate-800 text-sm space-y-1 mb-0">
+              <li>• <strong class="text-purple-700">Concentrated antigen dose</strong> delivered systemically</li>
+              <li>• Adjuvant (if present) <strong class="text-purple-700">amplifies immune response</strong></li>
               <li>• Prior infection "primes" → vaccination "triggers"</li>
-              <li>• <strong>Transneuronal transport</strong> delivers antigen to CNS</li>
+              <li>• <strong class="text-purple-700">Transneuronal transport</strong> delivers antigen to CNS</li>
               <li>• Antigen + antibodies = stronger reaction at target</li>
             </ul>
           </div>
@@ -424,101 +424,227 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           </tbody>
         </table>
 
-        <h2>Why This Hypothesis Deserves Investigation</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Critical Evaluation Box - NOW PLACED AFTER THE HYPOTHESIS -->
+  <section class="py-8 bg-red-50 border-y-4 border-red-400">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-lg border-2 border-red-300 p-6 shadow-lg">
+        <h2 class="text-2xl font-bold text-red-800 mb-4 flex items-center gap-2">
+          🔬 Critical Evaluation: Why This Hypothesis Is Likely Wrong
+        </h2>
+        
+        <p class="text-red-700 mb-4">
+          The hypothesis above is <em>biologically plausible</em> — but after reviewing the scientific literature, 
+          several critical problems have been identified:
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-red-100 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2">❌ H3N2 Is Too Common</h4>
+            <p class="text-red-700 text-sm">
+              H3N2 circulates <strong>annually</strong> and infects millions worldwide. If GM3-mediated 
+              cochlear damage was a real mechanism, we would see it constantly — not in a small cluster 
+              of diplomats at one location.
+            </p>
+          </div>
+          <div class="bg-red-100 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2">❌ No GM3 Affinity Increase in 2016-2017</h4>
+            <p class="text-red-700 text-sm">
+              The 3C.2a clade had a new <strong>N-glycosylation site at position 158</strong> on hemagglutinin. 
+              This created steric hindrance — <em>masking antigenic surfaces</em> (lowering vaccine efficacy) 
+              rather than increasing affinity for GM3.
+            </p>
+          </div>
+          <div class="bg-red-100 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2">❌ GM3 Binding Is Conserved, Not Unique</h4>
+            <p class="text-red-700 text-sm">
+              While influenza A can use GM3 as coreceptor, this is a <strong>conserved property</strong> 
+              of influenza A — not specific to the 2016 strain. No evidence for selective auditory tropism.
+            </p>
+          </div>
+          <div class="bg-red-100 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2">❌ Geographic Clustering Unexplained</h4>
+            <p class="text-red-700 text-sm">
+              A viral mechanism cannot explain why only U.S./Canadian diplomats were affected, while 
+              Cuban nationals and others at the same location were not.
+            </p>
+          </div>
+          <div class="bg-red-100 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2">❌ NIH Studies Found No Organic Damage</h4>
+            <p class="text-red-700 text-sm">
+              NIH studies (2024) found affected personnel <strong>lack structural brain damage</strong> and 
+              post-infectious markers. MRI and biomarkers were unremarkable.
+            </p>
+          </div>
+          <div class="bg-red-100 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2">❌ Symptom Profile Doesn't Match</h4>
+            <p class="text-red-700 text-sm">
+              The AHI symptoms (directed sensory phenomena) do <strong>not match viral labyrinthitis 
+              or neuritis</strong>, which typically occur with systemic infection.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-slate-100 border-l-4 border-slate-500 p-4 mb-4">
+          <h4 class="font-bold text-slate-800 mb-2">🔬 The Molecular Reality</h4>
+          <p class="text-slate-700 text-sm mb-0">
+            The H3N2 changes in 2016-2017 were primarily about <strong>immune evasion (antigenic drift)</strong> 
+            via glycosylation — with <strong>no documented change in tissue tropism</strong> toward CNS or inner ear. 
+            The 2016 virus mutations affected antibody binding, not receptor specificity.
+          </p>
+        </div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4">
+          <h4 class="font-bold text-amber-800 mb-2">📚 Key References</h4>
+          <ul class="text-amber-700 text-sm space-y-1">
+            <li>• Zost SJ, et al. (2017). N-glycosylation at position 158 affects antibody binding, not receptor tropism.</li>
+            <li>• Chan L, et al. (2024). NIH study: No neuroimaging findings in Havana syndrome.</li>
+            <li>• Matrosovich M, et al. (2019). GM3 binding is a conserved property of influenza A.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post-Evaluation Analysis -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-science">
+
+        <h2>What Made This Hypothesis Initially Plausible</h2>
+
+        <p class="text-slate-600 italic mb-4">
+          The following reasoning illustrates why this hypothesis was worth considering — even though 
+          it was ultimately not supported by evidence:</p>
 
         <ol>
           <li>
-            <strong>The timing is exact:</strong> Havana Syndrome emerged during peak H3N2 
-            circulation in Cuba (December 2016 - April 2017).
+            <strong>Temporal coincidence:</strong> Havana Syndrome emerged during peak H3N2 
+            circulation in Cuba (December 2016 - April 2017). <span class="text-red-600 text-sm">[But H3N2 peaks annually]</span>
           </li>
           <li>
-            <strong>The symptoms fit:</strong> Auditory and vestibular symptoms (tinnitus, hearing 
-            loss, vertigo) are precisely what you'd expect from spiral ganglion/cochlear nucleus involvement.
+            <strong>Symptom profile:</strong> Auditory and vestibular symptoms (tinnitus, hearing 
+            loss, vertigo) are what you'd expect from spiral ganglion involvement. <span class="text-red-600 text-sm">[But NIH found no organic damage]</span>
           </li>
           <li>
-            <strong>Anatomical basis exists:</strong> GM3 is highly expressed in spiral ganglion 
-            neurons — the exact cells that would mediate vaccine antigen uptake.
+            <strong>Anatomical basis:</strong> GM3 is expressed in spiral ganglion 
+            neurons. <span class="text-red-600 text-sm">[True, but no evidence of increased H3N2-GM3 binding in 2016-2017]</span>
           </li>
           <li>
-            <strong>Precedent exists:</strong> H1N1/Pandemrix caused narcolepsy through 
-            ganglioside-mediated neural transport and shedding — H3N2/GM3 could do the same for hearing.
+            <strong>Precedent:</strong> H1N1/Pandemrix caused narcolepsy through 
+            ganglioside-mediated transport. <span class="text-red-600 text-sm">[Valid precedent, but different epidemiological pattern]</span>
           </li>
           <li>
-            <strong>Vaccination is routine:</strong> Embassy staff would have received 
-            H3N2-containing vaccines (A/Hong Kong/4801/2014).
+            <strong>Vaccination routine:</strong> Embassy staff receive annual flu vaccines. <span class="text-red-600 text-sm">[True, but so do millions of others without symptoms]</span>
           </li>
           <li>
-            <strong>Short neural pathway:</strong> Unlike the arm-to-hypothalamus distance for narcolepsy, 
-            the spiral ganglion-to-brainstem distance is very short — potentially faster antigen delivery.
-          </li>
-          <li>
-            <strong>C2 amplification:</strong> The documented C2 DRG → cochlear nucleus pathway 
-            (associated with tinnitus) could amplify symptoms if affected by spread of immune response.
+            <strong>Short neural pathway:</strong> Spiral ganglion-to-brainstem distance is very short. <span class="text-red-600 text-sm">[True anatomically]</span>
           </li>
         </ol>
 
-        <h2>What Would Need to Be Investigated</h2>
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-4">
+          <h5 class="font-bold text-amber-800 mb-2">Key Failure Points:</h5>
+          <ol class="text-amber-800 text-sm space-y-1 mb-0 list-decimal list-inside">
+            <li><strong>Molecular:</strong> The 2016 H3N2 mutations (glycosylation at position 158) affected <em>immune evasion</em>, not receptor tropism toward GM3 or auditory structures.</li>
+            <li><strong>Epidemiological:</strong> Geographic clustering among only U.S./Canadian diplomats cannot be explained by a virus that circulates globally.</li>
+            <li><strong>Clinical:</strong> NIH imaging found no organic damage — inconsistent with viral neuritis or ganglioside-mediated injury.</li>
+          </ol>
+        </div>
+
+        <h2>Testable Predictions — And What We Found</h2>
 
         <div class="bg-slate-100 rounded-lg p-6 my-6">
-          <h4 class="font-bold text-slate-800 mb-3">Testable Questions:</h4>
-          <ul class="space-y-2 text-slate-700">
+          <h4 class="font-bold text-slate-800 mb-3">Questions That Would Test This Hypothesis:</h4>
+          <ul class="space-y-3 text-slate-700">
             <li>
-              <strong>1. Vaccination records:</strong> Did affected diplomats receive the 
-              2016-2017 flu vaccine (containing H3N2)? When relative to symptom onset?
+              <strong>1. Brainstem imaging:</strong> Is there evidence of inflammation or 
+              changes in the cochlear nuclei or auditory pathways on MRI?<br/>
+              <span class="text-red-600 text-sm">→ <strong>NIH 2024:</strong> No MRI abnormalities found compared to controls.</span>
             </li>
             <li>
-              <strong>2. Anti-GM3 serology:</strong> Do affected individuals have elevated anti-GM3 
-              antibodies or GM3-reactive T cells? (Compare to narcolepsy patients' anti-orexin antibodies)
+              <strong>2. EEG abnormalities:</strong> Are there neurophysiological changes?<br/>
+              <span class="text-red-600 text-sm">→ <strong>NIH 2024:</strong> No EEG differences from controls.</span>
             </li>
             <li>
-              <strong>3. H3N2 infection history:</strong> Did any affected individuals have 
-              confirmed or suspected H3N2 infection during the outbreak?
+              <strong>3. Serological evidence:</strong> Do affected individuals have anti-H3N2 
+              antibody profiles suggesting recent infection?<br/>
+              <span class="text-red-600 text-sm">→ <strong>Not reported</strong> in any studies — no viral etiology investigated.</span>
             </li>
             <li>
-              <strong>4. Audiological localization:</strong> Are the hearing changes consistent 
-              with <strong>retrocochlear</strong> (neural) vs cochlear (hair cell) damage? 
-              The neural transport hypothesis predicts retrocochlear involvement.
+              <strong>4. Global epidemiology:</strong> Is there a correlation between SSNHL/tinnitus 
+              incidence and H3N2-dominant flu seasons worldwide?<br/>
+              <span class="text-red-600 text-sm">→ <strong>No such correlation</strong> has been observed despite H3N2 being common.</span>
             </li>
             <li>
-              <strong>5. Brainstem imaging:</strong> Is there evidence of inflammation or 
-              changes in the cochlear nuclei or auditory pathways on MRI?
+              <strong>5. Geographic pattern:</strong> Why only U.S./Canadian diplomats in Cuba?<br/>
+              <span class="text-red-600 text-sm">→ <strong>Unexplained by viral mechanism</strong> — Cubans and other nationalities were not affected.</span>
             </li>
             <li>
-              <strong>6. CSF analysis:</strong> Are there elevated GM3 levels or anti-GM3 
-              antibodies in cerebrospinal fluid of affected individuals?
-            </li>
-            <li>
-              <strong>7. Global epidemiology:</strong> Is there a correlation between SSNHL/tinnitus 
-              incidence and H3N2-dominant flu seasons worldwide?
+              <strong>6. H3N2 strain specificity:</strong> Was there anything unique about 2016-2017 H3N2?<br/>
+              <span class="text-red-600 text-sm">→ <strong>No:</strong> The 3C.2a clade actually had <em>reduced</em> receptor avidity.</span>
             </li>
           </ul>
         </div>
 
-        <h2>Conclusion</h2>
+        <h2>Conclusion: A Hypothesis Falsified</h2>
+
+        <div class="bg-red-50 border-l-4 border-red-400 p-4 my-6">
+          <h4 class="font-bold text-red-800 mb-2">⚠️ Evidence Does Not Support This Hypothesis</h4>
+          <p class="text-red-700 text-sm mb-0">
+            While the mechanism described above is <em>biologically plausible</em>, the epidemiological 
+            evidence does not support H3N2 as a cause of Havana Syndrome. The temporal overlap appears 
+            coincidental, and the geographic clustering among only U.S./Canadian diplomats cannot be 
+            explained by a common viral infection. NIH studies in 2024 found no organic brain damage 
+            in affected individuals.
+          </p>
+        </div>
 
         <p>
-          The "Havana Syndrome" remains unexplained. While directed energy weapons and mass 
-          psychogenic illness have been proposed, no theory has gained consensus. This 
-          ganglioside-based hypothesis offers a <strong>biologically plausible mechanism</strong> 
-          that:
+          The "Havana Syndrome" remains unexplained. This ganglioside-based hypothesis was 
+          <strong>biologically plausible</strong> and <strong>generated testable predictions</strong>, but:
         </p>
 
         <ul>
-          <li>Explains the auditory/vestibular symptom profile</li>
-          <li>Has precedent in the Pandemrix-narcolepsy connection</li>
-          <li>Matches the temporal and geographic clustering</li>
-          <li>Could be investigated with existing medical records and samples</li>
+          <li><span class="text-red-600">✗</span> H3N2 is too common — we would see this pattern annually, not once</li>
+          <li><span class="text-red-600">✗</span> No specific GM3-affinity increase was found in 2016-2017 strains</li>
+          <li><span class="text-red-600">✗</span> Geographic clustering cannot be explained by a virus</li>
+          <li><span class="text-red-600">✗</span> NIH imaging studies found no organic damage</li>
+          <li><span class="text-red-600">✗</span> No serological evidence links cases to influenza</li>
         </ul>
 
         <div class="key-concept mt-8">
-          <div class="key-concept-title">The Broader Lesson</div>
-          <p class="mb-0">
-            Whether or not this hypothesis is correct, it illustrates a crucial point: 
-            <strong>gangliosides are a hidden system</strong> that determines which cells are 
-            vulnerable to pathogens, toxins, and immune responses. Different influenza strains 
-            target different gangliosides, potentially causing completely different diseases. 
-            This "glycosphingolipid code" deserves far more attention in clinical medicine.
+          <div class="key-concept-title">The Broader Lesson: How Science Works</div>
+          <p class="mb-2">
+            This page demonstrates an important scientific principle: <strong>hypotheses must be 
+            falsifiable</strong>. The ganglioside framework allowed us to:
           </p>
+          <ol class="text-sm space-y-1 mb-2">
+            <li><strong>1. Generate a hypothesis</strong> based on known biology (H3N2 → GM3 → cochlea)</li>
+            <li><strong>2. Make testable predictions</strong> (specific GM3 changes, geographic pattern, timing)</li>
+            <li><strong>3. Evaluate against evidence</strong> (literature review, epidemiology)</li>
+            <li><strong>4. Conclude the hypothesis is unlikely</strong> and transparently explain why</li>
+          </ol>
+          <p class="mb-0">
+            This is how science progresses. <strong>Gangliosides remain a crucial system</strong> for understanding 
+            neurotropism and autoimmunity — but Havana Syndrome does not appear to be a ganglioside-mediated 
+            phenomenon. The Pandemrix-narcolepsy connection remains the strongest example of this mechanism in action.
+          </p>
+        </div>
+
+        <div class="bg-slate-100 rounded-lg p-4 mt-6">
+          <h4 class="font-bold text-slate-800 mb-2">What Could Explain Havana Syndrome?</h4>
+          <p class="text-slate-700 text-sm mb-2">
+            Current leading hypotheses include:
+          </p>
+          <ul class="text-slate-600 text-sm space-y-1">
+            <li>• <strong>Mass psychogenic illness</strong> (functional neurological disorder)</li>
+            <li>• <strong>Environmental factors</strong> (pesticides, industrial chemicals)</li>
+            <li>• <strong>Pre-existing conditions</strong> made salient by stress/attention</li>
+            <li>• <strong>Unknown factor</strong> — the etiology remains genuinely uncertain</li>
+          </ul>
         </div>
 
       </div>
@@ -530,19 +656,49 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl font-bold text-slate-900 mb-6">References & Further Reading</h2>
       
-      <h3 class="text-lg font-bold text-slate-800 mb-3">Havana Syndrome & Influenza</h3>
+      <h3 class="text-lg font-bold text-red-800 mb-3">⚠️ Evidence Against This Hypothesis</h3>
       <ol class="reference-list text-slate-700 space-y-2 mb-6">
+        <li class="bg-red-50 p-2 rounded">
+          <strong>Zost SJ, et al. (2017).</strong> Contemporary H3N2 influenza viruses have a glycosylation site that alters binding to antibodies of recent vaccinees.
+          <em>Proc Natl Acad Sci U S A</em>. <a href="https://doi.org/10.1073/pnas.1712377114" class="text-blue-600">DOI</a>
+          <span class="block text-red-600 text-xs mt-1">Key finding: N-glycosylation at position 158 created steric hindrance — affecting antibody binding, not receptor tropism.</span>
+        </li>
+        <li class="bg-red-50 p-2 rounded">
+          <strong>Allen JD, Ross TM (2018).</strong> H3N2 influenza viruses in humans: Viral mechanisms, evolution, and evaluation.
+          <em>Hum Vaccin Immunother</em>. <a href="https://doi.org/10.1080/21645515.2018.1462639" class="text-blue-600">PMC6149781</a>
+          <span class="block text-red-600 text-xs mt-1">Shows H3N2 evolution toward immune evasion (antigenic drift) via glycosylation, not increased GM3 binding.</span>
+        </li>
+        <li class="bg-red-50 p-2 rounded">
+          <strong>Matrosovich M, et al. (2019).</strong> Influenza virus entry via the GM3 ganglioside-mediated platelet-derived growth factor receptor β signalling pathway.
+          <em>J Gen Virol</em>. <a href="https://doi.org/10.1099/jgv.0.001249" class="text-blue-600">DOI</a>
+          <span class="block text-red-600 text-xs mt-1">GM3 as coreceptor is a CONSERVED property of influenza A — not specific to 2016 strain.</span>
+        </li>
+        <li class="bg-red-50 p-2 rounded">
+          <strong>Chan L, et al. (2024).</strong> Clinical, Biomarker, and Research Assessments of Participants Reported as Having Anomalous Health Incidents.
+          <em>JAMA</em>. <a href="https://doi.org/10.1001/jama.2024.2036" class="text-blue-600">DOI</a>
+          <span class="block text-red-600 text-xs mt-1">NIH study: No structural brain damage or post-infectious markers in affected personnel.</span>
+        </li>
+        <li class="bg-red-50 p-2 rounded">
+          <strong>Pierpaoli C, et al. (2024).</strong> Neuroimaging Findings in US Government Personnel With Anomalous Health Incidents.
+          <em>JAMA</em>. <a href="https://doi.org/10.1001/jama.2024.2054" class="text-blue-600">DOI</a>
+          <span class="block text-red-600 text-xs mt-1">MRI findings unremarkable compared to controls.</span>
+        </li>
+        <li class="bg-red-50 p-2 rounded">
+          <strong>Bartholomew RE, Baloh RW (2023).</strong> Havana Syndrome: Mass Psychogenic Illness and the Real Story Behind the Embassy Mystery.
+          <span class="block text-red-600 text-xs mt-1">Proposes functional neurological disorder as explanation.</span>
+        </li>
+      </ol>
+
+      <h3 class="text-lg font-bold text-slate-800 mb-3">Havana Syndrome Background</h3>
+      <ol class="reference-list text-slate-700 space-y-2 mb-6">
+        <li>
+          Swanson RL, et al. (2018). Neurological Manifestations Among US Government Personnel 
+          Reporting Directional Audible and Sensory Phenomena in Havana, Cuba. <em>JAMA</em>.
+          <a href="https://doi.org/10.1001/jama.2018.1742" class="text-blue-600">PMC5885885</a>
+        </li>
         <li>
           ECDC. Summary of the influenza 2016-2017 season in Europe.
           <a href="https://www.ecdc.europa.eu/en/publications-data/summary-influenza-2016-2017-season-europe" class="text-blue-600">ECDC Report</a>
-        </li>
-        <li>
-          Yoshikawa M, et al. (1986). Binding of influenza virus hemagglutinins to gangliosides GM3.
-          <em>J Biochem</em>. PMID: 3838173
-        </li>
-        <li>
-          Swanson PA, et al. (2018). Neurological Manifestations Among US Government Personnel 
-          Reporting Directional Audible and Sensory Phenomena in Havana, Cuba. <em>JAMA</em>.
         </li>
       </ol>
 

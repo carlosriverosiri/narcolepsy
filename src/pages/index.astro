@@ -55,7 +55,7 @@ const t = useTranslations('en');
         </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Card 1: Intraneuronal Injection -->
         <div class="science-card">
           <div class="science-card-header">
@@ -87,12 +87,51 @@ const t = useTranslations('en');
           <div class="science-card-body">
             <p class="text-slate-600">
               H1N1 influenza virus shows affinity for GT1b ganglioside — the same receptor used by 
-              tetanus toxin for neuronal transport. This enables vaccine antigens to travel along nerve fibers.
+              tetanus toxin for neuronal transport.
             </p>
           </div>
         </div>
 
-        <!-- Card 3: Orexin Destruction -->
+        <!-- Card 3: Neurotrophin Highway (Hypothesis) -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">The Neurotrophin Highway</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600 mb-2">
+              <span class="text-amber-700 text-sm font-medium italic">🔬 <strong>Hypothesis:</strong></span> GT1b may serve as a "highway" for neurotrophins (BDNF, GDNF). 
+              If neurons share growth factors via GT1b-containing vesicles, vaccine antigens could hijack this communication network.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: HLA/B3GALT4 Genetics (Hypothesis) -->
+        <div class="science-card">
+          <div class="science-card-header">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">Genetic Susceptibility</h3>
+          </div>
+          <div class="science-card-body">
+            <p class="text-slate-600 mb-2">
+              <span class="text-amber-700 text-sm font-medium italic">🔬 <strong>Hypothesis:</strong></span> HLA genes are inherited in blocks (haplotypes). 
+              The DQB1*06:02 allele is in strong linkage disequilibrium with many nearby genes. 
+              Critically, the ganglioside synthesis gene <strong>B3GALT4</strong> is located at 6p21.32 — 
+              directly within the HLA region. The true susceptibility gene may not be DQB1*06:02 itself, 
+              but B3GALT4 or another linked variant.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5: Orexin Destruction -->
         <div class="science-card">
           <div class="science-card-header">
             <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
@@ -204,41 +243,51 @@ const t = useTranslations('en');
             via GT1b affinity, vaccine antigens could be deposited directly into spinal tissue."
           </blockquote>
           <p class="text-sm text-slate-400 mt-4">— Based on unpublished neurotracing experiments</p>
+          
+          <div class="mt-4 pt-4 border-t border-slate-700">
+            <p class="text-amber-400 text-sm font-medium italic">
+              💡 <strong>Extended hypothesis:</strong> If GT1b serves as a pathway for sharing growth factors 
+              between neurons, the vaccine antigen gains access to an entire communication network — 
+              not just individual nerve fibers.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Havana Syndrome Teaser -->
-  <section class="py-16 bg-gradient-to-r from-cyan-900 via-slate-900 to-purple-900">
+  <!-- Havana Syndrome Teaser - Updated to show hypothesis falsification -->
+  <section class="py-16 bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <a href="/speculation/havana-syndrome/" class="block group">
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 md:p-12 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyan-400/30">
+        <div class="bg-white/5 backdrop-blur border border-red-500/30 rounded-2xl p-8 md:p-12 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02]">
           <div class="flex flex-col md:flex-row gap-8 items-center">
             <div class="flex-shrink-0">
-              <div class="w-24 h-24 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl flex items-center justify-center text-5xl shadow-lg shadow-cyan-500/20">
+              <div class="w-24 h-24 bg-gradient-to-br from-slate-600 to-slate-700 rounded-2xl flex items-center justify-center text-5xl shadow-lg relative">
                 👂
+                <span class="absolute -top-2 -right-2 text-2xl">❌</span>
               </div>
             </div>
             <div class="flex-1 text-center md:text-left">
-              <span class="inline-block bg-amber-500/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
-                Speculative Hypothesis
+              <span class="inline-block bg-red-500/20 text-red-300 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+                Hypothesis Falsified
               </span>
-              <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
-                Could Influenza Explain "Havana Syndrome"?
+              <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-slate-300 transition-colors">
+                A Case Study in Scientific Reasoning
               </h2>
-              <p class="text-slate-300 text-lg mb-4">
-                The same ganglioside mechanism that may cause narcolepsy could explain the mysterious 
-                auditory symptoms reported by US diplomats in Cuba — via H3N2 and GM3 in the spiral ganglion.
+              <p class="text-slate-400 text-lg mb-4">
+                Could H3N2/GM3 explain "Havana Syndrome"? We explored this hypothesis — and found it 
+                <strong class="text-red-300">unlikely</strong>. See how ganglioside biology can generate 
+                testable predictions, and why evidence matters.
               </p>
               <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-sm rounded-full">H3N2 Influenza</span>
-                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">GM3 Ganglioside</span>
-                <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">Auditory Nerve</span>
+                <span class="px-3 py-1 bg-red-500/20 text-red-300 text-sm rounded-full">Critically Evaluated</span>
+                <span class="px-3 py-1 bg-slate-500/20 text-slate-300 text-sm rounded-full">Evidence Against</span>
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-sm rounded-full">Scientific Method</span>
               </div>
             </div>
             <div class="flex-shrink-0 hidden md:block">
-              <svg class="w-10 h-10 text-white/50 group-hover:text-cyan-400 group-hover:translate-x-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-10 h-10 text-white/50 group-hover:text-slate-400 group-hover:translate-x-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </div>

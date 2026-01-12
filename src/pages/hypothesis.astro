@@ -54,6 +54,11 @@ const references = [
     text: "Melén K, et al. (2013). No Serological Evidence of Influenza A H1N1pdm09 Virus Infection as a Contributing Factor in Childhood Narcolepsy after Pandemrix Vaccination Campaign in Finland. PLoS One. 8(8):e68402.",
     url: "https://doi.org/10.1371/journal.pone.0068402"
   },
+  {
+    id: "10",
+    text: "Rivero-Siri C, et al. (2001). Delayed administration of NGF reverses nerve injury-induced changes in C-fiber GM1 expression. NeuroReport. 12(9):2021-5.",
+    url: "https://journals.lww.com/neuroreport/abstract/2001/07030/delayed_administration_of_ngf_reverses_nerve.26.aspx"
+  },
 ];
 ---
 
@@ -273,6 +278,80 @@ const references = [
             Bickerstaff-like generalized symptoms), but rather GT1b-facilitated delivery of antigens 
             that then trigger a <em>different</em> autoimmune response.
           </p>
+
+          <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mt-4">
+            <h4 class="font-bold text-emerald-800 mb-2">🚂 The B-Series "Highway" — Why GT1b Is Special</h4>
+            <p class="text-amber-700 text-xs italic mb-2">
+              ⚠️ The "Neurotrophin Highway" concept below is a hypothesis proposed here, building on 
+              established facts about GT1b biology.
+            </p>
+            <p class="text-emerald-700 text-sm mb-3">
+              GT1b belongs to the <strong>B-series gangliosides</strong>, which have a fundamentally different 
+              biological role than A-series gangliosides (GM1, GM2). This distinction is crucial:
+            </p>
+            
+            <table class="w-full text-sm mb-3">
+              <thead>
+                <tr class="border-b border-emerald-300 bg-emerald-100">
+                  <th class="text-left py-2 px-2 text-emerald-800">Property</th>
+                  <th class="text-left py-2 px-2 text-emerald-800">A-Series (GM1, GM2)</th>
+                  <th class="text-left py-2 px-2 text-emerald-800">B-Series (GT1b, GD1b)</th>
+                </tr>
+              </thead>
+              <tbody class="text-emerald-700">
+                <tr class="border-b border-emerald-200">
+                  <td class="py-2 px-2 font-medium">Fate</td>
+                  <td class="py-2 px-2">Intracellular → Lysosomal</td>
+                  <td class="py-2 px-2 font-bold">Extracellular → Shedding/Signaling</td>
+                </tr>
+                <tr class="border-b border-emerald-200">
+                  <td class="py-2 px-2 font-medium">Storage diseases</td>
+                  <td class="py-2 px-2">Tay-Sachs, GM1 gangliosidosis</td>
+                  <td class="py-2 px-2 font-bold text-red-600">None known!</td>
+                </tr>
+                <tr class="border-b border-emerald-200">
+                  <td class="py-2 px-2 font-medium">Toxin model</td>
+                  <td class="py-2 px-2">Cholera: stays INSIDE cell</td>
+                  <td class="py-2 px-2 font-bold">Tetanus: released OUTSIDE</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="bg-white rounded p-3 border border-emerald-200 mb-3">
+              <h5 class="font-bold text-emerald-800 text-sm mb-1">🧬 Sharing the Neurotrophin Highway</h5>
+              <p class="text-emerald-700 text-xs mb-2">
+                B-series gangliosides are <strong>critical components of signaling endosomes</strong> that 
+                transport neurotrophic factors. GT1b-bound cargo follows the <em>exact same pathways</em> 
+                as essential growth signals:
+              </p>
+              <ul class="text-emerald-700 text-xs space-y-1 ml-4 list-disc">
+                <li><strong>GDNF:</strong> Critical for dopaminergic neurons (Parkinson's). Uses GD1b/GT1b-rich lipid rafts.</li>
+                <li><strong>BDNF:</strong> Brain plasticity factor. GT1b required for TrkB receptor activation.</li>
+                <li><strong>MAG:</strong> Myelin-associated glycoprotein binds GT1b on axons — proves extracellular exposure!</li>
+              </ul>
+            </div>
+
+            <p class="text-emerald-700 text-xs italic bg-emerald-100 p-2 rounded">
+              <strong>🔑 Key Insight:</strong> The H1N1 vaccine's affinity for GT1b gives antigens access to the 
+              <em>same transport machinery</em> that neurons use to share survival signals. The vaccine doesn't just 
+              "travel" to the CNS — it enters the neurotrophin signaling network, with potential to reach 
+              any cell that communicates via this pathway.
+            </p>
+
+            <!-- Illustration: A-series vs B-series -->
+            <figure class="mt-4">
+              <img 
+                src="/images/intracellular-storage-extracellular-shedding.png" 
+                alt="A-series (GM1) leads to intracellular storage, B-series (GT1b) leads to extracellular shedding"
+                class="w-full rounded-lg border border-emerald-200 shadow-md"
+              />
+              <figcaption class="text-emerald-700 text-xs mt-2 text-center">
+                <strong>The Great Divide:</strong> A-series (GM1) → lysosomal storage. 
+                B-series (GT1b) → exosomal communication. This is why GT1b-bound cargo is <em>released</em> 
+                rather than trapped inside cells.
+              </figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="bg-slate-100 rounded-lg p-6 my-8">
@@ -281,6 +360,20 @@ const references = [
             Unpublished neurotracing research demonstrated a critical difference between GT1b-binding 
             and GM1-binding molecules:
           </p>
+          
+          <!-- Key Illustration: Cholera vs Tetanus Transport -->
+          <figure class="my-6">
+            <img 
+              src="/images/choleratoxin-tetanus-toxin-transport.jpg" 
+              alt="Cholera toxin (GM1) stays intracellular while Tetanus toxin (GT1b) makes trans-synaptic jump"
+              class="w-full rounded-lg border border-slate-300 shadow-lg"
+            />
+            <figcaption class="text-sm text-slate-600 mt-2 text-center">
+              <strong>Two toxins, two fates:</strong> Cholera toxin (GM1) stays inside the neuron. 
+              Tetanus toxin (GT1b) is released via signaling endosomes and can "jump" to neighboring cells.
+            </figcaption>
+          </figure>
+
           <table class="w-full text-sm mb-4">
             <thead>
               <tr class="border-b bg-slate-200">
@@ -376,11 +469,11 @@ const references = [
             Ahmed et al. (2015)<RefLink id="8" text={references[7].text} url={references[7].url} /> identified structural homology between H1N1 nucleoprotein and orexin 
             receptor 2 (HcrtR2):
           </p>
-          <div class="bg-slate-800 text-white rounded p-4 font-mono text-sm mb-4">
-            <p class="text-slate-400 mb-2">Sequence alignment (N-terminal):</p>
-            <p>H1N1 NP: &nbsp;&nbsp;Y-<span class="text-green-400">E</span>-<span class="text-green-400">D</span>-<span class="text-green-400">E</span>-F-L-<span class="text-green-400">R</span></p>
-            <p>HcrtR2: &nbsp;&nbsp;&nbsp;Y-<span class="text-green-400">D</span>-<span class="text-green-400">D</span>-<span class="text-green-400">E</span>-<span class="text-green-400">E</span>-<span class="text-green-400">F</span>-<span class="text-green-400">R</span></p>
-            <p class="text-slate-400 text-xs mt-2">Green = structural homology (key fits lock)</p>
+          <div class="not-prose bg-slate-800 text-white rounded p-4 font-mono text-sm mb-4">
+            <div class="text-slate-400 mb-2">Sequence alignment (N-terminal):</div>
+            <div class="text-white">H1N1 NP: &nbsp;&nbsp;Y-<span class="text-green-400">E</span>-<span class="text-green-400">D</span>-<span class="text-green-400">E</span>-F-L-<span class="text-green-400">R</span></div>
+            <div class="text-white">HcrtR2: &nbsp;&nbsp;&nbsp;Y-<span class="text-green-400">D</span>-<span class="text-green-400">D</span>-<span class="text-green-400">E</span>-<span class="text-green-400">E</span>-<span class="text-green-400">F</span>-<span class="text-green-400">R</span></div>
+            <div class="text-slate-400 text-xs mt-2">Green = structural homology (key fits lock)</div>
           </div>
           <p class="text-slate-700">
             Antibodies targeting this H1N1 epitope may cross-react with HcrtR2, leading to 
@@ -499,6 +592,81 @@ const references = [
           </ul>
         </div>
 
+        <h2>Supporting Evidence: The Injury Proof</h2>
+        <p>
+          Direct experimental evidence supports the A-series vs B-series functional division:
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-4 my-4">
+          <div class="bg-slate-100 rounded-lg p-4">
+            <h4 class="font-bold text-slate-800 mb-2">🔬 Biological Proof: C-Fiber GM1 Switch</h4>
+            <p class="text-slate-700 text-sm mb-2">
+              C-fibers (unmyelinated pain fibers) normally <strong>lack GM1</strong>. After nerve injury, 
+              they massively <strong>upregulate GM1</strong> — proving that when communication is lost, 
+              neurons switch from B-series (shedding) to A-series (storage).
+            </p>
+            <p class="text-slate-700 text-sm mb-2">
+              <strong>NGF reversal:</strong> Treatment with Nerve Growth Factor <em>reversed</em> this 
+              phenotype — but took <strong>months</strong> of sustained signaling.
+            </p>
+            <p class="text-slate-600 text-xs">
+              <a href="https://journals.lww.com/neuroreport/abstract/2001/07030/delayed_administration_of_ngf_reverses_nerve.26.aspx" 
+                 class="text-blue-600 hover:underline" target="_blank">
+                Rivero-Siri et al. (NeuroReport 2001)
+              </a>
+            </p>
+          </div>
+
+          <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
+            <h4 class="font-bold text-purple-800 mb-2">🧪 Chemical Proof: Neuraminidase Unmasking</h4>
+            <p class="text-purple-700 text-sm mb-2">
+              When peripheral nerves are treated with <strong>neuraminidase</strong> (which strips 
+              sialic acids from complex gangliosides), C-fibers become <strong>intensely labeled</strong> 
+              with cholera toxin B (CTB/GM1 marker).
+            </p>
+            <p class="text-purple-700 text-sm mb-2">
+              <strong>Critical observation:</strong> The labeling showed a <strong>dramatic increase 
+              specifically in lamina I</strong> of the spinal cord — the exact location where orexin 
+              neurons project their afferents.
+            </p>
+            <p class="text-purple-700 text-sm mb-2">
+              <strong>Conclusion:</strong> C-fibers normally have complex gangliosides (B-series) 
+              that "mask" the GM1 core. Neuraminidase chemically induces the same conversion that 
+              injury causes biologically. The lamina I localization proves that transport along 
+              C-fibers terminates exactly where orexin neurons are present.
+            </p>
+            <p class="text-purple-600 text-xs italic">
+              Unpublished manuscript, Karolinska Institutet
+            </p>
+          </div>
+        </div>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Why This Matters for the Hypothesis</div>
+          <p class="mb-3">
+            These experiments prove that ganglioside expression is <strong>dynamically regulated</strong>:
+          </p>
+          <ul class="mb-3 space-y-1">
+            <li>
+              <strong>C-fibers normally have complex gangliosides</strong> (B-series) — they are "invisible" 
+              to GM1-binding molecules like cholera toxin
+            </li>
+            <li>
+              <strong>Injury or enzyme treatment</strong> converts B-series → A-series (GM1) — revealing 
+              the hidden receptor
+            </li>
+            <li>
+              <strong>NGF restores B-series</strong> — the system is plastic and neurotrophin-dependent
+            </li>
+          </ul>
+          <p class="mb-0">
+            <strong>Implication:</strong> The vaccine antigen doesn't just travel along the neurotrophin highway — 
+            it enters a system where B-series expression (and thus shedding/release) is tightly coupled to 
+            cellular survival signals. The same growth factors that maintain B-series expression are 
+            transported via GT1b — creating a feedback loop that the vaccine can exploit.
+          </p>
+        </div>
+
         <h2>Testable Predictions</h2>
         <ol>
           <li>
@@ -519,6 +687,10 @@ const references = [
           <li>
             <strong>Extraneuronal release:</strong> H1N1 antigens should show tetanus-like release 
             patterns (not cholera-like retention) in neurotracing experiments.
+          </li>
+          <li>
+            <strong>Trophic dependency:</strong> Cells receiving GT1b-bound cargo should show altered 
+            response to neurotrophic factors — since the vaccine antigen "competes" on the same transport pathway.
           </li>
         </ol>
 
@@ -627,10 +799,11 @@ const references = [
           </p>
           
           <p class="text-emerald-700 text-sm">
-            <strong>Analogy:</strong> GM3 is essential for cochlear function and hearing. The speculative 
-            <a href="/speculation/havana-syndrome/" class="text-emerald-600 underline">Havana Syndrome hypothesis</a> 
-            proposes that H3N2 influenza (2016-2017) — with its GM3 affinity — may have targeted auditory 
-            neurons via similar ganglioside-mediated mechanisms.
+            <strong>Analogy:</strong> GM3 is essential for cochlear function and hearing. We explored a 
+            <a href="/speculation/havana-syndrome/" class="text-emerald-600 underline">speculative Havana Syndrome hypothesis</a> 
+            proposing H3N2/GM3 as a cause — but after critical evaluation, this hypothesis was found 
+            <strong class="text-red-600">unlikely</strong>. It remains an illustrative example of how ganglioside 
+            biology can generate testable (and falsifiable) predictions.
           </p>
         </div>
 
@@ -658,25 +831,38 @@ VACCINATION (deltoid muscle)
 └─────────────────────────────────────────┘
          │
          ▼
-┌─────────────────────────────────────────┐
-│  RETROGRADE AXONAL TRANSPORT            │
-│  Arm → Spinal cord (lamina I)           │
-│                                         │
-│  ⚡ Enhanced by B3GALT4 variant         │ ← Genetic factor
-│     (linked to HLA-DQB1*06:02)          │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│  RETROGRADE AXONAL TRANSPORT                            │
+│  Arm → Spinal cord (lamina I)                           │
+│                                                         │
+│  🚂 Using SAME PATHWAY as neurotrophins:                │
+│     • GDNF (dopamine neuron survival)                   │
+│     • BDNF (brain plasticity)                           │
+│     GT1b is a component of "signaling endosomes"!       │
+│                                                         │
+│  ⚡ Enhanced by B3GALT4 variant                         │ ← Genetic factor
+│     (linked to HLA-DQB1*06:02)                          │
+└─────────────────────────────────────────────────────────┘
          │
          ▼
-┌─────────────────────────────────────────┐
-│  EXTRANEURONAL RELEASE                  │
-│  (Unlike cholera toxin, which stays     │
-│   intraneuronal)                        │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│  EXTRANEURONAL RELEASE (B-SERIES "SHEDDING")            │
+│                                                         │
+│  A-series (GM1): stays intraneuronal → storage disease  │
+│  B-series (GT1b): RELEASED via EVs → NO storage disease │
+│                                                         │
+│  Tetanus toxin: released extraneuronally                │
+│  Cholera toxin: stays intraneuronal                     │
+│  H1N1 antigen: follows GT1b → EXTRANEURONAL             │
+└─────────────────────────────────────────────────────────┘
          │
          ▼
 ┌─────────────────────────────────────────┐
 │  Antigen exposed near OREXIN AFFERENTS  │
 │  (Hypothalamus → Lamina I projections)  │
+│                                         │
+│  + POTENTIAL TRANS-SYNAPTIC SPREAD      │
+│    (following neurotrophin routes)      │
 └─────────────────────────────────────────┘
          │
          ▼
@@ -692,6 +878,49 @@ VACCINATION (deltoid muscle)
 │           → NARCOLEPSY                  │
 └─────────────────────────────────────────┘
         </pre>
+      </div>
+
+      <!-- Additional insight box -->
+      <div class="mt-8 bg-amber-900/50 border border-amber-500/30 rounded-lg p-6">
+        <h3 class="text-lg font-bold text-amber-300 mb-2">🧬 The "Neurotrophin Highway" — A Proposed Hypothesis</h3>
+        <p class="text-amber-200 text-xs italic mb-4">
+          ⚠️ The concepts below are speculative hypotheses proposed here, not established science. 
+          They build on known GT1b biology but extend it in novel directions.
+        </p>
+        
+        <!-- Illustration: Retrograde Feedback Signal -->
+        <figure class="mb-4">
+          <img 
+            src="/images/Retrogra-feedback-signal.png" 
+            alt="Retrograde feedback signal via GT1b at sensory nerve ending"
+            class="w-full rounded-lg border border-amber-500/30 shadow-lg"
+          />
+          <figcaption class="text-amber-400 text-xs mt-2 text-center">
+            <strong>Hypothetical "handshake":</strong> At a sensory nerve ending, GT1b may mediate 
+            exchange of signals with target tissue. If true, vaccine antigens could follow this route.
+          </figcaption>
+        </figure>
+
+        <p class="text-slate-300 text-sm mb-3">
+          <strong>Known fact:</strong> Neurons transport substances retrogradely via GT1b-containing endosomes.
+          <br><strong>Hypothesis:</strong> This system may also facilitate <em>inter-neuronal communication</em> — 
+          a "handshake" where cells exchange gangliosides and their bound cargo:
+        </p>
+        <ul class="text-slate-300 text-sm space-y-2 ml-4 list-disc">
+          <li>
+            <strong class="text-emerald-300">Known:</strong> BDNF/GDNF require GT1b-rich lipid rafts for signaling
+          </li>
+          <li>
+            <strong class="text-amber-300">Hypothesis:</strong> Could neurons <em>share</em> these growth 
+            factors trans-synaptically via GT1b-containing vesicles? This is <em>not proven</em> but would 
+            explain observed trans-synaptic transport phenomena
+          </li>
+          <li>
+            <strong class="text-amber-300">If true:</strong> The vaccine antigen gains access to an entire neural 
+            circuit — not just individual neurons. This could explain how antigens reach orexin cells 
+            via lamina I connections
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -721,6 +950,11 @@ VACCINATION (deltoid muscle)
         <li>
           Trajkovic K, et al. (2008). Ceramide triggers budding of exosome vesicles into multivesicular endosomes.
           <em>Science</em>. 319(5867):1244-1247.
+        </li>
+        <li>
+          Rivero-Siri C, et al. (2001). Delayed administration of NGF reverses nerve injury-induced 
+          changes in C-fiber GM1 expression. <em>NeuroReport</em>. 12(9):2021-5.
+          <a href="https://journals.lww.com/neuroreport/abstract/2001/07030/delayed_administration_of_ngf_reverses_nerve.26.aspx" class="text-blue-600">Link</a>
         </li>
       </ol>
     </div>

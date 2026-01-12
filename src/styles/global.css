@@ -54,6 +54,39 @@ body {
   @apply prose-li:marker:text-slate-400;
 }
 
+/* 
+ * Reset prose styling inside .not-prose containers
+ * 
+ * IMPORTANT: We do NOT override colors globally here.
+ * The Tailwind Typography 'not-prose' class handles this.
+ * 
+ * If you need dark-on-dark or light-on-light text, ensure 
+ * the container has explicit text color classes (text-white, etc.)
+ * AND the inner elements also have explicit classes.
+ */
+
+/* For dark backgrounds inside prose, explicitly set all text colors */
+.prose-science .not-prose.bg-slate-800,
+.prose-science .not-prose.bg-slate-900 {
+  --tw-prose-body: theme('colors.white');
+  --tw-prose-headings: theme('colors.white');
+  color: white;
+}
+
+.prose-science .not-prose.bg-slate-800 *,
+.prose-science .not-prose.bg-slate-900 * {
+  color: inherit;
+}
+
+/* Allow explicit color classes to override */
+.prose-science .not-prose .text-white { color: white !important; }
+.prose-science .not-prose .text-slate-300 { color: rgb(203 213 225) !important; }
+.prose-science .not-prose .text-slate-400 { color: rgb(148 163 184) !important; }
+.prose-science .not-prose .text-green-400 { color: rgb(74 222 128) !important; }
+.prose-science .not-prose .text-red-400 { color: rgb(248 113 113) !important; }
+.prose-science .not-prose .text-amber-400 { color: rgb(251 191 36) !important; }
+.prose-science .not-prose .text-emerald-400 { color: rgb(52 211 153) !important; }
+
 /* Reference/Citation styling */
 .citation {
   @apply text-xs text-slate-500 align-super cursor-help;

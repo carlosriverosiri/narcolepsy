@@ -5,14 +5,20 @@ import { getLangFromUrl, useTranslations, getLocalizedPath, languages, type Lang
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Navigation items
+// Main navigation items
 const navItems = [
   { key: 'hypothesis', href: '/hypothesis/' },
   { key: 'gangliosides', href: '/science/gangliosides/' },
   { key: 'genetics', href: '/science/genetics/' },
   { key: 'evidence', href: '/evidence/' },
-  { key: 'references', href: '/references/' },
   { key: 'about', href: '/about/' },
+];
+
+// Dropdown items for "Explore"
+const exploreItems = [
+  { key: 'references', href: '/references/' },
+  { key: 'influenza_history', href: '/science/influenza-history/' },
+  { key: 'havana_syndrome', href: '/speculation/havana-syndrome/' },
 ];
 ---
 
@@ -39,6 +45,51 @@ const navItems = [
             {t.nav[item.key as keyof typeof t.nav]}
           </a>
         ))}
+        
+        <!-- Explore Dropdown -->
+        <div class="relative" x-data="{ open: false }">
+          <button 
+            @click="open = !open"
+            class="flex items-center gap-1 text-slate-300 hover:text-white transition-colors text-sm font-medium"
+          >
+            {t.nav.explore}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <div 
+            x-show="open" 
+            @click.away="open = false"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50"
+            style="display: none;"
+          >
+            {exploreItems.map(item => (
+              item.key === 'havana_syndrome' ? (
+                <a 
+                  href={getLocalizedPath(item.href, lang)}
+                  class="block px-4 py-2 text-sm transition-colors text-red-600 hover:bg-red-50 font-medium border-t border-slate-100 mt-1 pt-3"
+                >
+                  ⚠️ {t.nav[item.key as keyof typeof t.nav]}
+                  <span class="text-xs text-red-400 block">Speculative (Falsified)</span>
+                </a>
+              ) : (
+                <a 
+                  href={getLocalizedPath(item.href, lang)}
+                  class="block px-4 py-2 text-sm transition-colors text-slate-700 hover:bg-slate-50"
+                >
+                  {t.nav[item.key as keyof typeof t.nav]}
+                </a>
+              )
+            ))}
+          </div>
+        </div>
       </div>
 
       <!-- Language Selector & Mobile Menu Button -->
@@ -123,6 +174,24 @@ const navItems = [
             {t.nav[item.key as keyof typeof t.nav]}
           </a>
         ))}
+        
+        <!-- Explore Section for Mobile -->
+        <div class="border-t border-slate-700 mt-2 pt-2">
+          <span class="text-slate-500 text-xs font-medium px-3 py-1 block">{t.nav.explore}</span>
+          {exploreItems.map(item => (
+            <a 
+              href={getLocalizedPath(item.href, lang)}
+              class:list={[
+                "px-3 py-2 rounded-lg transition-colors text-sm font-medium block",
+                item.key === 'havana_syndrome' 
+                  ? "text-red-400 hover:text-red-300 hover:bg-slate-800" 
+                  : "text-slate-300 hover:text-white hover:bg-slate-800"
+              ]}
+            >
+              {item.key === 'havana_syndrome' ? '⚠️ ' : ''}{t.nav[item.key as keyof typeof t.nav]}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </nav>

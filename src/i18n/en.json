@@ -13,10 +13,13 @@
     "gangliosides": "Gangliosides",
     "neuronal_transport": "Neuronal Transport",
     "genetics": "Genetics",
+    "influenza_history": "Flu History",
     "evidence": "Evidence",
     "pandemrix": "Pandemrix",
     "cross_reactivity": "Cross-Reactivity",
     "references": "References",
+    "havana_syndrome": "Havana Syndrome",
+    "explore": "Explore",
     "about": "About"
   },
   "hero": {
