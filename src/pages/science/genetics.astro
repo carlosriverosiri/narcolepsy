@@ -135,76 +135,87 @@ const t = useTranslations('en');
         </table>
 
         <!-- NEW SECTION: NEU1 -->
-        <h2>The NEU1 Discovery — Immune Brakes and "Super-Enzymes"</h2>
+        <h2>The NEU1 Discovery — The "Lazy Enzyme" Hypothesis</h2>
         
         <div class="key-concept">
-          <div class="key-concept-title">NEU1: The Missing Link in Immune Hyperactivation</div>
+          <div class="key-concept-title">NEU1: Why NT1 Patients Have More GT1b Receptors</div>
           <p class="mb-0">
             <span class="gene-name">NEU1</span> (Neuraminidase 1) is a sialidase that removes terminal sialic acids 
-            from receptors. It lies at <strong>6p21.33</strong> — within the same haplotype block as HLA-DQB1. 
+            from gangliosides and glycoproteins. It lies at <strong>6p21.33</strong> — within the same haplotype block as HLA-DQB1. 
             GWAS data shows NEU1 variants are associated with narcolepsy at p = 6E-14, comparable to HLA signals.
           </p>
         </div>
 
+        <h3>Critical Evidence: Hypersialylation in NT1 Patients</h3>
         <p>
-          NEU1's role in immune regulation is critical: it controls the "sialic acid brake" on Toll-like receptors (TLRs).
+          Mass spectrometry studies show that NT1 patients have a <strong>3-fold increase in trisialylated N-glycans</strong> 
+          (HexNAc5Hex6NeuAc3) compared to healthy controls. This hypersialylation provides a critical clue about NEU1 function:
         </p>
 
-        <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-6 my-6">
-          <h4 class="font-bold text-cyan-800 mb-4">The Siglec Brake System</h4>
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-amber-800 mb-4">The N-Glycan Evidence — What It Tells Us</h4>
           
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-white rounded p-4 border border-cyan-200">
-              <h5 class="font-bold text-cyan-700 mb-2">Normal State (Brakes ON)</h5>
-              <ul class="text-slate-700 text-sm space-y-1">
-                <li>• TLR4 is covered with sialic acids</li>
-                <li>• Siglec receptors bind these sialic acids</li>
-                <li>• Siglecs recruit phosphatases → signal OFF</li>
-                <li>• Immune response is <strong>controlled</strong></li>
-              </ul>
-            </div>
-            <div class="bg-white rounded p-4 border border-cyan-200">
-              <h5 class="font-bold text-red-700 mb-2">NEU1 "Super-Enzyme" (Brakes OFF)</h5>
-              <ul class="text-slate-700 text-sm space-y-1">
-                <li>• NEU1 aggressively removes sialic acids</li>
-                <li>• Siglecs cannot engage (brake disconnected)</li>
-                <li>• TLR4 signals continuously → cytokine storm</li>
-                <li>• Immune response is <strong>uncontrolled</strong></li>
-              </ul>
-            </div>
+          <table class="w-full text-sm mb-4">
+            <thead>
+              <tr class="border-b bg-amber-100">
+                <th class="text-left py-2 px-2 text-amber-800">If NEU1 were...</th>
+                <th class="text-left py-2 px-2 text-amber-800">Expected N-Glycans</th>
+                <th class="text-left py-2 px-2 text-amber-800">Expected GT1b</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 px-2 font-medium">Hyperactive ("Super-Enzyme")</td>
+                <td class="py-2 px-2">↓ LOW (more degradation)</td>
+                <td class="py-2 px-2">↓ LOW (broken down faster)</td>
+              </tr>
+              <tr class="border-b bg-green-50">
+                <td class="py-2 px-2 font-medium text-green-800">Underactive ("Lazy Enzyme") ✓</td>
+                <td class="py-2 px-2 text-green-800 font-bold">↑ HIGH (less degradation)</td>
+                <td class="py-2 px-2 text-green-800 font-bold">↑ HIGH (accumulates)</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <p class="text-amber-800 text-sm mb-0">
+            <strong>Conclusion:</strong> The elevated trisialylated N-glycans in NT1 patients indicate 
+            <strong>reduced NEU1 activity</strong> — a "Lazy Enzyme" that fails to break down sialic acids efficiently. 
+            This leads to <strong>accumulation of GT1b</strong> on nerve surfaces, creating more binding sites for H1N1 antigen.
+          </p>
+        </div>
+
+        <h3>The "Lazy Enzyme" Model — NEU1 Underactivity</h3>
+        <div class="grid md:grid-cols-2 gap-4 my-6">
+          <div class="bg-slate-100 rounded p-4 border border-slate-200">
+            <h5 class="font-bold text-slate-700 mb-2">Normal NEU1</h5>
+            <ul class="text-slate-700 text-sm space-y-1">
+              <li>• Efficiently removes sialic acids</li>
+              <li>• GT1b levels are regulated</li>
+              <li>• N-glycans are properly degraded</li>
+              <li>• <strong>Limited viral binding sites</strong></li>
+            </ul>
+          </div>
+          <div class="bg-red-50 rounded p-4 border border-red-200">
+            <h5 class="font-bold text-red-700 mb-2">NEU1 "Lazy Enzyme" (NT1 Risk Variant)</h5>
+            <ul class="text-slate-700 text-sm space-y-1">
+              <li>• Reduced sialidase activity</li>
+              <li>• GT1b accumulates on nerve surfaces</li>
+              <li>• N-glycans accumulate in serum (3x increase)</li>
+              <li>• <strong>MORE viral binding sites → increased susceptibility</strong></li>
+            </ul>
           </div>
         </div>
 
-        <h3>Two Alternative Hypotheses for NEU1 Dysfunction</h3>
-        <p>
-          Interestingly, the observed hypersialylation in NT1 patients (3-fold increase in trisialylated N-glycans) 
-          could result from <em>either</em> direction of NEU1 dysfunction:
-        </p>
-
-        <table class="w-full text-sm my-6">
-          <thead>
-            <tr class="border-b bg-slate-50">
-              <th class="text-left py-2 px-2">Hypothesis</th>
-              <th class="text-left py-2 px-2">NEU1 Status</th>
-              <th class="text-left py-2 px-2">Serum Effect</th>
-              <th class="text-left py-2 px-2">Immune Effect</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b">
-              <td class="py-2 px-2 font-medium">A: "Lazy Enzyme"</td>
-              <td class="py-2 px-2 text-red-600">Reduced activity</td>
-              <td class="py-2 px-2">High sialylation (can't remove)</td>
-              <td class="py-2 px-2">Receptors stay "sticky"</td>
-            </tr>
-            <tr class="border-b bg-cyan-50">
-              <td class="py-2 px-2 font-medium">B: "Surface Defect"</td>
-              <td class="py-2 px-2 text-cyan-600">Normal in lysosome, absent on surface</td>
-              <td class="py-2 px-2">High sialylation (surface unmodified)</td>
-              <td class="py-2 px-2">TLR brakes never released properly</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">Why Not a "Super-Enzyme"?</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            If NEU1 were hyperactive, it would <em>remove</em> sialic acids more efficiently, leading to 
+            <strong>lower</strong> N-glycan levels and <strong>less</strong> GT1b on nerve surfaces. 
+            But the serum data shows the <em>opposite</em> — elevated sialylation. This proves NEU1 is 
+            <strong>underactive</strong>, not overactive. The "Lazy Enzyme" fails to degrade gangliosides, 
+            allowing GT1b to accumulate and serve as viral receptors.
+          </p>
+        </div>
 
         <div class="warning-box">
           <h4 class="font-bold text-amber-800 mb-2">The Sialidosis Paradox</h4>
@@ -235,7 +246,7 @@ const t = useTranslations('en');
         </figure>
 
         <div class="bg-slate-800 text-white rounded-lg p-6 my-6">
-          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity</h4>
+          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity — Revised Model</h4>
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-slate-600">
@@ -252,39 +263,70 @@ const t = useTranslations('en');
               </tr>
               <tr class="border-b border-slate-700">
                 <td class="py-2 text-cyan-400 font-bold">NEU1</td>
-                <td class="py-2 text-slate-300">Regulatory (GoF)</td>
-                <td class="py-2 text-slate-300">The Ignition — Removes immune brakes, enables cytokine storm</td>
+                <td class="py-2 text-slate-300">Regulatory (LoF)</td>
+                <td class="py-2 text-slate-300">The Accumulator — Reduced degradation → GT1b accumulates → more viral binding sites</td>
               </tr>
               <tr>
                 <td class="py-2 text-amber-400 font-bold">B3GALT4</td>
                 <td class="py-2 text-slate-300">Regulatory (GoF)</td>
-                <td class="py-2 text-slate-300">The Fuel — Overproduces GT1b, creates target-rich environment</td>
+                <td class="py-2 text-slate-300">The Producer — Overproduces GT1b → exosome shedding → TLR2 activation</td>
               </tr>
             </tbody>
           </table>
+          <p class="text-slate-400 text-xs mt-3 italic">
+            Note: LoF = Loss-of-Function (underactivity), GoF = Gain-of-Function (overactivity). 
+            Both NEU1 (LoF) and B3GALT4 (GoF) lead to the same outcome: more GT1b on nerve surfaces.
+          </p>
         </div>
 
-        <!-- NEW: Detailed mechanism illustrations -->
-        <h2>The Siglec Brake System: How NEU1 Controls Immunity</h2>
+        <!-- How Both Pathways Lead to More GT1b -->
+        <h2>Two Pathways, One Outcome: More GT1b Receptors</h2>
         <p>
-          NEU1 regulates immune activation through a sophisticated "brake" system involving 
-          <strong>Siglec receptors</strong>. Sialic acids on TLR4 bind Siglec-E, which recruits 
-          phosphatases that actively suppress signaling. NEU1 removes these sialic acids, 
-          releasing the brake.
+          Both NEU1 underactivity and B3GALT4 overactivity lead to the same result — 
+          <strong>more GT1b on nerve surfaces</strong> — but via different mechanisms:
         </p>
 
-        <figure class="my-8">
-          <img 
-            src="/images/tlr4-siglec-brake-system.svg" 
-            alt="TLR4-Siglec brake system showing how NEU1 removes sialic acids to release immune brakes"
-            class="w-full rounded-lg border border-slate-200 shadow-lg bg-white"
-          />
-          <figcaption class="text-sm text-slate-600 mt-3 text-center">
-            <strong>The Siglec Brake System:</strong> Normal state (left) has TLR4 covered with sialic acids 
-            that engage Siglec-E, suppressing inflammation. NEU1 "super-enzyme" (right) removes these sialic acids, 
-            causing permanent brake failure and hyperinflammation.
-          </figcaption>
-        </figure>
+        <div class="grid md:grid-cols-2 gap-6 my-8">
+          <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-6">
+            <h4 class="font-bold text-cyan-800 mb-3">NEU1 "Lazy Enzyme" (LoF)</h4>
+            <div class="text-center mb-3">
+              <span class="text-4xl">🔽</span>
+              <p class="text-cyan-700 text-sm font-bold">Reduced Degradation</p>
+            </div>
+            <p class="text-cyan-700 text-sm">
+              NEU1 normally breaks down gangliosides by removing sialic acids. 
+              With reduced activity, GT1b is <strong>not degraded</strong> and accumulates on nerve surfaces.
+            </p>
+            <div class="bg-white rounded p-3 mt-3 text-center">
+              <p class="text-cyan-800 font-mono text-sm">GT1b breakdown ↓ → GT1b levels ↑</p>
+            </div>
+          </div>
+          
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+            <h4 class="font-bold text-amber-800 mb-3">B3GALT4 "Super-Enzyme" (GoF)</h4>
+            <div class="text-center mb-3">
+              <span class="text-4xl">🔼</span>
+              <p class="text-amber-700 text-sm font-bold">Increased Production</p>
+            </div>
+            <p class="text-amber-700 text-sm">
+              B3GALT4 synthesizes the GT1b precursor GD1b. With increased activity, 
+              <strong>more GT1b is produced</strong> than the cell can shed via exosomes.
+            </p>
+            <div class="bg-white rounded p-3 mt-3 text-center">
+              <p class="text-amber-800 font-mono text-sm">GT1b production ↑ → GT1b levels ↑</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-concept">
+          <div class="key-concept-title">The Double-Hit: Both Pathways Active</div>
+          <p class="mb-0">
+            In the risk haplotype, <strong>both variants are present together</strong>. NEU1 underactivity 
+            means less degradation, while B3GALT4 overactivity means more production. The combined effect 
+            is a <strong>dramatic increase in GT1b</strong> on peripheral nerve surfaces — creating an 
+            abundance of binding sites for H1N1 antigen.
+          </p>
+        </div>
 
         <h2>GT1b Exosome Shedding: Why No Storage Disease?</h2>
         <p>
