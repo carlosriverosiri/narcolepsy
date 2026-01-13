@@ -85,8 +85,23 @@ const t = useTranslations('en');
 
         <h2>Chromosome 6p21.3 — The Narcolepsy Region</h2>
         <p>
-          The 6p21.3 region contains both the HLA complex and B3GALT4. Key genes in this region:
+          The 6p21.3 region contains both the HLA complex and critical ganglioside-regulatory genes. 
+          <strong>A key insight:</strong> Three genes are inherited together in the same haplotype 
+          (linkage disequilibrium block), creating a "synergistic trinity" that may explain susceptibility.
         </p>
+
+        <!-- Chromosome 6 Map -->
+        <figure class="my-8">
+          <img 
+            src="/images/chromosome6-gene-map.svg" 
+            alt="Chromosome 6p21 gene map showing physical positions of NEU1 (31.86 Mb), HLA-DQB1 (32.66 Mb), and B3GALT4 (33.28 Mb)"
+            class="w-full rounded-lg border border-slate-700 shadow-lg"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            <strong>Physical map of chromosome 6p21:</strong> NEU1 (sialidase) and B3GALT4 (GT1b synthase) 
+            flank the HLA-DQB1 locus. All three are inherited together due to strong linkage disequilibrium.
+          </figcaption>
+        </figure>
         
         <table class="w-full text-sm">
           <thead>
@@ -98,26 +113,156 @@ const t = useTranslations('en');
             </tr>
           </thead>
           <tbody>
+            <tr class="border-b bg-cyan-50">
+              <td class="py-2 px-2"><span class="gene-name">NEU1</span></td>
+              <td class="py-2 px-2 font-bold text-cyan-700">6p21.33</td>
+              <td class="py-2 px-2">Neuraminidase 1 (sialidase)</td>
+              <td class="py-2 px-2"><strong>KEY</strong> — Regulates TLR activation, removes sialic acid</td>
+            </tr>
+            <tr class="border-b bg-purple-50">
+              <td class="py-2 px-2"><span class="gene-name">HLA-DQB1</span></td>
+              <td class="py-2 px-2 font-bold text-purple-700">6p21.32</td>
+              <td class="py-2 px-2">MHC class II</td>
+              <td class="py-2 px-2"><strong>ANCHOR</strong> — Antigen presentation</td>
+            </tr>
             <tr class="border-b bg-amber-50">
               <td class="py-2 px-2"><span class="gene-name">B3GALT4</span></td>
-              <td class="py-2 px-2 font-bold text-red-700">6p21.32</td>
+              <td class="py-2 px-2 font-bold text-amber-700">6p21.32</td>
               <td class="py-2 px-2">GM1/GD1b synthase</td>
               <td class="py-2 px-2"><strong>KEY</strong> — Creates GD1b, precursor to GT1b</td>
             </tr>
-            <tr class="border-b">
-              <td class="py-2 px-2"><span class="gene-name">HLA-DQB1</span></td>
-              <td class="py-2 px-2">6p21.32</td>
-              <td class="py-2 px-2">MHC class II</td>
-              <td class="py-2 px-2">Antigen presentation — may be linked marker</td>
+          </tbody>
+        </table>
+
+        <!-- NEW SECTION: NEU1 -->
+        <h2>The NEU1 Discovery — Immune Brakes and "Super-Enzymes"</h2>
+        
+        <div class="key-concept">
+          <div class="key-concept-title">NEU1: The Missing Link in Immune Hyperactivation</div>
+          <p class="mb-0">
+            <span class="gene-name">NEU1</span> (Neuraminidase 1) is a sialidase that removes terminal sialic acids 
+            from receptors. It lies at <strong>6p21.33</strong> — within the same haplotype block as HLA-DQB1. 
+            GWAS data shows NEU1 variants are associated with narcolepsy at p = 6E-14, comparable to HLA signals.
+          </p>
+        </div>
+
+        <p>
+          NEU1's role in immune regulation is critical: it controls the "sialic acid brake" on Toll-like receptors (TLRs).
+        </p>
+
+        <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-cyan-800 mb-4">The Siglec Brake System</h4>
+          
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white rounded p-4 border border-cyan-200">
+              <h5 class="font-bold text-cyan-700 mb-2">Normal State (Brakes ON)</h5>
+              <ul class="text-slate-700 text-sm space-y-1">
+                <li>• TLR4 is covered with sialic acids</li>
+                <li>• Siglec receptors bind these sialic acids</li>
+                <li>• Siglecs recruit phosphatases → signal OFF</li>
+                <li>• Immune response is <strong>controlled</strong></li>
+              </ul>
+            </div>
+            <div class="bg-white rounded p-4 border border-cyan-200">
+              <h5 class="font-bold text-red-700 mb-2">NEU1 "Super-Enzyme" (Brakes OFF)</h5>
+              <ul class="text-slate-700 text-sm space-y-1">
+                <li>• NEU1 aggressively removes sialic acids</li>
+                <li>• Siglecs cannot engage (brake disconnected)</li>
+                <li>• TLR4 signals continuously → cytokine storm</li>
+                <li>• Immune response is <strong>uncontrolled</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3>Two Alternative Hypotheses for NEU1 Dysfunction</h3>
+        <p>
+          Interestingly, the observed hypersialylation in NT1 patients (3-fold increase in trisialylated N-glycans) 
+          could result from <em>either</em> direction of NEU1 dysfunction:
+        </p>
+
+        <table class="w-full text-sm my-6">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Hypothesis</th>
+              <th class="text-left py-2 px-2">NEU1 Status</th>
+              <th class="text-left py-2 px-2">Serum Effect</th>
+              <th class="text-left py-2 px-2">Immune Effect</th>
             </tr>
+          </thead>
+          <tbody>
             <tr class="border-b">
-              <td class="py-2 px-2"><span class="gene-name">HLA-DRB1</span></td>
-              <td class="py-2 px-2">6p21.32</td>
-              <td class="py-2 px-2">MHC class II</td>
-              <td class="py-2 px-2">Also associated with narcolepsy</td>
+              <td class="py-2 px-2 font-medium">A: "Lazy Enzyme"</td>
+              <td class="py-2 px-2 text-red-600">Reduced activity</td>
+              <td class="py-2 px-2">High sialylation (can't remove)</td>
+              <td class="py-2 px-2">Receptors stay "sticky"</td>
+            </tr>
+            <tr class="border-b bg-cyan-50">
+              <td class="py-2 px-2 font-medium">B: "Surface Defect"</td>
+              <td class="py-2 px-2 text-cyan-600">Normal in lysosome, absent on surface</td>
+              <td class="py-2 px-2">High sialylation (surface unmodified)</td>
+              <td class="py-2 px-2">TLR brakes never released properly</td>
             </tr>
           </tbody>
         </table>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">The Sialidosis Paradox</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            Complete NEU1 loss causes <strong>Sialidosis</strong> (lysosomal storage disease with severe symptoms). 
+            NT1 patients don't have Sialidosis, so the NEU1 variant must be <em>subtle</em> — affecting regulation 
+            or membrane translocation rather than complete enzyme loss. This "sub-clinical" defect creates 
+            susceptibility without overt disease.
+          </p>
+        </div>
+
+        <!-- Dual-Hit Hypothesis Diagram -->
+        <h2>The Dual-Hit Hypothesis: Synergistic Enzyme Variants</h2>
+        <p>
+          We propose that the risk haplotype carries <em>two</em> enzyme variants that synergize:
+        </p>
+
+        <figure class="my-8">
+          <img 
+            src="/images/dual-hit-hypothesis.svg" 
+            alt="Dual-Hit Hypothesis: B3GALT4 gain-of-function creates more GT1b targets, NEU1 regulation defect removes immune brakes"
+            class="w-full rounded-lg border border-slate-200 shadow-lg bg-white"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            <strong>The Dual-Hit Hypothesis:</strong> B3GALT4 overproduction creates more GT1b "fuel" for viral binding, 
+            while NEU1 dysfunction removes the immune system's "brakes," leading to uncontrolled inflammation.
+          </figcaption>
+        </figure>
+
+        <div class="bg-slate-800 text-white rounded-lg p-6 my-6">
+          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity</h4>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-600">
+                <th class="text-left py-2 text-slate-300">Gene</th>
+                <th class="text-left py-2 text-slate-300">Variant Type</th>
+                <th class="text-left py-2 text-slate-300">Function in Pathogenesis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-700">
+                <td class="py-2 text-purple-400 font-bold">HLA-DQB1*06:02</td>
+                <td class="py-2 text-slate-300">Structural</td>
+                <td class="py-2 text-slate-300">The Lock — Presents mimicry peptides to T cells</td>
+              </tr>
+              <tr class="border-b border-slate-700">
+                <td class="py-2 text-cyan-400 font-bold">NEU1</td>
+                <td class="py-2 text-slate-300">Regulatory (GoF)</td>
+                <td class="py-2 text-slate-300">The Ignition — Removes immune brakes, enables cytokine storm</td>
+              </tr>
+              <tr>
+                <td class="py-2 text-amber-400 font-bold">B3GALT4</td>
+                <td class="py-2 text-slate-300">Regulatory (GoF)</td>
+                <td class="py-2 text-slate-300">The Fuel — Overproduces GT1b, creates target-rich environment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2>Complete GT1b Biosynthesis Pathway — Genetic Map</h2>
         <p>

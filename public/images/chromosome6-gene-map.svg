@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="380" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#e2e8f0">Chromosome 6p21: The Physical Map</text>
+  <text x="450" y="55" text-anchor="middle" font-size="11" fill="#64748b">Linkage Disequilibrium in the MHC Region - GRCh38 Coordinates</text>
+
+  <!-- Region labels -->
+  <text x="180" y="95" text-anchor="middle" font-size="10" fill="#94a3b8" font-weight="600">MHC CLASS III</text>
+  <text x="450" y="95" text-anchor="middle" font-size="10" fill="#94a3b8" font-weight="600">MHC CLASS II</text>
+  <text x="720" y="95" text-anchor="middle" font-size="10" fill="#94a3b8" font-weight="600">EXTENDED CLASS II</text>
+
+  <!-- Region dividers -->
+  <line x1="300" y1="105" x2="300" y2="200" stroke="#334155" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="600" y1="105" x2="600" y2="200" stroke="#334155" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- The Chromosome Line -->
+  <rect x="80" y="145" width="740" height="10" rx="5" fill="#334155"/>
+  <!-- Banding pattern -->
+  <rect x="80" y="145" width="740" height="10" rx="5" fill="url(#bandPattern)" opacity="0.3"/>
+  <defs>
+    <pattern id="bandPattern" x="0" y="0" width="20" height="10" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="4" height="10" fill="#475569"/>
+    </pattern>
+  </defs>
+  
+  <!-- Arrow heads -->
+  <text x="60" y="155" text-anchor="middle" font-size="10" fill="#64748b">p-tel</text>
+  <text x="840" y="155" text-anchor="middle" font-size="10" fill="#64748b">cen</text>
+
+  <!-- GENE 1: NEU1 (31.86 Mb) - positioned at ~20% -->
+  <g transform="translate(180, 0)">
+    <!-- Marker line -->
+    <line x1="0" y1="115" x2="0" y2="145" stroke="#06b6d4" stroke-width="3"/>
+    <!-- Gene circle -->
+    <circle cx="0" cy="115" r="20" fill="#164e63" stroke="#06b6d4" stroke-width="3"/>
+    <text x="0" y="120" text-anchor="middle" font-size="10" fill="#06b6d4" font-weight="bold">NEU1</text>
+    <!-- Info box below -->
+    <rect x="-55" y="165" width="110" height="55" rx="6" fill="#164e63" stroke="#06b6d4" stroke-width="1"/>
+    <text x="0" y="183" text-anchor="middle" font-size="9" fill="#06b6d4" font-weight="600">Neuraminidase 1</text>
+    <text x="0" y="198" text-anchor="middle" font-size="8" fill="#67e8f9" font-family="monospace">31.86 Mb</text>
+    <text x="0" y="212" text-anchor="middle" font-size="7" fill="#94a3b8">Sialidase (Catabolism)</text>
+  </g>
+
+  <!-- GENE 2: HLA-DQB1 (32.66 Mb) - positioned at ~50% -->
+  <g transform="translate(450, 0)">
+    <!-- Marker line -->
+    <line x1="0" y1="100" x2="0" y2="145" stroke="#8b5cf6" stroke-width="4"/>
+    <!-- Gene diamond (rotated square) -->
+    <rect x="-18" y="72" width="36" height="36" rx="4" fill="#4c1d95" stroke="#8b5cf6" stroke-width="3" transform="rotate(45 0 90)"/>
+    <text x="0" y="95" text-anchor="middle" font-size="8" fill="#c4b5fd" font-weight="bold">HLA</text>
+    <!-- Glow effect -->
+    <circle cx="0" cy="90" r="35" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="90" r="45" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+    <!-- Info box below -->
+    <rect x="-65" y="165" width="130" height="70" rx="6" fill="#4c1d95" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="0" y="183" text-anchor="middle" font-size="10" fill="#c4b5fd" font-weight="700">HLA-DQB1*06:02</text>
+    <text x="0" y="198" text-anchor="middle" font-size="8" fill="#a78bfa" font-family="monospace">32.66 Mb</text>
+    <text x="0" y="212" text-anchor="middle" font-size="7" fill="#94a3b8">Antigen Presentation</text>
+    <text x="0" y="226" text-anchor="middle" font-size="8" fill="#f59e0b" font-weight="600">RISK ANCHOR</text>
+  </g>
+
+  <!-- GENE 3: B3GALT4 (33.28 Mb) - positioned at ~80% -->
+  <g transform="translate(720, 0)">
+    <!-- Marker line -->
+    <line x1="0" y1="115" x2="0" y2="145" stroke="#f59e0b" stroke-width="3"/>
+    <!-- Gene circle -->
+    <circle cx="0" cy="115" r="20" fill="#78350f" stroke="#f59e0b" stroke-width="3"/>
+    <text x="0" y="112" text-anchor="middle" font-size="7" fill="#f59e0b" font-weight="bold">B3</text>
+    <text x="0" y="123" text-anchor="middle" font-size="7" fill="#f59e0b" font-weight="bold">GALT4</text>
+    <!-- Info box below -->
+    <rect x="-55" y="165" width="110" height="55" rx="6" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+    <text x="0" y="183" text-anchor="middle" font-size="9" fill="#f59e0b" font-weight="600">GT1b Synthase</text>
+    <text x="0" y="198" text-anchor="middle" font-size="8" fill="#fcd34d" font-family="monospace">33.28 Mb</text>
+    <text x="0" y="212" text-anchor="middle" font-size="7" fill="#94a3b8">Ganglioside Synthesis</text>
+  </g>
+
+  <!-- Distance markers -->
+  <g fill="#64748b" font-size="9">
+    <!-- NEU1 to HLA -->
+    <line x1="180" y1="250" x2="450" y2="250" stroke="#475569" stroke-width="1"/>
+    <line x1="180" y1="245" x2="180" y2="255" stroke="#475569" stroke-width="1"/>
+    <line x1="450" y1="245" x2="450" y2="255" stroke="#475569" stroke-width="1"/>
+    <text x="315" y="265" text-anchor="middle" font-family="monospace">~0.8 Mb</text>
+    
+    <!-- HLA to B3GALT4 -->
+    <line x1="450" y1="250" x2="720" y2="250" stroke="#475569" stroke-width="1"/>
+    <line x1="720" y1="245" x2="720" y2="255" stroke="#475569" stroke-width="1"/>
+    <text x="585" y="265" text-anchor="middle" font-family="monospace">~0.6 Mb</text>
+  </g>
+
+  <!-- Bottom key insight -->
+  <rect x="150" y="290" width="600" height="70" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="450" y="315" text-anchor="middle" font-size="12" fill="#e2e8f0" font-weight="600">The Synergistic Trinity: Three Genes, One Haplotype</text>
+  <text x="450" y="335" text-anchor="middle" font-size="10" fill="#94a3b8">Strong Linkage Disequilibrium means these variants are inherited together</text>
+  <text x="450" y="350" text-anchor="middle" font-size="9" fill="#64748b">NEU1 (Immune Activation) + HLA (Antigen Presentation) + B3GALT4 (Receptor Density)</text>
+</svg>
