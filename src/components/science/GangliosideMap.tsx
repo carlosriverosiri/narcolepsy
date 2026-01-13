@@ -273,6 +273,23 @@ const VIRUS_BINDINGS = [
     disease: 'Nephropathy',
     notes: 'Terminal disialic acid required'
   },
+  // Merkel cell polyomavirus (MCPyV) - GT1b primary receptor
+  { 
+    target: 'gt1b', 
+    pathogen: 'MCPyV',
+    organism: 'Merkel cell polyomavirus',
+    affinity: 'high',
+    disease: 'Merkel cell carcinoma (MCC)',
+    notes: 'VP1 binds GT1b via sialic acids on both branches. Initial attachment via GAGs, then GT1b as co-receptor for entry. Explains tropism for Merkel cells (rich in complex gangliosides). [Erickson 2009, DOI: 10.1128/JVI.00949-09]'
+  },
+  { 
+    target: 'gd1a', 
+    pathogen: 'MCPyV',
+    organism: 'Merkel cell polyomavirus',
+    affinity: 'medium',
+    disease: 'Merkel cell carcinoma',
+    notes: 'Alternative sialylated receptor. MCPyV binds broader sialylated oligosaccharides (3SLN, DSL, GD1a). [Ströh & Tsai 2014, DOI: 10.1016/j.coviro.2014.06.003]'
+  },
   { 
     target: 'gm1a', 
     pathogen: 'Rotavirus',
