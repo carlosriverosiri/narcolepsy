@@ -8,8 +8,8 @@ const t = useTranslations('en');
 ---
 
 <BaseLayout 
-  title={t.sections.gangliosides.title}
-  description="Interactive visualization of ganglioside biosynthesis and degradation pathways, with focus on GT1b and its role in neuronal transport."
+  title="The Ganglioside Operating System"
+  description="Understanding gangliosides as a fundamental communication infrastructure in the nervous system — electrostatic signaling, vesicle clocks, and receptor selectivity."
 >
   <!-- Page Header -->
   <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
@@ -21,11 +21,31 @@ const t = useTranslations('en');
         <span class="mx-2">/</span>
         <span class="text-white">Gangliosides</span>
       </nav>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{t.sections.gangliosides.title}</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">The Ganglioside Operating System</h1>
       <p class="text-xl text-slate-300 max-w-3xl">
-        Understanding the biosynthesis and degradation of gangliosides is crucial for 
-        comprehending how vaccine components might be transported through the nervous system.
+        Beyond receptors and storage diseases: understanding gangliosides as a fundamental 
+        <strong>communication infrastructure</strong> that enables neurons to send, receive, 
+        and selectively filter signals across time and distance.
       </p>
+    </div>
+  </section>
+
+  <!-- NEW: Paradigm Shift Introduction -->
+  <section class="py-8 bg-amber-50 border-b border-amber-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="key-concept">
+        <div class="key-concept-title">🔄 A New Perspective on Gangliosides</div>
+        <p class="mb-3">
+          Traditional ganglioside research focuses on <em>pathology</em>: "GT1b is a receptor for tetanus toxin," 
+          "GM2 accumulation causes Tay-Sachs." But this begs the question: <strong>Why do neurons invest so 
+          heavily in this complex system?</strong>
+        </p>
+        <p class="mb-0">
+          This page explores the <strong>physiological function</strong> of gangliosides — proposing that they 
+          form an "operating system" for neuronal communication, with electrostatic properties that enable 
+          sophisticated filtering of signals by time, distance, and source.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -36,17 +56,26 @@ const t = useTranslations('en');
         <h2>What are Gangliosides?</h2>
         <p>
           Gangliosides are complex sphingolipids containing one or more sialic acid residues. 
-          They are abundant in the nervous system, comprising 10-12% of total lipid content in 
-          neuronal membranes. Their unique carbohydrate chains serve as receptors for various 
-          biological molecules, including bacterial toxins and viruses.
+          They are abundant in the nervous system, comprising <strong>10-12% of total lipid content</strong> in 
+          neuronal membranes — an enormous metabolic investment that hints at fundamental importance.
         </p>
+        
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">💡 The Central Question</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            Each sialic acid residue carries a <strong>negative charge</strong>. Why would neurons coat 
+            themselves and their vesicles with densely charged molecules? The answer, we propose, lies 
+            in <strong>electrostatic signaling</strong> — using charge as a communication medium.
+          </p>
+        </div>
         
         <div class="key-concept">
           <div class="key-concept-title">Key Concept: GT1b Ganglioside</div>
           <p class="mb-0">
-            GT1b is a trisialoganglioside that serves as the primary receptor for tetanus toxin. 
-            Research suggests that H1N1 influenza virus may also bind to GT1b, enabling 
-            retrograde axonal transport similar to tetanus toxin.
+            GT1b is a trisialoganglioside with <strong>three sialic acids</strong> — giving it a strong 
+            negative charge. It serves as the primary receptor for tetanus toxin and enables 
+            retrograde axonal transport. We propose GT1b is part of a larger <strong>neurotrophin 
+            transport highway</strong>.
           </p>
         </div>
         
@@ -400,6 +429,139 @@ const t = useTranslations('en');
             At a sensory nerve ending, GT1b mediates the "handshake" with target tissue. 
             Signaling endosomes capture trophic signals and transport them retrogradely. 
             <strong>This pathway can be hijacked by pathogens or vaccine antigens with GT1b affinity.</strong>
+          </figcaption>
+        </figure>
+
+        <!-- NEW: VESICLE CLOCK HYPOTHESIS -->
+        <h3>Step 5: The Vesicle Clock — Time and Distance Encoding</h3>
+        
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-4">
+          <p class="text-amber-800 text-sm font-medium mb-0">
+            ⚠️ <strong>Novel Hypothesis:</strong> The following concept extends known ganglioside biology 
+            into a proposed functional framework. It represents original thinking, not established science.
+          </p>
+        </div>
+
+        <p>
+          Here's a remarkable implication of the electrostatic model: <strong>vesicles carry a built-in clock</strong>.
+        </p>
+
+        <!-- Vesicle Clock Illustration -->
+        <figure class="my-8">
+          <img 
+            src="/images/vesicle-clock-diagram.svg" 
+            alt="Vesicle Clock: showing how neuraminidase progressively strips sialic acids, creating a biological timer that encodes time and distance traveled"
+            class="w-full rounded-lg border border-slate-200 shadow-lg bg-white"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            <strong>The Vesicle Clock:</strong> Neuraminidase in the extracellular space progressively cleaves 
+            sialic acids. A vesicle's charge level encodes how long (and how far) it has traveled.
+          </figcaption>
+        </figure>
+
+        <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-purple-800 mb-4">⏱️ How the Vesicle Clock Works</h4>
+          
+          <div class="space-y-4">
+            <div class="bg-white rounded p-4 border border-purple-200">
+              <h5 class="font-bold text-purple-700 mb-2">1. Initial State: Fully Charged</h5>
+              <p class="text-slate-700 text-sm mb-0">
+                When a vesicle is released, it's coated with GT1b (3 sialic acids) or GQ1b (4 sialic acids). 
+                <strong>Maximum negative charge = "fresh" vesicle.</strong>
+              </p>
+            </div>
+            
+            <div class="bg-white rounded p-4 border border-purple-200">
+              <h5 class="font-bold text-purple-700 mb-2">2. Transit: Progressive Cleavage</h5>
+              <p class="text-slate-700 text-sm mb-0">
+                Extracellular neuraminidases (sialidases) clip sialic acids one by one: 
+                GT1b → GD1b → GM1 → LacCer. <strong>Charge decreases over time.</strong>
+              </p>
+            </div>
+            
+            <div class="bg-white rounded p-4 border border-purple-200">
+              <h5 class="font-bold text-purple-700 mb-2">3. Result: Charge = Age/Distance</h5>
+              <p class="text-slate-700 text-sm mb-0">
+                A highly charged vesicle is "young" (traveled a short distance). 
+                A weakly charged vesicle is "old" (traveled far). <strong>The charge IS the timestamp.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Step 6: Receptor Selectivity — Tuning the Filter</h3>
+        <p>
+          If vesicle charge encodes time/distance, then <strong>receptors can selectively filter signals</strong> 
+          by adjusting their own ganglioside content.
+        </p>
+
+        <!-- Receptor Selectivity Illustration -->
+        <figure class="my-8">
+          <img 
+            src="/images/receptor-selectivity-tuning.svg" 
+            alt="Receptor selectivity: showing how receptors with different GT1b levels accept different vesicle populations"
+            class="w-full rounded-lg border border-slate-200 shadow-lg bg-white"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            <strong>Receptor Selectivity:</strong> By adjusting its ganglioside content, a receptor can 
+            dynamically filter which vesicles it accepts — either "fresh" (short-distance) or "old" (long-distance).
+          </figcaption>
+        </figure>
+
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-emerald-800 mb-4">🎯 The Selectivity Principle</h4>
+          
+          <table class="w-full text-sm mb-4">
+            <thead>
+              <tr class="border-b bg-emerald-100">
+                <th class="text-left py-2 px-2 text-emerald-800">Receptor State</th>
+                <th class="text-left py-2 px-2 text-emerald-800">Repels</th>
+                <th class="text-left py-2 px-2 text-emerald-800">Accepts</th>
+                <th class="text-left py-2 px-2 text-emerald-800">Functional Meaning</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-700">
+              <tr class="border-b">
+                <td class="py-2 px-2 font-medium">Low GT1b</td>
+                <td class="py-2 px-2 text-red-600">Weak charge (old)</td>
+                <td class="py-2 px-2 text-green-600">Strong charge (fresh)</td>
+                <td class="py-2 px-2 italic">Listen to nearby signals</td>
+              </tr>
+              <tr class="border-b bg-emerald-50">
+                <td class="py-2 px-2 font-medium">High GT1b</td>
+                <td class="py-2 px-2 text-red-600">Strong charge (fresh)</td>
+                <td class="py-2 px-2 text-green-600">Weak charge (old)</td>
+                <td class="py-2 px-2 italic">Listen to distant signals</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="bg-white rounded p-4 border border-emerald-200">
+            <h5 class="font-bold text-emerald-700 mb-2">🧠 Implications for Neural Computation</h5>
+            <p class="text-slate-700 text-sm mb-2">
+              This mechanism would allow neurons to:
+            </p>
+            <ul class="text-slate-600 text-sm space-y-1 ml-4 list-disc">
+              <li><strong>Temporal integration:</strong> Accept signals over a specific time window</li>
+              <li><strong>Spatial filtering:</strong> Respond only to nearby or distant sources</li>
+              <li><strong>Dynamic tuning:</strong> Change selectivity by modifying membrane composition</li>
+              <li><strong>Noise rejection:</strong> Ignore signals that are "too old" or "too fresh"</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- A-series vs B-series illustration -->
+        <h3>The Great Divide: A-Series vs B-Series Function</h3>
+        
+        <figure class="my-8">
+          <img 
+            src="/images/a-series-vs-b-series-function.svg" 
+            alt="A-series vs B-series gangliosides: showing internal (lysosomal) vs external (shedding) pathways"
+            class="w-full rounded-lg border border-slate-200 shadow-lg bg-white"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            <strong>The Great Divide:</strong> A-series gangliosides are internalized and degraded (storage diseases 
+            when this fails). B-series gangliosides are exported for intercellular communication (no storage diseases).
           </figcaption>
         </figure>
 
