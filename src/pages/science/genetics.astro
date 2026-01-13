@@ -135,16 +135,16 @@ const t = useTranslations('en');
         </table>
 
         <!-- NEW SECTION: NEU1 -->
-        <h2>The NEU1 Discovery — The "Lazy Enzyme" Hypothesis</h2>
+        <h2>NEU1 — A Candidate for Neuroinflammatory Involvement?</h2>
         
         <div class="key-concept">
-          <div class="key-concept-title">NEU1: Why NT1 Patients Have More GT1b Receptors</div>
+          <div class="key-concept-title">NEU1: Proximity to HLA — But What Role?</div>
           <p class="mb-0">
-            <span class="gene-name">NEU1</span> (Neuraminidase 1) is a sialidase that removes terminal sialic acids 
-            from gangliosides and glycoproteins. It lies at <strong>6p21.33</strong> — within the same haplotype block as HLA-DQB1. 
-            <strong>Note:</strong> NEU1 is <em>not</em> a confirmed GWAS hit for narcolepsy. However, its location 
-            within the MHC region (in strong linkage disequilibrium with HLA-DQB1*06:02) makes it a compelling 
-            candidate for functional involvement in the risk haplotype.
+            <span class="gene-name">NEU1</span> (Neuraminidase 1) is a lysosomal sialidase that removes terminal sialic acids 
+            from <strong>N-glycans on glycoproteins</strong> (NOT gangliosides like GT1b). It lies at <strong>6p21.33</strong> — 
+            within the same haplotype block as HLA-DQB1*06:02. While NEU1 is <em>not</em> a confirmed GWAS hit for narcolepsy, 
+            its location in the MHC region and its role in <strong>neuroinflammation</strong> (analogous to Alzheimer's disease) 
+            make it a speculative but interesting candidate.
           </p>
         </div>
 
@@ -250,6 +250,64 @@ const t = useTranslations('en');
           </p>
         </div>
 
+        <!-- NEW: Alzheimer's Analogy Section -->
+        <h3>An Alternative Hypothesis: NEU1 and Neuroinflammation</h3>
+        <p>
+          While NEU1 does not act on gangliosides, there is another pathway by which it <em>could</em> contribute 
+          to orexin neuron death — via <strong>neuroinflammation and immune dysregulation</strong>. This hypothesis 
+          draws on analogies from Alzheimer's disease research.
+        </p>
+
+        <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-purple-800 mb-4">The Alzheimer's Disease Analogy</h4>
+          <p class="text-purple-700 text-sm mb-3">
+            In Alzheimer's disease, <strong>NEU1 deficiency</strong> has been shown to drive neurodegeneration:
+          </p>
+          <ul class="text-purple-700 text-sm space-y-1 mb-3">
+            <li>• NEU1 ↓ → Hypersialylation of glycoproteins</li>
+            <li>• Hypersialylation → Lysosomal dysfunction</li>
+            <li>• Lysosomal dysfunction → Neuroinflammation (microglia activation)</li>
+            <li>• Neuroinflammation → Neuronal death</li>
+          </ul>
+          <p class="text-purple-700 text-sm mb-0">
+            <strong>Key finding:</strong> In AD models, <em>increasing</em> NEU1 activity is <strong>protective</strong>, 
+            while NEU1 deficiency accelerates neurodegeneration. Could a similar mechanism apply to orexin neurons?
+          </p>
+        </div>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Hypothesis: NEU1 → Hypersialylation → Orexin Death</div>
+          <p class="mb-2">
+            <em>If</em> NEU1 is underactive in NT1 patients, hypersialylation of glycoproteins on or around 
+            orexin neurons could contribute to their destruction via several mechanisms:
+          </p>
+          <ol class="text-sm space-y-2 mb-0">
+            <li><strong>1. Altered immune recognition:</strong> Hypersialylated cell surfaces may be recognized 
+            as "foreign" by autoreactive T-cells, especially in the context of HLA-DQB1*06:02 antigen presentation.</li>
+            <li><strong>2. Neuroinflammation:</strong> Hypersialylation disrupts lysosomal clearance and activates 
+            microglia/macrophages, creating a pro-inflammatory environment around orexin neurons.</li>
+            <li><strong>3. Disrupted immune tolerance:</strong> Sialylation normally masks antigens from the immune 
+            system; abnormal sialylation patterns could disrupt this tolerance and facilitate autoimmune attack.</li>
+          </ol>
+        </div>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">⚠️ Important: This Is Speculative</h4>
+          <p class="text-amber-700 text-sm mb-2">
+            <strong>No study has directly tested</strong> NEU1 expression in orexin neurons or the hypothalamus of NT1 patients. 
+            This hypothesis is based on:
+          </p>
+          <ul class="text-amber-700 text-sm mb-2">
+            <li>• The N-glycan finding (hypersialylation in NT1 serum)</li>
+            <li>• NEU1's location in the MHC region (linkage disequilibrium with HLA-DQB1*06:02)</li>
+            <li>• Analogies from Alzheimer's disease research</li>
+          </ul>
+          <p class="text-amber-700 text-sm mb-0">
+            <strong>To test this hypothesis:</strong> Measure NEU1 activity/levels in post-mortem hypothalamus from NT1 patients; 
+            analyze sialylation of hypocretin-related proteins; test animal models with NEU1 knockdown + autoimmune trigger.
+          </p>
+        </div>
+
         <div class="warning-box">
           <h4 class="font-bold text-amber-800 mb-2">The Sialidosis Paradox</h4>
           <p class="text-amber-700 text-sm mb-0">
@@ -285,7 +343,7 @@ const t = useTranslations('en');
               <tr class="border-b border-slate-600">
                 <th class="text-left py-2 text-slate-300">Gene</th>
                 <th class="text-left py-2 text-slate-300">Status</th>
-                <th class="text-left py-2 text-slate-300">Role</th>
+                <th class="text-left py-2 text-slate-300">Hypothesized Mechanism</th>
               </tr>
             </thead>
             <tbody>
@@ -297,18 +355,18 @@ const t = useTranslations('en');
               <tr class="border-b border-slate-700">
                 <td class="py-2 text-cyan-400 font-bold">NEU1</td>
                 <td class="py-2 text-yellow-400">? Hypothesis</td>
-                <td class="py-2 text-slate-300"><em>If</em> underactive → could explain N-glycan finding (NOT GT1b)</td>
+                <td class="py-2 text-slate-300"><em>If</em> underactive → hypersialylation → neuroinflammation → orexin death (Alzheimer's analogy)</td>
               </tr>
               <tr>
                 <td class="py-2 text-amber-400 font-bold">B3GALT4</td>
                 <td class="py-2 text-yellow-400">? Hypothesis</td>
-                <td class="py-2 text-slate-300"><em>If</em> overactive → could increase GT1b production</td>
+                <td class="py-2 text-slate-300"><em>If</em> overactive → increased GT1b production → viral binding sites</td>
               </tr>
             </tbody>
           </table>
           <p class="text-slate-400 text-xs mt-3 italic">
-            <strong>Important:</strong> NEU1 acts on N-glycans, NOT gangliosides. The N-glycan finding does not directly 
-            support GT1b accumulation. If GT1b is relevant, B3GALT4 (synthesis) or NEU3/NEU4 (degradation) are the candidates.
+            <strong>Note:</strong> NEU1 acts on N-glycans (NOT GT1b). Its potential role is via neuroinflammation, 
+            analogous to mechanisms seen in Alzheimer's disease — not ganglioside metabolism.
           </p>
         </div>
 
