@@ -42,49 +42,52 @@ const t = useTranslations('en');
 
         <h2>Genetic Evidence</h2>
         <p>
-          Nearly all affected individuals carry the HLA-DQB1*06:02 allele. While this supports 
-          autoimmune etiology, the mechanism involves <strong>three linked genes</strong> in the 
-          MHC region — the "Synergistic Trinity":
+          Nearly all affected individuals carry the HLA-DQB1*06:02 allele. We propose that <em>additional</em> 
+          genes in the MHC region may contribute — the "Synergistic Trinity" hypothesis:
         </p>
         
         <div class="bg-slate-800 text-white rounded-lg p-6 my-6">
-          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity</h4>
+          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity — A Proposed Model</h4>
           <div class="grid md:grid-cols-3 gap-4">
             <div class="bg-slate-700 rounded p-4">
-              <h5 class="font-bold text-purple-400 mb-2">HLA-DQB1*06:02</h5>
+              <h5 class="font-bold text-purple-400 mb-2">HLA-DQB1*06:02 <span class="text-green-400 text-xs">(confirmed)</span></h5>
               <p class="text-slate-300 text-sm">The <strong>Lock</strong> — Presents mimicry peptides to T cells</p>
             </div>
             <div class="bg-slate-700 rounded p-4">
-              <h5 class="font-bold text-cyan-400 mb-2">NEU1</h5>
-              <p class="text-slate-300 text-sm">The <strong>Accumulator</strong> — Reduced degradation → more GT1b receptors</p>
+              <h5 class="font-bold text-cyan-400 mb-2">NEU1 <span class="text-yellow-400 text-xs">(hypothesis)</span></h5>
+              <p class="text-slate-300 text-sm">The <strong>Accumulator</strong> — <em>If</em> underactive → more GT1b?</p>
             </div>
             <div class="bg-slate-700 rounded p-4">
-              <h5 class="font-bold text-amber-400 mb-2">B3GALT4</h5>
-              <p class="text-slate-300 text-sm">The <strong>Producer</strong> — Overproduces GT1b → exosome shedding</p>
+              <h5 class="font-bold text-amber-400 mb-2">B3GALT4 <span class="text-yellow-400 text-xs">(hypothesis)</span></h5>
+              <p class="text-slate-300 text-sm">The <strong>Producer</strong> — <em>If</em> overactive → more GT1b?</p>
             </div>
           </div>
+          <p class="text-slate-400 text-xs mt-3 italic">
+            Only HLA-DQB1*06:02 is a confirmed risk factor. NEU1 and B3GALT4 involvement is hypothesized.
+          </p>
         </div>
 
         <div class="key-concept">
-          <div class="key-concept-title">NEU1: The "Lazy Enzyme" Evidence</div>
+          <div class="key-concept-title">N-Glycan Finding — A Clue to NEU1 Involvement?</div>
           <p class="mb-2">
             <strong>NEU1</strong> (Neuraminidase 1) at 6p21.33 degrades gangliosides by removing sialic acids. 
-            GWAS shows NEU1 variants associated with narcolepsy at <strong>p = 6E-14</strong>.
+            It lies within the MHC region in strong linkage disequilibrium with HLA-DQB1*06:02.
           </p>
           <ul class="mb-0 text-sm">
             <li>• <strong>Key finding:</strong> NT1 patients have 3x elevated trisialylated N-glycans in serum</li>
-            <li>• <strong>Interpretation:</strong> This indicates <em>reduced</em> NEU1 activity ("Lazy Enzyme")</li>
-            <li>• <strong>Result:</strong> GT1b accumulates on nerve surfaces → more viral binding sites</li>
+            <li>• <strong>One interpretation:</strong> This <em>could</em> indicate reduced NEU1 activity</li>
+            <li>• <strong>If true:</strong> GT1b might accumulate on nerve surfaces → more viral binding sites</li>
           </ul>
+          <p class="text-slate-500 text-xs mt-2 italic">⚠️ No NEU1 variant has been confirmed in NT1 patients.</p>
         </div>
 
         <div class="warning-box">
           <h4 class="font-bold text-amber-800 mb-2">Important Clarification: B3GALT4 ≠ N-Glycans</h4>
           <p class="text-amber-700 text-sm mb-0">
             NT1 patients show elevated <strong>trisialylated N-glycans</strong> in serum. This is NOT due to 
-            B3GALT4 (which only makes gangliosides). The true driver is <strong>NEU1 dysfunction</strong> — 
-            reduced degradation leads to hypersialylation. B3GALT4 affects the <em>ganglioside</em> pathway 
-            (GT1b → viral binding), while NEU1 affects the <em>N-glycan</em> pathway (sialic acid catabolism).
+            B3GALT4 (which only makes gangliosides). <em>If</em> the finding reflects reduced sialidase activity, 
+            NEU1 would be the candidate. B3GALT4 affects the <em>ganglioside</em> pathway, while NEU1 affects 
+            the <em>N-glycan</em> pathway. <strong>Neither has been confirmed as a risk gene.</strong>
           </p>
         </div>
 
@@ -110,21 +113,24 @@ const t = useTranslations('en');
           <li>Some tracers (like tetanus toxin) are released into CNS parenchyma</li>
         </ol>
 
-        <h2>The Complete Pathogenesis Model</h2>
+        <h2>A Proposed Pathogenesis Model</h2>
         <p>
-          Integrating all evidence, we propose an 8-step cascade from genetic predisposition to 
-          orexin neuron destruction:
+          Integrating available evidence, we <em>hypothesize</em> a cascade from genetic predisposition to 
+          orexin neuron destruction. <strong>Many steps remain unproven:</strong>
         </p>
         <ol>
-          <li><strong>Genetic Predisposition:</strong> Individual inherits HLA-DQB1*06:02 + NEU1(High) + B3GALT4(High) haplotype</li>
+          <li><strong>Genetic Predisposition:</strong> Individual inherits HLA-DQB1*06:02 <span class="text-green-600">(confirmed)</span> ± NEU1/B3GALT4 variants <span class="text-amber-600">(hypothesized)</span></li>
           <li><strong>Trigger:</strong> H1N1 infection or Pandemrix vaccination</li>
-          <li><strong>NEU1 "Lazy Enzyme":</strong> Reduced degradation → GT1b accumulates → more viral binding sites</li>
-          <li><strong>Cytokine Storm:</strong> IL-1β, IL-6, TNF-α production via NF-κB</li>
-          <li><strong>B3GALT4 Overdrive:</strong> GT1b overproduction, exosome shedding</li>
-          <li><strong>Exosomal Adjuvans:</strong> GT1b-rich exosomes activate TLR2, amplify response</li>
-          <li><strong>Antigen Presentation:</strong> NEU1 unmasks epitopes, HLA-DQB1 presents mimicry peptide</li>
-          <li><strong>BBB Breach + Destruction:</strong> CD4+ T-cells enter hypothalamus, destroy orexin neurons</li>
+          <li><strong>NEU1 effect (if underactive):</strong> Reduced degradation → GT1b accumulates?</li>
+          <li><strong>Inflammation:</strong> Cytokine production (IL-1β, IL-6, TNF-α)</li>
+          <li><strong>B3GALT4 effect (if overactive):</strong> GT1b overproduction, exosome shedding?</li>
+          <li><strong>Potential adjuvant effect:</strong> GT1b-rich exosomes activate TLR2?</li>
+          <li><strong>Antigen Presentation:</strong> HLA-DQB1 presents mimicry peptide <span class="text-green-600">(supported)</span></li>
+          <li><strong>BBB Breach + Destruction:</strong> T-cells enter hypothalamus, destroy orexin neurons <span class="text-green-600">(supported)</span></li>
         </ol>
+        <p class="text-slate-500 text-sm italic mt-2">
+          Steps 1, 7, and 8 have experimental support. Steps 3-6 involving NEU1/B3GALT4 are speculative.
+        </p>
 
         <div class="info-box">
           <h4 class="font-bold text-blue-800 mb-2">Explore the Full Model</h4>

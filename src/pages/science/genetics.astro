@@ -142,7 +142,9 @@ const t = useTranslations('en');
           <p class="mb-0">
             <span class="gene-name">NEU1</span> (Neuraminidase 1) is a sialidase that removes terminal sialic acids 
             from gangliosides and glycoproteins. It lies at <strong>6p21.33</strong> — within the same haplotype block as HLA-DQB1. 
-            GWAS data shows NEU1 variants are associated with narcolepsy at p = 6E-14, comparable to HLA signals.
+            <strong>Note:</strong> NEU1 is <em>not</em> a confirmed GWAS hit for narcolepsy. However, its location 
+            within the MHC region (in strong linkage disequilibrium with HLA-DQB1*06:02) makes it a compelling 
+            candidate for functional involvement in the risk haplotype.
           </p>
         </div>
 
@@ -246,85 +248,103 @@ const t = useTranslations('en');
         </figure>
 
         <div class="bg-slate-800 text-white rounded-lg p-6 my-6">
-          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity — Revised Model</h4>
+          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity — Hypothetical Model</h4>
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-slate-600">
                 <th class="text-left py-2 text-slate-300">Gene</th>
-                <th class="text-left py-2 text-slate-300">Variant Type</th>
-                <th class="text-left py-2 text-slate-300">Function in Pathogenesis</th>
+                <th class="text-left py-2 text-slate-300">Proposed Variant</th>
+                <th class="text-left py-2 text-slate-300">Hypothesized Role</th>
               </tr>
             </thead>
             <tbody>
               <tr class="border-b border-slate-700">
                 <td class="py-2 text-purple-400 font-bold">HLA-DQB1*06:02</td>
-                <td class="py-2 text-slate-300">Structural</td>
+                <td class="py-2 text-slate-300">Structural <span class="text-green-400">(confirmed)</span></td>
                 <td class="py-2 text-slate-300">The Lock — Presents mimicry peptides to T cells</td>
               </tr>
               <tr class="border-b border-slate-700">
                 <td class="py-2 text-cyan-400 font-bold">NEU1</td>
-                <td class="py-2 text-slate-300">Regulatory (LoF)</td>
-                <td class="py-2 text-slate-300">The Accumulator — Reduced degradation → GT1b accumulates → more viral binding sites</td>
+                <td class="py-2 text-slate-300">LoF? <span class="text-yellow-400">(hypothesis)</span></td>
+                <td class="py-2 text-slate-300">The Accumulator — <em>If</em> reduced activity → GT1b accumulates</td>
               </tr>
               <tr>
                 <td class="py-2 text-amber-400 font-bold">B3GALT4</td>
-                <td class="py-2 text-slate-300">Regulatory (GoF)</td>
-                <td class="py-2 text-slate-300">The Producer — Overproduces GT1b → exosome shedding → TLR2 activation</td>
+                <td class="py-2 text-slate-300">GoF? <span class="text-yellow-400">(hypothesis)</span></td>
+                <td class="py-2 text-slate-300">The Producer — <em>If</em> increased activity → more GT1b production</td>
               </tr>
             </tbody>
           </table>
           <p class="text-slate-400 text-xs mt-3 italic">
-            Note: LoF = Loss-of-Function (underactivity), GoF = Gain-of-Function (overactivity). 
-            Both NEU1 (LoF) and B3GALT4 (GoF) lead to the same outcome: more GT1b on nerve surfaces.
+            Note: Only HLA-DQB1*06:02 is a confirmed genetic risk factor. NEU1 and B3GALT4 variants are 
+            <strong>hypothesized</strong> based on their MHC location and the N-glycan findings — not yet proven.
           </p>
         </div>
 
-        <!-- How Both Pathways Lead to More GT1b -->
-        <h2>Two Pathways, One Outcome: More GT1b Receptors</h2>
+        <!-- How Both Pathways Could Lead to More GT1b -->
+        <h2>Hypothetical Pathways: How GT1b Could Accumulate</h2>
+        
+        <div class="warning-box mb-6">
+          <h4 class="font-bold text-amber-800 mb-2">⚠️ Important: This Is a Hypothesis</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            <strong>No study has yet confirmed</strong> that NT1 patients carry "Lazy Enzyme" (NEU1) or 
+            "Super-Enzyme" (B3GALT4) variants. These are <em>proposed mechanisms</em> that could explain 
+            the observed N-glycan elevation — but remain to be tested. The proximity of these genes to 
+            HLA-DQB1 makes them compelling candidates for future research.
+          </p>
+        </div>
+
         <p>
-          Both NEU1 underactivity and B3GALT4 overactivity lead to the same result — 
-          <strong>more GT1b on nerve surfaces</strong> — but via different mechanisms:
+          <em>If</em> functional variants exist in either NEU1 or B3GALT4, they could theoretically lead 
+          to <strong>increased GT1b on nerve surfaces</strong> via two different mechanisms:
         </p>
 
         <div class="grid md:grid-cols-2 gap-6 my-8">
           <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-6">
-            <h4 class="font-bold text-cyan-800 mb-3">NEU1 "Lazy Enzyme" (LoF)</h4>
+            <h4 class="font-bold text-cyan-800 mb-3">Hypothesis A: NEU1 "Lazy Enzyme"</h4>
             <div class="text-center mb-3">
               <span class="text-4xl">🔽</span>
               <p class="text-cyan-700 text-sm font-bold">Reduced Degradation</p>
             </div>
             <p class="text-cyan-700 text-sm">
               NEU1 normally breaks down gangliosides by removing sialic acids. 
-              With reduced activity, GT1b is <strong>not degraded</strong> and accumulates on nerve surfaces.
+              <em>If</em> a variant reduces its activity, GT1b would accumulate on nerve surfaces.
             </p>
             <div class="bg-white rounded p-3 mt-3 text-center">
               <p class="text-cyan-800 font-mono text-sm">GT1b breakdown ↓ → GT1b levels ↑</p>
             </div>
+            <p class="text-cyan-600 text-xs mt-2 italic">
+              <strong>Supporting evidence:</strong> 3x elevated trisialylated N-glycans in NT1 patients 
+              suggests reduced sialidase activity.
+            </p>
           </div>
           
           <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
-            <h4 class="font-bold text-amber-800 mb-3">B3GALT4 "Super-Enzyme" (GoF)</h4>
+            <h4 class="font-bold text-amber-800 mb-3">Hypothesis B: B3GALT4 "Super-Enzyme"</h4>
             <div class="text-center mb-3">
               <span class="text-4xl">🔼</span>
               <p class="text-amber-700 text-sm font-bold">Increased Production</p>
             </div>
             <p class="text-amber-700 text-sm">
-              B3GALT4 synthesizes the GT1b precursor GD1b. With increased activity, 
-              <strong>more GT1b is produced</strong> than the cell can shed via exosomes.
+              B3GALT4 synthesizes the GT1b precursor GD1b. <em>If</em> a variant increases its activity, 
+              more GT1b would be produced than can be shed via exosomes.
             </p>
             <div class="bg-white rounded p-3 mt-3 text-center">
               <p class="text-amber-800 font-mono text-sm">GT1b production ↑ → GT1b levels ↑</p>
             </div>
+            <p class="text-amber-600 text-xs mt-2 italic">
+              <strong>Supporting rationale:</strong> B3GALT4 lies within the MHC region, in LD with HLA-DQB1.
+            </p>
           </div>
         </div>
 
         <div class="key-concept">
-          <div class="key-concept-title">The Double-Hit: Both Pathways Active</div>
+          <div class="key-concept-title">The "Double-Hit" Hypothesis</div>
           <p class="mb-0">
-            In the risk haplotype, <strong>both variants are present together</strong>. NEU1 underactivity 
-            means less degradation, while B3GALT4 overactivity means more production. The combined effect 
-            is a <strong>dramatic increase in GT1b</strong> on peripheral nerve surfaces — creating an 
-            abundance of binding sites for H1N1 antigen.
+            <em>If</em> both variants exist in the risk haplotype, they could synergize: NEU1 underactivity 
+            would reduce degradation, while B3GALT4 overactivity would increase production. The combined effect 
+            <em>could</em> be a significant increase in GT1b on peripheral nerve surfaces — creating more 
+            binding sites for H1N1 antigen. <strong>This remains to be tested.</strong>
           </p>
         </div>
 
