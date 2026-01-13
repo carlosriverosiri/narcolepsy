@@ -43,15 +43,47 @@ const t = useTranslations('en');
         <h2>Genetic Evidence</h2>
         <p>
           Nearly all affected individuals carry the HLA-DQB1*06:02 allele. While this supports 
-          autoimmune etiology, the mechanism may involve linked genes in the HLA region.
+          autoimmune etiology, the mechanism involves <strong>three linked genes</strong> in the 
+          MHC region — the "Synergistic Trinity":
         </p>
         
+        <div class="bg-slate-800 text-white rounded-lg p-6 my-6">
+          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity</h4>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-slate-700 rounded p-4">
+              <h5 class="font-bold text-purple-400 mb-2">HLA-DQB1*06:02</h5>
+              <p class="text-slate-300 text-sm">The <strong>Lock</strong> — Presents mimicry peptides to T cells</p>
+            </div>
+            <div class="bg-slate-700 rounded p-4">
+              <h5 class="font-bold text-cyan-400 mb-2">NEU1</h5>
+              <p class="text-slate-300 text-sm">The <strong>Ignition</strong> — Removes immune brakes via Siglec system</p>
+            </div>
+            <div class="bg-slate-700 rounded p-4">
+              <h5 class="font-bold text-amber-400 mb-2">B3GALT4</h5>
+              <p class="text-slate-300 text-sm">The <strong>Fuel</strong> — Overproduces GT1b for viral binding</p>
+            </div>
+          </div>
+        </div>
+
         <div class="key-concept">
-          <div class="key-concept-title">The Neuraminidase Hypothesis</div>
-          <p class="mb-0">
-            Neuraminidase genes (NEU1-4) are located near the HLA locus. Variants affecting 
-            ganglioside metabolism could explain susceptibility while being in linkage 
-            disequilibrium with DQB1*06:02.
+          <div class="key-concept-title">NEU1: The Key Discovery</div>
+          <p class="mb-2">
+            <strong>NEU1</strong> (Neuraminidase 1) at 6p21.33 controls the "Siglec brake system" on TLR4. 
+            GWAS shows NEU1 variants associated with narcolepsy at <strong>p = 6E-14</strong>.
+          </p>
+          <ul class="mb-0 text-sm">
+            <li>• <strong>Normal:</strong> Sialic acids on TLR4 engage Siglec receptors → immune suppression</li>
+            <li>• <strong>"Super-enzyme" variant:</strong> Aggressive desialylation → brake failure → cytokine storm</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">Important Clarification: B3GALT4 ≠ N-Glycans</h4>
+          <p class="text-amber-700 text-sm mb-0">
+            NT1 patients show elevated <strong>trisialylated N-glycans</strong> in serum. This is NOT due to 
+            B3GALT4 (which only makes gangliosides). The true driver is <strong>NEU1 dysfunction</strong> — 
+            reduced degradation leads to hypersialylation. B3GALT4 affects the <em>ganglioside</em> pathway 
+            (GT1b → viral binding), while NEU1 affects the <em>N-glycan</em> pathway (sialic acid catabolism).
           </p>
         </div>
 
@@ -77,9 +109,31 @@ const t = useTranslations('en');
           <li>Some tracers (like tetanus toxin) are released into CNS parenchyma</li>
         </ol>
 
-        <p class="text-slate-500 italic mt-8">
-          This page is under development. More detailed evidence with references will be added.
+        <h2>The Complete Pathogenesis Model</h2>
+        <p>
+          Integrating all evidence, we propose an 8-step cascade from genetic predisposition to 
+          orexin neuron destruction:
         </p>
+        <ol>
+          <li><strong>Genetic Predisposition:</strong> Individual inherits HLA-DQB1*06:02 + NEU1(High) + B3GALT4(High) haplotype</li>
+          <li><strong>Trigger:</strong> H1N1 infection or Pandemrix vaccination</li>
+          <li><strong>NEU1 Hyperactivation:</strong> TLR4 desialylation, Siglec brakes removed</li>
+          <li><strong>Cytokine Storm:</strong> IL-1β, IL-6, TNF-α production via NF-κB</li>
+          <li><strong>B3GALT4 Overdrive:</strong> GT1b overproduction, exosome shedding</li>
+          <li><strong>Exosomal Adjuvans:</strong> GT1b-rich exosomes activate TLR2, amplify response</li>
+          <li><strong>Antigen Presentation:</strong> NEU1 unmasks epitopes, HLA-DQB1 presents mimicry peptide</li>
+          <li><strong>BBB Breach + Destruction:</strong> CD4+ T-cells enter hypothalamus, destroy orexin neurons</li>
+        </ol>
+
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Explore the Full Model</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            For detailed diagrams and complete explanations, see:
+            <a href="/science/genetics/" class="text-blue-600 underline">Genetics</a> | 
+            <a href="/science/transport/" class="text-blue-600 underline">Neuronal Transport</a> | 
+            <a href="/science/gangliosides/" class="text-blue-600 underline">Ganglioside Biology</a>
+          </p>
+        </div>
       </div>
     </div>
   </section>

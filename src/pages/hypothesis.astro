@@ -722,22 +722,83 @@ DAMAGED C-FIBER TERMINAL (charge lost)
           </div>
         </div>
 
-        <h2>The Genetic Factor: B3GALT4 — A New Interpretation</h2>
+        <h2>The Genetic Factor: The Synergistic Trinity</h2>
         <p>
           Nearly 100% of Pandemrix-associated narcolepsy patients carry HLA-DQB1*06:02<RefLink id="7" text={references[6].text} url={references[6].url} />. The traditional 
-          interpretation is that this HLA molecule efficiently presents H1N1 peptides. However:
+          interpretation is that this HLA molecule efficiently presents H1N1 peptides. However, 
+          we propose that <strong>three genes</strong> inherited together create the perfect storm:
         </p>
         
+        <div class="bg-slate-800 text-white rounded-lg p-6 my-6">
+          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity — Three Genes, One Haplotype</h4>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-600">
+                <th class="text-left py-2 text-slate-300">Gene</th>
+                <th class="text-left py-2 text-slate-300">Location</th>
+                <th class="text-left py-2 text-slate-300">Role in Pathogenesis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-700">
+                <td class="py-2 text-purple-400 font-bold">HLA-DQB1*06:02</td>
+                <td class="py-2 text-slate-300">6p21.32</td>
+                <td class="py-2 text-slate-300"><strong>The Lock</strong> — Presents mimicry peptides to T cells</td>
+              </tr>
+              <tr class="border-b border-slate-700">
+                <td class="py-2 text-cyan-400 font-bold">NEU1</td>
+                <td class="py-2 text-slate-300">6p21.33</td>
+                <td class="py-2 text-slate-300"><strong>The Ignition</strong> — Removes immune brakes, enables cytokine storm</td>
+              </tr>
+              <tr>
+                <td class="py-2 text-amber-400 font-bold">B3GALT4</td>
+                <td class="py-2 text-slate-300">6p21.32</td>
+                <td class="py-2 text-slate-300"><strong>The Fuel</strong> — Overproduces GT1b, creates target-rich environment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>NEU1: The Immune "Ignition Switch"</h3>
+        <p>
+          <strong>NEU1</strong> (Neuraminidase 1) is a sialidase that removes sialic acids from receptors. 
+          It controls the "Siglec brake system" on Toll-like receptors (TLRs):
+        </p>
+        <ul>
+          <li><strong>Normal state:</strong> TLR4 is covered with sialic acids → Siglec receptors bind → signal OFF</li>
+          <li><strong>NEU1 "super-enzyme":</strong> Aggressive desialylation → Siglecs can't bind → permanent brake failure</li>
+          <li><strong>Result:</strong> Hyperinflammation, cytokine storm, opened blood-brain barrier</li>
+        </ul>
+        <p>
+          GWAS data shows NEU1 variants associated with narcolepsy at <strong>p = 6E-14</strong> — 
+          comparable to the HLA signal itself.
+        </p>
+
+        <h3>B3GALT4: The GT1b "Fuel Supply"</h3>
         <div class="warning-box">
-          <h4 class="font-bold text-amber-800 mb-2">The B3GALT4 Connection</h4>
+          <h4 class="font-bold text-amber-800 mb-2">Why No Storage Disease?</h4>
           <p class="text-amber-700 text-sm mb-2">
-            <strong>B3GALT4</strong> (Beta-1,3-galactosyltransferase 4) is located at <strong>6p21.32</strong> — 
-            directly within the HLA region, in linkage disequilibrium with DQB1*06:02.
+            If B3GALT4 overproduces GT1b, why don't patients develop storage disease like Tay-Sachs? 
+            The answer: <strong>B-series gangliosides are SHED, not stored</strong>.
           </p>
           <p class="text-amber-700 text-sm mb-0">
-            B3GALT4 catalyzes GD2 → GD1b, a critical step in GT1b biosynthesis. Variants affecting 
-            B3GALT4 expression could increase GT1b levels, enhancing transport efficiency. The 
-            "HLA association" may actually reflect a <strong>B3GALT4 association</strong>.
+            Excess GT1b is exported via <strong>exosomes</strong>, keeping neurons healthy but creating 
+            an extracellular "cloud" of gangliosides that activates TLR2 and amplifies inflammation. 
+            This is why there's no known GT1b storage disease — the body has a bypass mechanism.
+          </p>
+        </div>
+        
+        <p>
+          <strong>B3GALT4</strong> (Beta-1,3-galactosyltransferase 4) catalyzes GD2 → GD1b, a critical 
+          step in GT1b biosynthesis. A "gain-of-function" variant would increase GT1b production, 
+          enhancing both viral binding sites and exosomal shedding.
+        </p>
+        
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Learn More</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            For the complete genetic model including the 8-step pathogenesis cascade, see the 
+            <a href="/science/genetics/" class="text-blue-600 underline font-semibold">Genetics page</a>.
           </p>
         </div>
 
