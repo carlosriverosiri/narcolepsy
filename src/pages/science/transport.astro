@@ -111,7 +111,7 @@ const t = useTranslations('en');
           <li>Thin patients may have nerves closer to the injection zone</li>
         </ul>
 
-        <h2>Lamina I: The Destination</h2>
+        <h2>Lamina I: The Critical Convergence Zone</h2>
         <p>
           Primary afferent neurons from peripheral nerves terminate in specific layers (laminae) 
           of the spinal cord dorsal horn. Lamina I (the marginal zone) receives:
@@ -121,25 +121,121 @@ const t = useTranslations('en');
           <li>Thermoreceptive afferents (temperature)</li>
           <li>C-fiber inputs from various peripheral tissues</li>
         </ul>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Descending Orexinergic Projections</div>
+          <p class="mb-2">
+            Critically, <strong>orexin neurons project from hypothalamus to Lamina I</strong>. 
+            Immunohistochemical studies show dense orexin-immunoreactive fibers at all spinal levels.
+          </p>
+          <ul class="mb-0 text-sm">
+            <li>• Orexin-A fibers <strong>co-localize with Substance P</strong> (primary sensory neuron marker)</li>
+            <li>• <strong>Bidirectional transport</strong> proven: OX1R travels anterograde from DRG; OXA accumulates retrograde toward DRG</li>
+            <li>• This creates a direct <strong>PNS-CNS molecular exchange route</strong></li>
+          </ul>
+        </div>
+
+        <h2>The "Peripheral Entry" Hypothesis</h2>
         <p>
-          Critically, orexin-containing afferents from the hypothalamus also project to lamina I. 
-          If vaccine antigens are released in this region, they would be in direct proximity to 
-          orexin-containing terminals.
+          This anatomical arrangement suggests an alternative pathway for narcolepsy pathogenesis:
         </p>
 
+        <figure class="my-8">
+          <img 
+            src="/images/peripheral-entry-pathway.svg" 
+            alt="Peripheral Entry Hypothesis: H1N1 antigen transport from injection site to hypothalamus via spinal cord"
+            class="w-full rounded-lg border border-slate-200 shadow-lg bg-white"
+          />
+          <figcaption class="text-sm text-slate-600 mt-3 text-center">
+            <strong>The Peripheral Entry Hypothesis:</strong> Vaccine antigen binds GT1b on peripheral nerve terminals, 
+            is transported retrograde to Lamina I, where it encounters orexin afferents. The resulting immune response 
+            causes "dying back" degeneration to the hypothalamus.
+          </figcaption>
+        </figure>
+
+        <h3>Step-by-Step Mechanism</h3>
+        <ol>
+          <li><strong>Injection & Binding:</strong> H1N1-HA in Pandemrix binds GT1b ganglioside on nerve terminals in deltoid muscle</li>
+          <li><strong>AS03 Potentiation:</strong> The lipid adjuvant enhances membrane permeability and endocytosis</li>
+          <li><strong>Retrograde Transport:</strong> Antigen-containing endosomes are carried by dynein motors along the axon</li>
+          <li><strong>DRG Transit:</strong> The complex passes through dorsal root ganglion cell bodies</li>
+          <li><strong>Lamina I Release:</strong> Unlike cholera toxin (which stays intraneuronal), H1N1 antigen is <em>released extraneuronally</em></li>
+          <li><strong>Immune Activation:</strong> Released antigen triggers local inflammation, activating microglia</li>
+          <li><strong>Cross-Reactivity:</strong> T-cells activated against H1N1 peptides cross-react with orexin epitopes</li>
+          <li><strong>"Dying Back":</strong> Damage to orexin terminals in Lamina I propagates retrograde to hypothalamus</li>
+        </ol>
+
         <div class="warning-box">
-          <h4 class="font-bold text-amber-800 mb-2">The Coincidence of Location</h4>
+          <h4 class="font-bold text-amber-800 mb-2">The Anatomical Coincidence</h4>
           <p class="text-amber-700 text-sm mb-0">
             The convergence of peripheral nerve afferents and orexin-containing afferents in 
-            lamina I creates an anatomical substrate for autoimmune cross-reactivity. Vaccine 
+            Lamina I creates an anatomical substrate for autoimmune cross-reactivity. Vaccine 
             antigens deposited in this zone would be optimally positioned to trigger immune 
-            responses against orexin neurons.
+            responses against orexin neurons. This explains why a <em>peripheral</em> injection 
+            causes <em>central</em> neurodegeneration.
           </p>
         </div>
 
-        <p class="text-slate-500 italic mt-8">
-          This page is under development. Diagrams illustrating transport pathways will be added.
+        <h2>H1N1 Hemagglutinin and GT1b Binding</h2>
+        <p>
+          For the peripheral entry hypothesis to work, H1N1 must bind GT1b with sufficient affinity:
         </p>
+        
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 my-6">
+          <h4 class="font-bold text-blue-800 mb-4">Evidence for H1N1-GT1b Interaction</h4>
+          <ul class="text-blue-700 space-y-2">
+            <li>• Multiple studies show H1N1 binds gangliosides from human tissue, including GT1b</li>
+            <li>• GT1b contains both α2-3 and α2-8 linked sialic acids — multiple binding sites for viral proteins</li>
+            <li>• GT1b is the primary receptor for Merkel Cell Polyomavirus — confirming its capacity for viral binding</li>
+            <li>• Tetanus toxin uses GT1b/GD1b for neuroinvasion — the transport machinery exists</li>
+          </ul>
+        </div>
+
+        <h3>The Anti-GM3 Antibody Paradox</h3>
+        <p>
+          Children with Pandemrix-associated NT1 show elevated <strong>anti-GM3 antibodies</strong>, not anti-GT1b. 
+          This doesn't contradict the GT1b hypothesis:
+        </p>
+        <ul>
+          <li><strong>Degradation pathway:</strong> GT1b → GD1b → GM1 → GM3 (via neuraminidases)</li>
+          <li><strong>Epitope exposure:</strong> When GT1b is processed by immune cells, sialic acids are cleaved, exposing GM3</li>
+          <li><strong>Immunogenicity:</strong> GM3 may be more immunogenic once "unmasked" during inflammation</li>
+        </ul>
+        <p>
+          Thus, <strong>anti-GM3 is the "smoke" while GT1b was the "fuel"</strong> that enabled transport.
+        </p>
+
+        <h2>Clinical Correlations</h2>
+        
+        <h3>Spinal Inflammation in Acute NT1</h3>
+        <p>
+          If the spinal cord is involved in pathogenesis, we should see evidence of spinal inflammation:
+        </p>
+        <ul>
+          <li><strong>CSF Pleocytosis:</strong> Elevated white blood cells in cerebrospinal fluid have been observed in acute-onset NT1</li>
+          <li><strong>Timing:</strong> This inflammation is often transient — visible only if lumbar puncture is done early</li>
+          <li><strong>Interpretation:</strong> Consistent with acute myelitis that resolves once neurons have died</li>
+        </ul>
+
+        <h3>Sensory Symptoms in NT1</h3>
+        <p>
+          Since Lamina I modulates pain perception, spinal involvement should cause sensory symptoms:
+        </p>
+        <ul>
+          <li>Many NT1 patients report <strong>chronic pain, paresthesias, and altered pain thresholds</strong></li>
+          <li>These are often attributed to sleep disruption, but may reflect direct Lamina I damage</li>
+          <li>Dysfunction of descending pain-inhibitory orexin pathways could explain these symptoms</li>
+        </ul>
+
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">Research Implications</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            If the peripheral entry hypothesis is correct, prevention strategies should focus on 
+            <strong>minimizing nerve exposure during vaccination</strong> (e.g., injection technique, needle length) 
+            and <strong>identifying individuals with elevated GT1b expression</strong> (via B3GALT4 genotyping) 
+            for personalized vaccine protocols.
+          </p>
+        </div>
       </div>
     </div>
   </section>

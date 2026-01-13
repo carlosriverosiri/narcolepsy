@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 650" font-family="Inter, system-ui, sans-serif">
+  <rect width="950" height="650" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="475" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">The Peripheral Entry Hypothesis</text>
+  <text x="475" y="55" text-anchor="middle" font-size="11" fill="#64748b">H1N1 antigen transport from injection site to hypothalamus via spinal cord</text>
+
+  <!-- STEP 1: Injection site (deltoid) -->
+  <g transform="translate(50, 90)">
+    <rect x="0" y="0" width="200" height="120" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">1. INJECTION SITE</text>
+    <text x="100" y="42" text-anchor="middle" font-size="9" fill="#b45309">Deltoid muscle</text>
+    
+    <!-- Syringe icon -->
+    <rect x="30" y="55" width="6" height="40" rx="2" fill="#94a3b8"/>
+    <rect x="25" y="50" width="16" height="15" rx="2" fill="#64748b"/>
+    
+    <!-- Nerve terminals -->
+    <g transform="translate(60, 55)">
+      <text x="50" y="0" font-size="8" fill="#b45309">Nerve terminals with GT1b</text>
+      <line x1="0" y1="10" x2="100" y2="10" stroke="#22c55e" stroke-width="2"/>
+      <circle cx="20" cy="20" r="8" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+      <circle cx="50" cy="20" r="8" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+      <circle cx="80" cy="20" r="8" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+      <!-- H1N1 binding to GT1b -->
+      <circle cx="20" cy="20" r="4" fill="#ef4444"/>
+      <circle cx="50" cy="20" r="4" fill="#ef4444"/>
+      <circle cx="80" cy="20" r="4" fill="#ef4444"/>
+      <text x="50" y="45" text-anchor="middle" font-size="7" fill="#dc2626">H1N1-HA binds GT1b</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1’2 -->
+  <path d="M 250 150 L 310 150" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrowOrange)"/>
+  <text x="280" y="140" text-anchor="middle" font-size="8" fill="#92400e">Endocytosis</text>
+
+  <!-- STEP 2: Retrograde Transport -->
+  <g transform="translate(320, 90)">
+    <rect x="0" y="0" width="200" height="120" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">2. RETROGRADE TRANSPORT</text>
+    <text x="100" y="42" text-anchor="middle" font-size="9" fill="#2563eb">Along peripheral nerve axon</text>
+    
+    <!-- Axon with transport -->
+    <rect x="20" y="60" width="160" height="15" rx="4" fill="#93c5fd"/>
+    <text x="100" y="72" text-anchor="middle" font-size="7" fill="#1e40af">AXON (dynein transport)</text>
+    
+    <!-- Vesicle with H1N1 moving retrograde -->
+    <circle cx="140" cy="67" r="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="140" cy="67" r="4" fill="#ef4444"/>
+    <path d="M 130 67 L 100 67" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3,2"/>
+    <circle cx="90" cy="67" r="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="90" cy="67" r="3" fill="#ef4444" opacity="0.7"/>
+    <path d="M 80 67 L 50 67" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3,2"/>
+    
+    <text x="100" y="100" text-anchor="middle" font-size="7" fill="#1e40af">--> Toward CNS --></text>
+  </g>
+
+  <!-- Arrow 2’3 -->
+  <path d="M 520 150 L 580 150" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+  <!-- STEP 3: DRG -->
+  <g transform="translate(590, 90)">
+    <rect x="0" y="0" width="150" height="120" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+    <text x="75" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#7c3aed">3. DRG</text>
+    <text x="75" y="42" text-anchor="middle" font-size="9" fill="#8b5cf6">Dorsal Root Ganglion</text>
+    
+    <!-- DRG cell body -->
+    <ellipse cx="75" cy="80" rx="40" ry="30" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
+    <text x="75" y="75" text-anchor="middle" font-size="8" fill="#7c3aed" font-weight="bold">Cell body</text>
+    <text x="75" y="88" text-anchor="middle" font-size="7" fill="#8b5cf6">(pseudounipolar)</text>
+    
+    <!-- Two branches -->
+    <line x1="35" y1="80" x2="10" y2="80" stroke="#a855f7" stroke-width="2"/>
+    <line x1="115" y1="80" x2="140" y2="80" stroke="#a855f7" stroke-width="2"/>
+    <text x="10" y="100" font-size="6" fill="#7c3aed">Peripheral</text>
+    <text x="120" y="100" font-size="6" fill="#7c3aed">Central</text>
+  </g>
+
+  <!-- Arrow 3’4 (down) -->
+  <path d="M 665 210 L 665 250" stroke="#a855f7" stroke-width="3" marker-end="url(#arrowPurple)"/>
+
+  <!-- STEP 4: Lamina I -->
+  <g transform="translate(500, 260)">
+    <rect x="0" y="0" width="330" height="160" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <text x="165" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">4. LAMINA I  The Convergence Zone</text>
+    <text x="165" y="42" text-anchor="middle" font-size="10" fill="#b91c1c">Spinal cord dorsal horn</text>
+    
+    <!-- Lamina I structure -->
+    <rect x="20" y="55" width="290" height="45" rx="6" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+    <text x="165" y="75" text-anchor="middle" font-size="10" fill="#991b1b" font-weight="bold">LAMINA I (Marginal Zone)</text>
+    <text x="165" y="90" text-anchor="middle" font-size="8" fill="#b91c1c">Peripheral afferents meet descending orexin fibers</text>
+    
+    <!-- Orexin afferents (coming from above) -->
+    <path d="M 100 0 L 100 55" stroke="#f59e0b" stroke-width="3" stroke-dasharray="5,3"/>
+    <text x="100" y="-8" text-anchor="middle" font-size="8" fill="#92400e" font-weight="bold">OREXIN afferents</text>
+    <text x="100" y="5" text-anchor="middle" font-size="7" fill="#b45309">(from hypothalamus)</text>
+    
+    <!-- Peripheral afferents (coming from left/DRG) -->
+    <path d="M -20 75 L 20 75" stroke="#a855f7" stroke-width="3"/>
+    <text x="-35" y="80" text-anchor="end" font-size="7" fill="#7c3aed">From DRG</text>
+    
+    <!-- Release and interaction -->
+    <g transform="translate(20, 105)">
+      <circle cx="50" cy="15" r="12" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+      <text x="50" y="19" text-anchor="middle" font-size="7" fill="white" font-weight="bold">H1N1</text>
+      <text x="80" y="10" font-size="8" fill="#991b1b" font-weight="bold">Antigen released!</text>
+      <text x="80" y="22" font-size="7" fill="#b91c1c">Cross-reactive with orexin</text>
+      
+      <circle cx="200" cy="15" r="12" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+      <text x="200" y="19" text-anchor="middle" font-size="6" fill="white" font-weight="bold">OXA</text>
+      <text x="235" y="10" font-size="8" fill="#92400e" font-weight="bold">Orexin terminal</text>
+      <text x="235" y="22" font-size="7" fill="#b45309">Collateral damage</text>
+    </g>
+  </g>
+
+  <!-- Arrow 4’5 (up to hypothalamus) -->
+  <path d="M 580 420 Q 400 480 400 520" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <text x="450" y="475" text-anchor="middle" font-size="9" fill="#991b1b" font-weight="bold">"Dying Back"</text>
+  <text x="450" y="490" text-anchor="middle" font-size="8" fill="#b91c1c">Retrograde degeneration</text>
+
+  <!-- STEP 5: Hypothalamus (final) -->
+  <g transform="translate(250, 520)">
+    <rect x="0" y="0" width="300" height="110" rx="10" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <text x="150" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ef4444">5. HYPOTHALAMUS  Cell Death</text>
+    
+    <!-- Brain outline -->
+    <ellipse cx="80" cy="70" rx="50" ry="35" fill="#334155" stroke="#64748b" stroke-width="1"/>
+    <text x="80" y="65" text-anchor="middle" font-size="8" fill="#94a3b8">Lateral</text>
+    <text x="80" y="78" text-anchor="middle" font-size="8" fill="#94a3b8">Hypothalamus</text>
+    
+    <!-- Dead neurons -->
+    <circle cx="60" cy="70" r="8" fill="#374151" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,2"/>
+    <circle cx="90" cy="60" r="8" fill="#374151" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,2"/>
+    <circle cx="100" cy="80" r="8" fill="#374151" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,2"/>
+    
+    <g transform="translate(150, 45)">
+      <text x="0" y="0" font-size="10" fill="#fca5a5" font-weight="bold">Result:</text>
+      <text x="0" y="16" font-size="9" fill="#f87171">" Orexin neuron death</text>
+      <text x="0" y="30" font-size="9" fill="#f87171">" Hypocretin deficiency</text>
+      <text x="0" y="44" font-size="9" fill="#f87171">" NARCOLEPSY TYPE 1</text>
+    </g>
+  </g>
+
+  <!-- Left side: Summary box -->
+  <g transform="translate(50, 260)">
+    <rect x="0" y="0" width="200" height="180" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">KEY EVIDENCE</text>
+    
+    <g transform="translate(15, 40)" font-size="8" fill="#047857">
+      <text x="0" y="0" font-weight="bold">Anatomical:</text>
+      <text x="0" y="14">" Orexin fibers innervate Lamina I</text>
+      <text x="0" y="28">" DRG neurons express OX1R</text>
+      <text x="0" y="42">" Bidirectional transport proven</text>
+      
+      <text x="0" y="62" font-weight="bold">Biochemical:</text>
+      <text x="0" y="76">" H1N1-HA binds GT1b ganglioside</text>
+      <text x="0" y="90">" AS03 potentiates membrane uptake</text>
+      <text x="0" y="104">" Tetanus toxin uses same pathway</text>
+      
+      <text x="0" y="124" font-weight="bold">Clinical:</text>
+      <text x="0" y="138">" CSF pleocytosis in acute NT1</text>
+    </g>
+  </g>
+
+  <!-- Bottom: Anti-GM3 explanation -->
+  <rect x="50" y="455" width="200" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="150" y="475" text-anchor="middle" font-size="9" fill="#92400e" font-weight="bold">Anti-GM3 Antibodies Explained:</text>
+  <text x="150" y="490" text-anchor="middle" font-size="8" fill="#b45309">GT1b degrades ’ GM3 exposed ’ antibodies form</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a855f7"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ef4444"/>
+    </marker>
+  </defs>
+</svg>

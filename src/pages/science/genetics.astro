@@ -362,6 +362,95 @@ const t = useTranslations('en');
           </div>
         </div>
 
+        <!-- Critical Clarification: B3GALT4 and N-Glycans -->
+        <h2>Critical Clarification: Gangliosides vs. N-Glycans</h2>
+        
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">Important Biochemical Distinction</h4>
+          <p class="text-amber-700 text-sm mb-2">
+            NT1 patients show a <strong>3-fold increase in trisialylated N-glycans</strong> (HexNAc5Hex6NeuAc3) in serum. 
+            It's tempting to attribute this to B3GALT4 (which is in the HLA region), but this is <strong>biochemically incorrect</strong>:
+          </p>
+          <ul class="text-amber-700 text-sm mb-0 space-y-1">
+            <li>• <strong>B3GALT4</strong> = GANGLIOSIDE-specific enzyme (creates GM1, GD1b)</li>
+            <li>• <strong>N-glycans</strong> = Built by completely different enzymes (MGAT5, B4GALT1, ST6GAL1)</li>
+            <li>• These N-glycan enzymes are on <strong>different chromosomes</strong> — NOT linked to HLA</li>
+          </ul>
+        </div>
+
+        <h3>The Real Driver: NEU1 (Catabolism, Not Anabolism)</h3>
+        <p>
+          The hypersialylation seen in NT1 is NOT due to increased synthesis, but rather <strong>decreased degradation</strong>. 
+          NEU1 (neuraminidase 1) — which IS in the HLA region — removes sialic acids from glycoproteins:
+        </p>
+        <ul>
+          <li>If NEU1 is underactive → sialic acids accumulate → hypersialylation</li>
+          <li>This explains the N-glycan profile WITHOUT invoking B3GALT4</li>
+          <li>NEU1 variants in LD with HLA-DQB1*06:02 are the likely cause</li>
+        </ul>
+
+        <h3>N-Glycan Synthesis Enzymes — Chromosomal Map</h3>
+        <p>
+          The enzymes that build tri-antennary, trisialylated N-glycans are spread across the genome:
+        </p>
+        <table class="w-full text-sm my-6">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Enzyme</th>
+              <th class="text-left py-2 px-2">Gene</th>
+              <th class="text-left py-2 px-2">Chromosome</th>
+              <th class="text-left py-2 px-2">Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 px-2">GnT-V</td>
+              <td class="py-2 px-2"><span class="gene-name">MGAT5</span></td>
+              <td class="py-2 px-2">2q21.2</td>
+              <td class="py-2 px-2">Creates 3rd branch (tri-antennary)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2">β4GalT1</td>
+              <td class="py-2 px-2"><span class="gene-name">B4GALT1</span></td>
+              <td class="py-2 px-2">9p13</td>
+              <td class="py-2 px-2">Extends branches with galactose</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2">ST6Gal1</td>
+              <td class="py-2 px-2"><span class="gene-name">ST6GAL1</span></td>
+              <td class="py-2 px-2">3q27.3</td>
+              <td class="py-2 px-2">Adds α2-6 sialic acid (terminal cap)</td>
+            </tr>
+            <tr class="border-b bg-cyan-50">
+              <td class="py-2 px-2">Sialidase</td>
+              <td class="py-2 px-2"><span class="gene-name">NEU1</span></td>
+              <td class="py-2 px-2 font-bold text-cyan-700">6p21.33 ⚠️</td>
+              <td class="py-2 px-2"><strong>REMOVES sialic acids</strong> — in MHC region!</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="key-concept">
+          <div class="key-concept-title">The Dual Pathway Model</div>
+          <p class="mb-2">
+            The narcolepsy risk haplotype affects <strong>two parallel pathways</strong>:
+          </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-amber-50 border border-amber-200 rounded p-3">
+              <h5 class="font-bold text-amber-800 mb-1">Ganglioside Pathway</h5>
+              <p class="text-amber-700 text-sm mb-0">
+                B3GALT4 → ↑GT1b → viral binding sites → neuroinvasion
+              </p>
+            </div>
+            <div class="bg-cyan-50 border border-cyan-200 rounded p-3">
+              <h5 class="font-bold text-cyan-800 mb-1">N-Glycan Pathway</h5>
+              <p class="text-cyan-700 text-sm mb-0">
+                NEU1 → ↓sialic acid removal → hypersialylation → immune dysregulation
+              </p>
+            </div>
+          </div>
+        </div>
+
         <h2>Complete GT1b Biosynthesis Pathway — Genetic Map</h2>
         <p>
           The enzymes required to synthesize GT1b are distributed across multiple chromosomes:
