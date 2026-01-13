@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="500" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">GT1b Exosome Shedding: Storage vs Secretion</text>
+  <text x="450" y="55" text-anchor="middle" font-size="11" fill="#64748b">Why B3GALT4 "Super-Enzyme" causes SHEDDING not STORAGE disease</text>
+
+  <!-- Dividing line -->
+  <line x1="450" y1="75" x2="450" y2="450" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- LEFT SIDE: Lysosomal Storage Disease (e.g., Tay-Sachs) -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="390" height="360" rx="12" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+    <text x="195" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">STORAGE DISEASE (e.g., Tay-Sachs)</text>
+    <text x="195" y="50" text-anchor="middle" font-size="10" fill="#b91c1c">Enzyme DEFICIENCY (Loss-of-Function)</text>
+
+    <!-- Neuron cell body -->
+    <ellipse cx="195" cy="180" rx="120" ry="100" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+    <text x="195" y="100" text-anchor="middle" font-size="10" fill="#991b1b" font-weight="600">NEURON</text>
+
+    <!-- Lysosome (swollen with gangliosides) -->
+    <ellipse cx="195" cy="200" rx="60" ry="50" fill="#fecaca" stroke="#dc2626" stroke-width="3"/>
+    <text x="195" y="185" text-anchor="middle" font-size="9" fill="#7f1d1d" font-weight="bold">LYSOSOME</text>
+    <text x="195" y="200" text-anchor="middle" font-size="8" fill="#991b1b">(SWOLLEN)</text>
+    
+    <!-- Accumulated gangliosides inside lysosome -->
+    <g fill="#f59e0b" font-size="8">
+      <circle cx="175" cy="215" r="8" fill="#fcd34d" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="195" cy="225" r="8" fill="#fcd34d" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="215" cy="215" r="8" fill="#fcd34d" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="180" cy="235" r="6" fill="#fcd34d" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="210" cy="235" r="6" fill="#fcd34d" stroke="#f59e0b" stroke-width="1"/>
+    </g>
+    <text x="195" y="260" text-anchor="middle" font-size="7" fill="#92400e">Gangliosides TRAPPED</text>
+
+    <!-- Broken enzyme -->
+    <g transform="translate(280, 140)">
+      <rect x="0" y="0" width="50" height="30" rx="4" fill="#94a3b8" stroke="#64748b" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="25" y="12" text-anchor="middle" font-size="7" fill="#475569" font-weight="bold">Enzyme</text>
+      <text x="25" y="24" text-anchor="middle" font-size="6" fill="#64748b">BROKEN</text>
+      <text x="55" y="18" font-size="12" fill="#ef4444" font-weight="bold">X</text>
+    </g>
+
+    <!-- Result -->
+    <rect x="50" y="300" width="290" height="50" rx="8" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+    <text x="195" y="320" text-anchor="middle" font-size="10" fill="#991b1b" font-weight="bold">RESULT: Cell Death</text>
+    <text x="195" y="338" text-anchor="middle" font-size="8" fill="#b91c1c">Lysosomal rupture, neurodegeneration</text>
+  </g>
+
+  <!-- RIGHT SIDE: Exosome Shedding (Super-Enzyme) -->
+  <g transform="translate(480, 80)">
+    <rect x="0" y="0" width="390" height="360" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+    <text x="195" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">"SUPER-ENZYME" SHEDDING</text>
+    <text x="195" y="50" text-anchor="middle" font-size="10" fill="#15803d">Enzyme EXCESS (Gain-of-Function)</text>
+
+    <!-- Neuron cell body -->
+    <ellipse cx="195" cy="180" rx="120" ry="100" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="195" y="100" text-anchor="middle" font-size="10" fill="#166534" font-weight="600">NEURON</text>
+
+    <!-- Normal lysosome -->
+    <ellipse cx="130" cy="180" rx="30" ry="25" fill="#bbf7d0" stroke="#22c55e" stroke-width="2"/>
+    <text x="130" y="177" text-anchor="middle" font-size="7" fill="#15803d" font-weight="bold">LYS</text>
+    <text x="130" y="188" text-anchor="middle" font-size="6" fill="#22c55e">(normal)</text>
+
+    <!-- Super enzyme (Golgi) -->
+    <g transform="translate(160, 150)">
+      <rect x="0" y="0" width="70" height="35" rx="4" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+      <text x="35" y="14" text-anchor="middle" font-size="7" fill="white" font-weight="bold">B3GALT4</text>
+      <text x="35" y="26" text-anchor="middle" font-size="6" fill="#fef3c7">SUPER!</text>
+    </g>
+
+    <!-- Membrane with gangliosides -->
+    <path d="M 75 240 Q 195 220 315 240" fill="none" stroke="#22c55e" stroke-width="4"/>
+    
+    <!-- Gangliosides on membrane (packed) -->
+    <g>
+      <circle cx="100" cy="235" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="115" cy="230" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="130" cy="228" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="145" cy="226" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="160" cy="225" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="175" cy="224" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="190" cy="223" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="205" cy="223" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="220" cy="224" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="235" cy="225" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="250" cy="227" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="265" cy="230" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+      <circle cx="280" cy="234" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+    </g>
+    <text x="195" y="255" text-anchor="middle" font-size="7" fill="#92400e" font-weight="bold">Membrane SATURATED with GT1b</text>
+
+    <!-- Exosomes being shed -->
+    <g transform="translate(290, 200)">
+      <!-- Exosome 1 -->
+      <circle cx="30" cy="0" r="15" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="25" cy="-5" r="4" fill="#f59e0b"/>
+      <circle cx="35" cy="5" r="4" fill="#f59e0b"/>
+      <text x="30" y="3" text-anchor="middle" font-size="5" fill="#78350f">EV</text>
+      
+      <!-- Exosome 2 -->
+      <circle cx="55" cy="-20" r="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="52" cy="-23" r="3" fill="#f59e0b"/>
+      <circle cx="58" cy="-17" r="3" fill="#f59e0b"/>
+      
+      <!-- Exosome 3 -->
+      <circle cx="70" cy="15" r="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="70" cy="13" r="3" fill="#f59e0b"/>
+      
+      <!-- Arrows showing shedding -->
+      <path d="M 15 -10 L 25 -5" stroke="#f59e0b" stroke-width="1.5"/>
+      <path d="M 40 -25 L 48 -22" stroke="#f59e0b" stroke-width="1.5"/>
+      <path d="M 55 10 L 63 13" stroke="#f59e0b" stroke-width="1.5"/>
+    </g>
+    <text x="340" y="160" text-anchor="middle" font-size="8" fill="#b45309" font-weight="bold">EXOSOMES</text>
+    <text x="340" y="175" text-anchor="middle" font-size="7" fill="#92400e">GT1b-rich</text>
+    <text x="340" y="188" text-anchor="middle" font-size="7" fill="#92400e">vesicles shed</text>
+
+    <!-- Result -->
+    <rect x="50" y="300" width="290" height="50" rx="8" fill="#bbf7d0" stroke="#22c55e" stroke-width="2"/>
+    <text x="195" y="320" text-anchor="middle" font-size="10" fill="#166534" font-weight="bold">RESULT: Cell Survives</text>
+    <text x="195" y="338" text-anchor="middle" font-size="8" fill="#15803d">But creates extracellular GT1b "cloud"</text>
+  </g>
+
+  <!-- Bottom: Consequences -->
+  <rect x="100" y="455" width="700" height="35" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="450" y="477" text-anchor="middle" font-size="10" fill="#e2e8f0">
+    <tspan font-weight="bold" fill="#f59e0b">KEY INSIGHT:</tspan> 
+    <tspan fill="#94a3b8">GT1b exosomes act as DAMPs, activate TLR2, and create a pro-inflammatory environment that primes autoimmunity</tspan>
+  </text>
+</svg>
