@@ -148,74 +148,105 @@ const t = useTranslations('en');
           </p>
         </div>
 
-        <h3>Critical Evidence: Hypersialylation in NT1 Patients</h3>
+        <h3>The N-Glycan Finding: What Does It Really Show?</h3>
         <p>
-          Mass spectrometry studies show that NT1 patients have a <strong>3-fold increase in trisialylated N-glycans</strong> 
-          (HexNAc5Hex6NeuAc3) compared to healthy controls. This hypersialylation provides a critical clue about NEU1 function:
+          Mass spectrometry studies (Sanni et al., ACS Omega 2024) show that NT1 patients have a 
+          <strong>~3-fold increase in trisialylated N-glycans</strong>. However, the finding is more nuanced than it first appears:
         </p>
 
         <div class="bg-amber-50 border border-amber-200 rounded-lg p-6 my-6">
-          <h4 class="font-bold text-amber-800 mb-4">The N-Glycan Evidence — What It Tells Us</h4>
+          <h4 class="font-bold text-amber-800 mb-4">The Actual Data — Context Matters</h4>
           
           <table class="w-full text-sm mb-4">
             <thead>
               <tr class="border-b bg-amber-100">
-                <th class="text-left py-2 px-2 text-amber-800">If NEU1 were...</th>
-                <th class="text-left py-2 px-2 text-amber-800">Expected N-Glycans</th>
-                <th class="text-left py-2 px-2 text-amber-800">Expected GT1b</th>
+                <th class="text-left py-2 px-2 text-amber-800">Glycan Type</th>
+                <th class="text-left py-2 px-2 text-amber-800">Controls</th>
+                <th class="text-left py-2 px-2 text-amber-800">NT1 Patients</th>
+                <th class="text-left py-2 px-2 text-amber-800">Change</th>
               </tr>
             </thead>
             <tbody>
               <tr class="border-b">
-                <td class="py-2 px-2 font-medium">Hyperactive ("Super-Enzyme")</td>
-                <td class="py-2 px-2">↓ LOW (more degradation)</td>
-                <td class="py-2 px-2">↓ LOW (broken down faster)</td>
+                <td class="py-2 px-2">Monosialylated</td>
+                <td class="py-2 px-2">~25%</td>
+                <td class="py-2 px-2">~25-26%</td>
+                <td class="py-2 px-2 text-slate-500">No change</td>
               </tr>
-              <tr class="border-b bg-green-50">
-                <td class="py-2 px-2 font-medium text-green-800">Underactive ("Lazy Enzyme") ✓</td>
-                <td class="py-2 px-2 text-green-800 font-bold">↑ HIGH (less degradation)</td>
-                <td class="py-2 px-2 text-green-800 font-bold">↑ HIGH (accumulates)</td>
+              <tr class="border-b">
+                <td class="py-2 px-2">Disialylated</td>
+                <td class="py-2 px-2">~32%</td>
+                <td class="py-2 px-2">~32-33%</td>
+                <td class="py-2 px-2 text-slate-500">No change</td>
+              </tr>
+              <tr class="border-b bg-cyan-50">
+                <td class="py-2 px-2 font-medium text-cyan-800">Trisialylated</td>
+                <td class="py-2 px-2 text-cyan-800">~0.75%</td>
+                <td class="py-2 px-2 text-cyan-800 font-bold">~2.2%</td>
+                <td class="py-2 px-2 text-cyan-800 font-bold">~3x increase ✓</td>
               </tr>
             </tbody>
           </table>
           
           <p class="text-amber-800 text-sm mb-0">
-            <strong>Conclusion:</strong> The elevated trisialylated N-glycans in NT1 patients indicate 
-            <strong>reduced NEU1 activity</strong> — a "Lazy Enzyme" that fails to break down sialic acids efficiently. 
-            This leads to <strong>accumulation of GT1b</strong> on nerve surfaces, creating more binding sites for H1N1 antigen.
+            <strong>Key insight:</strong> The ~3-fold increase is real and statistically significant, but trisialylated 
+            glycans remain a <strong>small fraction</strong> (~2%) of total glycans. This is a <em>specific</em> change, 
+            not a dramatic shift in overall sialylation.
           </p>
         </div>
 
-        <h3>The "Lazy Enzyme" Model — NEU1 Underactivity</h3>
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">⚠️ Critical Clarification: NEU1 Does NOT Act on GT1b</h4>
+          <p class="text-amber-700 text-sm mb-2">
+            <strong>NEU1</strong> primarily degrades <strong>N-glycans on glycoproteins</strong>, NOT gangliosides like GT1b.
+          </p>
+          <table class="w-full text-xs mb-2">
+            <tr class="border-b">
+              <td class="py-1 font-bold">NEU1</td>
+              <td class="py-1">Lysosomal → N-glycans, oligosaccharides</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-1 font-bold">NEU3</td>
+              <td class="py-1">Plasma membrane → Gangliosides (GT1b, GD1a, GM1)</td>
+            </tr>
+            <tr>
+              <td class="py-1 font-bold">NEU4</td>
+              <td class="py-1">Mitochondria/ER → Gangliosides</td>
+            </tr>
+          </table>
+          <p class="text-amber-700 text-sm mb-0">
+            <strong>Implication:</strong> A "Lazy NEU1" could explain the N-glycan finding, but would <em>not</em> directly 
+            cause GT1b accumulation. If GT1b accumulation is relevant, we should look at <strong>NEU3 or NEU4</strong>, not NEU1.
+          </p>
+        </div>
+
+        <h3>The "Lazy Enzyme" Model — A Possible Explanation for N-Glycans</h3>
         <div class="grid md:grid-cols-2 gap-4 my-6">
           <div class="bg-slate-100 rounded p-4 border border-slate-200">
             <h5 class="font-bold text-slate-700 mb-2">Normal NEU1</h5>
             <ul class="text-slate-700 text-sm space-y-1">
-              <li>• Efficiently removes sialic acids</li>
-              <li>• GT1b levels are regulated</li>
-              <li>• N-glycans are properly degraded</li>
-              <li>• <strong>Limited viral binding sites</strong></li>
+              <li>• Efficiently removes sialic acids from N-glycans</li>
+              <li>• Trisialylated N-glycans are properly degraded</li>
+              <li>• Serum glycoproteins have normal sialylation</li>
             </ul>
           </div>
-          <div class="bg-red-50 rounded p-4 border border-red-200">
-            <h5 class="font-bold text-red-700 mb-2">NEU1 "Lazy Enzyme" (NT1 Risk Variant)</h5>
+          <div class="bg-cyan-50 rounded p-4 border border-cyan-200">
+            <h5 class="font-bold text-cyan-700 mb-2">NEU1 "Lazy Enzyme" (Hypothesis)</h5>
             <ul class="text-slate-700 text-sm space-y-1">
-              <li>• Reduced sialidase activity</li>
-              <li>• GT1b accumulates on nerve surfaces</li>
-              <li>• N-glycans accumulate in serum (3x increase)</li>
-              <li>• <strong>MORE viral binding sites → increased susceptibility</strong></li>
+              <li>• Reduced sialidase activity on N-glycans</li>
+              <li>• Trisialylated N-glycans accumulate (~3x increase)</li>
+              <li>• <em>Could</em> explain the serum finding in NT1</li>
             </ul>
           </div>
         </div>
 
-        <div class="warning-box">
-          <h4 class="font-bold text-amber-800 mb-2">Why Not a "Super-Enzyme"?</h4>
-          <p class="text-amber-700 text-sm mb-0">
-            If NEU1 were hyperactive, it would <em>remove</em> sialic acids more efficiently, leading to 
-            <strong>lower</strong> N-glycan levels and <strong>less</strong> GT1b on nerve surfaces. 
-            But the serum data shows the <em>opposite</em> — elevated sialylation. This proves NEU1 is 
-            <strong>underactive</strong>, not overactive. The "Lazy Enzyme" fails to degrade gangliosides, 
-            allowing GT1b to accumulate and serve as viral receptors.
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">What About GT1b?</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            The N-glycan finding is <strong>separate</strong> from the GT1b hypothesis. NEU1 acts on N-glycans (glycoproteins), 
+            while GT1b is a ganglioside degraded by <strong>NEU3/NEU4</strong>. If GT1b accumulation is the mechanism 
+            for increased viral binding, we would need to look for variants in <em>NEU3</em> or <em>NEU4</em>, which lie 
+            on <strong>different chromosomes</strong> (11q13 and 2q37, respectively) — not in the MHC region.
           </p>
         </div>
 
@@ -248,36 +279,36 @@ const t = useTranslations('en');
         </figure>
 
         <div class="bg-slate-800 text-white rounded-lg p-6 my-6">
-          <h4 class="font-bold text-cyan-400 mb-4">The Synergistic Trinity — Hypothetical Model</h4>
+          <h4 class="font-bold text-cyan-400 mb-4">Genetic Candidates — What's Confirmed vs. Hypothesized</h4>
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-slate-600">
                 <th class="text-left py-2 text-slate-300">Gene</th>
-                <th class="text-left py-2 text-slate-300">Proposed Variant</th>
-                <th class="text-left py-2 text-slate-300">Hypothesized Role</th>
+                <th class="text-left py-2 text-slate-300">Status</th>
+                <th class="text-left py-2 text-slate-300">Role</th>
               </tr>
             </thead>
             <tbody>
               <tr class="border-b border-slate-700">
                 <td class="py-2 text-purple-400 font-bold">HLA-DQB1*06:02</td>
-                <td class="py-2 text-slate-300">Structural <span class="text-green-400">(confirmed)</span></td>
-                <td class="py-2 text-slate-300">The Lock — Presents mimicry peptides to T cells</td>
+                <td class="py-2 text-green-400">✓ Confirmed</td>
+                <td class="py-2 text-slate-300">Antigen presentation — presents mimicry peptides to T cells</td>
               </tr>
               <tr class="border-b border-slate-700">
                 <td class="py-2 text-cyan-400 font-bold">NEU1</td>
-                <td class="py-2 text-slate-300">LoF? <span class="text-yellow-400">(hypothesis)</span></td>
-                <td class="py-2 text-slate-300">The Accumulator — <em>If</em> reduced activity → GT1b accumulates</td>
+                <td class="py-2 text-yellow-400">? Hypothesis</td>
+                <td class="py-2 text-slate-300"><em>If</em> underactive → could explain N-glycan finding (NOT GT1b)</td>
               </tr>
               <tr>
                 <td class="py-2 text-amber-400 font-bold">B3GALT4</td>
-                <td class="py-2 text-slate-300">GoF? <span class="text-yellow-400">(hypothesis)</span></td>
-                <td class="py-2 text-slate-300">The Producer — <em>If</em> increased activity → more GT1b production</td>
+                <td class="py-2 text-yellow-400">? Hypothesis</td>
+                <td class="py-2 text-slate-300"><em>If</em> overactive → could increase GT1b production</td>
               </tr>
             </tbody>
           </table>
           <p class="text-slate-400 text-xs mt-3 italic">
-            Note: Only HLA-DQB1*06:02 is a confirmed genetic risk factor. NEU1 and B3GALT4 variants are 
-            <strong>hypothesized</strong> based on their MHC location and the N-glycan findings — not yet proven.
+            <strong>Important:</strong> NEU1 acts on N-glycans, NOT gangliosides. The N-glycan finding does not directly 
+            support GT1b accumulation. If GT1b is relevant, B3GALT4 (synthesis) or NEU3/NEU4 (degradation) are the candidates.
           </p>
         </div>
 
