@@ -30,7 +30,7 @@
     </g>
   </g>
 
-  <!-- Arrow 1’2 -->
+  <!-- Arrow 1ï¿½2 -->
   <path d="M 250 150 L 310 150" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrowOrange)"/>
   <text x="280" y="140" text-anchor="middle" font-size="8" fill="#92400e">Endocytosis</text>
 
@@ -55,7 +55,7 @@
     <text x="100" y="100" text-anchor="middle" font-size="7" fill="#1e40af">--> Toward CNS --></text>
   </g>
 
-  <!-- Arrow 2’3 -->
+  <!-- Arrow 2ï¿½3 -->
   <path d="M 520 150 L 580 150" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrowBlue)"/>
 
   <!-- STEP 3: DRG -->
@@ -76,7 +76,7 @@
     <text x="120" y="100" font-size="6" fill="#7c3aed">Central</text>
   </g>
 
-  <!-- Arrow 3’4 (down) -->
+  <!-- Arrow 3ï¿½4 (down) -->
   <path d="M 665 210 L 665 250" stroke="#a855f7" stroke-width="3" marker-end="url(#arrowPurple)"/>
 
   <!-- STEP 4: Lamina I -->
@@ -113,7 +113,7 @@
     </g>
   </g>
 
-  <!-- Arrow 4’5 (up to hypothalamus) -->
+  <!-- Arrow 4ï¿½5 (up to hypothalamus) -->
   <path d="M 580 420 Q 400 480 400 520" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
   <text x="450" y="475" text-anchor="middle" font-size="9" fill="#991b1b" font-weight="bold">"Dying Back"</text>
   <text x="450" y="490" text-anchor="middle" font-size="8" fill="#b91c1c">Retrograde degeneration</text>
@@ -165,7 +165,7 @@
   <!-- Bottom: Anti-GM3 explanation -->
   <rect x="50" y="455" width="200" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
   <text x="150" y="475" text-anchor="middle" font-size="9" fill="#92400e" font-weight="bold">Anti-GM3 Antibodies Explained:</text>
-  <text x="150" y="490" text-anchor="middle" font-size="8" fill="#b45309">GT1b degrades ’ GM3 exposed ’ antibodies form</text>
+  <text x="150" y="490" text-anchor="middle" font-size="8" fill="#b45309">GT1b degrades ï¿½ GM3 exposed ï¿½ antibodies form</text>
 
   <!-- Arrows -->
   <defs>

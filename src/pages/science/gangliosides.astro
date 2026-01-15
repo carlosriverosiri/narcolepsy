@@ -207,6 +207,162 @@ const t = useTranslations('en');
             <strong>unlikely</strong>. See: <a href="/speculation/havana-syndrome/" class="text-red-600 underline">The Havana Hypothesis (Falsified)</a>
           </p>
         </div>
+
+        <!-- NEW: Ganglioside Degradation Section -->
+        <h2 class="mt-12">Ganglioside Degradation: The Four Mammalian Neuraminidases</h2>
+        <p>
+          Understanding ganglioside <strong>degradation</strong> is just as important as understanding biosynthesis. 
+          Four mammalian neuraminidases (NEU1–NEU4) are responsible for removing sialic acids from gangliosides 
+          and glycoproteins — but they differ dramatically in their <strong>substrate specificity</strong>, 
+          <strong>subcellular localization</strong>, and <strong>physiological roles</strong>.
+        </p>
+
+        <div class="key-concept">
+          <div class="key-concept-title">Why Does This Matter?</div>
+          <p class="mb-0">
+            Understanding which neuraminidase acts on which ganglioside is critical for the narcolepsy hypothesis. 
+            For example, <strong>NEU1</strong> (often discussed in genetic studies) has <strong>minimal activity 
+            against gangliosides like GT1b</strong> — it primarily acts on N-glycans. If ganglioside accumulation 
+            is relevant to NT1, we must look at <strong>NEU3 or NEU4</strong> instead.
+          </p>
+        </div>
+
+        <h3>The Four Neuraminidases: A Comparison</h3>
+        <table class="w-full text-sm my-6">
+          <thead>
+            <tr class="border-b bg-slate-50">
+              <th class="text-left py-2 px-2">Enzyme</th>
+              <th class="text-left py-2 px-2">Location</th>
+              <th class="text-left py-2 px-2">Primary Substrates</th>
+              <th class="text-left py-2 px-2">Ganglioside Activity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b bg-cyan-50">
+              <td class="py-2 px-2 font-bold text-cyan-800">NEU1</td>
+              <td class="py-2 px-2">Lysosomal</td>
+              <td class="py-2 px-2">Oligosaccharides, N-glycans (glycoproteins)</td>
+              <td class="py-2 px-2 text-red-600 font-bold">Very low / minimal</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-2 font-bold text-slate-700">NEU2</td>
+              <td class="py-2 px-2">Cytosolic</td>
+              <td class="py-2 px-2">Broad (in vitro), unclear physiologically</td>
+              <td class="py-2 px-2 text-amber-600">Moderate (but cytosolic location limits access)</td>
+            </tr>
+            <tr class="border-b bg-green-50">
+              <td class="py-2 px-2 font-bold text-green-800">NEU3</td>
+              <td class="py-2 px-2">Plasma membrane</td>
+              <td class="py-2 px-2">Gangliosides (GM3 → lactosylceramide, etc.)</td>
+              <td class="py-2 px-2 text-green-600 font-bold">Highest specificity!</td>
+            </tr>
+            <tr class="border-b bg-purple-50">
+              <td class="py-2 px-2 font-bold text-purple-800">NEU4</td>
+              <td class="py-2 px-2">Lysosomal / Mitochondrial / ER</td>
+              <td class="py-2 px-2">Gangliosides, glycoproteins, oligosaccharides (broad)</td>
+              <td class="py-2 px-2 text-purple-600 font-bold">High (broad specificity)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="grid md:grid-cols-2 gap-6 my-6">
+          <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-4">
+            <h4 class="font-bold text-cyan-800 mb-2">NEU1 — The "Glycoprotein Sialidase"</h4>
+            <ul class="text-cyan-700 text-sm space-y-1">
+              <li>• <strong>Location:</strong> Lysosome (forms complex with Cathepsin A and β-galactosidase)</li>
+              <li>• <strong>Substrates:</strong> α2,3- and α2,6-linked sialic acids on oligosaccharides and glycoproteins</li>
+              <li>• <strong>Gangliosides:</strong> <span class="text-red-600 font-bold">Minimal activity</span> — does NOT efficiently hydrolyze gangliosides</li>
+              <li>• <strong>Deficiency:</strong> Causes Sialidosis (accumulation of sialylated oligosaccharides, NOT gangliosides)</li>
+            </ul>
+            <p class="text-cyan-600 text-xs mt-2 italic">
+              ⚠️ NEU1 is often mentioned in narcolepsy genetics due to its MHC location, but it does NOT act on GT1b.
+            </p>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+            <h4 class="font-bold text-green-800 mb-2">NEU3 — The "Ganglioside Specialist"</h4>
+            <ul class="text-green-700 text-sm space-y-1">
+              <li>• <strong>Location:</strong> Plasma membrane (cell surface and inner leaflet)</li>
+              <li>• <strong>Substrates:</strong> Gangliosides — requires hydrophobic aglycon</li>
+              <li>• <strong>Key reaction:</strong> GM3 → lactosylceramide (and similar)</li>
+              <li>• <strong>Role:</strong> Primary enzyme for ganglioside desialylation at cell surface</li>
+            </ul>
+            <p class="text-green-600 text-xs mt-2 italic">
+              ✓ If ganglioside accumulation is relevant to NT1, NEU3 (Chr 11q13) is a better candidate than NEU1.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 my-6">
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-4">
+            <h4 class="font-bold text-slate-800 mb-2">NEU2 — The "Cytosolic Enigma"</h4>
+            <ul class="text-slate-700 text-sm space-y-1">
+              <li>• <strong>Location:</strong> Cytosol (no membrane association)</li>
+              <li>• <strong>In vitro:</strong> Broad specificity including some gangliosides</li>
+              <li>• <strong>In vivo:</strong> Physiological role unclear — cytosolic location limits access to membrane lipids</li>
+              <li>• <strong>Note:</strong> Some species (fish) lack NEU2 ortholog entirely</li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+            <h4 class="font-bold text-purple-800 mb-2">NEU4 — The "Lysosomal Backup"</h4>
+            <ul class="text-purple-700 text-sm space-y-1">
+              <li>• <strong>Location:</strong> Lysosomal lumen, mitochondria, ER</li>
+              <li>• <strong>Substrates:</strong> Broad — gangliosides (GD1a, GM1, GM2), glycoproteins, oligosaccharides</li>
+              <li>• <strong>Role:</strong> Contributes to lysosomal ganglioside catabolism</li>
+              <li>• <strong>Key finding:</strong> NEU4 overexpression rescues sialidosis cells (complements NEU1 deficiency)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <h4 class="font-bold text-amber-800 mb-2">⚠️ Critical Point for Narcolepsy Hypothesis</h4>
+          <p class="text-amber-700 text-sm mb-2">
+            <strong>NEU1</strong> lies in the MHC region (6p21.33) near HLA-DQB1*06:02 and is often discussed 
+            as a candidate gene. However, NEU1 has <strong>minimal activity against gangliosides like GT1b</strong>.
+          </p>
+          <p class="text-amber-700 text-sm mb-0">
+            If ganglioside metabolism is relevant to narcolepsy pathogenesis, the relevant enzymes would be 
+            <strong>NEU3</strong> (11q13.5) or <strong>NEU4</strong> (2q37.3) — which are NOT in linkage disequilibrium 
+            with the HLA risk haplotype. This is an important distinction.
+          </p>
+        </div>
+
+        <h3>The Extracellular "Vesicle Clock"</h3>
+        <p>
+          One fascinating aspect of ganglioside biology is that neuraminidases also exist in the 
+          <strong>extracellular space</strong>. These extracellular sialidases progressively strip sialic 
+          acids from vesicles as they travel through the nervous system, creating a "biological clock" that 
+          encodes time and distance.
+        </p>
+
+        <div class="info-box">
+          <h4 class="font-bold text-blue-800 mb-2">The "Vesicle Clock" Concept</h4>
+          <p class="text-blue-700 text-sm mb-0">
+            As a GT1b-rich vesicle travels, extracellular neuraminidases progressively convert it: 
+            GT1b → GD1b → GM1 → asialo-GM1. This gradual "stripping" creates a time/distance signature 
+            that receiving neurons can read — enabling sophisticated filtering of signals by source and age.
+          </p>
+        </div>
+
+        <!-- References for this section -->
+        <div class="bg-slate-100 rounded-lg p-4 my-6">
+          <h4 class="font-bold text-slate-800 mb-2 text-sm">References: Neuraminidase Specificity</h4>
+          <ol class="text-slate-600 text-xs space-y-1">
+            <li>1. Miyagi T, Yamaguchi K (2012). Mammalian sialidases: physiological and pathological roles in cellular functions. 
+              <em>Glycobiology</em>. 22(7):880-896. 
+              <a href="https://doi.org/10.1093/glycob/cws076" class="text-blue-600 hover:underline" target="_blank">doi:10.1093/glycob/cws076</a></li>
+            <li>2. Aliev NA et al. (2014). Structural Basis for Substrate Specificity of Mammalian Neuraminidases. 
+              <em>PLoS ONE</em>. 9(9):e106320. 
+              <a href="https://doi.org/10.1371/journal.pone.0106320" class="text-blue-600 hover:underline" target="_blank">doi:10.1371/journal.pone.0106320</a></li>
+            <li>3. Illes K et al. (2023). Structure of the immunoregulatory sialidase NEU1. 
+              <em>Science Advances</em>. 9(22):eadf8169. 
+              <a href="https://doi.org/10.1126/sciadv.adf8169" class="text-blue-600 hover:underline" target="_blank">doi:10.1126/sciadv.adf8169</a></li>
+            <li>4. Seyrantepe V et al. (2004). Neu4, a novel human lysosomal lumen sialidase, confers normal phenotype to sialidosis and galactosialidosis cells. 
+              <em>J Biol Chem</em>. 279(35):37021-9. 
+              <a href="https://doi.org/10.1074/jbc.M403079200" class="text-blue-600 hover:underline" target="_blank">doi:10.1074/jbc.M403079200</a></li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
