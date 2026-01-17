@@ -2063,28 +2063,58 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
 
         {/* Sugar Components Legend - shown when in sugar-components view */}
         {structureView === 'sugar-components' && (
-          <div className="bg-gradient-to-r from-blue-50 via-yellow-50 to-purple-50 px-6 py-3 border-b border-slate-200">
-            <div className="flex flex-wrap items-center gap-4 text-xs">
-              <span className="font-bold text-slate-700">Sugar Components:</span>
-              <div className="flex items-center gap-2">
-                <SugarShape type="Glc" size={16} />
-                <span className="text-slate-600">Glc (Glucose)</span>
+          <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+            <div className="flex flex-wrap items-start gap-6">
+              {/* Legend Box */}
+              <div className="bg-white border-2 border-slate-300 rounded-lg p-4 shadow-sm">
+                <div className="text-xs font-bold text-slate-700 mb-3 border-b border-slate-200 pb-2">
+                  Sugar Component Legend
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <SugarShape type="Glc" size={18} />
+                    <div className="text-xs">
+                      <span className="font-bold text-slate-700">Glc</span>
+                      <span className="text-slate-500 ml-1">— Glucose</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <SugarShape type="Gal" size={18} />
+                    <div className="text-xs">
+                      <span className="font-bold text-slate-700">Gal</span>
+                      <span className="text-slate-500 ml-1">— Galactose</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <SugarShape type="GalNAc" size={18} />
+                    <div className="text-xs">
+                      <span className="font-bold text-slate-700">GalNAc</span>
+                      <span className="text-slate-500 ml-1">— N-Acetylgalactosamine</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <SugarShape type="Neu5Ac" size={18} />
+                    <div className="text-xs">
+                      <span className="font-bold text-slate-700">Neu5Ac</span>
+                      <span className="text-slate-500 ml-1">— Sialic acid (N-Acetylneuraminic acid)</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <SugarShape type="Gal" size={16} />
-                <span className="text-slate-600">Gal (Galactose)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <SugarShape type="GalNAc" size={16} />
-                <span className="text-slate-600">GalNAc (N-Acetylgalactosamine)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <SugarShape type="Neu5Ac" size={16} />
-                <span className="text-slate-600">Neu5Ac (Sialic acid)</span>
-              </div>
-              <div className="flex items-center gap-2 ml-2 border-l pl-4 border-slate-300">
-                <div className="w-4 h-4 rounded bg-slate-600 border-2 border-slate-800"></div>
-                <span className="text-slate-600">Cer (Ceramide)</span>
+              
+              {/* Explanation */}
+              <div className="text-xs text-slate-600 max-w-md">
+                <p className="mb-2">
+                  <strong>Ganglioside structure:</strong> Gangliosides consist of a ceramide (Cer) lipid anchor 
+                  attached to a sugar chain. The sugars are connected by glycosidic bonds (β and α linkages).
+                </p>
+                <p className="mb-2">
+                  <strong>Sialic acid branches:</strong> The purple diamonds (Neu5Ac) branch off vertically from 
+                  the main chain. More sialic acids = more negative charge = different series (a, b, c).
+                </p>
+                <p className="text-slate-500 italic">
+                  Lines between sugars represent glycosidic bonds.
+                </p>
               </div>
             </div>
           </div>
