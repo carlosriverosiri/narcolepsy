@@ -163,32 +163,35 @@ const SugarChainGrid: React.FC<{ gangliosideId: string }> = ({ gangliosideId }) 
       {/* Render inner branch (sialic acids on inner Gal, column 2) */}
       {innerBranch > 0 && mainChain.length >= 3 && (
         <>
-          {/* Vertical connector from inner Gal */}
-          <div
-            className="absolute bg-slate-500"
-            style={{
-              width: '2px',
-              height: `${(innerBranch) * (cellSize + 2) - 6}px`,
-              left: `${2 * (cellSize + 2) + cellSize / 2 - 1}px`,
-              bottom: `${cellSize + 4}px`,
-            }}
-          />
           {/* Sialic acids stacking upward */}
           {Array.from({ length: innerBranch }).map((_, i) => (
             <div
               key={`inner-${i}`}
-              className="flex items-center justify-center"
+              className="relative flex items-center justify-center"
               style={{ gridColumn: 3, gridRow: rows - 1 - i }}
             >
               <SugarShape type="Neu5Ac" size={size} />
-              {/* Connector between stacked sialic acids */}
-              {i < innerBranch - 1 && (
+              {/* Connector DOWN to next element (main chain or next sialic acid) */}
+              {i === 0 && (
                 <div 
                   className="absolute bg-slate-500"
                   style={{ 
                     width: '2px', 
                     height: '6px', 
-                    top: '-4px',
+                    bottom: '-5px',
+                    left: '50%',
+                    transform: 'translateX(-50%)'
+                  }}
+                />
+              )}
+              {/* Connector between stacked sialic acids (draw below current, pointing down) */}
+              {i > 0 && (
+                <div 
+                  className="absolute bg-slate-500"
+                  style={{ 
+                    width: '2px', 
+                    height: '6px', 
+                    bottom: '-5px',
                     left: '50%',
                     transform: 'translateX(-50%)'
                   }}
@@ -202,24 +205,27 @@ const SugarChainGrid: React.FC<{ gangliosideId: string }> = ({ gangliosideId }) 
       {/* Render outer branch (sialic acids on outer Gal, column 4) */}
       {outerBranch > 0 && mainChain.length >= 5 && (
         <>
-          {/* Vertical connector from outer Gal */}
-          <div
-            className="absolute bg-slate-500"
-            style={{
-              width: '2px',
-              height: `${(outerBranch) * (cellSize + 2) - 6}px`,
-              left: `${4 * (cellSize + 2) + cellSize / 2 - 1}px`,
-              bottom: `${cellSize + 4}px`,
-            }}
-          />
           {/* Sialic acids stacking upward */}
           {Array.from({ length: outerBranch }).map((_, i) => (
             <div
               key={`outer-${i}`}
-              className="flex items-center justify-center"
+              className="relative flex items-center justify-center"
               style={{ gridColumn: 5, gridRow: rows - 1 - i }}
             >
               <SugarShape type="Neu5Ac" size={size} />
+              {/* Connector DOWN to next element */}
+              {i < outerBranch && (
+                <div 
+                  className="absolute bg-slate-500"
+                  style={{ 
+                    width: '2px', 
+                    height: '6px', 
+                    bottom: '-5px',
+                    left: '50%',
+                    transform: 'translateX(-50%)'
+                  }}
+                />
+              )}
             </div>
           ))}
         </>
