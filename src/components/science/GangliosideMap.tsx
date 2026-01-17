@@ -1,6 +1,123 @@
 import React, { useState } from 'react';
 import { Info, Bug, FlaskConical, Trash2, Dna, AlertTriangle, Shield, CircleDot, MapPin } from 'lucide-react';
 
+// --- Sugar Component Visual Types ---
+type SugarType = 'Glc' | 'Gal' | 'GalNAc' | 'Neu5Ac' | 'Cer';
+
+interface SugarComponent {
+  type: SugarType;
+  linkage?: string; // e.g., 'β1-4', 'α3', 'α8'
+  position?: 'internal' | 'branch';
+}
+
+// Define ganglioside structures based on the biochemical pathway diagram
+// Structure: linear chain with branching points for Neu5Ac
+const GANGLIOSIDE_STRUCTURES: Record<string, SugarComponent[]> = {
+  'cer': [{ type: 'Cer' }],
+  'glccer': [{ type: 'Cer' }, { type: 'Glc' }],
+  'laccer': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal' }],
+  'ga2': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc' }],
+  'gm3': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gd3': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gt3': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }],
+  'ga1': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal' }],
+  'gm2': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc' }],
+  'gd2': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc' }],
+  'gt2': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc' }],
+  'gm1b': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gm1a': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal' }],
+  'gd1b': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal' }],
+  'gt1c': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal' }],
+  'gd1c': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gd1a': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gt1b': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gq1c': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gt1a': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gq1b': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }],
+  'gp1c': [{ type: 'Cer' }, { type: 'Glc', linkage: 'β1-4' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }, { type: 'Gal', linkage: 'β1-4' }, { type: 'GalNAc', linkage: 'β1-3' }, { type: 'Gal', linkage: 'α3' }, { type: 'Neu5Ac', position: 'branch', linkage: 'α8' }, { type: 'Neu5Ac', position: 'branch' }],
+};
+
+// Sugar component visual representation
+// Colors match the biochemical diagram: Glc (blue circle), Gal (yellow circle), GalNAc (yellow square), Neu5Ac (purple diamond)
+const SugarShape: React.FC<{ type: SugarType; size?: number }> = ({ type, size = 20 }) => {
+  const config = {
+    'Cer': { bg: 'bg-slate-600', shape: 'rounded', label: 'Cer', text: 'C' },
+    'Glc': { bg: 'bg-blue-500', shape: 'rounded-full', label: 'Glc', text: 'Glc' },
+    'Gal': { bg: 'bg-yellow-400', shape: 'rounded-full', label: 'Gal', text: 'Gal' },
+    'GalNAc': { bg: 'bg-yellow-500', shape: 'rounded', label: 'GalNAc', text: 'NAc' },
+    'Neu5Ac': { bg: 'bg-purple-500', shape: 'rotate-45', label: 'Neu5Ac', text: 'Neu' },
+  }[type];
+
+  const isDiamond = type === 'Neu5Ac';
+  const textSize = size <= 14 ? 'text-[6px]' : size <= 16 ? 'text-[7px]' : 'text-[8px]';
+
+  return (
+    <div className="relative flex items-center justify-center" title={config.label}>
+      {isDiamond ? (
+        <div 
+          className={`${config.bg} border-2 border-slate-800 flex items-center justify-center text-white font-bold ${textSize} transform rotate-45`}
+          style={{ width: size, height: size }}
+        >
+          <span className="transform -rotate-45">{config.text}</span>
+        </div>
+      ) : (
+        <div 
+          className={`${config.bg} ${config.shape} border-2 border-slate-800 flex items-center justify-center text-white font-bold ${textSize}`}
+          style={{ width: size, height: size }}
+        >
+          {size > 14 ? config.text : config.text.charAt(0)}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Visual sugar chain component
+const SugarChain: React.FC<{ structure: SugarComponent[]; compact?: boolean }> = ({ structure, compact = false }) => {
+  if (!structure || structure.length === 0) return null;
+
+  const size = compact ? 12 : 16;
+  
+  return (
+    <div className="flex items-center gap-0.5 flex-wrap justify-center max-w-full">
+      {structure.map((sugar, idx) => {
+        const isLast = idx === structure.length - 1;
+        const isBranch = sugar.position === 'branch';
+        const prevSugar = idx > 0 ? structure[idx - 1] : null;
+        const isPrevBranch = prevSugar?.position === 'branch';
+        
+        return (
+          <React.Fragment key={idx}>
+            {isBranch && (
+              <div className="flex flex-col items-center relative">
+                {idx > 0 && (
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0.5 h-2 bg-slate-600"></div>
+                )}
+                <SugarShape type={sugar.type} size={size} />
+                {sugar.linkage && (
+                  <span className="text-[6px] text-slate-500 font-mono mt-0.5" title={sugar.linkage}>
+                    {sugar.linkage}
+                  </span>
+                )}
+              </div>
+            )}
+            {!isBranch && (
+              <>
+                <SugarShape type={sugar.type} size={size} />
+                {!isLast && sugar.linkage && (
+                  <span className="text-[6px] text-slate-600 font-mono mx-0.5" title={sugar.linkage}>
+                    {sugar.linkage.replace('β1-4', 'β').replace('β1-3', 'β').replace('α3', 'α').replace('α8', 'α')}
+                  </span>
+                )}
+              </>
+            )}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+};
+
 // --- Data Definitions ---
 
 type ViewMode = 'synthesis' | 'degradation' | 'pathogens' | 'viruses' | 'storage' | 'autoimmune' | 'tumors' | 'genetics';
@@ -58,6 +175,11 @@ const GRID_NODES = [
   { id: 'gd1a', label: 'GD1a', series: 'a', row: 6, col: 1 },
   { id: 'gt1b', label: 'GT1b', series: 'b', row: 6, col: 2, highlight: true },
   { id: 'gq1c', label: 'GQ1c', series: 'c', row: 6, col: 3 },
+  
+  // Level 5: Additional terminal sialylation
+  { id: 'gt1a', label: 'GT1a', series: 'a', row: 7, col: 1 },
+  { id: 'gq1b', label: 'GQ1b', series: 'b', row: 7, col: 2 },
+  { id: 'gp1c', label: 'GP1c', series: 'c', row: 7, col: 3 },
 ];
 
 // Connectivity data for metabolic pathways
@@ -80,8 +202,14 @@ const PATHWAYS = [
   { from: 'gm1a', to: 'gd1a', type: 'vertical', mode: 'synthesis', enzyme: 'ST3GAL2', name: 'GD1a/GT1b Synthase' },
   { from: 'gd1b', to: 'gt1b', type: 'vertical', mode: 'synthesis', enzyme: 'ST3GAL2', name: 'GD1a/GT1b Synthase' },
   { from: 'gt1c', to: 'gq1c', type: 'vertical', mode: 'synthesis', enzyme: 'ST3GAL2', name: 'GD1a/GT1b Synthase' },
+  { from: 'gd1a', to: 'gt1a', type: 'vertical', mode: 'synthesis', enzyme: 'ST8SIA1', name: 'GT1a/GQ1b Synthase' },
+  { from: 'gt1b', to: 'gq1b', type: 'vertical', mode: 'synthesis', enzyme: 'ST8SIA1', name: 'GT1a/GQ1b Synthase' },
+  { from: 'gq1c', to: 'gp1c', type: 'vertical', mode: 'synthesis', enzyme: 'ST8SIA1', name: 'GP1c Synthase' },
 
   // --- DEGRADATION (Catabolism) ---
+  { from: 'gt1a', to: 'gd1a', type: 'vertical-up', mode: 'degradation', enzyme: 'NEU1-4', name: 'Sialidase (Neuraminidase)' },
+  { from: 'gq1b', to: 'gt1b', type: 'vertical-up', mode: 'degradation', enzyme: 'NEU1-4', name: 'Sialidase (Neuraminidase)' },
+  { from: 'gp1c', to: 'gq1c', type: 'vertical-up', mode: 'degradation', enzyme: 'NEU1-4', name: 'Sialidase (Neuraminidase)' },
   { from: 'gd1a', to: 'gm1a', type: 'vertical-up', mode: 'degradation', enzyme: 'NEU1-4', name: 'Sialidase (Neuraminidase)' },
   { from: 'gt1b', to: 'gd1b', type: 'vertical-up', mode: 'degradation', enzyme: 'NEU1-4', name: 'Sialidase (Neuraminidase)' },
   { from: 'gm1a', to: 'gm2', type: 'vertical-up', mode: 'degradation', enzyme: 'GLB1', name: 'β-Galactosidase (GM1 gangliosidosis)' },
@@ -1075,9 +1203,12 @@ interface GangliosideMapProps {
   };
 }
 
+type StructureView = 'standard' | 'sugar-components';
+
 export default function GangliosideMap({ labels }: GangliosideMapProps) {
   const [mode, setMode] = useState<ViewMode>('synthesis');
   const [showDeepDive, setShowDeepDive] = useState(false);
+  const [structureView, setStructureView] = useState<StructureView>('standard');
 
   const defaultLabels = {
     title: 'Ganglioside Metabolism Map',
@@ -1781,7 +1912,60 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
               {defaultLabels.genetics}
             </button>
           </div>
+          
+          {/* Structure View Toggle */}
+          <div className="mt-4 flex items-center gap-2 bg-slate-800 p-1 rounded-lg">
+            <button
+              onClick={() => setStructureView('standard')}
+              className={`px-3 py-1.5 rounded text-xs font-medium transition-all ${
+                structureView === 'standard' 
+                  ? 'bg-slate-700 text-white' 
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Standard
+            </button>
+            <button
+              onClick={() => setStructureView('sugar-components')}
+              className={`px-3 py-1.5 rounded text-xs font-medium transition-all ${
+                structureView === 'sugar-components' 
+                  ? 'bg-slate-700 text-white' 
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Sugar Components
+            </button>
+          </div>
         </div>
+
+        {/* Sugar Components Legend - shown when in sugar-components view */}
+        {structureView === 'sugar-components' && (
+          <div className="bg-gradient-to-r from-blue-50 via-yellow-50 to-purple-50 px-6 py-3 border-b border-slate-200">
+            <div className="flex flex-wrap items-center gap-4 text-xs">
+              <span className="font-bold text-slate-700">Sugar Components:</span>
+              <div className="flex items-center gap-2">
+                <SugarShape type="Glc" size={16} />
+                <span className="text-slate-600">Glc (Glucose)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <SugarShape type="Gal" size={16} />
+                <span className="text-slate-600">Gal (Galactose)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <SugarShape type="GalNAc" size={16} />
+                <span className="text-slate-600">GalNAc (N-Acetylgalactosamine)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <SugarShape type="Neu5Ac" size={16} />
+                <span className="text-slate-600">Neu5Ac (Sialic acid)</span>
+              </div>
+              <div className="flex items-center gap-2 ml-2 border-l pl-4 border-slate-300">
+                <div className="w-4 h-4 rounded bg-slate-600 border-2 border-slate-800"></div>
+                <span className="text-slate-600">Cer (Ceramide)</span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Legend */}
         <div className="bg-slate-50 px-6 py-3 border-b border-slate-200 flex flex-wrap gap-4 text-xs text-slate-600">
@@ -1945,21 +2129,40 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
                 }
               };
 
+              // Get structure view content
+              const getStructureContent = () => {
+                if (structureView === 'sugar-components') {
+                  const structure = GANGLIOSIDE_STRUCTURES[node.id];
+                  if (structure) {
+                    return <SugarChain structure={structure} compact={true} />;
+                  }
+                  return node.label;
+                }
+                return node.label;
+              };
+
               return (
                 <div key={node.id} style={style} className="relative w-full flex justify-center">
                   
                   {/* The Node Block */}
                   <div 
                     className={`
-                      relative z-10 w-32 h-14 flex flex-col items-center justify-center 
-                      rounded shadow-sm border-2 text-sm font-bold transition-transform hover:scale-105
+                      relative z-10 ${structureView === 'sugar-components' ? 'w-40 min-h-20' : 'w-32 h-14'} flex flex-col items-center justify-center 
+                      rounded shadow-sm border-2 ${structureView === 'sugar-components' ? 'text-xs' : 'text-sm'} font-bold transition-transform hover:scale-105
                       ${SERIES_COLORS[node.series as keyof typeof SERIES_COLORS]}
                       ${isKeyStep ? 'ring-2 ring-amber-300 ring-offset-1' : ''}
                       ${isHighlighted ? 'animate-pulse-glow border-amber-500 border-[3px]' : ''}
                       ${getRingColor()}
                     `}
                   >
-                    {node.label}
+                    {structureView === 'sugar-components' ? (
+                      <div className="flex flex-col items-center gap-1">
+                        {getStructureContent()}
+                        <span className="text-[9px] font-normal opacity-70">{node.label}</span>
+                      </div>
+                    ) : (
+                      getStructureContent()
+                    )}
                     {isHighlighted && (
                       <span className="absolute -top-3 -right-3 bg-amber-500 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg animate-bounce">
                         ★ KEY
