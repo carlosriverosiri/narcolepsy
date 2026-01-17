@@ -72,48 +72,171 @@ const SugarShape: React.FC<{ type: SugarType; size?: number }> = ({ type, size =
   );
 };
 
-// Visual sugar chain component
-const SugarChain: React.FC<{ structure: SugarComponent[]; compact?: boolean }> = ({ structure, compact = false }) => {
-  if (!structure || structure.length === 0) return null;
+// Grid-based visual sugar chain component
+// Creates a proper 2D grid layout matching biochemical diagrams
+interface GangliosideGridStructure {
+  // Main chain: Cer - Glc - Gal - [GalNAc] - [Gal]
+  mainChain: SugarType[];
+  // Branching sialic acids at position (attached to inner Gal, position 2)
+  innerBranch: number; // number of Neu5Ac on inner Gal (0, 1, 2, or 3)
+  // Branching sialic acids at outer position (attached to outer Gal, position 4)
+  outerBranch: number; // number of Neu5Ac on outer Gal (0, 1, or 2)
+}
 
-  const size = compact ? 12 : 16;
+// Simplified ganglioside structures for grid rendering
+const GRID_STRUCTURES: Record<string, GangliosideGridStructure> = {
+  'cer': { mainChain: ['Cer'], innerBranch: 0, outerBranch: 0 },
+  'glccer': { mainChain: ['Cer', 'Glc'], innerBranch: 0, outerBranch: 0 },
+  'laccer': { mainChain: ['Cer', 'Glc', 'Gal'], innerBranch: 0, outerBranch: 0 },
+  'ga2': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc'], innerBranch: 0, outerBranch: 0 },
+  'gm3': { mainChain: ['Cer', 'Glc', 'Gal'], innerBranch: 1, outerBranch: 0 },
+  'gd3': { mainChain: ['Cer', 'Glc', 'Gal'], innerBranch: 2, outerBranch: 0 },
+  'gt3': { mainChain: ['Cer', 'Glc', 'Gal'], innerBranch: 3, outerBranch: 0 },
+  'ga1': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 0, outerBranch: 0 },
+  'gm2': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc'], innerBranch: 1, outerBranch: 0 },
+  'gd2': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc'], innerBranch: 2, outerBranch: 0 },
+  'gt2': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc'], innerBranch: 3, outerBranch: 0 },
+  'gm1b': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 0, outerBranch: 1 },
+  'gm1a': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 1, outerBranch: 0 },
+  'gd1b': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 2, outerBranch: 0 },
+  'gt1c': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 3, outerBranch: 0 },
+  'gd1c': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 0, outerBranch: 2 },
+  'gd1a': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 1, outerBranch: 1 },
+  'gt1b': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 2, outerBranch: 1 },
+  'gq1c': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 3, outerBranch: 1 },
+  'gt1a': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 1, outerBranch: 2 },
+  'gq1b': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 2, outerBranch: 2 },
+  'gp1c': { mainChain: ['Cer', 'Glc', 'Gal', 'GalNAc', 'Gal'], innerBranch: 3, outerBranch: 2 },
+};
+
+// Grid-based sugar chain visualization
+const SugarChainGrid: React.FC<{ gangliosideId: string }> = ({ gangliosideId }) => {
+  const structure = GRID_STRUCTURES[gangliosideId];
+  if (!structure) return <span className="text-[10px]">{gangliosideId}</span>;
+
+  const { mainChain, innerBranch, outerBranch } = structure;
+  const size = 14;
+  const cellSize = 20;
   
+  // Calculate grid dimensions
+  const maxBranch = Math.max(innerBranch, outerBranch);
+  const rows = maxBranch + 1; // main chain row + branch rows
+  const cols = mainChain.length;
+
   return (
-    <div className="flex items-center gap-0.5 flex-wrap justify-center max-w-full">
-      {structure.map((sugar, idx) => {
-        const isLast = idx === structure.length - 1;
-        const isBranch = sugar.position === 'branch';
-        const prevSugar = idx > 0 ? structure[idx - 1] : null;
-        const isPrevBranch = prevSugar?.position === 'branch';
-        
+    <div 
+      className="relative"
+      style={{ 
+        display: 'grid',
+        gridTemplateColumns: `repeat(${cols}, ${cellSize}px)`,
+        gridTemplateRows: `repeat(${rows}, ${cellSize}px)`,
+        gap: '2px',
+      }}
+    >
+      {/* Render main chain (bottom row) */}
+      {mainChain.map((sugar, colIdx) => {
+        const row = rows - 1; // bottom row
         return (
-          <React.Fragment key={idx}>
-            {isBranch && (
-              <div className="flex flex-col items-center relative">
-                {idx > 0 && (
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0.5 h-2 bg-slate-600"></div>
-                )}
-                <SugarShape type={sugar.type} size={size} />
-                {sugar.linkage && (
-                  <span className="text-[6px] text-slate-500 font-mono mt-0.5" title={sugar.linkage}>
-                    {sugar.linkage}
-                  </span>
-                )}
-              </div>
+          <div
+            key={`main-${colIdx}`}
+            className="relative flex items-center justify-center"
+            style={{ gridColumn: colIdx + 1, gridRow: row + 1 }}
+          >
+            <SugarShape type={sugar} size={size} />
+            {/* Horizontal connector to next sugar */}
+            {colIdx < mainChain.length - 1 && (
+              <div 
+                className="absolute bg-slate-500"
+                style={{ 
+                  width: '6px', 
+                  height: '2px', 
+                  right: '-4px',
+                  top: '50%',
+                  transform: 'translateY(-50%)'
+                }}
+              />
             )}
-            {!isBranch && (
-              <>
-                <SugarShape type={sugar.type} size={size} />
-                {!isLast && sugar.linkage && (
-                  <span className="text-[6px] text-slate-600 font-mono mx-0.5" title={sugar.linkage}>
-                    {sugar.linkage.replace('β1-4', 'β').replace('β1-3', 'β').replace('α3', 'α').replace('α8', 'α')}
-                  </span>
-                )}
-              </>
-            )}
-          </React.Fragment>
+          </div>
         );
       })}
+
+      {/* Render inner branch (sialic acids on inner Gal, column 2) */}
+      {innerBranch > 0 && mainChain.length >= 3 && (
+        <>
+          {/* Vertical connector from inner Gal */}
+          <div
+            className="absolute bg-slate-500"
+            style={{
+              width: '2px',
+              height: `${(innerBranch) * (cellSize + 2) - 6}px`,
+              left: `${2 * (cellSize + 2) + cellSize / 2 - 1}px`,
+              bottom: `${cellSize + 4}px`,
+            }}
+          />
+          {/* Sialic acids stacking upward */}
+          {Array.from({ length: innerBranch }).map((_, i) => (
+            <div
+              key={`inner-${i}`}
+              className="flex items-center justify-center"
+              style={{ gridColumn: 3, gridRow: rows - 1 - i }}
+            >
+              <SugarShape type="Neu5Ac" size={size} />
+              {/* Connector between stacked sialic acids */}
+              {i < innerBranch - 1 && (
+                <div 
+                  className="absolute bg-slate-500"
+                  style={{ 
+                    width: '2px', 
+                    height: '6px', 
+                    top: '-4px',
+                    left: '50%',
+                    transform: 'translateX(-50%)'
+                  }}
+                />
+              )}
+            </div>
+          ))}
+        </>
+      )}
+
+      {/* Render outer branch (sialic acids on outer Gal, column 4) */}
+      {outerBranch > 0 && mainChain.length >= 5 && (
+        <>
+          {/* Vertical connector from outer Gal */}
+          <div
+            className="absolute bg-slate-500"
+            style={{
+              width: '2px',
+              height: `${(outerBranch) * (cellSize + 2) - 6}px`,
+              left: `${4 * (cellSize + 2) + cellSize / 2 - 1}px`,
+              bottom: `${cellSize + 4}px`,
+            }}
+          />
+          {/* Sialic acids stacking upward */}
+          {Array.from({ length: outerBranch }).map((_, i) => (
+            <div
+              key={`outer-${i}`}
+              className="flex items-center justify-center"
+              style={{ gridColumn: 5, gridRow: rows - 1 - i }}
+            >
+              <SugarShape type="Neu5Ac" size={size} />
+            </div>
+          ))}
+        </>
+      )}
+    </div>
+  );
+};
+
+// Legacy component for backwards compatibility
+const SugarChain: React.FC<{ structure: SugarComponent[]; compact?: boolean }> = ({ structure, compact = false }) => {
+  if (!structure || structure.length === 0) return null;
+  const size = compact ? 12 : 16;
+  return (
+    <div className="flex items-center gap-0.5 flex-wrap justify-center max-w-full">
+      {structure.map((sugar, idx) => (
+        <SugarShape key={idx} type={sugar.type} size={size} />
+      ))}
     </div>
   );
 };
@@ -2132,9 +2255,9 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
               // Get structure view content
               const getStructureContent = () => {
                 if (structureView === 'sugar-components') {
-                  const structure = GANGLIOSIDE_STRUCTURES[node.id];
-                  if (structure) {
-                    return <SugarChain structure={structure} compact={true} />;
+                  const gridStructure = GRID_STRUCTURES[node.id];
+                  if (gridStructure) {
+                    return <SugarChainGrid gangliosideId={node.id} />;
                   }
                   return node.label;
                 }
@@ -2147,7 +2270,7 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
                   {/* The Node Block */}
                   <div 
                     className={`
-                      relative z-10 ${structureView === 'sugar-components' ? 'w-40 min-h-20' : 'w-32 h-14'} flex flex-col items-center justify-center 
+                      relative z-10 ${structureView === 'sugar-components' ? 'min-w-32 min-h-24 p-2' : 'w-32 h-14'} flex flex-col items-center justify-center 
                       rounded shadow-sm border-2 ${structureView === 'sugar-components' ? 'text-xs' : 'text-sm'} font-bold transition-transform hover:scale-105
                       ${SERIES_COLORS[node.series as keyof typeof SERIES_COLORS]}
                       ${isKeyStep ? 'ring-2 ring-amber-300 ring-offset-1' : ''}
