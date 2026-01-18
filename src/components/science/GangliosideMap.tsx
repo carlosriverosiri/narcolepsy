@@ -481,6 +481,15 @@ const VIRUS_BINDINGS = [
     disease: 'Influenza / Narcolepsy?',
     notes: 'NA cleaves GT1b → GD1b. Potential RETROGRADE TRANSPORT vector to CNS!'
   },
+  // H1N1 (Pandemrix) → GM3 → Anti-GM3 antibodies → Narcolepsy
+  { 
+    target: 'gm3', 
+    pathogen: 'Influenza A (H1N1) - Pandemrix',
+    organism: 'Influenza A virus (vaccine)',
+    affinity: 'mimicry',
+    disease: 'Narcolepsy Type 1 (Pandemrix-associated)',
+    notes: '⚠️ Anti-GM3 IgG found in ~15% of Pandemrix-associated NT1 (vs 3-4% controls). Molecular mimicry hypothesis: H1N1 hemagglutinin may bind GM3-like structures → cross-reactive antibodies. AS03 adjuvant may play crucial role. NOT found in sporadic narcolepsy! Primary mechanism is T cell-mediated (CD4+/CD8+ targeting hypocretin). Humoral immunity (anti-GM3) likely secondary. [Saariaho et al. 2015, J Autoimmun]'
+  },
   // H3N2 → GM3 → Cochlea → Hearing problems?
   { 
     target: 'gm3', 
@@ -690,22 +699,31 @@ const AUTOIMMUNE_DISEASES = [
     notes: 'Rare sensory-predominant form.'
   },
   {
-    target: 'gq1c',
+    target: 'gq1b',
     disease: 'Miller Fisher syndrome',
     antibody: 'Anti-GQ1b IgG',
     clinicalFeatures: 'Ophthalmoplegia, ataxia, areflexia',
     trigger: 'C. jejuni, H. influenzae',
     prognosis: 'Excellent (self-limiting)',
-    notes: 'Classic triad. GQ1b enriched in oculomotor nerves. 85-90% anti-GQ1b positive.'
+    notes: 'Classic triad. GQ1b enriched in oculomotor nerves (III, IV, VI) and muscle spindles. 85-90% anti-GQ1b positive. PERIPHERAL variant of anti-GQ1b syndrome.'
   },
   {
-    target: 'gt1b',
-    disease: 'Bickerstaff encephalitis',
-    antibody: 'Anti-GT1b / Anti-GQ1b IgG',
-    clinicalFeatures: 'Ophthalmoplegia + DROWSINESS/STUPOR/COMA',
-    trigger: 'Post-infectious (C. jejuni, viral)',
-    prognosis: 'Variable, may require ICU',
-    notes: '⚠️ KEY: Causes sleepiness/altered consciousness — like narcolepsy! Same antibodies (anti-GT1b) may target brainstem arousal centers.'
+    target: 'gq1b',
+    disease: 'Bickerstaff brainstem encephalitis (BBE)',
+    antibody: 'Anti-GQ1b IgG',
+    clinicalFeatures: 'Ophthalmoplegia + DROWSINESS/COMA + ataxia',
+    trigger: 'Post-infectious (C. jejuni, H. influenzae, CMV)',
+    prognosis: 'Variable, responds to IVIg/plasmapheresis',
+    notes: '⚠️ CENTRAL variant of anti-GQ1b syndrome. 65-75% anti-GQ1b positive. GQ1b is enriched in brainstem reticular activating system (ARAS) → explains hypersomnia! Clinically resembles ENCEPHALITIS LETHARGICA (1920s). Key DDx: if "sleeping sickness" + ophthalmoplegia → think BBE, test anti-GQ1b!'
+  },
+  {
+    target: 'gm3',
+    disease: 'Narcolepsy Type 1 (Pandemrix-associated)',
+    antibody: 'Anti-GM3 IgG',
+    clinicalFeatures: 'Excessive daytime sleepiness, cataplexy, hypocretin deficiency',
+    trigger: 'Pandemrix H1N1 vaccination (AS03 adjuvant)',
+    prognosis: 'Chronic, lifelong. Manageable with medications.',
+    notes: '⚠️ IMPORTANT: Anti-GM3 found in ~15% of Pandemrix-associated NT1 (vs 3-4% controls). NOT found in sporadic narcolepsy! Primary mechanism is T cell-mediated (autoreactive CD4+/CD8+ T cells targeting hypocretin peptides). Humoral immunity (anti-GM3) likely secondary. Molecular mimicry hypothesis: H1N1 hemagglutinin may bind GM3-like structures. AS03 adjuvant may play crucial role. [Saariaho et al. 2015, J Autoimmun]'
   },
   {
     target: 'gm1a',
@@ -1452,13 +1470,18 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
           <div className="space-y-3">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="bg-pink-50 border border-pink-200 rounded-lg p-3">
-                <h5 className="font-bold text-pink-800 text-sm mb-2">🧠 H1N1 → GT1b/GD1a → CNS</h5>
+                <h5 className="font-bold text-pink-800 text-sm mb-2">🧠 H1N1 → GT1b/GD1a/GM3 → Narcolepsy</h5>
                 <ul className="text-pink-700 text-xs space-y-1">
-                  <li>• HA binds sialic acid on GT1b/GD1a</li>
+                  <li>• HA binds sialic acid on <strong>GT1b/GD1a</strong> (direct binding)</li>
                   <li>• NA cleaves GT1b → GD1b</li>
                   <li>• <strong>Pandemrix 2009 → Narcolepsy</strong></li>
+                  <li>• <strong>Anti-GM3 IgG</strong> in ~15% Pandemrix-NT1 (vs 3-4% controls)</li>
+                  <li>• Molecular mimicry: HA may bind GM3-like structures</li>
+                  <li>• <strong>Primary: T cell-mediated</strong> (CD4+/CD8+ → hypocretin)</li>
+                  <li>• <strong>Secondary: Humoral</strong> (anti-GM3 likely secondary role)</li>
                   <li>• Target: Orexin cells in hypothalamus</li>
                 </ul>
+                <p className="text-pink-600 text-[10px] mt-1 italic">Saariaho et al. 2015, J Autoimmun</p>
               </div>
               <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
                 <h5 className="font-bold text-emerald-800 text-sm mb-2">🦠 SARS-CoV-2 → GM1/GM2/GM3</h5>
@@ -1484,7 +1507,7 @@ export default function GangliosideMap({ labels }: GangliosideMapProps) {
               <h5 className="font-bold text-slate-800 text-sm mb-1">🔬 Gangliosides Determine Disease Pattern</h5>
               <p className="text-slate-700 text-xs">
                 <strong>Different viruses → Different gangliosides → Different symptoms:</strong> 
-                H1N1 (GT1b) → brain/narcolepsy. SARS-CoV-2 (GM3/GM1) → multi-organ/Long COVID. 
+                H1N1 (GT1b/GD1a/GM3) → brain/narcolepsy. SARS-CoV-2 (GM3/GM1) → multi-organ/Long COVID. 
                 Gangliosides determine which cells are affected — this "hidden" system explains 
                 why viruses cause such varied neurological manifestations.
               </p>

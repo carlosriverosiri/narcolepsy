@@ -20,6 +20,43 @@ const articles = defineCollection({
   }),
 });
 
+// Diseases / conditions collection
+const diseases = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    // Classification
+    category: z.enum([
+      'autoimmune',      // Anti-ganglioside antibody disorders
+      'storage',         // Lysosomal storage diseases
+      'infectious',      // Pathogen-associated
+      'neurodegenerative', // Degenerative conditions
+      'sleep',           // Sleep disorders
+      'other'
+    ]),
+    // Ganglioside associations
+    gangliosides: z.array(z.string()).optional(), // e.g., ['gq1b', 'gt1b']
+    antibodies: z.array(z.string()).optional(),   // e.g., ['Anti-GQ1b IgG']
+    // Clinical features
+    symptoms: z.array(z.string()).optional(),
+    triggers: z.array(z.string()).optional(),
+    prognosis: z.string().optional(),
+    // Metadata
+    icd10: z.string().optional(),
+    orpha: z.string().optional(),          // Orphanet code for rare diseases
+    omim: z.string().optional(),           // OMIM code
+    lang: z.enum(supportedLangs),
+    pubDate: z.date().optional(),
+    updatedDate: z.date().optional(),
+    draft: z.boolean().optional().default(false),
+    references: z.array(z.string()).optional(),
+    // Related conditions
+    relatedDiseases: z.array(z.string()).optional(), // slugs
+    differentialDiagnosis: z.array(z.string()).optional(),
+  }),
+});
+
 // References / bibliography collection
 const references = defineCollection({
   type: 'data',
@@ -39,5 +76,6 @@ const references = defineCollection({
 
 export const collections = {
   articles,
+  diseases,
   references,
 };
