@@ -67,25 +67,36 @@ body {
 
 /* For dark backgrounds inside prose, explicitly set all text colors */
 .prose-science .not-prose.bg-slate-800,
-.prose-science .not-prose.bg-slate-900 {
+.prose-science .not-prose.bg-slate-900,
+.prose-science .not-prose[class*="from-slate-8"] {
   --tw-prose-body: theme('colors.white');
   --tw-prose-headings: theme('colors.white');
-  color: white;
+  color: rgb(241 245 249); /* slate-100 */
 }
 
 .prose-science .not-prose.bg-slate-800 *,
-.prose-science .not-prose.bg-slate-900 * {
+.prose-science .not-prose.bg-slate-900 *,
+.prose-science .not-prose[class*="from-slate-8"] * {
   color: inherit;
 }
 
-/* Allow explicit color classes to override */
+/* Allow explicit color classes to override on dark .not-prose blocks */
 .prose-science .not-prose .text-white { color: white !important; }
+.prose-science .not-prose .text-slate-100 { color: rgb(241 245 249) !important; }
+.prose-science .not-prose .text-slate-200 { color: rgb(226 232 240) !important; }
 .prose-science .not-prose .text-slate-300 { color: rgb(203 213 225) !important; }
 .prose-science .not-prose .text-slate-400 { color: rgb(148 163 184) !important; }
+.prose-science .not-prose .text-cyan-200 { color: rgb(165 243 252) !important; }
+.prose-science .not-prose .text-cyan-300 { color: rgb(103 232 249) !important; }
+.prose-science .not-prose .text-cyan-400 { color: rgb(34 211 238) !important; }
+.prose-science .not-prose .text-emerald-200 { color: rgb(167 243 208) !important; }
+.prose-science .not-prose .text-emerald-300 { color: rgb(110 231 183) !important; }
+.prose-science .not-prose .text-emerald-400 { color: rgb(52 211 153) !important; }
+.prose-science .not-prose .text-amber-200 { color: rgb(253 230 138) !important; }
+.prose-science .not-prose .text-amber-300 { color: rgb(252 211 77) !important; }
+.prose-science .not-prose .text-amber-400 { color: rgb(251 191 36) !important; }
 .prose-science .not-prose .text-green-400 { color: rgb(74 222 128) !important; }
 .prose-science .not-prose .text-red-400 { color: rgb(248 113 113) !important; }
-.prose-science .not-prose .text-amber-400 { color: rgb(251 191 36) !important; }
-.prose-science .not-prose .text-emerald-400 { color: rgb(52 211 153) !important; }
 
 /* Reference/Citation styling */
 .citation {
